@@ -1,0 +1,14 @@
+d:\dokumentumok\visual studio 2015\Projects\HYYBLO_prog3\HYYBLO_prog3\bin\Debug\HYYBLO_prog3.exe.config
+d:\dokumentumok\visual studio 2015\Projects\HYYBLO_prog3\HYYBLO_prog3\bin\Debug\HYYBLO_prog3.exe
+d:\dokumentumok\visual studio 2015\Projects\HYYBLO_prog3\HYYBLO_prog3\bin\Debug\HYYBLO_prog3.pdb
+d:\dokumentumok\visual studio 2015\Projects\HYYBLO_prog3\HYYBLO_prog3\obj\Debug\HYYBLO_prog3.csprojResolveAssemblyReference.cache
+d:\dokumentumok\visual studio 2015\Projects\HYYBLO_prog3\HYYBLO_prog3\obj\Debug\MainWindow.g.cs
+d:\dokumentumok\visual studio 2015\Projects\HYYBLO_prog3\HYYBLO_prog3\obj\Debug\App.g.cs
+d:\dokumentumok\visual studio 2015\Projects\HYYBLO_prog3\HYYBLO_prog3\obj\Debug\HYYBLO_prog3_MarkupCompile.cache
+d:\dokumentumok\visual studio 2015\Projects\HYYBLO_prog3\HYYBLO_prog3\obj\Debug\HYYBLO_prog3_MarkupCompile.lref
+d:\dokumentumok\visual studio 2015\Projects\HYYBLO_prog3\HYYBLO_prog3\obj\Debug\MainWindow.baml
+d:\dokumentumok\visual studio 2015\Projects\HYYBLO_prog3\HYYBLO_prog3\obj\Debug\HYYBLO_prog3.g.resources
+d:\dokumentumok\visual studio 2015\Projects\HYYBLO_prog3\HYYBLO_prog3\obj\Debug\HYYBLO_prog3.Properties.Resources.resources
+d:\dokumentumok\visual studio 2015\Projects\HYYBLO_prog3\HYYBLO_prog3\obj\Debug\HYYBLO_prog3.csproj.GenerateResource.Cache
+d:\dokumentumok\visual studio 2015\Projects\HYYBLO_prog3\HYYBLO_prog3\obj\Debug\HYYBLO_prog3.exe
+d:\dokumentumok\visual studio 2015\Projects\HYYBLO_prog3\HYYBLO_prog3\obj\Debug\HYYBLO_prog3.pdb

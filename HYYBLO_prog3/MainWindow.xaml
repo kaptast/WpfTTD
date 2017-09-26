@@ -5,4 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HYYBLO_prog3"
         mc:Ignorable="d"
-        Title="WpfTTD" Height="600" Width="800" Loaded="Window_Loaded"/>
+        Title="WpfTTD" Height="600" Width="800" Loaded="Window_Loaded"
+        Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        
+        <UserControl Name="PlayArea" Grid.Row="1"/> <!-- A játékteret rajzoljuk ki mindig legalulra -->
+
+        <Menu Grid.Row="0">
+
+        </Menu>
+
+        <StatusBar Grid.Row="2">
+            
+        </StatusBar>
+    </Grid>
+</Window>

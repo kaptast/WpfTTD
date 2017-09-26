@@ -158,7 +158,7 @@ namespace HYYBLO_prog3
                 int percent = r.Next(101);
                 if (percent < 50)
                 {
-                    mapContainer[x, y] = new House(x, y);
+                    mapContainer[x, y] = new House(x, y, r);
                 }
             }
         }

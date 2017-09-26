@@ -16,9 +16,6 @@ namespace HYYBLO_prog3
         const int cellSize = 32;
         int WindowWidth = 800;
 
-        #region Images
-        BitmapImage grass, roadleft, roadRight, building;
-        #endregion
         public GameView()
         {
             game = new Game();
@@ -98,9 +95,9 @@ namespace HYYBLO_prog3
 
         private void RenderMap(DrawingContext dc)
         {
-            for(int i = 0; i < mapLength; i++)
+            for (int i = 0; i < mapLength; i++)
             {
-                for(int j = 0; j < mapHeight; j++)
+                for (int j = 0; j < mapHeight; j++)
                 {
                     MapItem item = game.Map.map[i, j];
                     int isoX = (item.X - item.Y) * (cellSize / 2);

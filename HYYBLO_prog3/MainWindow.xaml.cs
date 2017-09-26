@@ -27,7 +27,7 @@ namespace HYYBLO_prog3
         {
             InitializeComponent();
             view = new GameView();
-            this.Content = view;
+            this.PlayArea.Content = view;
             this.KeyDown += MainWindow_KeyDown;
             this.MouseLeftButtonDown += MainWindow_MouseLeftButtonDown;
         }

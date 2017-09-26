@@ -4,9 +4,10 @@ namespace HYYBLO_prog3
 {
     class House : Building
     {
-        public House(int x, int y) : base(x, y)
+        public House(int x, int y, Random r) : base(x, y)
         {
-            Image = new System.Windows.Media.Imaging.BitmapImage(new Uri("D:/Dokumentumok/Visual Studio 2015/Projects/HYYBLO_prog3/HYYBLO_prog3/Images/house1.png"));
+            int n = r.Next(1, 5);
+            Image = new System.Windows.Media.Imaging.BitmapImage(new Uri("D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/house" + n + ".png"));
         }
     }
 }

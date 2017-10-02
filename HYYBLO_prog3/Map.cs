@@ -7,8 +7,10 @@ using System.Windows;
 
 namespace HYYBLO_prog3
 {
+    delegate void RoadPlaced();
     class Map
     {
+        public event RoadPlaced roadPlaced;
         MapItem[,] mapContainer;
         Random r;
 
@@ -39,11 +41,11 @@ namespace HYYBLO_prog3
 
         private void GenerateTown()
         {
-            int roadNum = r.Next(5,10);
+            int roadNum = r.Next(4,8);
             Point townCenter = new Point();
             townCenter.X = r.Next(mapContainer.GetLength(0));
             townCenter.Y = r.Next(mapContainer.GetLength(1));
-            SetRoad((int)townCenter.X, (int)townCenter.Y, 1);
+            SetRoad((int)townCenter.X, (int)townCenter.Y);
             for(int i = 0; i < roadNum; i++)
             {
                 int centerDist = r.Next(-4, 4);
@@ -105,7 +107,7 @@ namespace HYYBLO_prog3
                 //x1-től x2-ig
                 for(int i = x1; i < x2; i++)
                 {
-                    SetRoad(i, y1, 1);
+                    SetRoad(i, y1);
                     //mapContainer[i, y1] = new Road(i, y1, 1);
                 }
             }
@@ -114,7 +116,7 @@ namespace HYYBLO_prog3
                 //x2-től x1-ig
                 for (int i = x1; i > x2; i--)
                 {
-                    SetRoad(i, y1, 1);
+                    SetRoad(i, y1);
                     //mapContainer[i, y1] = new Road(i, y1, 1);
                 }
             }
@@ -123,7 +125,7 @@ namespace HYYBLO_prog3
                 //y1-től y2-ig
                 for (int i = y1; i < y2; i++)
                 {
-                    SetRoad(x1, i, 2);
+                    SetRoad(x1, i);
                     //mapContainer[x1, i] = new Road(x1, i, 2);
                 }
             }
@@ -132,21 +134,21 @@ namespace HYYBLO_prog3
                 //y2-től y1-ig
                 for (int i = y1; i > y2; i--)
                 {
-                    SetRoad(x1, i, 2);
+                    SetRoad(x1, i);
                     //mapContainer[x2, i] = new Road(x2, i, 2);
                 }
             }
         }
 
-        private void SetRoad(int x, int y, int orinentation)
+        public void SetRoad(int x, int y)
         {
             if (RightCoord(x,y))
             {
-                map[x, y] = new Road(x, y, orinentation);
+                map[x, y] = new Road(x, y, this);
             }
         }
 
-        private bool RightCoord(int x, int y)
+        public bool RightCoord(int x, int y)
         {
             return (x >= 0 && x < mapContainer.GetLength(0) && y >= 0 && y < mapContainer.GetLength(1));
         }
@@ -156,13 +158,20 @@ namespace HYYBLO_prog3
             if (RightCoord(x, y))
             {
                 int percent = r.Next(101);
-                if (percent < 50)
+                if (percent < 40)
                 {
                     mapContainer[x, y] = new House(x, y, r);
                 }
             }
         }
 
+        public void FireRoadPlaced()
+        {
+            if(roadPlaced != null)
+            {
+                roadPlaced.Invoke();
+            }
+        }
 
         public MapItem[,] map
         {

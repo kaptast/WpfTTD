@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:HYYBLO_prog3"
         mc:Ignorable="d"
         Title="WpfTTD" Height="600" Width="800" Loaded="Window_Loaded"
-        Background="White">
+        Background="White"
+        Icon="icon.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>

@@ -12,12 +12,19 @@ namespace HYYBLO_prog3
         Game game;
         Camera cam;
         int mapLength, mapHeight;
-        DispatcherTimer timer;
+        DispatcherTimer timer, roadTimer;
         const int cellSize = 32;
         int WindowWidth = 800;
 
+        public static BitmapImage[] RoadImages;
+
         public GameView()
         {
+            RoadImages = new BitmapImage[16];
+            for(int i = 0; i < 16; i++)
+            {
+                RoadImages[i] = new BitmapImage(new Uri("D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/Roads/cityroad" + i + ".png"));
+            }
             game = new Game();
             cam = new Camera(0, 0);
             mapLength = game.Map.map.GetLength(0);
@@ -61,6 +68,15 @@ namespace HYYBLO_prog3
             timer.Interval = new TimeSpan(0, 0, 0, 0, 30);
             timer.Tick += TimerTick;
             timer.Start();
+            roadTimer = new DispatcherTimer();
+            roadTimer.Interval = new TimeSpan(0, 0, 0, 1);
+            roadTimer.Tick += RoadTimerTick;
+            roadTimer.Start();
+        }
+
+        private void RoadTimerTick(object sender, EventArgs e)
+        {
+            game.Map.FireRoadPlaced();
         }
 
         private void TimerTick(object sender, EventArgs e)
@@ -78,18 +94,20 @@ namespace HYYBLO_prog3
         public void GameView_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Point p = e.GetPosition(this);
-            System.Diagnostics.Debug.WriteLine(ScreenToPoint((int)p.X, (int)p.Y));
+            Point map = ScreenToPoint((int)p.X, (int)p.Y);
+            game.Map.SetRoad((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
+            this.InvalidateVisual();
         }
 
-        public Point ScreenToPoint(int x, int y)
+        public Point ScreenToPoint(double x, double y)
         {
             Point p = new Point();
-            int halfCell = (cellSize / 2);
-            x = x + cam.X;
-            y = y + cam.Y;
-            x = (WindowWidth / 2) + x;
-            p.X = (x / halfCell + y / halfCell) / 2;
-            p.Y = (y / halfCell - (x / halfCell)) / 2;
+            double halfCell = (cellSize / 2);
+            double centerX = x + cam.X;
+            double isoY = y + cam.Y;
+            double isoX = centerX + halfCell - (WindowWidth / 2);;
+            p.X = (Math.Floor(isoX / halfCell) + (Math.Floor(isoY / (halfCell / 2)))) / 2;
+            p.Y = ((Math.Floor(isoY / (halfCell / 2))) - (Math.Floor(isoX / halfCell))) / 2;
             return p;
         }
 

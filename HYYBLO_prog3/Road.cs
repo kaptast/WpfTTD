@@ -11,7 +11,6 @@ namespace HYYBLO_prog3
             map = _map;
             Image = GameView.RoadImages[0];
             map.roadPlaced += this.RoadChanged;
-            map.FireRoadPlaced();
         }
 
         void RoadChanged()

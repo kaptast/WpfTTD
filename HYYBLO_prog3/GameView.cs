@@ -12,9 +12,25 @@ namespace HYYBLO_prog3
         Game game;
         Camera cam;
         int mapLength, mapHeight;
-        DispatcherTimer timer, roadTimer;
-        const int cellSize = 32;
+        DispatcherTimer timer;
+        int cellSize = 32;
         int WindowWidth = 800;
+
+        public void ZoomIn()
+        {
+            if (cellSize < 128)
+            {
+                cellSize *= 2;
+            }
+        }
+
+        public void ZoomOut()
+        {
+            if (cellSize > 4)
+            {
+                cellSize /= 2;
+            }
+        }
 
         public static BitmapImage[] RoadImages;
 
@@ -41,16 +57,16 @@ namespace HYYBLO_prog3
             switch (e.Key)
             {
                 case System.Windows.Input.Key.Up:
-                    cam.Move(Direction.Up);
+                    cam.Move(Direction.Up, cellSize);
                     break;
                 case System.Windows.Input.Key.Down:
-                    cam.Move(Direction.Down);
+                    cam.Move(Direction.Down, cellSize);
                     break;
                 case System.Windows.Input.Key.Left:
-                    cam.Move(Direction.Left);
+                    cam.Move(Direction.Left, cellSize);
                     break;
                 case System.Windows.Input.Key.Right:
-                    cam.Move(Direction.Right);
+                    cam.Move(Direction.Right, cellSize);
                     break;
             }
         }
@@ -68,15 +84,6 @@ namespace HYYBLO_prog3
             timer.Interval = new TimeSpan(0, 0, 0, 0, 30);
             timer.Tick += TimerTick;
             timer.Start();
-            roadTimer = new DispatcherTimer();
-            roadTimer.Interval = new TimeSpan(0, 0, 0, 1);
-            roadTimer.Tick += RoadTimerTick;
-            roadTimer.Start();
-        }
-
-        private void RoadTimerTick(object sender, EventArgs e)
-        {
-            game.Map.FireRoadPlaced();
         }
 
         private void TimerTick(object sender, EventArgs e)
@@ -96,6 +103,7 @@ namespace HYYBLO_prog3
             Point p = e.GetPosition(this);
             Point map = ScreenToPoint((int)p.X, (int)p.Y);
             game.Map.SetRoad((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
+            game.Map.FireRoadPlaced();
             this.InvalidateVisual();
         }
 
@@ -123,7 +131,8 @@ namespace HYYBLO_prog3
                     int centerX = (WindowWidth / 2) - isoX - (cellSize / 2);
                     int screenX = centerX - cam.X;
                     int screenY = isoY - cam.Y;
-                    dc.DrawImage(item.Image, new Rect(screenX, screenY, cellSize, cellSize));
+                    dc.DrawImage(item.Image, item.GenerateRect(screenX, screenY, cellSize));
+                    //dc.DrawImage(item.Image, new Rect(screenX, screenY, cellSize, cellSize));
                 }
             }
         }

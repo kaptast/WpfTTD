@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows;
 using System.Windows.Media.Imaging;
 
 namespace HYYBLO_prog3
@@ -51,10 +47,16 @@ namespace HYYBLO_prog3
             }
         }
 
+        public virtual Rect GenerateRect(int x, int y, int cell)
+        {
+            return new Rect(x, y, cell, cell);
+        }
+
         public MapItem(int _x, int _y)
         {
             this.X = _x;
             this.Y = _y;
+
         }
     }
 }

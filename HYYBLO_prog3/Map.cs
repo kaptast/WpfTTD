@@ -12,7 +12,27 @@ namespace HYYBLO_prog3
     {
         public event RoadPlaced roadPlaced;
         MapItem[,] mapContainer;
-        Random r;
+        static Random r;
+
+        /// <summary>
+        /// Generates a random number along a curve
+        /// https://stackoverflow.com/questions/18807812/adding-an-average-parameter-to-nets-random-next-to-curve-results
+        /// </summary>
+        /// <param name="min">Minimum random value</param>
+        /// <param name="max">Maximum random value</param>
+        /// <param name="tightness"></param>
+        /// <param name="exp"></param>
+        /// <returns>Random number in range which gravitates towards the given value</returns>
+        public static double RandomNormalDist(double min, double max, int tightness, double exp)
+        {
+            double total = 0.0;
+            for (int i = 1; i <= tightness; i++)
+            {
+                total += Math.Pow(r.NextDouble(), exp);
+            }
+
+            return ((total / tightness) * (max - min)) + min;
+        }
 
         public Map(int sizeX, int sizeY)
         {
@@ -28,6 +48,8 @@ namespace HYYBLO_prog3
             GenerateTowns();
 
             GenerateBuildings(x,y);
+
+            FireRoadPlaced();
         }
 
         private void GenerateTowns()

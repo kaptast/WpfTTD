@@ -46,5 +46,17 @@ namespace HYYBLO_prog3
         {
 
         }
+
+        private void Window_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if(e.Delta > 0)
+            {
+                view.ZoomIn();
+            }
+            else
+            {
+                view.ZoomOut();
+            }
+        }
     }
 }

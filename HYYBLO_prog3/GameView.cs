@@ -101,19 +101,32 @@ namespace HYYBLO_prog3
         }
 
         /// <summary>
-        /// Left click event, places a road of the map
+        /// Left click event, places a MapItem according to the Build type
         /// </summary>
         /// <param name="sender">Sender object</param>
         /// <param name="e">Parameters of the left click</param>
-        public void GameView_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        public void GameView_MouseLeftButtonDown(object sender, MouseButtonEventArgs e, BuildType type)
         {
             Point p = e.GetPosition(this); //click position relative to the screen
             Point map = ScreenToPoint((int)p.X, (int)p.Y); //Screen coordinate to map coordinate
-            game.Map.SetRoad((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1); //Place a road on the coordinates
-            game.Map.FireRoadPlaced(); //Check road tiles
+            switch (type)
+            {
+                case BuildType.Road:
+                    game.Map.SetRoad((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1); //Place a road on the coordinates
+                    game.Map.FireRoadPlaced(); //Check road tiles
+                    break;
+                case BuildType.Warehouse:
+                    game.Map.SetWarehouse((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
+                    break;
+                case BuildType.Delete:
+                    game.Map.SetDelete((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
+                    game.Map.FireRoadPlaced();
+                    break;
+                default:
+                    break;
+            }
             this.InvalidateVisual(); //Redraw the screen
         }
-
 
         /// <summary>
         /// Zoom in the screen

@@ -10,7 +10,7 @@
         Icon="icon.ico" MouseWheel="Window_MouseWheel">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
@@ -18,7 +18,15 @@
         <UserControl Name="PlayArea" Grid.Row="1"/> <!-- A játékteret rajzoljuk ki mindig legalulra -->
 
         <Menu Grid.Row="0">
-
+            <Button Name="btnRoad" Height="40" Width="40" Click="btnRoad_Click">
+                <Image Source="D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/road.png" />
+            </Button>
+            <Button Name="btnWarehouse" Height="40" Width="40" Click="btnWarehouse_Click">
+                <Image Source="D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/Buildings/warehouse.png" />
+            </Button>
+            <Button Name="btnDelete" Height="40" Width="40" Click="btnDelete_Click">
+                <Image Source="D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/delete.png" />
+            </Button>
         </Menu>
 
         <StatusBar Grid.Row="2">

@@ -170,6 +170,23 @@ namespace HYYBLO_prog3
             }
         }
 
+        public void SetWarehouse(int x, int y)
+        {
+            if (RightCoord(x, y))
+            {
+                Warehouse wh = new Warehouse(x, y, this);
+            }
+        }
+
+        public void SetDelete(int x, int y)
+        {
+            if (RightCoord(x, y))
+            {
+                map[x, y] = new Grass(x, y);
+            }
+        }
+
+
         public bool RightCoord(int x, int y)
         {
             return (x >= 0 && x < mapContainer.GetLength(0) && y >= 0 && y < mapContainer.GetLength(1));

@@ -16,16 +16,19 @@ using System.Windows.Threading;
 
 namespace HYYBLO_prog3
 {
+    public enum BuildType { Nothing, Road, Warehouse, Delete, Park }
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
         GameView view;
+        BuildType selectedItem;
 
         public MainWindow()
         {
             InitializeComponent();
+            selectedItem = BuildType.Nothing;
             view = new GameView();
             this.PlayArea.Content = view;
             this.KeyDown += MainWindow_KeyDown;
@@ -34,7 +37,7 @@ namespace HYYBLO_prog3
 
         private void MainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            view.GameView_MouseLeftButtonDown(sender, e);
+            view.GameView_MouseLeftButtonDown(sender, e, selectedItem);
         }
 
         private void MainWindow_KeyDown(object sender, KeyEventArgs e)
@@ -56,6 +59,42 @@ namespace HYYBLO_prog3
             else
             {
                 view.ZoomOut();
+            }
+        }
+
+        private void btnRoad_Click(object sender, RoutedEventArgs e)
+        {
+            if(selectedItem != BuildType.Road)
+            {
+                selectedItem = BuildType.Road;
+            }
+            else
+            {
+                selectedItem = BuildType.Nothing;
+            }
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedItem != BuildType.Delete)
+            {
+                selectedItem = BuildType.Delete;
+            }
+            else
+            {
+                selectedItem = BuildType.Nothing;
+            }
+        }
+
+        private void btnWarehouse_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedItem != BuildType.Warehouse)
+            {
+                selectedItem = BuildType.Warehouse;
+            }
+            else
+            {
+                selectedItem = BuildType.Nothing;
             }
         }
     }

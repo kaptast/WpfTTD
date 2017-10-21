@@ -33,8 +33,8 @@ namespace HYYBLO_prog3
             }
             game = new Game();
             cam = new Camera(0, 0);
-            mapLength = game.Map.map.GetLength(0);
-            mapHeight = game.Map.map.GetLength(1);
+            mapLength = game.Map.size;
+            mapHeight = game.Map.size;
             this.InvalidateVisual();
             this.Loaded += ViewLoaded;
             this.SizeChanged += OnWindowSizeChanged;
@@ -48,21 +48,28 @@ namespace HYYBLO_prog3
         /// <param name="e">Key press parameters</param>
         public void GameView_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
+            cam.ChangeState(true);
             switch (e.Key)
             {
                 case System.Windows.Input.Key.Up:
-                    cam.Move(Direction.Up, cellSize);
+                    cam.SetDir(Direction.Up);
                     break;
                 case System.Windows.Input.Key.Down:
-                    cam.Move(Direction.Down, cellSize);
+                    cam.SetDir(Direction.Down);
                     break;
                 case System.Windows.Input.Key.Left:
-                    cam.Move(Direction.Left, cellSize);
+                    cam.SetDir(Direction.Left);
                     break;
                 case System.Windows.Input.Key.Right:
-                    cam.Move(Direction.Right, cellSize);
+                    cam.SetDir(Direction.Right);
                     break;
             }
+            //cam.Turn(cellSize);
+        }
+
+        public void GameView_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            cam.ChangeState(false);
         }
 
         /// <summary>
@@ -73,7 +80,7 @@ namespace HYYBLO_prog3
         void ViewLoaded(object sender, RoutedEventArgs e)
         {
             timer = new DispatcherTimer();
-            timer.Interval = new TimeSpan(0, 0, 0, 0, 30);
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 16);
             timer.Tick += TimerTick;
             timer.Start();
         }
@@ -86,6 +93,8 @@ namespace HYYBLO_prog3
         private void TimerTick(object sender, EventArgs e)
         {
             //DoTurn
+            cam.Turn(cellSize);
+            game.Map.UpdateVehicles();
             this.InvalidateVisual();
         }
 
@@ -122,9 +131,13 @@ namespace HYYBLO_prog3
                     game.Map.SetDelete((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
                     game.Map.FireRoadPlaced();
                     break;
+                case BuildType.Vehicle:
+                    game.Map.AddVehicle((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
+                    break;
                 default:
                     break;
             }
+            game.Map.map.Sort();
             this.InvalidateVisual(); //Redraw the screen
         }
 
@@ -185,18 +198,14 @@ namespace HYYBLO_prog3
         /// <param name="dc">Drawer of the view</param>
         private void RenderMap(DrawingContext dc)
         {
-            for (int i = 0; i < mapLength; i++)
+            foreach(MapItem item in game.Map.map)
             {
-                for (int j = 0; j < mapHeight; j++)
-                {
-                    MapItem item = game.Map.map[i, j];
-                    int isoX = (item.X - item.Y) * (cellSize / 2);
-                    int isoY = (item.X + item.Y) * (cellSize / 4);
-                    int centerX = (WindowWidth / 2) - isoX - (cellSize / 2);
-                    int screenX = centerX - cam.X;
-                    int screenY = isoY - cam.Y;
-                    dc.DrawImage(item.Image, item.GenerateRect(screenX, screenY, cellSize));
-                }
+                double isoX = (item.X - item.Y) * (cellSize / 2);
+                double isoY = (item.X + item.Y) * (cellSize / 4);
+                double centerX = (WindowWidth / 2) - isoX - (cellSize / 2);
+                double screenX = centerX - cam.X;
+                double screenY = isoY - cam.Y;
+                dc.DrawImage(item.Image, item.GenerateRect(screenX, screenY, cellSize));
             }
         }
     }

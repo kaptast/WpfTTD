@@ -60,7 +60,9 @@
     </ApplicationDefinition>
     <Compile Include="Camera.cs" />
     <Compile Include="Direction.cs" />
+    <Compile Include="PathFinding.cs" />
     <Compile Include="Road.cs" />
+    <Compile Include="Vehicle.cs" />
     <Compile Include="Warehouse.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

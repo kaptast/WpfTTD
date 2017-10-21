@@ -12,6 +12,8 @@ namespace HYYBLO_prog3
     class Camera
     {
         int x, y; //x and y coordinates of the camera
+        Direction dir;
+        bool pressed = false;
 
         /// <summary>
         /// Constructor for the Camera
@@ -56,27 +58,45 @@ namespace HYYBLO_prog3
             }
         }
 
+        public void SetDir(Direction dir)
+        {
+            this.dir = dir;
+        }
+
+        public void ChangeState(bool state)
+        {
+            pressed = state;
+        }
+
+        public void Turn(int step)
+        {
+            Move(dir, step);
+        }
+
         /// <summary>
         /// Moves the camera to the specified direction
         /// </summary>
         /// <param name="dir">Direction of the requested movement</param>
         /// <param name="step">Step size of the requested movement</param>
-        public void Move(Direction dir, int step)
+        public void Move(Direction direction, int step)
         {
-            switch (dir)
+            if (pressed)
             {
-                case Direction.Up:
-                    y -= step / 3;
-                    break;
-                case Direction.Down:
-                    y += step / 3;
-                    break;
-                case Direction.Right:
-                    x += step / 3;
-                    break;
-                case Direction.Left:
-                    x -= step / 3;
-                    break;
+                switch (direction)
+                {
+                    case Direction.Up:
+                        y -= step / 3;
+                        break;
+                    case Direction.Down:
+                        y += step / 3;
+                        break;
+                    case Direction.Right:
+                        x += step / 3;
+                        break;
+                    case Direction.Left:
+                        x -= step / 3;
+                        break;
+                }
             }
         }
     }

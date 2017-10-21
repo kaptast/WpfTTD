@@ -7,12 +7,16 @@ using System.Windows;
 
 namespace HYYBLO_prog3
 {
-    delegate void RoadPlaced();
-    class Map
+    public delegate void RoadPlaced();
+    public class Map
     {
         public event RoadPlaced roadPlaced;
-        MapItem[,] mapContainer;
+        //MapItem[,] mapContainer;
+        List<MapItem> mapContainer;
+        List<Vehicle> vehicles;
+        public Pathfinding pathfinder;
         static Random r;
+        public int size;
 
         /// <summary>
         /// Generates a random number along a curve
@@ -36,9 +40,15 @@ namespace HYYBLO_prog3
 
         public Map(int sizeX, int sizeY)
         {
-            mapContainer = new MapItem[sizeX, sizeY];
+            //mapContainer = new MapItem[sizeX, sizeY];
+            mapContainer = new List<MapItem>();
+            Vehicles = new List<Vehicle>();
             r = new Random();
+            size = sizeX;
+            pathfinder = new Pathfinding(this);
             GenerateMap(sizeX, sizeY);
+
+            mapContainer.Sort();
         }
 
         private void GenerateMap(int x, int y)
@@ -65,8 +75,8 @@ namespace HYYBLO_prog3
         {
             int roadNum = r.Next(4,8);
             Point townCenter = new Point();
-            townCenter.X = r.Next(mapContainer.GetLength(0));
-            townCenter.Y = r.Next(mapContainer.GetLength(1));
+            townCenter.X = r.Next(size);
+            townCenter.Y = r.Next(size);
             SetRoad((int)townCenter.X, (int)townCenter.Y);
             for(int i = 0; i < roadNum; i++)
             {
@@ -90,7 +100,7 @@ namespace HYYBLO_prog3
             {
                 for (int j = 0; j < y; j++)
                 {
-                    mapContainer[i, j] = new Grass(i, j);
+                    mapContainer.Add(new Grass(i, j));
                 }
             }
         }
@@ -111,9 +121,9 @@ namespace HYYBLO_prog3
 
         private bool RoadIsNeighbour(int x, int y)
         {
-            if(x > 0 && x < mapContainer.GetLength(0) - 1 && y > 0 && y < mapContainer.GetLength(1) - 1)
+            if(x > 0 && x < size - 1 && y > 0 && y < size - 1)
             {
-                if(!(mapContainer[x,y] is Road) && (mapContainer[x - 1,y] is Road || mapContainer[x, y - 1] is Road || mapContainer[x + 1, y] is Road || mapContainer[x, y + 1] is Road))
+                if(!(GetItemByCoord(x,y) is Road) && (GetItemByCoord(x - 1, y) is Road || GetItemByCoord(x, y - 1) is Road || GetItemByCoord(x + 1, y) is Road || GetItemByCoord(x, y + 1) is Road))
                 {
                     return true;
                 }
@@ -166,7 +176,9 @@ namespace HYYBLO_prog3
         {
             if (RightCoord(x,y))
             {
-                map[x, y] = new Road(x, y, this);
+                MapItem item = GetItemByCoord(x, y);
+                mapContainer.Remove(item);
+                mapContainer.Add(new Road(x, y, this));
             }
         }
 
@@ -182,14 +194,16 @@ namespace HYYBLO_prog3
         {
             if (RightCoord(x, y))
             {
-                map[x, y] = new Grass(x, y);
+                MapItem item = GetItemByCoord(x, y);
+                mapContainer.Remove(item);
+                mapContainer.Add(new Grass(x, y));
             }
         }
 
 
         public bool RightCoord(int x, int y)
         {
-            return (x >= 0 && x < mapContainer.GetLength(0) && y >= 0 && y < mapContainer.GetLength(1));
+            return (x >= 0 && x < size && y >= 0 && y < size);
         }
 
         private void GenHouse(int x, int y)
@@ -199,7 +213,9 @@ namespace HYYBLO_prog3
                 int percent = r.Next(101);
                 if (percent < 40)
                 {
-                    mapContainer[x, y] = new House(x, y, r);
+                    MapItem item = GetItemByCoord(x, y);
+                    mapContainer.Remove(item);
+                    mapContainer.Add(new House(x, y, r));
                 }
             }
         }
@@ -212,12 +228,75 @@ namespace HYYBLO_prog3
             }
         }
 
-        public MapItem[,] map
+        public MapItem GetItemByCoord(double x, double y)
+        {
+            foreach(MapItem item in mapContainer)
+            {
+                if(item.X == x && item.Y == y)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        public List<MapItem> map
         {
             get
             {
                 return mapContainer;
             }
+        }
+
+        public void AddVehicle(int x, int y)
+        {
+            if (RightCoord(x, y))
+            {
+                Vehicle v = new Vehicle(x, y, this);
+                mapContainer.Add(v);
+                vehicles.Add(v);
+            }
+        }
+
+        public void SetPath(List<MapItem> path)
+        {
+            foreach(MapItem i in path)
+            {
+                MapItem item = GetItemByCoord(i.X, i.Y);
+                mapContainer.Remove(item);
+                mapContainer.Add(new Sign((int)i.X, (int)i.Y));
+            }
+        }
+
+        public void UpdateVehicles()
+        {
+            foreach(Vehicle v in Vehicles)
+            {
+                v.Update();
+            }
+        }
+
+        internal List<Vehicle> Vehicles
+        {
+            get
+            {
+                return vehicles;
+            }
+
+            set
+            {
+                vehicles = value;
+            }
+        }
+
+        public List<MapItem> GetNeighbours(MapItem item)
+        {
+            List<MapItem> list = new List<MapItem>();
+            list.Add(GetItemByCoord(item.X, item.Y + 1));
+            list.Add(GetItemByCoord(item.X, item.Y - 1));
+            list.Add(GetItemByCoord(item.X + 1, item.Y));
+            list.Add(GetItemByCoord(item.X - 1, item.Y ));
+            return list;
         }
     }
 }

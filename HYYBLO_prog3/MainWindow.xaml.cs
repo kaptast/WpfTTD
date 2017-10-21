@@ -16,7 +16,7 @@ using System.Windows.Threading;
 
 namespace HYYBLO_prog3
 {
-    public enum BuildType { Nothing, Road, Warehouse, Delete, Park }
+    public enum BuildType { Nothing, Road, Warehouse, Delete, Park, Vehicle }
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -32,6 +32,7 @@ namespace HYYBLO_prog3
             view = new GameView();
             this.PlayArea.Content = view;
             this.KeyDown += MainWindow_KeyDown;
+            this.KeyUp += MainWindow_KeyUp;
             this.MouseLeftButtonDown += MainWindow_MouseLeftButtonDown;
         }
 
@@ -44,6 +45,13 @@ namespace HYYBLO_prog3
         {
             view.GameView_KeyDown(sender, e);
         }
+
+        private void MainWindow_KeyUp(object sender, KeyEventArgs e)
+        {
+            view.GameView_KeyUp(sender, e);
+        }
+
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -79,6 +87,18 @@ namespace HYYBLO_prog3
             if (selectedItem != BuildType.Delete)
             {
                 selectedItem = BuildType.Delete;
+            }
+            else
+            {
+                selectedItem = BuildType.Nothing;
+            }
+        }
+
+        private void btnVehicle_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedItem != BuildType.Vehicle)
+            {
+                selectedItem = BuildType.Vehicle;
             }
             else
             {

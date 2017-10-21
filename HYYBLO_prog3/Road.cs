@@ -13,7 +13,7 @@ namespace HYYBLO_prog3
             map.roadPlaced += this.RoadChanged;
         }
 
-        void RoadChanged()
+        protected virtual void RoadChanged()
         {
             int neighbours = CheckNeighbours();
             if(imageNum != neighbours)
@@ -30,24 +30,24 @@ namespace HYYBLO_prog3
             int b = 0;
             int a = 0;
 
-            if(X >= 0  && X < map.map.GetLength(0) && Y >= 1 && Y < map.map.GetLength(1))
+            if(X >= 0  && X < map.size && Y >= 1 && Y < map.size)
             {
-                d = (map.map[X, Y - 1] is Road) ? 1 : 0;
+                d = (map.GetItemByCoord((int)X,(int)Y - 1) is Road) ? 1 : 0;
             }
 
-            if (X >= 0 && X < map.map.GetLength(0) - 1 && Y >= 0 && Y < map.map.GetLength(1))
+            if (X >= 0 && X < map.size - 1 && Y >= 0 && Y < map.size)
             {
-                c = (map.map[X + 1, Y] is Road) ? 1 : 0;
+                c = (map.GetItemByCoord((int)X + 1, (int)Y) is Road) ? 1 : 0;
             }
 
-            if (X >= 0 && X < map.map.GetLength(0) && Y >= 0 && Y < map.map.GetLength(1) - 1)
+            if (X >= 0 && X < map.size && Y >= 0 && Y < map.size - 1)
             {
-                b = (map.map[X, Y + 1] is Road) ? 1 : 0;
+                b = (map.GetItemByCoord((int)X, (int)Y + 1) is Road) ? 1 : 0;
             }
 
-            if (X >= 1 && X < map.map.GetLength(0) && Y >= 0 && Y < map.map.GetLength(1))
+            if (X >= 1 && X < map.size && Y >= 0 && Y < map.size)
             {
-                a = (map.map[X - 1, Y] is Road) ? 1 : 0;
+                a = (map.GetItemByCoord((int)X - 1, (int)Y) is Road) ? 1 : 0;
             }
             return 8 * d + 4 * c + 2 * b + 1 * a;
         }

@@ -28,7 +28,7 @@
                 <Image Source="D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/delete.png" />
             </Button>
             <Button Name="btnVehicle" Height="40" Width="40" Click="btnVehicle_Click">
-                <Image Source="D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/delete.png" />
+                <Image Source="D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/truck.png" />
             </Button>
         </Menu>
 

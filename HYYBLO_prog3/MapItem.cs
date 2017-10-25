@@ -7,7 +7,7 @@ namespace HYYBLO_prog3
     /// <summary>
     /// Abstract class for items in the map
     /// </summary>
-    public class MapItem : IComparable
+    public class MapItem : IComparable<MapItem>
     {
         double x, y; //x and y coordinates for the item
 
@@ -77,21 +77,21 @@ namespace HYYBLO_prog3
             return new Rect(x, y, cell, cell);
         }
 
-        public int CompareTo(object obj)
+        public virtual int CompareTo(MapItem obj)
         {
-            if((obj as MapItem).Y > this.Y)
+            if(obj.Y > this.Y)
             {
                 return -1;
             }
-            else if ((obj as MapItem).Y < this.Y)
+            else if (obj.Y < this.Y)
             {
                 return 1;
             }
-            else if ((obj as MapItem).X > this.X)
+            else if (obj.X > this.X)
             {
                 return -1;
             }
-            else if ((obj as MapItem).X < this.X)
+            else if (obj.X < this.X)
             {
                 return 1;
             }

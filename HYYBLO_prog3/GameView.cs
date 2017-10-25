@@ -207,6 +207,7 @@ namespace HYYBLO_prog3
                 double screenY = isoY - cam.Y;
                 dc.DrawImage(item.Image, item.GenerateRect(screenX, screenY, cellSize));
             }
+            game.Map.map.Sort();
         }
     }
 }

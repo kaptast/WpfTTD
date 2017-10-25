@@ -32,7 +32,7 @@ namespace HYYBLO_prog3
             {
                 currentTarget = pathToTarget[0];
                 System.Diagnostics.Debug.WriteLine("PathLength: " + pathToTarget.Count);
-                map.SetPath(pathToTarget);
+                //map.SetPath(pathToTarget);
             }
             else
             {
@@ -43,32 +43,74 @@ namespace HYYBLO_prog3
 
         private void Move()
         {
-            /*if (currentTarget != null)
+            if (currentTarget != null)
             {
-                if (currentTarget.CompareTo(this) == 0)
+                if (ReachedWaypoint())
                 {
+                    //System.Diagnostics.Debug.WriteLine("Waypoint found");
                     if (targetIdx + 1 < pathToTarget.Count)
                     {
                         currentTarget = pathToTarget[++targetIdx];
                     }
+                    ChangeDirection();
                 }
-                ChangeDirection();
-                switch (facing)
-                {
-                    case Direction.Up:
-                        Y += speed;
-                        break;
-                    case Direction.Down:
-                        Y -= speed;
-                        break;
-                    case Direction.Left:
-                        X += speed;
-                        break;
-                    case Direction.Right:
-                        X -= speed;
-                        break;
-                }
-            }*/
+                MoveVehicle();
+            }
+        }
+
+        private bool ReachedWaypoint()
+        {
+            switch (facing)
+            {
+                case Direction.Up:
+                    if (this.Y >= currentTarget.Y)
+                    {
+                        this.Y = currentTarget.Y;
+                        return true;
+                    }
+                    break;
+                case Direction.Down:
+                    if (this.Y <= currentTarget.Y)
+                    {
+                        this.Y = currentTarget.Y;
+                        return true;
+                    }
+                    break;
+                case Direction.Left:
+                    if (this.X <= currentTarget.X)
+                    {
+                        this.X = currentTarget.X;
+                        return true;
+                    }
+                    break;
+                case Direction.Right:
+                    if (this.X >= currentTarget.X)
+                    {
+                        this.X = currentTarget.X;
+                        return true;
+                    }
+                    break;
+            }
+            return false;
+        }
+
+        private void MoveVehicle()
+        {
+            switch (facing)
+            {
+                case Direction.Up:
+                    Y += speed;
+                    break;
+                case Direction.Down:
+                    Y -= speed;
+                    break;
+                case Direction.Left:
+                    X -= speed;
+                    break;
+                case Direction.Right:
+                    X += speed;
+                    break;
+            }
         }
 
         private MapItem SearchTarget(Map map)
@@ -85,21 +127,25 @@ namespace HYYBLO_prog3
 
         private void ChangeDirection()
         {
-            if(this.X < currentTarget.X && this.Y == currentTarget.Y && facing != Direction.Right)
+            if(this.X < currentTarget.X && this.Y == currentTarget.Y)
             {
                 facing = Direction.Right;
+                //System.Diagnostics.Debug.WriteLine("Direction Changed");
             }
-            else if (this.X > currentTarget.X && this.Y == currentTarget.Y && facing != Direction.Left)
+            else if (this.X > currentTarget.X && this.Y == currentTarget.Y)
             {
                 facing = Direction.Left;
+                //System.Diagnostics.Debug.WriteLine("Direction Changed");
             }
-            else if (this.X == currentTarget.X && this.Y < currentTarget.Y && facing != Direction.Up)
+            else if (this.X == currentTarget.X && this.Y < currentTarget.Y)
             {
                 facing = Direction.Up;
+                //System.Diagnostics.Debug.WriteLine("Direction Changed");
             }
-            else if (this.X == currentTarget.X && this.Y > currentTarget.Y && facing != Direction.Down)
+            else if (this.X == currentTarget.X && this.Y > currentTarget.Y)
             {
                 facing = Direction.Down;
+                //System.Diagnostics.Debug.WriteLine("Direction Changed");
             }
         }
 
@@ -119,11 +165,41 @@ namespace HYYBLO_prog3
         public void Update()
         {
             Move();
+            //System.Diagnostics.Debug.WriteLine(this);
         }
 
-        public override Rect GenerateRect(double x, double y, int cell)
+        /*public override Rect GenerateRect(double x, double y, int cell)
         {
             return new Rect(x + (cell) , y, cell/4, cell/4);
+        }*/
+
+        /*public override int CompareTo(MapItem obj)
+        {
+            if (obj.Y > this.Y)
+            {
+                return -1;
+            }
+            else if (obj.Y < this.Y)
+            {
+                return 1;
+            }
+            else if (obj.X > this.X)
+            {
+                return -1;
+            }
+            else if (obj.X < this.X)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }*/
+
+        public override string ToString()
+        {
+            return String.Format("x: {0} y: {1} orientation: {2} -> target: {3},{4} -> final target: {5},{6}", X, Y, facing, currentTarget.X, currentTarget.Y, finalTarget.X, finalTarget.Y);
         }
     }
 }

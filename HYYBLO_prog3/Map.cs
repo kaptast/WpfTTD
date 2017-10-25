@@ -13,6 +13,7 @@ namespace HYYBLO_prog3
         public event RoadPlaced roadPlaced;
         //MapItem[,] mapContainer;
         List<MapItem> mapContainer;
+        List<Building> buildings;
         List<Vehicle> vehicles;
         public Pathfinding pathfinder;
         static Random r;
@@ -42,7 +43,8 @@ namespace HYYBLO_prog3
         {
             //mapContainer = new MapItem[sizeX, sizeY];
             mapContainer = new List<MapItem>();
-            Vehicles = new List<Vehicle>();
+            vehicles = new List<Vehicle>();
+            buildings = new List<Building>();
             r = new Random();
             size = sizeX;
             pathfinder = new Pathfinding(this);
@@ -215,7 +217,8 @@ namespace HYYBLO_prog3
                 {
                     MapItem item = GetItemByCoord(x, y);
                     mapContainer.Remove(item);
-                    mapContainer.Add(new House(x, y, r));
+                    mapContainer.Add(new Building(x, y));
+                    buildings.Add(new House(x, y, r));
                 }
             }
         }
@@ -253,7 +256,7 @@ namespace HYYBLO_prog3
             if (RightCoord(x, y))
             {
                 Vehicle v = new Vehicle(x, y, this);
-                mapContainer.Add(v);
+                //mapContainer.Add(v);
                 vehicles.Add(v);
             }
         }
@@ -276,7 +279,7 @@ namespace HYYBLO_prog3
             }
         }
 
-        internal List<Vehicle> Vehicles
+        public List<Vehicle> Vehicles
         {
             get
             {
@@ -286,6 +289,19 @@ namespace HYYBLO_prog3
             set
             {
                 vehicles = value;
+            }
+        }
+
+        public List<Building> Buildings
+        {
+            get
+            {
+                return buildings;
+            }
+
+            set
+            {
+                buildings = value;
             }
         }
 

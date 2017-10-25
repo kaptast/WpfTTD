@@ -63,6 +63,12 @@ namespace HYYBLO_prog3
             this.dir = dir;
         }
 
+        public void Reset()
+        {
+            x = 0;
+            y = 0;
+        }
+
         public void ChangeState(bool state)
         {
             pressed = state;

@@ -8,13 +8,14 @@ using System.Windows.Media.Imaging;
 
 namespace HYYBLO_prog3
 {
-    class Vehicle : MapItem
+    public class Vehicle : MapItem
     {
         Direction facing;
         BitmapImage[] images;
         MapItem finalTarget, currentTarget;
         int targetIdx = 0;
         double speed = 0.05;
+        //private double bound = 1f;
 
         protected List<MapItem> pathToTarget;
 
@@ -175,19 +176,19 @@ namespace HYYBLO_prog3
 
         /*public override int CompareTo(MapItem obj)
         {
-            if (obj.Y > this.Y)
+            if (obj.Y > this.Y + bound)
             {
                 return -1;
             }
-            else if (obj.Y < this.Y)
+            else if (obj.Y < this.Y - bound)
             {
                 return 1;
             }
-            else if (obj.X > this.X)
+            else if (obj.X > this.X + bound)
             {
                 return -1;
             }
-            else if (obj.X < this.X)
+            else if (obj.X < this.X - bound)
             {
                 return 1;
             }

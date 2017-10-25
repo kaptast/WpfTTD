@@ -149,6 +149,7 @@ namespace HYYBLO_prog3
             if (cellSize < 128)
             {
                 cellSize *= 2;
+                cam.Reset();
             }
         }
 
@@ -160,6 +161,7 @@ namespace HYYBLO_prog3
             if (cellSize > 4)
             {
                 cellSize /= 2;
+                cam.Reset();
             }
         }
 
@@ -207,7 +209,25 @@ namespace HYYBLO_prog3
                 double screenY = isoY - cam.Y;
                 dc.DrawImage(item.Image, item.GenerateRect(screenX, screenY, cellSize));
             }
-            game.Map.map.Sort();
+            foreach (Vehicle item in game.Map.Vehicles)
+            {
+                double isoX = (item.X - item.Y) * (cellSize / 2);
+                double isoY = (item.X + item.Y) * (cellSize / 4);
+                double centerX = (WindowWidth / 2) - isoX - (cellSize / 2);
+                double screenX = centerX - cam.X;
+                double screenY = isoY - cam.Y;
+                dc.DrawImage(item.Image, item.GenerateRect(screenX, screenY, cellSize));
+            }
+            foreach (Building item in game.Map.Buildings)
+            {
+                double isoX = (item.X - item.Y) * (cellSize / 2);
+                double isoY = (item.X + item.Y) * (cellSize / 4);
+                double centerX = (WindowWidth / 2) - isoX - (cellSize / 2);
+                double screenX = centerX - cam.X;
+                double screenY = isoY - cam.Y;
+                dc.DrawImage(item.Image, item.GenerateRect(screenX, screenY, cellSize));
+            }
+            //game.Map.map.Sort();
         }
     }
 }

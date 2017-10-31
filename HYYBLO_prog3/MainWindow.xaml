@@ -19,16 +19,16 @@
 
         <Menu Grid.Row="0" Background="Transparent">
             <Button Name="btnRoad" Height="40" Width="40" Click="btnRoad_Click">
-                <Image Source="D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/road.png" />
+                <Image Source="/Images/road.png" />
             </Button>
             <Button Name="btnWarehouse" Height="40" Width="40" Click="btnWarehouse_Click">
-                <Image Source="D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/Buildings/warehouse.png" />
+                <Image Source="/Images/Buildings/warehouse.png" />
             </Button>
             <Button Name="btnDelete" Height="40" Width="40" Click="btnDelete_Click">
-                <Image Source="D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/delete.png" />
+                <Image Source="/Images/delete.png" />
             </Button>
             <Button Name="btnVehicle" Height="40" Width="40" Click="btnVehicle_Click">
-                <Image Source="D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/truck.png" />
+                <Image Source="/Images/truck.png" />
             </Button>
         </Menu>
 

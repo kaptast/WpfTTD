@@ -25,7 +25,7 @@ namespace HYYBLO_prog3
             images = new BitmapImage[4];
             for(int i = 0; i < 4; i++)
             {
-                images[i] = new System.Windows.Media.Imaging.BitmapImage(new Uri("D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/Vehicles/truck" + i + ".png"));
+                images[i] = new System.Windows.Media.Imaging.BitmapImage(new Uri(GameView.GetImage("Images/Vehicles/truck" + i + ".png")));
             }
             finalTarget = SearchTarget(map);
             pathToTarget = map.pathfinder.FindPath(this, finalTarget);

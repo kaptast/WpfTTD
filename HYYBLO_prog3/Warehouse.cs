@@ -34,7 +34,7 @@ namespace HYYBLO_prog3
     {
         public WarehouseBuilding(int x, int y) : base(x, y)
         {
-            Image = new System.Windows.Media.Imaging.BitmapImage(new Uri("D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/Buildings/warehouse.png"));
+            Image = new System.Windows.Media.Imaging.BitmapImage(new Uri(GameView.GetImage("Images/Buildings/warehouse.png")));
         }
     }
 
@@ -42,7 +42,7 @@ namespace HYYBLO_prog3
     {
         public WarehouseLot12(int x, int y) : base(x, y)
         {
-            Image = new System.Windows.Media.Imaging.BitmapImage(new Uri("D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/Buildings/warehouse12.png"));
+            Image = new System.Windows.Media.Imaging.BitmapImage(new Uri(GameView.GetImage("Images/Buildings/warehouse12.png")));
         }
     }
 
@@ -50,7 +50,7 @@ namespace HYYBLO_prog3
     {
         public WarehouseLot21(int x, int y, Map map) : base(x, y, map)
         {
-            Image = new System.Windows.Media.Imaging.BitmapImage(new Uri("D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/Buildings/warehouse21.png"));
+            Image = new System.Windows.Media.Imaging.BitmapImage(new Uri(GameView.GetImage("Images/Buildings/warehouse21.png")));
         }
 
         protected override void RoadChanged()
@@ -63,7 +63,7 @@ namespace HYYBLO_prog3
     {
         public WarehouseLot22(int x, int y) : base(x, y)
         {
-            Image = new System.Windows.Media.Imaging.BitmapImage(new Uri("D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/Buildings/warehouse22.png"));
+            Image = new System.Windows.Media.Imaging.BitmapImage(new Uri(GameView.GetImage("Images/Buildings/warehouse22.png")));
         }
     }
 }

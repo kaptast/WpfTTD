@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -20,6 +21,14 @@ namespace HYYBLO_prog3
         int WindowWidth = 800; //current width of the window
         public static BitmapImage[] RoadImages;
 
+        static string exepath = System.Reflection.Assembly.GetEntryAssembly().Location;
+
+        public static string GetImage(string filename)
+        {
+            string tmp = Path.Combine(exepath, @"..\..\..\");
+            return Path.GetFullPath(Path.Combine(tmp, filename));
+        }
+
         /// <summary>
         /// Constructor of GameView
         /// </summary>
@@ -29,7 +38,7 @@ namespace HYYBLO_prog3
             //Loading the images of the roads
             for(int i = 0; i < 16; i++)
             {
-                RoadImages[i] = new BitmapImage(new Uri("D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/Roads/cityroad" + i + ".png"));
+                RoadImages[i] = new BitmapImage(new Uri(GetImage("Images/Roads/cityroad" + i + ".png")));
             }
             game = new Game();
             cam = new Camera(0, 0);
@@ -189,7 +198,6 @@ namespace HYYBLO_prog3
         /// <param name="drawingContext">Drawer of the view</param>
         protected override void OnRender(DrawingContext drawingContext)
         {
-            //System.Diagnostics.Debug.WriteLine("OnRender");
             base.OnRender(drawingContext);
             RenderMap(drawingContext);
         }
@@ -227,7 +235,6 @@ namespace HYYBLO_prog3
                 double screenY = isoY - cam.Y;
                 dc.DrawImage(item.Image, item.GenerateRect(screenX, screenY, cellSize));
             }
-            //game.Map.map.Sort();
         }
     }
 }

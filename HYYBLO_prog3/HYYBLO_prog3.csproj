@@ -76,17 +76,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Camera.cs" />
-    <Compile Include="Direction.cs" />
-    <Compile Include="PathFinding.cs" />
-    <Compile Include="Road.cs" />
-    <Compile Include="Vehicle.cs" />
-    <Compile Include="Warehouse.cs" />
-    <Compile Include="WarehouseBuilding.cs" />
-    <Compile Include="WarehouseLot12.cs" />
-    <Compile Include="WarehouseLot21.cs" />
-    <Compile Include="WarehouseLot22.cs" />
-    <Page Include="MainWindow.xaml">
+    <Compile Include="Model\Camera.cs" />
+    <Compile Include="Model\Direction.cs" />
+    <Compile Include="Model\PathFinding.cs" />
+    <Compile Include="BL\Road.cs" />
+    <Compile Include="BL\Vehicle.cs" />
+    <Compile Include="BL\Building\Warehouse\Warehouse.cs" />
+    <Compile Include="BL\Building\Warehouse\WarehouseBuilding.cs" />
+    <Compile Include="BL\Building\Warehouse\WarehouseLot12.cs" />
+    <Compile Include="BL\Building\Warehouse\WarehouseLot21.cs" />
+    <Compile Include="BL\Building\Warehouse\WarehouseLot22.cs" />
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -94,19 +94,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Building.cs" />
-    <Compile Include="Game.cs" />
-    <Compile Include="GameView.cs" />
-    <Compile Include="Grass.cs" />
-    <Compile Include="House.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="BL\Building\Building.cs" />
+    <Compile Include="BL\Game.cs" />
+    <Compile Include="View\GameView.cs" />
+    <Compile Include="BL\Grass.cs" />
+    <Compile Include="BL\Building\House.cs" />
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Map.cs" />
-    <Compile Include="MapItem.cs" />
+    <Compile Include="Model\Map.cs" />
+    <Compile Include="BL\MapItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

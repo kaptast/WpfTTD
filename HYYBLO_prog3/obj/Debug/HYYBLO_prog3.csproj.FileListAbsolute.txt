@@ -40,5 +40,3 @@ C:\Users\hallgató\Documents\Visual Studio 2015\Projects\ttd\HYYBLO_prog3\obj\De
 C:\Users\hallgató\Documents\Visual Studio 2015\Projects\ttd\HYYBLO_prog3\obj\Debug\HYYBLO_prog3.Properties.Resources.resources
 C:\Users\hallgató\Documents\Visual Studio 2015\Projects\ttd\HYYBLO_prog3\obj\Debug\HYYBLO_prog3.csproj.GenerateResource.Cache
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\bin\Debug\HYYBLO_prog3.XML
-D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\bin\Debug\HYYBLO_prog3.exe.CodeAnalysisLog.xml
-D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\bin\Debug\HYYBLO_prog3.exe.lastcodeanalysissucceeded

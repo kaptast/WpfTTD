@@ -90,7 +90,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_Model.Pathfinding"/> class.
             </summary>
-            <param name="m">Map ot the game</param>
+            <param name="m">Map of the game</param>
         </member>
         <member name="M:Hyyblo_Model.Pathfinding.FindPath(Hyyblo_Model.MapItem,Hyyblo_Model.MapItem)">
             <summary>
@@ -170,7 +170,7 @@
         </member>
         <member name="M:Hyyblo_Model.Vehicle.Move">
             <summary>
-            Moves the vehiche to it's destination, changes direction and target if the target is reached
+            Moves the vehicle to it's destination, changes direction and target if the target is reached
             </summary>
         </member>
         <member name="M:Hyyblo_Model.Vehicle.ReachedWaypoint">
@@ -267,7 +267,7 @@
         </member>
         <member name="T:Hyyblo_Model.App">
             <summary>
-            Interaction logic for App.xaml
+            Interaction logic for App
             </summary>
         </member>
         <member name="T:Hyyblo_Model.Building">
@@ -314,7 +314,7 @@
         </member>
         <member name="M:Hyyblo_Model.GameView.GetImage(System.String)">
             <summary>
-            Return the path of file in the current enviroment
+            Return the path of file in the current environment
             </summary>
             <param name="filename">Name of the file</param>
             <returns>Full path of the file</returns>
@@ -366,7 +366,7 @@
         </member>
         <member name="M:Hyyblo_Model.GameView.OnWindowSizeChanged(System.Object,System.Windows.SizeChangedEventArgs)">
             <summary>
-            Sets the width of the window in a paramter
+            Sets the width of the window in a parameter
             </summary>
             <param name="sender">Sender object</param>
             <param name="e">Parameters of the changed window</param>
@@ -420,10 +420,10 @@
             <summary>
             Generates a rectangle for the house by the GameView's actual state
             </summary>
-            <param name="x">X coordinate of the rect's top left corner</param>
-            <param name="y">Y coordinate of the rect's top left corner</param>
+            <param name="x">X coordinate of the rectangle's top left corner</param>
+            <param name="y">Y coordinate of the rectangle's top left corner</param>
             <param name="cell">Current cell size of the view</param>
-            <returns>A rect with the buildings size at the correct position</returns>
+            <returns>A rectangle with the buildings size at the correct position</returns>
         </member>
         <member name="T:Hyyblo_Model.RoadPlacedEventHandler">
             <summary>
@@ -476,11 +476,10 @@
         <member name="M:Hyyblo_Model.Map.RandomNormalDist(System.Double,System.Double,System.Int32,System.Double)">
             <summary>
             Generates a random number along a curve
-            https://stackoverflow.com/questions/18807812/adding-an-average-parameter-to-nets-random-next-to-curve-results
             </summary>
             <param name="min">Minimum random value</param>
             <param name="max">Maximum random value</param>
-            <param name="tightness">Titghness of the value</param>
+            <param name="tightness">Tightness of the value</param>
             <param name="exp">Power of the random value</param>
             <returns>Random number in range which gravitates towards the given value</returns>
         </member>
@@ -488,26 +487,26 @@
             <summary>
             Placed a road on the map
             </summary>
-            <param name="x">X coordniate of the road</param>
-            <param name="y">Y coordniate of the road</param>
+            <param name="x">X coordinate of the road</param>
+            <param name="y">Y coordinate of the road</param>
         </member>
         <member name="M:Hyyblo_Model.Map.SetWarehouse(System.Int32,System.Int32)">
             <summary>
             Places a Warehouse on the map
             </summary>
-            <param name="x">X coordniate of the warehouse</param>
-            <param name="y">Y coordniate of the warehouse</param>
+            <param name="x">X coordinate of the warehouse</param>
+            <param name="y">Y coordinate of the warehouse</param>
         </member>
         <member name="M:Hyyblo_Model.Map.SetDelete(System.Int32,System.Int32)">
             <summary>
             Deletes an item, and places a grass item in it's place
             </summary>
-            <param name="x">X coordniate of the delete</param>
-            <param name="y">Y coordniate of the delete</param>
+            <param name="x">X coordinate of the delete</param>
+            <param name="y">Y coordinate of the delete</param>
         </member>
         <member name="M:Hyyblo_Model.Map.RightCoord(System.Int32,System.Int32)">
             <summary>
-            Checks if the requested coords are in the bounds
+            Checks if the requested coordinates are in the bounds
             </summary>
             <param name="x">Requested X coordinate</param>
             <param name="y">Requested Y coordinate</param>
@@ -591,7 +590,7 @@
             </summary>
             <param name="x">X coordinate to check</param>
             <param name="y">Y coordinate to check</param>
-            <returns>Returns true if there is a neighbouring road, and false if threre isn't</returns>
+            <returns>Returns true if there is a neighbouring road, and false if there isn't</returns>
         </member>
         <member name="M:Hyyblo_Model.Map.GenerateRoad(System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
@@ -659,7 +658,7 @@
         </member>
         <member name="M:Hyyblo_Model.MapItem.op_Equality(Hyyblo_Model.MapItem,Hyyblo_Model.MapItem)">
             <summary>
-            Checks if the two items are euqals
+            Checks if the two items are equals
             </summary>
             <param name="m1">First Item to compare</param>
             <param name="m2">Second Item to compare</param>
@@ -688,7 +687,7 @@
             <param name="x">Screen X coordinate of the Rectangle</param>
             <param name="y">Screen Y coordinate of the Rectangle</param>
             <param name="cell">Height and width of the Rectangle</param>
-            <returns>Rectangel with the parameters</returns>
+            <returns>Rectangle with the parameters</returns>
         </member>
         <member name="M:Hyyblo_Model.MapItem.CompareTo(Hyyblo_Model.MapItem)">
             <summary>
@@ -763,7 +762,7 @@
         </member>
         <member name="T:Hyyblo_View.MainWindow">
             <summary>
-            Interaction logic for MainWindow.xaml
+            Interaction logic for MainWindow
             </summary>
             <summary>
             MainWindow
@@ -783,14 +782,14 @@
         </member>
         <member name="M:Hyyblo_View.MainWindow.MainWindow_KeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
             <summary>
-            Callback function for a keypress, calls the View's GameView_KeyDown function
+            Callback function for a key press, calls the View's GameView_KeyDown function
             </summary>
             <param name="sender">Sender object</param>
-            <param name="e">Arguments of the keypress</param>
+            <param name="e">Arguments of the key press</param>
         </member>
         <member name="M:Hyyblo_View.MainWindow.MainWindow_KeyUp(System.Object,System.Windows.Input.KeyEventArgs)">
             <summary>
-            Callback function for a keylift, calls the View's GameView_KeyUp function, which stops the camera movement
+            Callback function for a key lift, calls the View's GameView_KeyUp function, which stops the camera movement
             </summary>
             <param name="sender">Sender object</param>
             <param name="e">Arguments of the key lift</param>
@@ -804,28 +803,28 @@
         </member>
         <member name="M:Hyyblo_View.MainWindow.BtnRoad_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
-            Callback function for a menubar click, sets the current build type to Road
+            Callback function for a menu bar click, sets the current build type to Road
             </summary>
             <param name="sender">Sender object</param>
             <param name="e">Arguments of the button click</param>
         </member>
         <member name="M:Hyyblo_View.MainWindow.BtnDelete_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
-            Callback function for a menubar click, sets the current build type to delete
+            Callback function for a menu bar click, sets the current build type to delete
             </summary>
             <param name="sender">Sender object</param>
             <param name="e">Arguments of the button click</param>
         </member>
         <member name="M:Hyyblo_View.MainWindow.BtnVehicle_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
-            Callback function for a menubar click, sets the current build type to Vehicle
+            Callback function for a menu bar click, sets the current build type to Vehicle
             </summary>
             <param name="sender">Sender object</param>
             <param name="e">Arguments of the button click</param>
         </member>
         <member name="M:Hyyblo_View.MainWindow.BtnWarehouse_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
-            Callback function for a menubar click, sets the current build type to Warehouse
+            Callback function for a menu bar click, sets the current build type to Warehouse
             </summary>
             <param name="sender">Sender object</param>
             <param name="e">Arguments of the button click</param>

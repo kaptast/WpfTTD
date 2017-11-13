@@ -9,7 +9,7 @@ namespace Hyyblo_Model
     using System.Windows;
 
     /// <summary>
-    /// Interaction logic for App.xaml
+    /// Interaction logic for App
     /// </summary>
     public partial class App : Application
     {

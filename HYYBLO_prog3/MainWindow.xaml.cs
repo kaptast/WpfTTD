@@ -47,7 +47,7 @@ namespace Hyyblo_View
     }
 
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainWindow
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -79,17 +79,17 @@ namespace Hyyblo_View
         }
 
         /// <summary>
-        /// Callback function for a keypress, calls the View's GameView_KeyDown function
+        /// Callback function for a key press, calls the View's GameView_KeyDown function
         /// </summary>
         /// <param name="sender">Sender object</param>
-        /// <param name="e">Arguments of the keypress</param>
+        /// <param name="e">Arguments of the key press</param>
         private void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
             this.view.GameView_KeyDown(sender, e);
         }
 
         /// <summary>
-        /// Callback function for a keylift, calls the View's GameView_KeyUp function, which stops the camera movement
+        /// Callback function for a key lift, calls the View's GameView_KeyUp function, which stops the camera movement
         /// </summary>
         /// <param name="sender">Sender object</param>
         /// <param name="e">Arguments of the key lift</param>
@@ -116,7 +116,7 @@ namespace Hyyblo_View
         }
 
         /// <summary>
-        /// Callback function for a menubar click, sets the current build type to Road
+        /// Callback function for a menu bar click, sets the current build type to Road
         /// </summary>
         /// <param name="sender">Sender object</param>
         /// <param name="e">Arguments of the button click</param>
@@ -133,7 +133,7 @@ namespace Hyyblo_View
         }
 
         /// <summary>
-        /// Callback function for a menubar click, sets the current build type to delete
+        /// Callback function for a menu bar click, sets the current build type to delete
         /// </summary>
         /// <param name="sender">Sender object</param>
         /// <param name="e">Arguments of the button click</param>
@@ -150,7 +150,7 @@ namespace Hyyblo_View
         }
 
         /// <summary>
-        /// Callback function for a menubar click, sets the current build type to Vehicle
+        /// Callback function for a menu bar click, sets the current build type to Vehicle
         /// </summary>
         /// <param name="sender">Sender object</param>
         /// <param name="e">Arguments of the button click</param>
@@ -167,7 +167,7 @@ namespace Hyyblo_View
         }
 
         /// <summary>
-        /// Callback function for a menubar click, sets the current build type to Warehouse
+        /// Callback function for a menu bar click, sets the current build type to Warehouse
         /// </summary>
         /// <param name="sender">Sender object</param>
         /// <param name="e">Arguments of the button click</param>

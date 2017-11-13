@@ -33,10 +33,10 @@ namespace Hyyblo_Model
         /// <summary>
         /// Generates a rectangle for the house by the GameView's actual state
         /// </summary>
-        /// <param name="x">X coordinate of the rect's top left corner</param>
-        /// <param name="y">Y coordinate of the rect's top left corner</param>
+        /// <param name="x">X coordinate of the rectangle's top left corner</param>
+        /// <param name="y">Y coordinate of the rectangle's top left corner</param>
         /// <param name="cell">Current cell size of the view</param>
-        /// <returns>A rect with the buildings size at the correct position</returns>
+        /// <returns>A rectangle with the buildings size at the correct position</returns>
         public override Rect GenerateRect(double x, double y, int cell)
         {
             return new Rect(x, y - ((this.floors - 1) * (cell / 4)), cell, cell + ((cell / 4) * (this.floors - 1)));

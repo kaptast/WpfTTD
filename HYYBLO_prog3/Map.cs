@@ -124,11 +124,10 @@ namespace Hyyblo_Model
 
         /// <summary>
         /// Generates a random number along a curve
-        /// https://stackoverflow.com/questions/18807812/adding-an-average-parameter-to-nets-random-next-to-curve-results
         /// </summary>
         /// <param name="min">Minimum random value</param>
         /// <param name="max">Maximum random value</param>
-        /// <param name="tightness">Titghness of the value</param>
+        /// <param name="tightness">Tightness of the value</param>
         /// <param name="exp">Power of the random value</param>
         /// <returns>Random number in range which gravitates towards the given value</returns>
         public static double RandomNormalDist(double min, double max, int tightness, double exp)
@@ -145,8 +144,8 @@ namespace Hyyblo_Model
         /// <summary>
         /// Placed a road on the map
         /// </summary>
-        /// <param name="x">X coordniate of the road</param>
-        /// <param name="y">Y coordniate of the road</param>
+        /// <param name="x">X coordinate of the road</param>
+        /// <param name="y">Y coordinate of the road</param>
         public void SetRoad(int x, int y)
         {
             if (this.RightCoord(x, y))
@@ -160,8 +159,8 @@ namespace Hyyblo_Model
         /// <summary>
         /// Places a Warehouse on the map
         /// </summary>
-        /// <param name="x">X coordniate of the warehouse</param>
-        /// <param name="y">Y coordniate of the warehouse</param>
+        /// <param name="x">X coordinate of the warehouse</param>
+        /// <param name="y">Y coordinate of the warehouse</param>
         public void SetWarehouse(int x, int y)
         {
             if (this.RightCoord(x, y))
@@ -173,8 +172,8 @@ namespace Hyyblo_Model
         /// <summary>
         /// Deletes an item, and places a grass item in it's place
         /// </summary>
-        /// <param name="x">X coordniate of the delete</param>
-        /// <param name="y">Y coordniate of the delete</param>
+        /// <param name="x">X coordinate of the delete</param>
+        /// <param name="y">Y coordinate of the delete</param>
         public void SetDelete(int x, int y)
         {
             if (this.RightCoord(x, y))
@@ -186,7 +185,7 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
-        /// Checks if the requested coords are in the bounds
+        /// Checks if the requested coordinates are in the bounds
         /// </summary>
         /// <param name="x">Requested X coordinate</param>
         /// <param name="y">Requested Y coordinate</param>
@@ -382,7 +381,7 @@ namespace Hyyblo_Model
         /// </summary>
         /// <param name="x">X coordinate to check</param>
         /// <param name="y">Y coordinate to check</param>
-        /// <returns>Returns true if there is a neighbouring road, and false if threre isn't</returns>
+        /// <returns>Returns true if there is a neighbouring road, and false if there isn't</returns>
         private bool RoadIsNeighbour(int x, int y)
         {
             if (x > 0 && x < this.Size - 1 && y > 0 && y < this.Size - 1)

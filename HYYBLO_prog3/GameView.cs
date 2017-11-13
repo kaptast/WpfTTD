@@ -64,7 +64,7 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
-        /// Return the path of file in the current enviroment
+        /// Return the path of file in the current environment
         /// </summary>
         /// <param name="filename">Name of the file</param>
         /// <returns>Full path of the file</returns>
@@ -199,7 +199,7 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
-        /// Sets the width of the window in a paramter
+        /// Sets the width of the window in a parameter
         /// </summary>
         /// <param name="sender">Sender object</param>
         /// <param name="e">Parameters of the changed window</param>

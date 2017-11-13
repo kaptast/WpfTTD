@@ -97,7 +97,7 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
-        /// Moves the vehiche to it's destination, changes direction and target if the target is reached
+        /// Moves the vehicle to it's destination, changes direction and target if the target is reached
         /// </summary>
         private void Move()
         {

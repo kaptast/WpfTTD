@@ -156,7 +156,7 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
-        /// Checks if the two items are euqals
+        /// Checks if the two items are equals
         /// </summary>
         /// <param name="m1">First Item to compare</param>
         /// <param name="m2">Second Item to compare</param>
@@ -216,7 +216,7 @@ namespace Hyyblo_Model
         /// <param name="x">Screen X coordinate of the Rectangle</param>
         /// <param name="y">Screen Y coordinate of the Rectangle</param>
         /// <param name="cell">Height and width of the Rectangle</param>
-        /// <returns>Rectangel with the parameters</returns>
+        /// <returns>Rectangle with the parameters</returns>
         public virtual Rect GenerateRect(double x, double y, int cell)
         {
             return new Rect(x, y, cell, cell);

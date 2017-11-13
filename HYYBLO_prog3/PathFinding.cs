@@ -19,7 +19,7 @@ namespace Hyyblo_Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Pathfinding"/> class.
         /// </summary>
-        /// <param name="m">Map ot the game</param>
+        /// <param name="m">Map of the game</param>
         public Pathfinding(Map m)
         {
             this.map = m;

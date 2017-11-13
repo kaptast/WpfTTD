@@ -15,12 +15,39 @@ namespace Hyyblo_Model
     /// </summary>
     public class Vehicle : MapItem
     {
+        /// <summary>
+        /// A current path of the vehicle to the final target
+        /// </summary>
         private List<MapItem> pathToTarget;
+
+        /// <summary>
+        /// A current direction of the vehicle
+        /// </summary>
         private Direction facing;
+
+        /// <summary>
+        /// A collection for the vehicles images
+        /// </summary>
         private BitmapImage[] images;
+
+        /// <summary>
+        /// The final target item of the path
+        /// </summary>
         private MapItem finalTarget;
+
+        /// <summary>
+        /// The current target item of the vehicle
+        /// </summary>
         private MapItem currentTarget;
+
+        /// <summary>
+        /// Index of the current target in the path
+        /// </summary>
         private int targetIdx = 0;
+
+        /// <summary>
+        /// Moving speed of the vehicle
+        /// </summary>
         private double speed = 0.05;
 
         /// <summary>

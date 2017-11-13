@@ -11,9 +11,24 @@ namespace Hyyblo_Model
     /// </summary>
     public class Camera
     {
-        private int x; // x coordinate of the camera
-        private int y; // y coordinate of the camera
+        /// <summary>
+        /// x coordinate of the camera
+        /// </summary>
+        private int x;
+
+        /// <summary>
+        /// y coordinate of the camera
+        /// </summary>
+        private int y;
+
+        /// <summary>
+        /// Moving direction of the camera
+        /// </summary>
         private Direction dir;
+
+        /// <summary>
+        /// Moving state of the camera
+        /// </summary>
         private bool pressed = false;
 
         /// <summary>

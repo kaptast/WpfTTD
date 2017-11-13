@@ -15,13 +15,35 @@ namespace Hyyblo_Model
     /// </summary>
     public class MapItem : IComparable<MapItem>
     {
-        private double x; // X coordinate of the item
-        private double y; // Y coordinate of the item
+        /// <summary>
+        /// X coordinate of the item
+        /// </summary>
+        private double x;
+
+        /// <summary>
+        /// Y coordinate of the item
+        /// </summary>
+        private double y;
+
+        /// <summary>
+        /// Movement cost to neighbour
+        /// </summary>
         private int gCost;
+
+        /// <summary>
+        /// Movement cost to next element
+        /// </summary>
         private int hCost;
+
+        /// <summary>
+        /// Parent of this item in a path
+        /// </summary>
         private MapItem parent;
 
-        private BitmapImage image; // image for the item which is displayed on the screen
+        /// <summary>
+        /// Image for the item which is displayed on the screen
+        /// </summary>
+        private BitmapImage image;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MapItem"/> class.
@@ -70,7 +92,7 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
-        /// Gets image of the item
+        /// Gets sum pf gCost and hCost of the item
         /// </summary>
         public int FCost
         {

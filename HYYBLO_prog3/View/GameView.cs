@@ -19,15 +19,40 @@ namespace Hyyblo_Model
     /// </summary>
     public class GameView : FrameworkElement
     {
+        /// <summary>
+        /// Collection of road images
+        /// </summary>
         private static BitmapImage[] roadImages;
 
+        /// <summary>
+        /// Path of the runtime
+        /// </summary>
         private static string exepath = System.Reflection.Assembly.GetEntryAssembly().Location;
 
-        private Game game; // the current game
-        private Camera cam; // camera of the field of view
-        private DispatcherTimer timer; // Timer which refreshes the screen
-        private int cellSize = 32; // current cell size
-        private int windowWidth = 800; // current width of the window
+        /// <summary>
+        /// The current game
+        /// </summary>
+        private Game game;
+
+        /// <summary>
+        /// camera of the field of view
+        /// </summary>
+        private Camera cam;
+
+        /// <summary>
+        /// Timer which refreshes the screen
+        /// </summary>
+        private DispatcherTimer timer;
+
+        /// <summary>
+        /// Current cell size
+        /// </summary>
+        private int cellSize = 32;
+
+        /// <summary>
+        /// Current width of the window
+        /// </summary>
+        private int windowWidth = 800;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GameView"/> class.

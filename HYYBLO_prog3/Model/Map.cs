@@ -22,12 +22,34 @@ namespace Hyyblo_Model
     /// </summary>
     public class Map
     {
+        /// <summary>
+        /// Random generator of the map
+        /// </summary>
         private static Random r;
 
+        /// <summary>
+        /// Collection of MapItems on the map
+        /// </summary>
         private List<MapItem> mapContainer;
+
+        /// <summary>
+        /// Collection of Buildings on the map
+        /// </summary>
         private List<Building> buildings;
+
+        /// <summary>
+        /// Collection of vehicles on the map
+        /// </summary>
         private List<Vehicle> vehicles;
+
+        /// <summary>
+        /// Pathfinder object for the map
+        /// </summary>
         private Pathfinding pathfinder;
+
+        /// <summary>
+        /// The width and height of the map
+        /// </summary>
         private int size;
 
         /// <summary>

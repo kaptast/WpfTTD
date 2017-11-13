@@ -14,6 +14,9 @@ namespace Hyyblo_Model
     /// </summary>
     public class House : Building
     {
+        /// <summary>
+        /// Number of floors of the building
+        /// </summary>
         private int floors;
 
         /// <summary>

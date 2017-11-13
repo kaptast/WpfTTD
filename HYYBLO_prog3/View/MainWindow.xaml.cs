@@ -51,7 +51,14 @@ namespace Hyyblo_View
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Reference to the drawing interface
+        /// </summary>
         private GameView view;
+
+        /// <summary>
+        /// Currently selected BuildType
+        /// </summary>
         private BuildType selectedItem;
 
         /// <summary>

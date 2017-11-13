@@ -13,7 +13,14 @@ namespace Hyyblo_Model
     /// </summary>
     public class Road : MapItem
     {
+        /// <summary>
+        /// Reference to the map of the game
+        /// </summary>
         private Map map;
+
+        /// <summary>
+        /// A value to store the index of the current image of the road collection
+        /// </summary>
         private int imageNum = 0;
 
         /// <summary>

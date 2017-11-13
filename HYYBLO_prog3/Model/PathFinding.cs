@@ -14,6 +14,9 @@ namespace Hyyblo_Model
     /// </summary>
     public class Pathfinding
     {
+        /// <summary>
+        /// Reference to the map of the game
+        /// </summary>
         private Map map;
 
         /// <summary>

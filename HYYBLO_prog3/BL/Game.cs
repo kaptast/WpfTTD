@@ -11,7 +11,10 @@ namespace Hyyblo_Model
     /// </summary>
     public class Game
     {
-        private Map map; // Map of the game
+        /// <summary>
+        /// Map of the game
+        /// </summary>
+        private Map map;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Game"/> class.

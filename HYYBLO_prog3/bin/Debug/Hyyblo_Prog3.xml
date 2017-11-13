@@ -9,6 +9,26 @@
             A camera which represents the field of view
             </summary>
         </member>
+        <member name="F:Hyyblo_Model.Camera.x">
+            <summary>
+            x coordinate of the camera
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Camera.y">
+            <summary>
+            y coordinate of the camera
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Camera.dir">
+            <summary>
+            Moving direction of the camera
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Camera.pressed">
+            <summary>
+            Moving state of the camera
+            </summary>
+        </member>
         <member name="M:Hyyblo_Model.Camera.#ctor(System.Int32,System.Int32)">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_Model.Camera"/> class.
@@ -86,6 +106,11 @@
             Pathfinding utility class
             </summary>
         </member>
+        <member name="F:Hyyblo_Model.Pathfinding.map">
+            <summary>
+            Reference to the map of the game
+            </summary>
+        </member>
         <member name="M:Hyyblo_Model.Pathfinding.#ctor(Hyyblo_Model.Map)">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_Model.Pathfinding"/> class.
@@ -113,6 +138,16 @@
             Represent a Road tile
             </summary>
         </member>
+        <member name="F:Hyyblo_Model.Road.map">
+            <summary>
+            Reference to the map of the game
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Road.imageNum">
+            <summary>
+            A value to store the index of the current image of the road collection
+            </summary>
+        </member>
         <member name="M:Hyyblo_Model.Road.#ctor(System.Int32,System.Int32,Hyyblo_Model.Map)">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_Model.Road"/> class.
@@ -137,6 +172,41 @@
         <member name="T:Hyyblo_Model.Vehicle">
             <summary>
             Represents a moving vehicle
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Vehicle.pathToTarget">
+            <summary>
+            A current path of the vehicle to the final target
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Vehicle.facing">
+            <summary>
+            A current direction of the vehicle
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Vehicle.images">
+            <summary>
+            A collection for the vehicles images
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Vehicle.finalTarget">
+            <summary>
+            The final target item of the path
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Vehicle.currentTarget">
+            <summary>
+            The current target item of the vehicle
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Vehicle.targetIdx">
+            <summary>
+            Index of the current target in the path
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Vehicle.speed">
+            <summary>
+            Moving speed of the vehicle
             </summary>
         </member>
         <member name="M:Hyyblo_Model.Vehicle.#ctor(System.Int32,System.Int32,Hyyblo_Model.Map)">
@@ -287,6 +357,11 @@
             Game object, contains the current game's values
             </summary>
         </member>
+        <member name="F:Hyyblo_Model.Game.map">
+            <summary>
+            Map of the game
+            </summary>
+        </member>
         <member name="M:Hyyblo_Model.Game.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_Model.Game"/> class.
@@ -300,6 +375,41 @@
         <member name="T:Hyyblo_Model.GameView">
             <summary>
             Visual representation of the game
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.GameView.roadImages">
+            <summary>
+            Collection of road images
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.GameView.exepath">
+            <summary>
+            Path of the runtime
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.GameView.game">
+            <summary>
+            The current game
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.GameView.cam">
+            <summary>
+            camera of the field of view
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.GameView.timer">
+            <summary>
+            Timer which refreshes the screen
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.GameView.cellSize">
+            <summary>
+            Current cell size
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.GameView.windowWidth">
+            <summary>
+            Current width of the window
             </summary>
         </member>
         <member name="M:Hyyblo_Model.GameView.#ctor">
@@ -408,6 +518,11 @@
             Represents a house building
             </summary>
         </member>
+        <member name="F:Hyyblo_Model.House.floors">
+            <summary>
+            Number of floors of the building
+            </summary>
+        </member>
         <member name="M:Hyyblo_Model.House.#ctor(System.Int32,System.Int32,System.Random)">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_Model.House"/> class.
@@ -435,6 +550,36 @@
         <member name="T:Hyyblo_Model.Map">
             <summary>
             Represents the map of the game
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Map.r">
+            <summary>
+            Random generator of the map
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Map.mapContainer">
+            <summary>
+            Collection of MapItems on the map
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Map.buildings">
+            <summary>
+            Collection of Buildings on the map
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Map.vehicles">
+            <summary>
+            Collection of vehicles on the map
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Map.pathfinder">
+            <summary>
+            Pathfinder object for the map
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Map.size">
+            <summary>
+            The width and height of the map
             </summary>
         </member>
         <member name="M:Hyyblo_Model.Map.#ctor(System.Int32)">
@@ -606,6 +751,36 @@
             Abstract class for items in the map
             </summary>
         </member>
+        <member name="F:Hyyblo_Model.MapItem.x">
+            <summary>
+            X coordinate of the item
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.MapItem.y">
+            <summary>
+            Y coordinate of the item
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.MapItem.gCost">
+            <summary>
+            Movement cost to neighbour
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.MapItem.hCost">
+            <summary>
+            Movement cost to next element
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.MapItem.parent">
+            <summary>
+            Parent of this item in a path
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.MapItem.image">
+            <summary>
+            Image for the item which is displayed on the screen
+            </summary>
+        </member>
         <member name="M:Hyyblo_Model.MapItem.#ctor(System.Int32,System.Int32)">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_Model.MapItem"/> class.
@@ -625,7 +800,7 @@
         </member>
         <member name="P:Hyyblo_Model.MapItem.FCost">
             <summary>
-            Gets image of the item
+            Gets sum pf gCost and hCost of the item
             </summary>
         </member>
         <member name="P:Hyyblo_Model.MapItem.Image">
@@ -766,6 +941,16 @@
             </summary>
             <summary>
             MainWindow
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.MainWindow.view">
+            <summary>
+            Reference to the drawing interface
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.MainWindow.selectedItem">
+            <summary>
+            Currently selected BuildType
             </summary>
         </member>
         <member name="M:Hyyblo_View.MainWindow.#ctor">

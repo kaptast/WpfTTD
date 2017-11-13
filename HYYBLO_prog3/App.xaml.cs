@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-
-namespace HYYBLO_prog3
+﻿//-----------------------------------------------------------------------
+// <copyright file="App.xaml.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+// <author>HYYBLO</author>
+//-----------------------------------------------------------------------
+namespace Hyyblo_Model
 {
+    using System.Windows;
+
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>

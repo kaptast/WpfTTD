@@ -1,120 +1,185 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
-
-namespace HYYBLO_prog3
+﻿//-----------------------------------------------------------------------
+// <copyright file="MainWindow.xaml.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+// <author>HYYBLO</author>
+//-----------------------------------------------------------------------
+namespace Hyyblo_View
 {
-    public enum BuildType { Nothing, Road, Warehouse, Delete, Park, Vehicle }
+    using System.Windows;
+    using System.Windows.Input;
+    using Hyyblo_Model;
+
+    /// <summary>
+    /// Enum for different build types
+    /// </summary>
+    public enum BuildType
+    {
+        /// <summary>
+        /// No type selected
+        /// </summary>
+        Nothing,
+
+        /// <summary>
+        /// Road type
+        /// </summary>
+        Road,
+
+        /// <summary>
+        /// Warehouse type
+        /// </summary>
+        Warehouse,
+
+        /// <summary>
+        /// Deleting selected
+        /// </summary>
+        Delete,
+
+        /// <summary>
+        /// Park type
+        /// </summary>
+        Park,
+
+        /// <summary>
+        /// Vehicle type
+        /// </summary>
+        Vehicle
+    }
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        GameView view;
-        BuildType selectedItem;
+        private GameView view;
+        private BuildType selectedItem;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// </summary>
         public MainWindow()
         {
-            InitializeComponent();
-            selectedItem = BuildType.Nothing;
-            view = new GameView();
-            this.PlayArea.Content = view;
-            this.KeyDown += MainWindow_KeyDown;
-            this.KeyUp += MainWindow_KeyUp;
-            this.MouseLeftButtonDown += MainWindow_MouseLeftButtonDown;
+            this.InitializeComponent();
+            this.selectedItem = BuildType.Nothing;
+            this.view = new GameView();
+            this.PlayArea.Content = this.view;
+            this.KeyDown += this.MainWindow_KeyDown;
+            this.KeyUp += this.MainWindow_KeyUp;
+            this.MouseLeftButtonDown += this.MainWindow_MouseLeftButtonDown;
         }
 
-        private void MainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        /// <summary>
+        /// Callback function for a left mouse click, calls the View's GameView_MouseLeftButtonDown function
+        /// </summary>
+        /// <param name="sender">Sender object</param>
+        /// <param name="e">Arguments of the left click</param>
+        private void MainWindow_MouseLeftButtonDown(object sender, MouseEventArgs e)
         {
-            view.GameView_MouseLeftButtonDown(sender, e, selectedItem);
+            this.view.GameView_MouseLeftButtonDown(e, this.selectedItem);
         }
 
+        /// <summary>
+        /// Callback function for a keypress, calls the View's GameView_KeyDown function
+        /// </summary>
+        /// <param name="sender">Sender object</param>
+        /// <param name="e">Arguments of the keypress</param>
         private void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
-            view.GameView_KeyDown(sender, e);
+            this.view.GameView_KeyDown(sender, e);
         }
 
+        /// <summary>
+        /// Callback function for a keylift, calls the View's GameView_KeyUp function, which stops the camera movement
+        /// </summary>
+        /// <param name="sender">Sender object</param>
+        /// <param name="e">Arguments of the key lift</param>
         private void MainWindow_KeyUp(object sender, KeyEventArgs e)
         {
-            view.GameView_KeyUp(sender, e);
+            this.view.GameView_KeyUp(sender, e);
         }
 
-
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Zooms in or out the view according to the mouse wheel's delta in the event for using the mouse wheel
+        /// </summary>
+        /// <param name="sender">Sender object</param>
+        /// <param name="e">Argument of the mouse wheel event</param>
         private void Window_MouseWheel(object sender, MouseWheelEventArgs e)
         {
-            if(e.Delta > 0)
+            if (e.Delta > 0)
             {
-                view.ZoomIn();
+                this.view.ZoomIn();
             }
             else
             {
-                view.ZoomOut();
+                this.view.ZoomOut();
             }
         }
 
-        private void btnRoad_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Callback function for a menubar click, sets the current build type to Road
+        /// </summary>
+        /// <param name="sender">Sender object</param>
+        /// <param name="e">Arguments of the button click</param>
+        private void BtnRoad_Click(object sender, RoutedEventArgs e)
         {
-            if(selectedItem != BuildType.Road)
+            if (this.selectedItem != BuildType.Road)
             {
-                selectedItem = BuildType.Road;
+                this.selectedItem = BuildType.Road;
             }
             else
             {
-                selectedItem = BuildType.Nothing;
+                this.selectedItem = BuildType.Nothing;
             }
         }
 
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Callback function for a menubar click, sets the current build type to delete
+        /// </summary>
+        /// <param name="sender">Sender object</param>
+        /// <param name="e">Arguments of the button click</param>
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            if (selectedItem != BuildType.Delete)
+            if (this.selectedItem != BuildType.Delete)
             {
-                selectedItem = BuildType.Delete;
+                this.selectedItem = BuildType.Delete;
             }
             else
             {
-                selectedItem = BuildType.Nothing;
+                this.selectedItem = BuildType.Nothing;
             }
         }
 
-        private void btnVehicle_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Callback function for a menubar click, sets the current build type to Vehicle
+        /// </summary>
+        /// <param name="sender">Sender object</param>
+        /// <param name="e">Arguments of the button click</param>
+        private void BtnVehicle_Click(object sender, RoutedEventArgs e)
         {
-            if (selectedItem != BuildType.Vehicle)
+            if (this.selectedItem != BuildType.Vehicle)
             {
-                selectedItem = BuildType.Vehicle;
+                this.selectedItem = BuildType.Vehicle;
             }
             else
             {
-                selectedItem = BuildType.Nothing;
+                this.selectedItem = BuildType.Nothing;
             }
         }
 
-        private void btnWarehouse_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Callback function for a menubar click, sets the current build type to Warehouse
+        /// </summary>
+        /// <param name="sender">Sender object</param>
+        /// <param name="e">Arguments of the button click</param>
+        private void BtnWarehouse_Click(object sender, RoutedEventArgs e)
         {
-            if (selectedItem != BuildType.Warehouse)
+            if (this.selectedItem != BuildType.Warehouse)
             {
-                selectedItem = BuildType.Warehouse;
+                this.selectedItem = BuildType.Warehouse;
             }
             else
             {
-                selectedItem = BuildType.Nothing;
+                this.selectedItem = BuildType.Nothing;
             }
         }
     }

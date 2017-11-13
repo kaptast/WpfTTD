@@ -1,67 +1,212 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Media.Imaging;
-
-namespace HYYBLO_prog3
+﻿//-----------------------------------------------------------------------
+// <copyright file="MapItem.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+// <author>HYYBLO</author>
+//-----------------------------------------------------------------------
+namespace Hyyblo_Model
 {
+    using System;
+    using System.Windows;
+    using System.Windows.Media.Imaging;
+
     /// <summary>
     /// Abstract class for items in the map
     /// </summary>
     public class MapItem : IComparable<MapItem>
     {
-        double x, y; //x and y coordinates for the item
+        private double x; // X coordinate of the item
+        private double y; // Y coordinate of the item
+        private int gCost;
+        private int hCost;
+        private MapItem parent;
 
-        public int gCost;
-        public int hCost;
-        public MapItem parent;
-
-        BitmapImage image; //image for the item which is displayed on the screen
+        private BitmapImage image; // image for the item which is displayed on the screen
 
         /// <summary>
-        /// X coordinate of the item
+        /// Initializes a new instance of the <see cref="MapItem"/> class.
+        /// </summary>
+        /// <param name="x">X coordinate of the item</param>
+        /// <param name="y">Y coordinate of the item</param>
+        public MapItem(int x, int y)
+        {
+            this.X = x;
+            this.Y = y;
+            this.gCost = 0;
+            this.hCost = 0;
+            this.parent = null;
+        }
+
+        /// <summary>
+        /// Gets or sets x coordinate of the item
         /// </summary>
         public double X
         {
             get
             {
-                return x;
+                return this.x;
             }
 
             set
             {
-                x = value;
+                this.x = value;
             }
         }
 
         /// <summary>
-        /// Y coordinate of the item
+        /// Gets or sets y coordinate of the item
         /// </summary>
         public double Y
         {
             get
             {
-                return y;
+                return this.y;
             }
 
             set
             {
-                y = value;
+                this.y = value;
             }
         }
 
         /// <summary>
-        /// Image of the item
+        /// Gets image of the item
+        /// </summary>
+        public int FCost
+        {
+            get
+            {
+                return this.GCost + this.HCost;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets image of the item
         /// </summary>
         public virtual BitmapImage Image
         {
             get
             {
-                return image;
+                return this.image;
             }
 
             protected set
             {
-                image = value;
+                this.image = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets gCost of the item
+        /// </summary>
+        public int GCost
+        {
+            get
+            {
+                return this.gCost;
+            }
+
+            set
+            {
+                this.gCost = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets hCost of the item
+        /// </summary>
+        public int HCost
+        {
+            get
+            {
+                return this.hCost;
+            }
+
+            set
+            {
+                this.hCost = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets parent of the item
+        /// </summary>
+        public MapItem Parent
+        {
+            get
+            {
+                return this.parent;
+            }
+
+            set
+            {
+                this.parent = value;
+            }
+        }
+
+        /// <summary>
+        /// Checks if the two items aren't equals
+        /// </summary>
+        /// <param name="m1">First Item to compare</param>
+        /// <param name="m2">Second Item to compare</param>
+        /// <returns>Returns true if the objects aren't equals</returns>
+        public static bool operator !=(MapItem m1, MapItem m2)
+        {
+            return m1.X != m2.X || m1.Y != m2.Y;
+        }
+
+        /// <summary>
+        /// Checks if the two items are euqals
+        /// </summary>
+        /// <param name="m1">First Item to compare</param>
+        /// <param name="m2">Second Item to compare</param>
+        /// <returns>Returns true if the objects are equals</returns>
+        public static bool operator ==(MapItem m1, MapItem m2)
+        {
+            return m1.X == m2.X && m1.Y == m2.Y;
+        }
+
+        /// <summary>
+        /// Checks if the first item is smaller than the second
+        /// </summary>
+        /// <param name="m1">First Item to compare</param>
+        /// <param name="m2">Second Item to compare</param>
+        /// <returns>Returns true if the first object is smaller than the second</returns>
+        public static bool operator <(MapItem m1, MapItem m2)
+        {
+            if (m1.Y < m2.Y)
+            {
+                return true;
+            }
+            else if (m1.X < m2.X)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Checks if the first item is larger than the second
+        /// </summary>
+        /// <param name="m1">First Item to compare</param>
+        /// <param name="m2">Second Item to compare</param>
+        /// <returns>Returns true if the first object is larger than the second</returns>
+        public static bool operator >(MapItem m1, MapItem m2)
+        {
+            if (m1.Y > m2.Y)
+            {
+                return true;
+            }
+            else if (m1.X > m2.X)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -77,21 +222,26 @@ namespace HYYBLO_prog3
             return new Rect(x, y, cell, cell);
         }
 
-        public virtual int CompareTo(MapItem obj)
+        /// <summary>
+        /// Compares the object to the parameter
+        /// </summary>
+        /// <param name="other">Object to be compared to</param>
+        /// <returns>Returns -1 if the object is smaller, returns 1 if the object is bigger, otherwise returns 0</returns>
+        public virtual int CompareTo(MapItem other)
         {
-            if(obj.Y > this.Y)
+            if (other.Y > this.Y)
             {
                 return -1;
             }
-            else if (obj.Y < this.Y)
+            else if (other.Y < this.Y)
             {
                 return 1;
             }
-            else if (obj.X > this.X)
+            else if (other.X > this.X)
             {
                 return -1;
             }
-            else if (obj.X < this.X)
+            else if (other.X < this.X)
             {
                 return 1;
             }
@@ -101,33 +251,23 @@ namespace HYYBLO_prog3
             }
         }
 
-        public int fCost
+        /// <summary>
+        /// Checks if the other item is equal to this
+        /// </summary>
+        /// <param name="o">other item</param>
+        /// <returns>Returns true if the coordinates are equal</returns>
+        public override bool Equals(object o)
         {
-            get
-            {
-                return gCost + hCost;
-            }
+            return this.X == ((MapItem)o).X && this.Y == ((MapItem)o).Y;
         }
 
         /// <summary>
-        /// Constructor of MapItem
+        /// The hash code of the item
         /// </summary>
-        /// <param name="_x">X coordinate of the item</param>
-        /// <param name="_y">Y coordinate of the item</param>
-        public MapItem(int _x, int _y)
+        /// <returns>Returns the hash code</returns>
+        public override int GetHashCode()
         {
-            this.X = _x;
-            this.Y = _y;
-
+            return base.GetHashCode();
         }
     }
-
-    public class Sign : MapItem
-    {
-        public Sign(int _x, int _y) : base(_x, _y)
-        {
-            Image = new System.Windows.Media.Imaging.BitmapImage(new Uri("D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/sign.png"));
-        }
-    }
-
 }

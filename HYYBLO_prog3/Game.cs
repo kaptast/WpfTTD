@@ -1,39 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HYYBLO_prog3
+﻿//-----------------------------------------------------------------------
+// <copyright file="Game.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+// <author>HYYBLO</author>
+//-----------------------------------------------------------------------
+namespace Hyyblo_Model
 {
     /// <summary>
     /// Game object, contains the current game's values
     /// </summary>
-    class Game
+    public class Game
     {
-        Map map; //Map of the game
+        private Map map; // Map of the game
 
         /// <summary>
-        /// Constructor of the Game
+        /// Initializes a new instance of the <see cref="Game"/> class.
         /// </summary>
         public Game()
         {
-            map = new Map(40, 40);
+            this.map = new Map(40);
         }
 
         /// <summary>
-        /// Map of the game
+        /// Gets or sets map of the game
         /// </summary>
         public Map Map
         {
             get
             {
-                return map;
+                return this.map;
             }
 
             set
             {
-                map = value;
+                this.map = value;
             }
         }
     }

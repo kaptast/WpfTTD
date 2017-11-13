@@ -1,11 +1,11 @@
-﻿<Window x:Class="HYYBLO_prog3.MainWindow"
+﻿<Window x:Class="Hyyblo_View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HYYBLO_prog3"
         mc:Ignorable="d"
-        Title="WpfTTD" Height="600" Width="800" Loaded="Window_Loaded"
+        Title="WpfTTD" Height="600" Width="800"
         Background="WhiteSmoke"
         Icon="icon.ico" MouseWheel="Window_MouseWheel">
     <Grid>
@@ -18,16 +18,16 @@
         <UserControl Name="PlayArea" Grid.Row="1"/> <!-- A játékteret rajzoljuk ki mindig legalulra -->
 
         <Menu Grid.Row="0" Background="Transparent">
-            <Button Name="btnRoad" Height="40" Width="40" Click="btnRoad_Click">
+            <Button Name="btnRoad" Height="40" Width="40" Click="BtnRoad_Click">
                 <Image Source="/Images/road.png" />
             </Button>
-            <Button Name="btnWarehouse" Height="40" Width="40" Click="btnWarehouse_Click">
+            <Button Name="btnWarehouse" Height="40" Width="40" Click="BtnWarehouse_Click">
                 <Image Source="/Images/Buildings/warehouse.png" />
             </Button>
-            <Button Name="btnDelete" Height="40" Width="40" Click="btnDelete_Click">
+            <Button Name="btnDelete" Height="40" Width="40" Click="BtnDelete_Click">
                 <Image Source="/Images/delete.png" />
             </Button>
-            <Button Name="btnVehicle" Height="40" Width="40" Click="btnVehicle_Click">
+            <Button Name="btnVehicle" Height="40" Width="40" Click="BtnVehicle_Click">
                 <Image Source="/Images/truck.png" />
             </Button>
         </Menu>

@@ -1,12 +1,27 @@
-﻿using System;
-
-namespace HYYBLO_prog3
+﻿//-----------------------------------------------------------------------
+// <copyright file="Grass.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+// <author>HYYBLO</author>
+//-----------------------------------------------------------------------
+namespace Hyyblo_Model
 {
-    class Grass : MapItem
+    using System;
+
+    /// <summary>
+    /// Grass item
+    /// </summary>
+    public class Grass : MapItem
     {
-        public Grass(int _x, int _y) : base(_x, _y)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Grass"/> class.
+        /// </summary>
+        /// <param name="x">X coordinate of the item</param>
+        /// <param name="y">Y coordinate of the item</param>
+        public Grass(int x, int y)
+            : base(x, y)
         {
-            Image = new System.Windows.Media.Imaging.BitmapImage(new Uri(GameView.GetImage("Images/grass_sm.png")));
+            this.Image = new System.Windows.Media.Imaging.BitmapImage(new Uri(GameView.GetImage("Images/grass_sm.png")));
         }
     }
 }

@@ -1,0 +1,854 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hyyblo_Prog3</name>
+    </assembly>
+    <members>
+        <member name="T:Hyyblo_Model.Camera">
+            <summary>
+            A camera which represents the field of view
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Camera.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.Camera"/> class.
+            </summary>
+            <param name="x">X coordinate of the camera</param>
+            <param name="y">Y coordinate of the camera</param>
+        </member>
+        <member name="P:Hyyblo_Model.Camera.X">
+            <summary>
+            Gets or sets the X coordinate of the camera
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Camera.Y">
+            <summary>
+            Gets or sets Y coordinate of the camera
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Camera.SetDir(Hyyblo_Model.Direction)">
+            <summary>
+            Changes the direction of the camera's movement
+            </summary>
+            <param name="dir">Requested direction of the camera</param>
+        </member>
+        <member name="M:Hyyblo_Model.Camera.Reset">
+            <summary>
+            Resets the camera to the (0,0) coordinate
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Camera.ChangeState(System.Boolean)">
+            <summary>
+            Changes whether the camera should move or not
+            </summary>
+            <param name="state">The state whether the camera moves or not</param>
+        </member>
+        <member name="M:Hyyblo_Model.Camera.Turn(System.Int32)">
+            <summary>
+            Moves the camera every frame
+            </summary>
+            <param name="step">Step size of the requested movement</param>
+        </member>
+        <member name="M:Hyyblo_Model.Camera.Move(Hyyblo_Model.Direction,System.Int32)">
+            <summary>
+            Moves the camera to the specified direction
+            </summary>
+            <param name="direction">Direction of the requested movement</param>
+            <param name="step">Step size of the requested movement</param>
+        </member>
+        <member name="T:Hyyblo_Model.Direction">
+            <summary>
+            Represents a direction
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Direction.Up">
+            <summary>
+            Represents the up direction
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Direction.Right">
+            <summary>
+            Represents the right direction
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Direction.Down">
+            <summary>
+            Represents the down direction
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Direction.Left">
+            <summary>
+            Represents the left direction
+            </summary>
+        </member>
+        <member name="T:Hyyblo_Model.Pathfinding">
+            <summary>
+            Pathfinding utility class
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Pathfinding.#ctor(Hyyblo_Model.Map)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.Pathfinding"/> class.
+            </summary>
+            <param name="m">Map ot the game</param>
+        </member>
+        <member name="M:Hyyblo_Model.Pathfinding.FindPath(Hyyblo_Model.MapItem,Hyyblo_Model.MapItem)">
+            <summary>
+            Finds a path between the points on the map
+            </summary>
+            <param name="startPos">Starting position of the path</param>
+            <param name="targetPos">Final target of the path</param>
+            <returns>List of the path's items</returns>
+        </member>
+        <member name="M:Hyyblo_Model.Pathfinding.RetracePath(Hyyblo_Model.MapItem,Hyyblo_Model.MapItem)">
+            <summary>
+            Builds the path from the item's parents set in the findPath method
+            </summary>
+            <param name="startNode">Starting position of the path</param>
+            <param name="endNode">Final target of the path</param>
+            <returns>List of the path's items</returns>
+        </member>
+        <member name="T:Hyyblo_Model.Road">
+            <summary>
+            Represent a Road tile
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Road.#ctor(System.Int32,System.Int32,Hyyblo_Model.Map)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.Road"/> class.
+            </summary>
+            <param name="x">X coordinate of the road</param>
+            <param name="y">Y coordinate of the road</param>
+            <param name="map">Map of the game</param>
+        </member>
+        <member name="M:Hyyblo_Model.Road.RoadChanged(System.Object,System.EventArgs)">
+            <summary>
+            Callback for the event, changes the images by the number of neighbouring road tiles
+            </summary>
+            <param name="sender">Sender of the event</param>
+            <param name="e">Arguments of the event</param>
+        </member>
+        <member name="M:Hyyblo_Model.Road.CheckNeighbours">
+            <summary>
+            Checks the neighbouring road tiles
+            </summary>
+            <returns>Returns a number between 0 and 15 according to the number of neighbouring roads</returns>
+        </member>
+        <member name="T:Hyyblo_Model.Vehicle">
+            <summary>
+            Represents a moving vehicle
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Vehicle.#ctor(System.Int32,System.Int32,Hyyblo_Model.Map)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.Vehicle"/> class.
+            </summary>
+            <param name="x">X coordinate of the vehicle</param>
+            <param name="y">Y coordinate of the vehicle</param>
+            <param name="map">Map of the game</param>
+        </member>
+        <member name="P:Hyyblo_Model.Vehicle.Image">
+            <summary>
+            Gets the image of the vehicle
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Vehicle.Target">
+            <summary>
+            Gets or sets the target to the vehicle where it has to move
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Vehicle.Update">
+            <summary>
+            Updates the vehicle every frame
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Vehicle.ToString">
+            <summary>
+            Returns a string with the vehicle's data
+            </summary>
+            <returns>A string with the data of the vehicle</returns>
+        </member>
+        <member name="M:Hyyblo_Model.Vehicle.Move">
+            <summary>
+            Moves the vehiche to it's destination, changes direction and target if the target is reached
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Vehicle.ReachedWaypoint">
+            <summary>
+            Checks if the waypoint is reached or not
+            </summary>
+            <returns>Returns true if the waypoint is reached</returns>
+        </member>
+        <member name="M:Hyyblo_Model.Vehicle.MoveVehicle">
+            <summary>
+            Moves the vehicles according to it's direction
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Vehicle.SearchTarget(Hyyblo_Model.Map)">
+            <summary>
+            Searches a warehouse on the map
+            </summary>
+            <param name="map">Map of the game</param>
+            <returns>A found warehouse</returns>
+        </member>
+        <member name="M:Hyyblo_Model.Vehicle.ChangeDirection">
+            <summary>
+            Changes the vehicle's direction according to it's target
+            </summary>
+        </member>
+        <member name="T:Hyyblo_Model.Warehouse">
+            <summary>
+            Wrapper class for a warehouse
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Warehouse.#ctor(System.Int32,System.Int32,Hyyblo_Model.Map)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.Warehouse"/> class.
+            </summary>
+            <param name="x">X coordinate of the warehouse</param>
+            <param name="y">Y coordinate of the warehouse</param>
+            <param name="map">Map where the warehouse is placed</param>
+        </member>
+        <member name="T:Hyyblo_Model.WarehouseBuilding">
+            <summary>
+            Represents the building of the Warehouse
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.WarehouseBuilding.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.WarehouseBuilding"/> class.
+            </summary>
+            <param name="x">X coordinate of the building</param>
+            <param name="y">Y coordinate of the building</param>
+        </member>
+        <member name="T:Hyyblo_Model.WarehouseLot12">
+            <summary>
+            Represents a parking lot of the Warehouse
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.WarehouseLot12.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.WarehouseLot12"/> class.
+            </summary>
+            <param name="x">X coordinate of the lot</param>
+            <param name="y">Y coordinate of the lot</param>
+        </member>
+        <member name="T:Hyyblo_Model.WarehouseLot21">
+            <summary>
+            Represents a parking lot of the Warehouse
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.WarehouseLot21.#ctor(System.Int32,System.Int32,Hyyblo_Model.Map)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.WarehouseLot21"/> class.
+            </summary>
+            <param name="x">X coordinate of the lot</param>
+            <param name="y">Y coordinate of the lot</param>
+            <param name="map">Map of the game</param>
+        </member>
+        <member name="M:Hyyblo_Model.WarehouseLot21.RoadChanged(System.Object,System.EventArgs)">
+            <summary>
+            Overrides the Road's function, it doesn't change the image
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the event</param>
+        </member>
+        <member name="T:Hyyblo_Model.WarehouseLot22">
+            <summary>
+            Represents a parking lot of the Warehouse
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.WarehouseLot22.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.WarehouseLot22"/> class.
+            </summary>
+            <param name="x">X coordinate of the lot</param>
+            <param name="y">Y coordinate of the lot</param>
+        </member>
+        <member name="T:Hyyblo_Model.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+        </member>
+        <member name="T:Hyyblo_Model.Building">
+            <summary>
+            Abstract class of the Building
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Building.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.Building"/> class.
+            </summary>
+            <param name="x">X coordinate of the building</param>
+            <param name="y">Y coordinate of the building</param>
+        </member>
+        <member name="T:Hyyblo_Model.Game">
+            <summary>
+            Game object, contains the current game's values
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Game.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.Game"/> class.
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Game.Map">
+            <summary>
+            Gets or sets map of the game
+            </summary>
+        </member>
+        <member name="T:Hyyblo_Model.GameView">
+            <summary>
+            Visual representation of the game
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.GameView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.GameView"/> class.
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.GameView.RoadImages">
+            <summary>
+            Gets or sets the array with the images of the roads
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.GameView.GetImage(System.String)">
+            <summary>
+            Return the path of file in the current enviroment
+            </summary>
+            <param name="filename">Name of the file</param>
+            <returns>Full path of the file</returns>
+        </member>
+        <member name="M:Hyyblo_Model.GameView.GameView_KeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Handles key presses in the Game
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Key press parameters</param>
+        </member>
+        <member name="M:Hyyblo_Model.GameView.GameView_KeyUp(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Stops the camera movement if a button is lifted up
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Parameters of the keyboard event</param>
+        </member>
+        <member name="M:Hyyblo_Model.GameView.GameView_MouseLeftButtonDown(System.Windows.Input.MouseEventArgs,Hyyblo_View.BuildType)">
+            <summary>
+            Left click event, places a MapItem according to the Build type
+            </summary>
+            <param name="e">Parameters of the left click</param>
+            <param name="type">Type of the building</param>
+        </member>
+        <member name="M:Hyyblo_Model.GameView.ZoomIn">
+            <summary>
+            Zoom in the screen
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.GameView.ZoomOut">
+            <summary>
+            Zoom out the screen
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.GameView.ScreenToPoint(System.Double,System.Double)">
+            <summary>
+            Calculate map position from screen position
+            </summary>
+            <param name="x">X coordinate on the screen</param>
+            <param name="y">Y coordinate on the screen</param>
+            <returns>Point with the map coordinates</returns>
+        </member>
+        <member name="M:Hyyblo_Model.GameView.OnRender(System.Windows.Media.DrawingContext)">
+            <summary>
+            Redraws the view
+            </summary>
+            <param name="drawingContext">Drawer of the view</param>
+        </member>
+        <member name="M:Hyyblo_Model.GameView.OnWindowSizeChanged(System.Object,System.Windows.SizeChangedEventArgs)">
+            <summary>
+            Sets the width of the window in a paramter
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Parameters of the changed window</param>
+        </member>
+        <member name="M:Hyyblo_Model.GameView.TimerTick(System.Object,System.EventArgs)">
+            <summary>
+            Refresh event, redraws the screen
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Tick event parameters</param>
+        </member>
+        <member name="M:Hyyblo_Model.GameView.ViewLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event for starting the refresh timer
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Loaded event parameters</param>
+        </member>
+        <member name="M:Hyyblo_Model.GameView.RenderMap(System.Windows.Media.DrawingContext)">
+            <summary>
+            Draws the items of the map on the screen
+            </summary>
+            <param name="dc">Drawer of the view</param>
+        </member>
+        <member name="T:Hyyblo_Model.Grass">
+            <summary>
+            Grass item
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Grass.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.Grass"/> class.
+            </summary>
+            <param name="x">X coordinate of the item</param>
+            <param name="y">Y coordinate of the item</param>
+        </member>
+        <member name="T:Hyyblo_Model.House">
+            <summary>
+            Represents a house building
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.House.#ctor(System.Int32,System.Int32,System.Random)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.House"/> class.
+            </summary>
+            <param name="x">X coordinate of the house</param>
+            <param name="y">Y coordinate of the house</param>
+            <param name="r">Random generator</param>
+        </member>
+        <member name="M:Hyyblo_Model.House.GenerateRect(System.Double,System.Double,System.Int32)">
+            <summary>
+            Generates a rectangle for the house by the GameView's actual state
+            </summary>
+            <param name="x">X coordinate of the rect's top left corner</param>
+            <param name="y">Y coordinate of the rect's top left corner</param>
+            <param name="cell">Current cell size of the view</param>
+            <returns>A rect with the buildings size at the correct position</returns>
+        </member>
+        <member name="T:Hyyblo_Model.RoadPlacedEventHandler">
+            <summary>
+            Delegate for a placed road
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the road placing</param>
+        </member>
+        <member name="T:Hyyblo_Model.Map">
+            <summary>
+            Represents the map of the game
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Map.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.Map"/> class.
+            </summary>
+            <param name="size">Size of the map</param>
+        </member>
+        <member name="E:Hyyblo_Model.Map.RoadPlaced">
+            <summary>
+            Event for a placed road
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Map.MapContainer">
+            <summary>
+            Gets the Container of the MapItems in the Map
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Map.Vehicles">
+            <summary>
+            Gets or sets the Container of the Vehicles
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Map.Buildings">
+            <summary>
+            Gets or sets the Container of the Buildings
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Map.Size">
+            <summary>
+            Gets size of the map
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Map.Pathfinder">
+            <summary>
+            Gets or sets the Pathfinder of the map
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Map.RandomNormalDist(System.Double,System.Double,System.Int32,System.Double)">
+            <summary>
+            Generates a random number along a curve
+            https://stackoverflow.com/questions/18807812/adding-an-average-parameter-to-nets-random-next-to-curve-results
+            </summary>
+            <param name="min">Minimum random value</param>
+            <param name="max">Maximum random value</param>
+            <param name="tightness">Titghness of the value</param>
+            <param name="exp">Power of the random value</param>
+            <returns>Random number in range which gravitates towards the given value</returns>
+        </member>
+        <member name="M:Hyyblo_Model.Map.SetRoad(System.Int32,System.Int32)">
+            <summary>
+            Placed a road on the map
+            </summary>
+            <param name="x">X coordniate of the road</param>
+            <param name="y">Y coordniate of the road</param>
+        </member>
+        <member name="M:Hyyblo_Model.Map.SetWarehouse(System.Int32,System.Int32)">
+            <summary>
+            Places a Warehouse on the map
+            </summary>
+            <param name="x">X coordniate of the warehouse</param>
+            <param name="y">Y coordniate of the warehouse</param>
+        </member>
+        <member name="M:Hyyblo_Model.Map.SetDelete(System.Int32,System.Int32)">
+            <summary>
+            Deletes an item, and places a grass item in it's place
+            </summary>
+            <param name="x">X coordniate of the delete</param>
+            <param name="y">Y coordniate of the delete</param>
+        </member>
+        <member name="M:Hyyblo_Model.Map.RightCoord(System.Int32,System.Int32)">
+            <summary>
+            Checks if the requested coords are in the bounds
+            </summary>
+            <param name="x">Requested X coordinate</param>
+            <param name="y">Requested Y coordinate</param>
+            <returns>Returns true if the coordinates are in the bounds</returns>
+        </member>
+        <member name="M:Hyyblo_Model.Map.FireRoadPlaced(System.Object,System.EventArgs)">
+            <summary>
+            Fires the RoadPlaced event
+            </summary>
+            <param name="sender">Sender of the event</param>
+            <param name="e">Arguments of the event</param>
+        </member>
+        <member name="M:Hyyblo_Model.Map.GetItemByCoord(System.Double,System.Double)">
+            <summary>
+            Searches the item with the right coordinates
+            </summary>
+            <param name="x">X coordinate of the item</param>
+            <param name="y">Y coordinate of the item</param>
+            <returns>The item at the requested position</returns>
+        </member>
+        <member name="M:Hyyblo_Model.Map.AddVehicle(System.Int32,System.Int32)">
+            <summary>
+            Adds a vehicle at the position
+            </summary>
+            <param name="x">X coordinate of the vehicle</param>
+            <param name="y">Y coordinate of the vehicle</param>
+        </member>
+        <member name="M:Hyyblo_Model.Map.UpdateVehicles">
+            <summary>
+            Updates all vehicles on the map
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Map.GetNeighbours(Hyyblo_Model.MapItem)">
+            <summary>
+            Gets the neighbours of an item
+            </summary>
+            <param name="item">Item to search</param>
+            <returns>List with the neighbours</returns>
+        </member>
+        <member name="M:Hyyblo_Model.Map.GenerateMap(System.Int32,System.Int32)">
+            <summary>
+            Generates a map with the given size
+            </summary>
+            <param name="x">Width of the map</param>
+            <param name="y">Height of the map</param>
+        </member>
+        <member name="M:Hyyblo_Model.Map.GenerateTowns">
+            <summary>
+            Generates 5 to 10 towns
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Map.GenerateTown">
+            <summary>
+            Generates a town on the map at a random location
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Map.GenerateGrass(System.Int32,System.Int32)">
+            <summary>
+            Fills the map Grass tiles
+            </summary>
+            <param name="x">Width of the map</param>
+            <param name="y">Height of the map</param>
+        </member>
+        <member name="M:Hyyblo_Model.Map.GenerateBuildings(System.Int32,System.Int32)">
+            <summary>
+            Generates houses near the roads
+            </summary>
+            <param name="x">Width of the map</param>
+            <param name="y">Height of the map</param>
+        </member>
+        <member name="M:Hyyblo_Model.Map.GenHouse(System.Int32,System.Int32)">
+            <summary>
+            Generates a house at the given location with a 40% chance
+            </summary>
+            <param name="x">X coordinate of the house</param>
+            <param name="y">Y coordinate of the house</param>
+        </member>
+        <member name="M:Hyyblo_Model.Map.RoadIsNeighbour(System.Int32,System.Int32)">
+            <summary>
+            Checks if there is a neighbouring road
+            </summary>
+            <param name="x">X coordinate to check</param>
+            <param name="y">Y coordinate to check</param>
+            <returns>Returns true if there is a neighbouring road, and false if threre isn't</returns>
+        </member>
+        <member name="M:Hyyblo_Model.Map.GenerateRoad(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Generates road between two points
+            </summary>
+            <param name="x1">X coordinate of the first point</param>
+            <param name="y1">Y coordinate of the first point</param>
+            <param name="x2">X coordinate of the second point</param>
+            <param name="y2">Y coordinate of the second point</param>
+        </member>
+        <member name="T:Hyyblo_Model.MapItem">
+            <summary>
+            Abstract class for items in the map
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.MapItem.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.MapItem"/> class.
+            </summary>
+            <param name="x">X coordinate of the item</param>
+            <param name="y">Y coordinate of the item</param>
+        </member>
+        <member name="P:Hyyblo_Model.MapItem.X">
+            <summary>
+            Gets or sets x coordinate of the item
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.MapItem.Y">
+            <summary>
+            Gets or sets y coordinate of the item
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.MapItem.FCost">
+            <summary>
+            Gets image of the item
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.MapItem.Image">
+            <summary>
+            Gets or sets image of the item
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.MapItem.GCost">
+            <summary>
+            Gets or sets gCost of the item
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.MapItem.HCost">
+            <summary>
+            Gets or sets hCost of the item
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.MapItem.Parent">
+            <summary>
+            Gets or sets parent of the item
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.MapItem.op_Inequality(Hyyblo_Model.MapItem,Hyyblo_Model.MapItem)">
+            <summary>
+            Checks if the two items aren't equals
+            </summary>
+            <param name="m1">First Item to compare</param>
+            <param name="m2">Second Item to compare</param>
+            <returns>Returns true if the objects aren't equals</returns>
+        </member>
+        <member name="M:Hyyblo_Model.MapItem.op_Equality(Hyyblo_Model.MapItem,Hyyblo_Model.MapItem)">
+            <summary>
+            Checks if the two items are euqals
+            </summary>
+            <param name="m1">First Item to compare</param>
+            <param name="m2">Second Item to compare</param>
+            <returns>Returns true if the objects are equals</returns>
+        </member>
+        <member name="M:Hyyblo_Model.MapItem.op_LessThan(Hyyblo_Model.MapItem,Hyyblo_Model.MapItem)">
+            <summary>
+            Checks if the first item is smaller than the second
+            </summary>
+            <param name="m1">First Item to compare</param>
+            <param name="m2">Second Item to compare</param>
+            <returns>Returns true if the first object is smaller than the second</returns>
+        </member>
+        <member name="M:Hyyblo_Model.MapItem.op_GreaterThan(Hyyblo_Model.MapItem,Hyyblo_Model.MapItem)">
+            <summary>
+            Checks if the first item is larger than the second
+            </summary>
+            <param name="m1">First Item to compare</param>
+            <param name="m2">Second Item to compare</param>
+            <returns>Returns true if the first object is larger than the second</returns>
+        </member>
+        <member name="M:Hyyblo_Model.MapItem.GenerateRect(System.Double,System.Double,System.Int32)">
+            <summary>
+            Generates a rectangle where the image will be rendered
+            </summary>
+            <param name="x">Screen X coordinate of the Rectangle</param>
+            <param name="y">Screen Y coordinate of the Rectangle</param>
+            <param name="cell">Height and width of the Rectangle</param>
+            <returns>Rectangel with the parameters</returns>
+        </member>
+        <member name="M:Hyyblo_Model.MapItem.CompareTo(Hyyblo_Model.MapItem)">
+            <summary>
+            Compares the object to the parameter
+            </summary>
+            <param name="other">Object to be compared to</param>
+            <returns>Returns -1 if the object is smaller, returns 1 if the object is bigger, otherwise returns 0</returns>
+        </member>
+        <member name="M:Hyyblo_Model.MapItem.Equals(System.Object)">
+            <summary>
+            Checks if the other item is equal to this
+            </summary>
+            <param name="o">other item</param>
+            <returns>Returns true if the coordinates are equal</returns>
+        </member>
+        <member name="M:Hyyblo_Model.MapItem.GetHashCode">
+            <summary>
+            The hash code of the item
+            </summary>
+            <returns>Returns the hash code</returns>
+        </member>
+        <member name="T:Hyyblo_Model.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:Hyyblo_View.BuildType">
+            <summary>
+            Enum for different build types
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.BuildType.Nothing">
+            <summary>
+            No type selected
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.BuildType.Road">
+            <summary>
+            Road type
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.BuildType.Warehouse">
+            <summary>
+            Warehouse type
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.BuildType.Delete">
+            <summary>
+            Deleting selected
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.BuildType.Park">
+            <summary>
+            Park type
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.BuildType.Vehicle">
+            <summary>
+            Vehicle type
+            </summary>
+        </member>
+        <member name="T:Hyyblo_View.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:Hyyblo_View.MainWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_View.MainWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:Hyyblo_View.MainWindow.MainWindow_MouseLeftButtonDown(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Callback function for a left mouse click, calls the View's GameView_MouseLeftButtonDown function
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the left click</param>
+        </member>
+        <member name="M:Hyyblo_View.MainWindow.MainWindow_KeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Callback function for a keypress, calls the View's GameView_KeyDown function
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the keypress</param>
+        </member>
+        <member name="M:Hyyblo_View.MainWindow.MainWindow_KeyUp(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Callback function for a keylift, calls the View's GameView_KeyUp function, which stops the camera movement
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the key lift</param>
+        </member>
+        <member name="M:Hyyblo_View.MainWindow.Window_MouseWheel(System.Object,System.Windows.Input.MouseWheelEventArgs)">
+            <summary>
+            Zooms in or out the view according to the mouse wheel's delta in the event for using the mouse wheel
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Argument of the mouse wheel event</param>
+        </member>
+        <member name="M:Hyyblo_View.MainWindow.BtnRoad_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Callback function for a menubar click, sets the current build type to Road
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the button click</param>
+        </member>
+        <member name="M:Hyyblo_View.MainWindow.BtnDelete_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Callback function for a menubar click, sets the current build type to delete
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the button click</param>
+        </member>
+        <member name="M:Hyyblo_View.MainWindow.BtnVehicle_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Callback function for a menubar click, sets the current build type to Vehicle
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the button click</param>
+        </member>
+        <member name="M:Hyyblo_View.MainWindow.BtnWarehouse_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Callback function for a menubar click, sets the current build type to Warehouse
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the button click</param>
+        </member>
+        <member name="M:Hyyblo_View.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:HYYBLO_prog3.App">
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:HYYBLO_prog3.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:HYYBLO_prog3.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+    </members>
+</doc>

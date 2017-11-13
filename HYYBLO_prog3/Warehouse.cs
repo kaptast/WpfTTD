@@ -1,69 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-
-namespace HYYBLO_prog3
+﻿//-----------------------------------------------------------------------
+// <copyright file="Warehouse.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+// <author>HYYBLO</author>
+//-----------------------------------------------------------------------
+namespace Hyyblo_Model
 {
-    class Warehouse
+    /// <summary>
+    /// Wrapper class for a warehouse
+    /// </summary>
+    public class Warehouse
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Warehouse"/> class.
+        /// </summary>
+        /// <param name="x">X coordinate of the warehouse</param>
+        /// <param name="y">Y coordinate of the warehouse</param>
+        /// <param name="map">Map where the warehouse is placed</param>
         public Warehouse(int x, int y, Map map)
         {
-            //Image = new System.Windows.Media.Imaging.BitmapImage(new Uri("D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Images/Buildings/warehouse.png"));
             MapItem item = map.GetItemByCoord(x, y);
-            map.map.Remove(item);
-            map.map.Add(new WarehouseBuilding(x, y));
+            map.MapContainer.Remove(item);
+            map.MapContainer.Add(new WarehouseBuilding(x, y));
 
             item = map.GetItemByCoord(x, y + 1);
-            map.map.Remove(item);
-            map.map.Add(new WarehouseLot12(x, y + 1));
+            map.MapContainer.Remove(item);
+            map.MapContainer.Add(new WarehouseLot12(x, y + 1));
 
             item = map.GetItemByCoord(x + 1, y);
-            map.map.Remove(item);
-            map.map.Add(new WarehouseLot21(x + 1, y, map));
+            map.MapContainer.Remove(item);
+            map.MapContainer.Add(new WarehouseLot21(x + 1, y, map));
 
             item = map.GetItemByCoord(x + 1, y + 1);
-            map.map.Remove(item);
-            map.map.Add(new WarehouseLot22(x + 1, y + 1));
-        }
-    }
-
-    class WarehouseBuilding : Building
-    {
-        public WarehouseBuilding(int x, int y) : base(x, y)
-        {
-            Image = new System.Windows.Media.Imaging.BitmapImage(new Uri(GameView.GetImage("Images/Buildings/warehouse.png")));
-        }
-    }
-
-    class WarehouseLot12 : Building
-    {
-        public WarehouseLot12(int x, int y) : base(x, y)
-        {
-            Image = new System.Windows.Media.Imaging.BitmapImage(new Uri(GameView.GetImage("Images/Buildings/warehouse12.png")));
-        }
-    }
-
-    class WarehouseLot21 : Road
-    {
-        public WarehouseLot21(int x, int y, Map map) : base(x, y, map)
-        {
-            Image = new System.Windows.Media.Imaging.BitmapImage(new Uri(GameView.GetImage("Images/Buildings/warehouse21.png")));
-        }
-
-        protected override void RoadChanged()
-        {
-            //Do nothing
-        }
-    }
-
-    class WarehouseLot22 : Building
-    {
-        public WarehouseLot22(int x, int y) : base(x, y)
-        {
-            Image = new System.Windows.Media.Imaging.BitmapImage(new Uri(GameView.GetImage("Images/Buildings/warehouse22.png")));
+            map.MapContainer.Remove(item);
+            map.MapContainer.Add(new WarehouseLot22(x + 1, y + 1));
         }
     }
 }

@@ -1,106 +1,122 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HYYBLO_prog3
+﻿//-----------------------------------------------------------------------
+// <copyright file="Camera.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+// <author>HYYBLO</author>
+//-----------------------------------------------------------------------
+namespace Hyyblo_Model
 {
     /// <summary>
     /// A camera which represents the field of view
     /// </summary>
-    class Camera
+    public class Camera
     {
-        int x, y; //x and y coordinates of the camera
-        Direction dir;
-        bool pressed = false;
+        private int x; // x coordinate of the camera
+        private int y; // y coordinate of the camera
+        private Direction dir;
+        private bool pressed = false;
 
         /// <summary>
-        /// Constructor for the Camera
+        /// Initializes a new instance of the <see cref="Camera"/> class.
         /// </summary>
-        /// <param name="_x">X coordinate of the camera</param>
-        /// <param name="_y">Y coordinate of the camera</param>
-        public Camera(int _x, int _y)
+        /// <param name="x">X coordinate of the camera</param>
+        /// <param name="y">Y coordinate of the camera</param>
+        public Camera(int x, int y)
         {
-            X = _x;
-            Y = _y;
+            this.X = x;
+            this.Y = y;
         }
 
         /// <summary>
-        /// X coordinate of the camera
+        /// Gets or sets the X coordinate of the camera
         /// </summary>
         public int X
         {
             get
             {
-                return x;
+                return this.x;
             }
 
             set
             {
-                x = value;
+                this.x = value;
             }
         }
 
         /// <summary>
-        /// Y coordinate of the camera
+        /// Gets or sets Y coordinate of the camera
         /// </summary>
         public int Y
         {
             get
             {
-                return y;
+                return this.y;
             }
 
             set
             {
-                y = value;
+                this.y = value;
             }
         }
 
+        /// <summary>
+        /// Changes the direction of the camera's movement
+        /// </summary>
+        /// <param name="dir">Requested direction of the camera</param>
         public void SetDir(Direction dir)
         {
             this.dir = dir;
         }
 
+        /// <summary>
+        /// Resets the camera to the (0,0) coordinate
+        /// </summary>
         public void Reset()
         {
-            x = 0;
-            y = 0;
+            this.X = 0;
+            this.Y = 0;
         }
 
+        /// <summary>
+        /// Changes whether the camera should move or not
+        /// </summary>
+        /// <param name="state">The state whether the camera moves or not</param>
         public void ChangeState(bool state)
         {
-            pressed = state;
+            this.pressed = state;
         }
 
+        /// <summary>
+        /// Moves the camera every frame
+        /// </summary>
+        /// <param name="step">Step size of the requested movement</param>
         public void Turn(int step)
         {
-            Move(dir, step);
+            this.Move(this.dir, step);
         }
 
         /// <summary>
         /// Moves the camera to the specified direction
         /// </summary>
-        /// <param name="dir">Direction of the requested movement</param>
+        /// <param name="direction">Direction of the requested movement</param>
         /// <param name="step">Step size of the requested movement</param>
         public void Move(Direction direction, int step)
         {
-            if (pressed)
+            if (this.pressed)
             {
                 switch (direction)
                 {
                     case Direction.Up:
-                        y -= step / 3;
+                        this.Y -= step / 3;
                         break;
                     case Direction.Down:
-                        y += step / 3;
+                        this.Y += step / 3;
                         break;
                     case Direction.Right:
-                        x += step / 3;
+                        this.X += step / 3;
                         break;
                     case Direction.Left:
-                        x -= step / 3;
+                        this.X -= step / 3;
                         break;
                 }
             }

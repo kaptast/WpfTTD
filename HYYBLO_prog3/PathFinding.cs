@@ -1,20 +1,36 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System;
-
-namespace HYYBLO_prog3
+﻿//-----------------------------------------------------------------------
+// <copyright file="PathFinding.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+// <author>HYYBLO</author>
+//-----------------------------------------------------------------------
+namespace Hyyblo_Model
 {
+    using System;
+    using System.Collections.Generic;
+
+    /// <summary>
+    /// Pathfinding utility class
+    /// </summary>
     public class Pathfinding
     {
-        public MapItem seeker, target;
-        Map map;
+        private Map map;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Pathfinding"/> class.
+        /// </summary>
+        /// <param name="m">Map ot the game</param>
         public Pathfinding(Map m)
         {
-            map = m;
+            this.map = m;
         }
 
+        /// <summary>
+        /// Finds a path between the points on the map
+        /// </summary>
+        /// <param name="startPos">Starting position of the path</param>
+        /// <param name="targetPos">Final target of the path</param>
+        /// <returns>List of the path's items</returns>
         public List<MapItem> FindPath(MapItem startPos, MapItem targetPos)
         {
             MapItem startNode = startPos;
@@ -31,10 +47,12 @@ namespace HYYBLO_prog3
                 MapItem node = openSet[0];
                 for (int i = 1; i < openSet.Count; i++)
                 {
-                    if (openSet[i].fCost < node.fCost || openSet[i].fCost == node.fCost)
+                    if (openSet[i].FCost < node.FCost || openSet[i].FCost == node.FCost)
                     {
-                        if (openSet[i].hCost < node.hCost)
+                        if (openSet[i].HCost < node.HCost)
+                        {
                             node = openSet[i];
+                        }
                     }
                 }
 
@@ -47,33 +65,43 @@ namespace HYYBLO_prog3
                     break;
                 }
 
-                foreach (MapItem neighbour in map.GetNeighbours(node))
+                foreach (MapItem neighbour in this.map.GetNeighbours(node))
                 {
                     if (!(neighbour is Road) || closedSet.Contains(neighbour))
                     {
                         continue;
                     }
 
-                    int newCostToNeighbour = node.gCost + GetDistance(node, neighbour);
-                    if (newCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
+                    int newCostToNeighbour = node.GCost + 1;
+                    if (newCostToNeighbour < neighbour.GCost || !openSet.Contains(neighbour))
                     {
-                        neighbour.gCost = newCostToNeighbour;
-                        neighbour.hCost = GetDistance(neighbour, targetNode);
-                        neighbour.parent = node;
+                        neighbour.GCost = newCostToNeighbour;
+                        neighbour.HCost = 1;
+                        neighbour.Parent = node;
 
                         if (!openSet.Contains(neighbour))
+                        {
                             openSet.Add(neighbour);
+                        }
                     }
                 }
             }
+
             if (pathSuccess)
             {
-                return RetracePath(startNode, targetNode);
+                return this.RetracePath(startNode, targetNode);
             }
+
             return null;
         }
 
-        List<MapItem> RetracePath(MapItem startNode, MapItem endNode)
+        /// <summary>
+        /// Builds the path from the item's parents set in the findPath method
+        /// </summary>
+        /// <param name="startNode">Starting position of the path</param>
+        /// <param name="endNode">Final target of the path</param>
+        /// <returns>List of the path's items</returns>
+        private List<MapItem> RetracePath(MapItem startNode, MapItem endNode)
         {
             List<MapItem> path = new List<MapItem>();
             MapItem currentNode = endNode;
@@ -81,21 +109,11 @@ namespace HYYBLO_prog3
             while (currentNode != startNode)
             {
                 path.Add(currentNode);
-                currentNode = currentNode.parent;
+                currentNode = currentNode.Parent;
             }
+
             path.Reverse();
             return path;
-
-        }
-
-        int GetDistance(MapItem nodeA, MapItem nodeB)
-        {
-            int dstX = Math.Abs((int)(nodeA.X - nodeB.X));
-            int dstY = Math.Abs((int)(nodeA.Y - nodeB.Y));
-
-            if (dstX > dstY)
-                return 14 * dstY + 10 * (dstX - dstY);
-            return 14 * dstX + 10 * (dstY - dstX);
         }
     }
 }

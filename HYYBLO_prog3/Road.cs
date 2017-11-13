@@ -1,55 +1,67 @@
-﻿using System;
-
-namespace HYYBLO_prog3
+﻿//-----------------------------------------------------------------------
+// <copyright file="Road.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+// <author>HYYBLO</author>
+//-----------------------------------------------------------------------
+namespace Hyyblo_Model
 {
-    class Road : MapItem
+    using System;
+
+    /// <summary>
+    /// Represent a Road tile
+    /// </summary>
+    public class Road : MapItem
     {
-        Map map;
-        int imageNum = 0;
-        public Road(int x, int y, Map _map) : base(x, y)
+        private Map map;
+        private int imageNum = 0;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Road"/> class.
+        /// </summary>
+        /// <param name="x">X coordinate of the road</param>
+        /// <param name="y">Y coordinate of the road</param>
+        /// <param name="map">Map of the game</param>
+        public Road(int x, int y, Map map)
+            : base(x, y)
         {
-            map = _map;
-            Image = GameView.RoadImages[0];
-            map.roadPlaced += this.RoadChanged;
+            this.map = map;
+            this.Image = GameView.RoadImages[0];
+            this.map.RoadPlaced += this.RoadChanged;
         }
 
-        protected virtual void RoadChanged()
+        /// <summary>
+        /// Callback for the event, changes the images by the number of neighbouring road tiles
+        /// </summary>
+        /// <param name="sender">Sender of the event</param>
+        /// <param name="e">Arguments of the event</param>
+        protected virtual void RoadChanged(object sender, EventArgs e)
         {
-            int neighbours = CheckNeighbours();
-            if(imageNum != neighbours)
+            int neighbours = this.CheckNeighbours();
+            if (this.imageNum != neighbours)
             {
-                imageNum = neighbours;
-                Image = GameView.RoadImages[neighbours];
+                this.imageNum = neighbours;
+                this.Image = GameView.RoadImages[neighbours];
             }
         }
 
-        int CheckNeighbours()
+        /// <summary>
+        /// Checks the neighbouring road tiles
+        /// </summary>
+        /// <returns>Returns a number between 0 and 15 according to the number of neighbouring roads</returns>
+        private int CheckNeighbours()
         {
             int d = 0;
             int c = 0;
             int b = 0;
             int a = 0;
 
-            if(X >= 0  && X < map.size && Y >= 1 && Y < map.size)
-            {
-                d = (map.GetItemByCoord((int)X,(int)Y - 1) is Road) ? 1 : 0;
-            }
+            d = (this.map.GetItemByCoord((int)this.X, (int)this.Y - 1) is Road) ? 1 : 0;
+            c = (this.map.GetItemByCoord((int)this.X + 1, (int)this.Y) is Road) ? 1 : 0;
+            b = (this.map.GetItemByCoord((int)this.X, (int)this.Y + 1) is Road) ? 1 : 0;
+            a = (this.map.GetItemByCoord((int)this.X - 1, (int)this.Y) is Road) ? 1 : 0;
 
-            if (X >= 0 && X < map.size - 1 && Y >= 0 && Y < map.size)
-            {
-                c = (map.GetItemByCoord((int)X + 1, (int)Y) is Road) ? 1 : 0;
-            }
-
-            if (X >= 0 && X < map.size && Y >= 0 && Y < map.size - 1)
-            {
-                b = (map.GetItemByCoord((int)X, (int)Y + 1) is Road) ? 1 : 0;
-            }
-
-            if (X >= 1 && X < map.size && Y >= 0 && Y < map.size)
-            {
-                a = (map.GetItemByCoord((int)X - 1, (int)Y) is Road) ? 1 : 0;
-            }
-            return 8 * d + 4 * c + 2 * b + 1 * a;
+            return (8 * d) + (4 * c) + (2 * b) + (1 * a);
         }
     }
 }

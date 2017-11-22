@@ -269,11 +269,6 @@ namespace Hyyblo_Model
         /// <returns>Returns true if the coordinates are equal</returns>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
-
             MapItem tmp = (MapItem)obj;
 
             return this.X == tmp.X && this.Y == tmp.Y;

@@ -40,6 +40,4 @@ C:\Users\hallgató\Documents\Visual Studio 2015\Projects\ttd\HYYBLO_prog3\obj\De
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\bin\Debug\HYYBLO_prog3.XML
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Debug\MainWindow.g.cs
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Debug\MainWindow.baml
-D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\bin\Debug\Hyyblo_Prog3.exe.CodeAnalysisLog.xml
-D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\bin\Debug\Hyyblo_Prog3.exe.lastcodeanalysissucceeded
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Debug\HYYBLO_prog3.csprojResolveAssemblyReference.cache

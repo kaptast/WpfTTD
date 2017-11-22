@@ -11,7 +11,7 @@ namespace Hyyblo_Model
     /// <summary>
     /// Grass item
     /// </summary>
-    public class Grass : MapItem
+    public sealed class Grass : MapItem
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Grass"/> class.

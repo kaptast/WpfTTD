@@ -13,7 +13,7 @@ namespace Hyyblo_Model
     /// <summary>
     /// Abstract class for items in the map
     /// </summary>
-    public class MapItem : IComparable<MapItem>
+    public abstract class MapItem : IComparable<MapItem>
     {
         /// <summary>
         /// X coordinate of the item
@@ -41,23 +41,23 @@ namespace Hyyblo_Model
         private MapItem parent;
 
         /// <summary>
-        /// Image for the item which is displayed on the screen
-        /// </summary>
-        private BitmapImage image;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="MapItem"/> class.
         /// </summary>
         /// <param name="x">X coordinate of the item</param>
         /// <param name="y">Y coordinate of the item</param>
-        public MapItem(int x, int y)
+        protected MapItem(int x, int y)
         {
-            this.X = x;
-            this.Y = y;
+            this.x = x;
+            this.x = y;
             this.gCost = 0;
             this.hCost = 0;
             this.parent = null;
         }
+
+        /// <summary>
+        /// Gets or sets the image for the item which is displayed on the screen
+        /// </summary>
+        public virtual BitmapImage Image { get; protected set; }
 
         /// <summary>
         /// Gets or sets x coordinate of the item
@@ -99,22 +99,6 @@ namespace Hyyblo_Model
             get
             {
                 return this.GCost + this.HCost;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets image of the item
-        /// </summary>
-        public virtual BitmapImage Image
-        {
-            get
-            {
-                return this.image;
-            }
-
-            protected set
-            {
-                this.image = value;
             }
         }
 
@@ -174,7 +158,7 @@ namespace Hyyblo_Model
         /// <returns>Returns true if the objects aren't equals</returns>
         public static bool operator !=(MapItem m1, MapItem m2)
         {
-            return m1.X != m2.X || m1.Y != m2.Y;
+            return !(m1 == m2);
         }
 
         /// <summary>
@@ -185,7 +169,12 @@ namespace Hyyblo_Model
         /// <returns>Returns true if the objects are equals</returns>
         public static bool operator ==(MapItem m1, MapItem m2)
         {
-            return m1.X == m2.X && m1.Y == m2.Y;
+            if (object.ReferenceEquals(m1, null))
+            {
+                return object.ReferenceEquals(m2, null);
+            }
+
+            return m1.Equals(m2);
         }
 
         /// <summary>
@@ -276,11 +265,18 @@ namespace Hyyblo_Model
         /// <summary>
         /// Checks if the other item is equal to this
         /// </summary>
-        /// <param name="o">other item</param>
+        /// <param name="obj">other item</param>
         /// <returns>Returns true if the coordinates are equal</returns>
-        public override bool Equals(object o)
+        public override bool Equals(object obj)
         {
-            return this.X == ((MapItem)o).X && this.Y == ((MapItem)o).Y;
+            if (obj == null)
+            {
+                return false;
+            }
+
+            MapItem tmp = (MapItem)obj;
+
+            return this.X == tmp.X && this.Y == tmp.Y;
         }
 
         /// <summary>

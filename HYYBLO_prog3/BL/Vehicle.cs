@@ -80,13 +80,18 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
-        /// Gets the image of the vehicle
+        /// Gets or sets the image of the vehicle
         /// </summary>
         public override BitmapImage Image
         {
             get
             {
                 return this.images[(int)this.facing];
+            }
+
+            protected set
+            {
+                this.Image = value;
             }
         }
 

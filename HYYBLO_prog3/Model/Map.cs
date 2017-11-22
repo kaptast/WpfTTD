@@ -187,7 +187,21 @@ namespace Hyyblo_Model
         {
             if (this.RightCoord(x, y))
             {
-                new Warehouse(x, y, this);
+                MapItem item = this.GetItemByCoord(x, y);
+                this.MapContainer.Remove(item);
+                this.Buildings.Add(new WarehouseBuilding(x, y));
+
+                item = this.GetItemByCoord(x, y + 1);
+                this.MapContainer.Remove(item);
+                this.MapContainer.Add(new WarehouseLot12(x, y + 1));
+
+                item = this.GetItemByCoord(x + 1, y);
+                this.MapContainer.Remove(item);
+                this.MapContainer.Add(new WarehouseLot21(x + 1, y, this));
+
+                item = this.GetItemByCoord(x + 1, y + 1);
+                this.MapContainer.Remove(item);
+                this.MapContainer.Add(new WarehouseLot22(x + 1, y + 1));
             }
         }
 

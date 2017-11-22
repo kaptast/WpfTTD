@@ -12,7 +12,7 @@ namespace Hyyblo_Model
     /// <summary>
     /// Represents a house building
     /// </summary>
-    public class House : Building
+    public sealed class House : Building
     {
         /// <summary>
         /// Number of floors of the building

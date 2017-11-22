@@ -11,7 +11,7 @@ namespace Hyyblo_Model
     /// <summary>
     /// Represents a parking lot of the Warehouse
     /// </summary>
-    public class WarehouseLot12 : Building
+    public sealed class WarehouseLot12 : Building
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="WarehouseLot12"/> class.

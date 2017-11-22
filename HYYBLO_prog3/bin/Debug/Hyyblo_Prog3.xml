@@ -219,7 +219,7 @@
         </member>
         <member name="P:Hyyblo_Model.Vehicle.Image">
             <summary>
-            Gets the image of the vehicle
+            Gets or sets the image of the vehicle
             </summary>
         </member>
         <member name="P:Hyyblo_Model.Vehicle.Target">
@@ -265,19 +265,6 @@
             <summary>
             Changes the vehicle's direction according to it's target
             </summary>
-        </member>
-        <member name="T:Hyyblo_Model.Warehouse">
-            <summary>
-            Wrapper class for a warehouse
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Warehouse.#ctor(System.Int32,System.Int32,Hyyblo_Model.Map)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Hyyblo_Model.Warehouse"/> class.
-            </summary>
-            <param name="x">X coordinate of the warehouse</param>
-            <param name="y">Y coordinate of the warehouse</param>
-            <param name="map">Map where the warehouse is placed</param>
         </member>
         <member name="T:Hyyblo_Model.WarehouseBuilding">
             <summary>
@@ -776,17 +763,17 @@
             Parent of this item in a path
             </summary>
         </member>
-        <member name="F:Hyyblo_Model.MapItem.image">
-            <summary>
-            Image for the item which is displayed on the screen
-            </summary>
-        </member>
         <member name="M:Hyyblo_Model.MapItem.#ctor(System.Int32,System.Int32)">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_Model.MapItem"/> class.
             </summary>
             <param name="x">X coordinate of the item</param>
             <param name="y">Y coordinate of the item</param>
+        </member>
+        <member name="P:Hyyblo_Model.MapItem.Image">
+            <summary>
+            Gets or sets the image for the item which is displayed on the screen
+            </summary>
         </member>
         <member name="P:Hyyblo_Model.MapItem.X">
             <summary>
@@ -801,11 +788,6 @@
         <member name="P:Hyyblo_Model.MapItem.FCost">
             <summary>
             Gets sum pf gCost and hCost of the item
-            </summary>
-        </member>
-        <member name="P:Hyyblo_Model.MapItem.Image">
-            <summary>
-            Gets or sets image of the item
             </summary>
         </member>
         <member name="P:Hyyblo_Model.MapItem.GCost">
@@ -875,7 +857,7 @@
             <summary>
             Checks if the other item is equal to this
             </summary>
-            <param name="o">other item</param>
+            <param name="obj">other item</param>
             <returns>Returns true if the coordinates are equal</returns>
         </member>
         <member name="M:Hyyblo_Model.MapItem.GetHashCode">

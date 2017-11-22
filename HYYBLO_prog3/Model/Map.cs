@@ -174,6 +174,8 @@ namespace Hyyblo_Model
             {
                 MapItem item = this.GetItemByCoord(x, y);
                 this.MapContainer.Remove(item);
+                item = this.GetBuildingByCoord(x, y);
+                this.Buildings.Remove((Building)item);
                 this.MapContainer.Add(new Road(x, y, this));
             }
         }
@@ -189,6 +191,7 @@ namespace Hyyblo_Model
             {
                 MapItem item = this.GetItemByCoord(x, y);
                 this.MapContainer.Remove(item);
+                this.MapContainer.Add(new Building(x, y));
                 this.Buildings.Add(new WarehouseBuilding(x, y));
 
                 item = this.GetItemByCoord(x, y + 1);
@@ -216,6 +219,8 @@ namespace Hyyblo_Model
             {
                 MapItem item = this.GetItemByCoord(x, y);
                 this.MapContainer.Remove(item);
+                item = this.GetBuildingByCoord(x, y);
+                this.Buildings.Remove((Building)item);
                 this.MapContainer.Add(new Grass(x, y));
             }
         }
@@ -245,7 +250,7 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
-        /// Searches the item with the right coordinates
+        /// Searches for an item with the right coordinates
         /// </summary>
         /// <param name="x">X coordinate of the item</param>
         /// <param name="y">Y coordinate of the item</param>
@@ -253,6 +258,25 @@ namespace Hyyblo_Model
         public MapItem GetItemByCoord(double x, double y)
         {
             foreach (MapItem item in this.MapContainer)
+            {
+                if (item.X == x && item.Y == y)
+                {
+                    return item;
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Searches for a building with the right coordinates
+        /// </summary>
+        /// <param name="x">X coordinate of the building</param>
+        /// <param name="y">Y coordinate of the building</param>
+        /// <returns>The building at the requested position</returns>
+        public MapItem GetBuildingByCoord(double x, double y)
+        {
+            foreach (MapItem item in this.Buildings)
             {
                 if (item.X == x && item.Y == y)
                 {
@@ -282,9 +306,9 @@ namespace Hyyblo_Model
         /// </summary>
         public void UpdateVehicles()
         {
-            foreach (Vehicle v in this.Vehicles)
+            for (int i = 0; i < this.Vehicles.Count; i++)
             {
-                v.Update();
+                this.Vehicles[i].Update();
             }
         }
 

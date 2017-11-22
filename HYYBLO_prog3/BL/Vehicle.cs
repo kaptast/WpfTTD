@@ -51,6 +51,11 @@ namespace Hyyblo_Model
         private double speed = 0.05;
 
         /// <summary>
+        /// Reference to the map of the game
+        /// </summary>
+        private Map map;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Vehicle"/> class.
         /// </summary>
         /// <param name="x">X coordinate of the vehicle</param>
@@ -66,7 +71,8 @@ namespace Hyyblo_Model
                 this.images[i] = new BitmapImage(new Uri(GameView.GetImage("Images/Vehicles/truck" + i + ".png")));
             }
 
-            this.finalTarget = this.SearchTarget(map);
+            this.map = map;
+            this.finalTarget = this.SearchTarget();
             this.pathToTarget = map.Pathfinder.FindPath(this, this.finalTarget);
             if (this.pathToTarget != null)
             {
@@ -140,6 +146,10 @@ namespace Hyyblo_Model
                     if (this.targetIdx + 1 < this.pathToTarget.Count)
                     {
                         this.Target = this.pathToTarget[++this.targetIdx];
+                    }
+                    else
+                    {
+                        this.ReachedTarget();
                     }
 
                     this.ChangeDirection();
@@ -219,11 +229,10 @@ namespace Hyyblo_Model
         /// <summary>
         /// Searches a warehouse on the map
         /// </summary>
-        /// <param name="map">Map of the game</param>
         /// <returns>A found warehouse</returns>
-        private MapItem SearchTarget(Map map)
+        private MapItem SearchTarget()
         {
-            foreach (MapItem item in map.MapContainer)
+            foreach (MapItem item in this.map.MapContainer)
             {
                 if (item is WarehouseLot21)
                 {
@@ -232,6 +241,17 @@ namespace Hyyblo_Model
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// If the vehicle reached it's final target, it is deleted from the Vehicles container in the map
+        /// </summary>
+        private void ReachedTarget()
+        {
+            if (this.pathToTarget.Count - 1 <= this.targetIdx)
+            {
+                this.map.Vehicles.Remove(this);
+            }
         }
 
         /// <summary>

@@ -15,7 +15,7 @@ namespace Hyyblo_Model
     /// </summary>
     /// <param name="sender">Sender object</param>
     /// <param name="e">Arguments of the road placing</param>
-    public delegate void RoadPlacedEventHandler(object sender, EventArgs e);
+    public delegate void ItemPlacedEventHandler(object sender, EventArgs e);
 
     /// <summary>
     /// Represents the map of the game
@@ -72,7 +72,12 @@ namespace Hyyblo_Model
         /// <summary>
         /// Event for a placed road
         /// </summary>
-        public event RoadPlacedEventHandler RoadPlaced;
+        public event ItemPlacedEventHandler RoadPlaced;
+
+        /// <summary>
+        /// Event for a placed warehouse
+        /// </summary>
+        public event ItemPlacedEventHandler WarehousePlaced;
 
         /// <summary>
         /// Gets the Container of the MapItems in the Map
@@ -191,7 +196,7 @@ namespace Hyyblo_Model
             {
                 MapItem item = this.GetItemByCoord(x, y);
                 this.MapContainer.Remove(item);
-                this.MapContainer.Add(new Building(x, y));
+                this.MapContainer.Add(new BuildingBase(x, y));
                 this.Buildings.Add(new WarehouseBuilding(x, y));
 
                 item = this.GetItemByCoord(x, y + 1);
@@ -205,6 +210,11 @@ namespace Hyyblo_Model
                 item = this.GetItemByCoord(x + 1, y + 1);
                 this.MapContainer.Remove(item);
                 this.MapContainer.Add(new WarehouseLot22(x + 1, y + 1));
+
+                if (this.WarehousePlaced != null)
+                {
+                    this.WarehousePlaced.Invoke(this, new EventArgs());
+                }
             }
         }
 
@@ -430,7 +440,7 @@ namespace Hyyblo_Model
                 {
                     MapItem item = this.GetItemByCoord(x, y);
                     this.MapContainer.Remove(item);
-                    this.MapContainer.Add(new Building(x, y));
+                    this.MapContainer.Add(new BuildingBase(x, y));
                     this.Buildings.Add(new House(x, y, r));
                 }
             }

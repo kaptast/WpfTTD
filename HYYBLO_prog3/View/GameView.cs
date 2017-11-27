@@ -9,6 +9,7 @@ namespace Hyyblo_Model
     using System;
     using System.IO;
     using System.Windows;
+    using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
@@ -55,12 +56,17 @@ namespace Hyyblo_Model
         private int windowWidth = 800;
 
         /// <summary>
+        /// Reference to the label on the window
+        /// </summary>
+        private Label moneyLabel;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="GameView"/> class.
         /// </summary>
         public GameView()
         {
-            RoadImages = new BitmapImage[16]; // Loading the images of the roads
-            for (int i = 0; i < 16; i++)
+            RoadImages = new BitmapImage[17]; // Loading the images of the roads
+            for (int i = 0; i < 17; i++)
             {
                 RoadImages[i] = new BitmapImage(new Uri(GetImage("Images/Roads/cityroad" + i + ".png")));
             }
@@ -220,6 +226,11 @@ namespace Hyyblo_Model
         protected override void OnRender(DrawingContext drawingContext)
         {
             base.OnRender(drawingContext);
+            if (this.moneyLabel != null)
+            {
+                this.moneyLabel.Content = this.game.Money.ToString();
+            }
+
             this.RenderMap(drawingContext);
         }
 
@@ -254,6 +265,7 @@ namespace Hyyblo_Model
         /// <param name="e">Loaded event parameters</param>
         private void ViewLoaded(object sender, RoutedEventArgs e)
         {
+            this.moneyLabel = (Label)this.FindName("lblMoney");
             this.timer = new DispatcherTimer();
             this.timer.Interval = new TimeSpan(0, 0, 0, 0, 16);
             this.timer.Tick += this.TimerTick;

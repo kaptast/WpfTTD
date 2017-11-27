@@ -12,28 +12,28 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="44"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         
         <UserControl Name="PlayArea" Grid.Row="1"/> <!-- A játékteret rajzoljuk ki mindig legalulra -->
 
         <Menu Grid.Row="0" Background="Transparent">
-            <Button Name="btnRoad" Height="40" Width="40" Click="BtnRoad_Click">
+            <ToggleButton Name="btnRoad" Height="40" Width="40" Click="BtnRoad_Click" Focusable="False">
                 <Image Source="/Images/road.png" />
-            </Button>
-            <Button Name="btnWarehouse" Height="40" Width="40" Click="BtnWarehouse_Click">
+            </ToggleButton>
+            <ToggleButton Name="btnWarehouse" Height="40" Width="40" Click="BtnWarehouse_Click" Focusable="False">
                 <Image Source="/Images/Buildings/warehouse.png" />
-            </Button>
-            <Button Name="btnDelete" Height="40" Width="40" Click="BtnDelete_Click">
+            </ToggleButton>
+            <ToggleButton Name="btnDelete" Height="40" Width="40" Click="BtnDelete_Click" Focusable="False">
                 <Image Source="/Images/delete.png" />
-            </Button>
-            <Button Name="btnVehicle" Height="40" Width="40" Click="BtnVehicle_Click">
+            </ToggleButton>
+            <ToggleButton Name="btnVehicle" Height="40" Width="40" Click="BtnVehicle_Click" Focusable="False">
                 <Image Source="/Images/truck.png" />
-            </Button>
+            </ToggleButton>
         </Menu>
 
         <StatusBar Grid.Row="2">
-            
+            <Label x:Name="lblMoney" Width="328" Height="30" FontFamily="Garamond" />
         </StatusBar>
     </Grid>
 </Window>

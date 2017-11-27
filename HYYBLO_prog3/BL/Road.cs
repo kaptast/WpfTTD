@@ -7,6 +7,7 @@
 namespace Hyyblo_Model
 {
     using System;
+    using System.Windows.Media.Imaging;
 
     /// <summary>
     /// Represent a Road tile
@@ -14,14 +15,19 @@ namespace Hyyblo_Model
     public class Road : MapItem
     {
         /// <summary>
-        /// Reference to the map of the game
+        /// Price of a road
         /// </summary>
-        private Map map;
+        public const int Price = 100;
 
         /// <summary>
         /// A value to store the index of the current image of the road collection
         /// </summary>
-        private int imageNum = 0;
+        private int imageNum;
+
+        /// <summary>
+        /// Reference to the map of the game
+        /// </summary>
+        private Map map;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Road"/> class.
@@ -33,8 +39,40 @@ namespace Hyyblo_Model
             : base(x, y)
         {
             this.map = map;
-            this.Image = GameView.RoadImages[0];
             this.map.RoadPlaced += this.RoadChanged;
+            this.ImageNum = 0;
+        }
+
+        /// <summary>
+        /// Gets or sets the image of the road
+        /// </summary>
+        public override BitmapImage Image
+        {
+            get
+            {
+                return GameView.RoadImages[this.ImageNum];
+            }
+
+            protected set
+            {
+                base.Image = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the number of the road Image
+        /// </summary>
+        protected int ImageNum
+        {
+            get
+            {
+                return this.imageNum;
+            }
+
+            set
+            {
+                this.imageNum = value;
+            }
         }
 
         /// <summary>
@@ -45,10 +83,9 @@ namespace Hyyblo_Model
         protected virtual void RoadChanged(object sender, EventArgs e)
         {
             int neighbours = this.CheckNeighbours();
-            if (this.imageNum != neighbours)
+            if (this.ImageNum != neighbours)
             {
-                this.imageNum = neighbours;
-                this.Image = GameView.RoadImages[neighbours];
+                this.ImageNum = neighbours;
             }
         }
 

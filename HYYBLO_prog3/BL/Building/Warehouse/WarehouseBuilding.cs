@@ -14,6 +14,11 @@ namespace Hyyblo_Model
     public sealed class WarehouseBuilding : Building
     {
         /// <summary>
+        /// Price of a warehouse
+        /// </summary>
+        public const int Price = 1000;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="WarehouseBuilding"/> class.
         /// </summary>
         /// <param name="x">X coordinate of the building</param>

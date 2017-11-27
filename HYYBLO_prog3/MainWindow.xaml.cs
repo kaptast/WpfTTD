@@ -132,6 +132,10 @@ namespace Hyyblo_View
             if (this.selectedItem != BuildType.Road)
             {
                 this.selectedItem = BuildType.Road;
+
+                this.btnDelete.IsChecked = false;
+                this.btnVehicle.IsChecked = false;
+                this.btnWarehouse.IsChecked = false;
             }
             else
             {
@@ -149,6 +153,10 @@ namespace Hyyblo_View
             if (this.selectedItem != BuildType.Delete)
             {
                 this.selectedItem = BuildType.Delete;
+
+                this.btnRoad.IsChecked = false;
+                this.btnVehicle.IsChecked = false;
+                this.btnWarehouse.IsChecked = false;
             }
             else
             {
@@ -166,6 +174,10 @@ namespace Hyyblo_View
             if (this.selectedItem != BuildType.Vehicle)
             {
                 this.selectedItem = BuildType.Vehicle;
+
+                this.btnDelete.IsChecked = false;
+                this.btnRoad.IsChecked = false;
+                this.btnWarehouse.IsChecked = false;
             }
             else
             {
@@ -183,6 +195,10 @@ namespace Hyyblo_View
             if (this.selectedItem != BuildType.Warehouse)
             {
                 this.selectedItem = BuildType.Warehouse;
+
+                this.btnDelete.IsChecked = false;
+                this.btnVehicle.IsChecked = false;
+                this.btnRoad.IsChecked = false;
             }
             else
             {

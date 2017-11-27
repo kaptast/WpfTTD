@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Hyyblo_Model.Properties {
+namespace Hyyblo_Prog3.Properties {
     using System;
     
     

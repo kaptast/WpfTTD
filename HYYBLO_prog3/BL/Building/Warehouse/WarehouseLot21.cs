@@ -7,6 +7,7 @@
 namespace Hyyblo_Model
 {
     using System;
+    using System.Windows.Media.Imaging;
 
     /// <summary>
     /// Represents a parking lot of the Warehouse
@@ -22,7 +23,7 @@ namespace Hyyblo_Model
         public WarehouseLot21(int x, int y, Map map)
             : base(x, y, map)
         {
-            this.Image = new System.Windows.Media.Imaging.BitmapImage(new Uri(GameView.GetImage("Images/Buildings/warehouse21.png")));
+            this.ImageNum = 16;
         }
 
         /// <summary>

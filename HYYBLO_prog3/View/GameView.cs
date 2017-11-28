@@ -7,6 +7,7 @@
 namespace Hyyblo_Model
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
     using System.Windows;
     using System.Windows.Controls;
@@ -134,6 +135,16 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
+        /// Sets the camera's state
+        /// </summary>
+        /// <param name="dir">Direction of the camera movement</param>
+        public void GameView_SetCamState(Direction dir)
+        {
+            this.cam.ChangeState(true);
+            this.cam.SetDir(dir);
+        }
+
+        /// <summary>
         /// Stops the camera movement if a button is lifted up
         /// </summary>
         /// <param name="sender">Sender object</param>
@@ -155,11 +166,10 @@ namespace Hyyblo_Model
             switch (type)
             {
                 case Hyyblo_View.BuildType.Road:
-                    this.game.Map.SetRoad((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1); // Place a road on the coordinates
-                    this.game.Map.FireRoadPlaced(this, new EventArgs()); // Check road tiles
+                    this.game.SetRoad((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1); // Place a road on the coordinates
                     break;
                 case Hyyblo_View.BuildType.Warehouse:
-                    this.game.Map.SetWarehouse((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
+                    this.game.SetWarehouse((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
                     break;
                 case Hyyblo_View.BuildType.Delete:
                     this.game.Map.SetDelete((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
@@ -228,7 +238,7 @@ namespace Hyyblo_Model
             base.OnRender(drawingContext);
             if (this.moneyLabel != null)
             {
-                this.moneyLabel.Content = this.game.Money.ToString();
+                this.moneyLabel.Content = this.game;
             }
 
             this.RenderMap(drawingContext);
@@ -254,7 +264,7 @@ namespace Hyyblo_Model
         {
             // DoTurn
             this.cam.Turn(this.cellSize);
-            this.game.Map.UpdateVehicles();
+            this.game.Update();
             this.InvalidateVisual();
         }
 
@@ -280,33 +290,37 @@ namespace Hyyblo_Model
         {
             foreach (MapItem item in this.game.Map.MapContainer)
             {
-                double isoX = (item.X - item.Y) * (this.cellSize / 2);
-                double isoY = (item.X + item.Y) * (this.cellSize / 4);
-                double centerX = (this.windowWidth / 2) - isoX - (this.cellSize / 2);
-                double screenX = centerX - this.cam.X;
-                double screenY = isoY - this.cam.Y;
-                dc.DrawImage(item.Image, item.GenerateRect(screenX, screenY, this.cellSize));
+                Point p = this.PointToScreen(item);
+                dc.DrawImage(item.Image, item.GenerateRect(p.X, p.Y, this.cellSize));
             }
 
             foreach (Vehicle item in this.game.Map.Vehicles)
             {
-                double isoX = (item.X - item.Y) * (this.cellSize / 2);
-                double isoY = (item.X + item.Y) * (this.cellSize / 4);
-                double centerX = (this.windowWidth / 2) - isoX - (this.cellSize / 2);
-                double screenX = centerX - this.cam.X;
-                double screenY = isoY - this.cam.Y;
-                dc.DrawImage(item.Image, item.GenerateRect(screenX, screenY, this.cellSize));
+                Point p = this.PointToScreen(item);
+                dc.DrawImage(item.Image, item.GenerateRect(p.X, p.Y, this.cellSize));
             }
 
             foreach (Building item in this.game.Map.Buildings)
             {
-                double isoX = (item.X - item.Y) * (this.cellSize / 2);
-                double isoY = (item.X + item.Y) * (this.cellSize / 4);
-                double centerX = (this.windowWidth / 2) - isoX - (this.cellSize / 2);
-                double screenX = centerX - this.cam.X;
-                double screenY = isoY - this.cam.Y;
-                dc.DrawImage(item.Image, item.GenerateRect(screenX, screenY, this.cellSize));
+                Point p = this.PointToScreen(item);
+                dc.DrawImage(item.Image, item.GenerateRect(p.X, p.Y, this.cellSize));
             }
+        }
+
+        /// <summary>
+        /// Generates a point with isometric coords
+        /// </summary>
+        /// <param name="item">Item to generate it's position</param>
+        /// <returns>Point with the isometric coords</returns>
+        private Point PointToScreen(MapItem item)
+        {
+            double isoX = (item.X - item.Y) * (this.cellSize / 2);
+            double isoY = (item.X + item.Y) * (this.cellSize / 4);
+            double centerX = (this.windowWidth / 2) - isoX - (this.cellSize / 2);
+            double screenX = centerX - this.cam.X;
+            double screenY = isoY - this.cam.Y;
+
+            return new Point(screenX, screenY);
         }
     }
 }

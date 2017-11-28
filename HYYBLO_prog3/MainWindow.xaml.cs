@@ -7,6 +7,7 @@
 namespace Hyyblo_View
 {
     using System.Windows;
+    using System.Windows.Controls;
     using System.Windows.Input;
     using Hyyblo_Model;
 
@@ -204,6 +205,41 @@ namespace Hyyblo_View
             {
                 this.selectedItem = BuildType.Nothing;
             }
+        }
+
+        /// <summary>
+        /// Callback function for handling the borders MouseEnter events, sets the camera to the correct direction
+        /// </summary>
+        /// <param name="sender">Reference to the sender object</param>
+        /// <param name="e">Mouse arguments for the event</param>
+        private void ViewMouseEnter(object sender, MouseEventArgs e)
+        {
+            string name = ((Menu)sender).Name;
+            switch (name)
+            {
+                case "TopBar":
+                    this.view.GameView_SetCamState(Direction.Up);
+                    break;
+                case "BottomBar":
+                    this.view.GameView_SetCamState(Direction.Down);
+                    break;
+                case "LeftBar":
+                    this.view.GameView_SetCamState(Direction.Left);
+                    break;
+                case "RightBar":
+                    this.view.GameView_SetCamState(Direction.Right);
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Callback function for handling the borders MouseLeave events, stop the camera movement
+        /// </summary>
+        /// <param name="sender">Reference to the sender object</param>
+        /// <param name="e">Mouse arguments for the event</param>
+        private void ViewMouseLeave(object sender, MouseEventArgs e)
+        {
+            this.view.GameView_KeyUp(sender, null);
         }
     }
 }

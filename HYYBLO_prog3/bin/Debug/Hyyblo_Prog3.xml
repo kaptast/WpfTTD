@@ -410,6 +410,31 @@
             Gets or sets the money of the player
             </summary>
         </member>
+        <member name="M:Hyyblo_Model.Game.Update">
+            <summary>
+            Updates the elements in the game
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Game.SetRoad(System.Int32,System.Int32)">
+            <summary>
+            Places a road on the map
+            </summary>
+            <param name="x">X coordinate of the road</param>
+            <param name="y">Y coordinate of the road</param>
+        </member>
+        <member name="M:Hyyblo_Model.Game.SetWarehouse(System.Int32,System.Int32)">
+            <summary>
+            Places a warehouse on the map
+            </summary>
+            <param name="x">X coordinate of the warehouse</param>
+            <param name="y">Y coordinate of the warehouse</param>
+        </member>
+        <member name="M:Hyyblo_Model.Game.ToString">
+            <summary>
+            Creates a string with game's information
+            </summary>
+            <returns>A string with the game's information</returns>
+        </member>
         <member name="M:Hyyblo_Model.Game.Map_RoadPlaced(System.Object,System.EventArgs)">
             <summary>
             Substracts the price of the road from the players money
@@ -493,6 +518,12 @@
             <param name="sender">Sender object</param>
             <param name="e">Key press parameters</param>
         </member>
+        <member name="M:Hyyblo_Model.GameView.GameView_SetCamState(Hyyblo_Model.Direction)">
+            <summary>
+            Sets the camera's state
+            </summary>
+            <param name="dir">Direction of the camera movement</param>
+        </member>
         <member name="M:Hyyblo_Model.GameView.GameView_KeyUp(System.Object,System.Windows.Input.KeyEventArgs)">
             <summary>
             Stops the camera movement if a button is lifted up
@@ -557,6 +588,13 @@
             Draws the items of the map on the screen
             </summary>
             <param name="dc">Drawer of the view</param>
+        </member>
+        <member name="M:Hyyblo_Model.GameView.PointToScreen(Hyyblo_Model.MapItem)">
+            <summary>
+            Generates a point with isometric coords
+            </summary>
+            <param name="item">Item to generate it's position</param>
+            <returns>Point with the isometric coords</returns>
         </member>
         <member name="T:Hyyblo_Model.Grass">
             <summary>

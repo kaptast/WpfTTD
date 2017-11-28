@@ -6,6 +6,8 @@
 //-----------------------------------------------------------------------
 namespace Hyyblo_Model
 {
+    using System;
+
     /// <summary>
     /// Game object, contains the current game's values
     /// </summary>
@@ -65,6 +67,50 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
+        /// Updates the elements in the game
+        /// </summary>
+        public void Update()
+        {
+            this.Map.UpdateVehicles();
+        }
+
+        /// <summary>
+        /// Places a road on the map
+        /// </summary>
+        /// <param name="x">X coordinate of the road</param>
+        /// <param name="y">Y coordinate of the road</param>
+        public void SetRoad(int x, int y)
+        {
+            if (this.Money > 0)
+            {
+                this.Map.SetRoad(x, y);
+                this.Map.FireRoadPlaced(this, new EventArgs()); // Check road tiles
+            }
+        }
+
+        /// <summary>
+        /// Places a warehouse on the map
+        /// </summary>
+        /// <param name="x">X coordinate of the warehouse</param>
+        /// <param name="y">Y coordinate of the warehouse</param>
+        public void SetWarehouse(int x, int y)
+        {
+            if (this.Money > 0)
+            {
+                this.Map.SetWarehouse(x, y);
+            }
+        }
+
+        /// <summary>
+        /// Creates a string with game's information
+        /// </summary>
+        /// <returns>A string with the game's information</returns>
+        public override string ToString()
+        {
+            return string.Format("Money: {0}", this.Money);
+        }
+
+        /// <summary>
         /// Substracts the price of the road from the players money
         /// </summary>
         /// <param name="sender">Sender object of the event</param>
@@ -83,6 +129,5 @@ namespace Hyyblo_Model
         {
             this.Money -= WarehouseBuilding.Price;
         }
-
     }
 }

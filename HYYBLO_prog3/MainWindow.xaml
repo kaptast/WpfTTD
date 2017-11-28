@@ -11,13 +11,25 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="44"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        
-        <UserControl Name="PlayArea" Grid.Row="1"/> <!-- A játékteret rajzoljuk ki mindig legalulra -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="30" />
+        </Grid.ColumnDefinitions>
 
-        <Menu Grid.Row="0" Background="Transparent">
+        <UserControl Name="PlayArea" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  Grid.RowSpan="3"/> <!-- A játékteret rajzoljuk ki mindig legalulra -->
+
+        <Menu Background="Transparent" Name="TopBar" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" MouseEnter="ViewMouseEnter" MouseLeave="ViewMouseLeave"/>
+        <Menu Background="Transparent" Name="BottomBar" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" MouseEnter="ViewMouseEnter"  MouseLeave="ViewMouseLeave"/>
+        <Menu Background="Transparent" Name="LeftBar" Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" MouseEnter="ViewMouseEnter"  MouseLeave="ViewMouseLeave"/>
+        <Menu Background="Transparent" Name="RightBar" Grid.Row="1" Grid.Column="2" Grid.RowSpan="3" MouseEnter="ViewMouseEnter"  MouseLeave="ViewMouseLeave"/>
+
+        <Menu Grid.Row="0" Background="Transparent" Grid.Column="0" Grid.ColumnSpan="3">
             <ToggleButton Name="btnRoad" Height="40" Width="40" Click="BtnRoad_Click" Focusable="False">
                 <Image Source="/Images/road.png" />
             </ToggleButton>
@@ -32,7 +44,7 @@
             </ToggleButton>
         </Menu>
 
-        <StatusBar Grid.Row="2">
+        <StatusBar Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3">
             <Label x:Name="lblMoney" Width="328" Height="30" FontFamily="Garamond" />
         </StatusBar>
     </Grid>

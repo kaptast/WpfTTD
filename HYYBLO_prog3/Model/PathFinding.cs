@@ -70,21 +70,19 @@ namespace Hyyblo_Model
 
                 foreach (MapItem neighbour in this.map.GetNeighbours(node))
                 {
-                    if (!(neighbour is Road) || closedSet.Contains(neighbour))
+                    if ((neighbour is Road) && !closedSet.Contains(neighbour))
                     {
-                        continue;
-                    }
-
-                    int newCostToNeighbour = node.GCost + 1;
-                    if (newCostToNeighbour < neighbour.GCost || !openSet.Contains(neighbour))
-                    {
-                        neighbour.GCost = newCostToNeighbour;
-                        neighbour.HCost = 1;
-                        neighbour.Parent = node;
-
-                        if (!openSet.Contains(neighbour))
+                        int newCostToNeighbour = node.GCost + 1;
+                        if (newCostToNeighbour < neighbour.GCost || !openSet.Contains(neighbour))
                         {
-                            openSet.Add(neighbour);
+                            neighbour.GCost = newCostToNeighbour;
+                            neighbour.HCost = 1;
+                            neighbour.Parent = node;
+
+                            if (!openSet.Contains(neighbour))
+                            {
+                                openSet.Add(neighbour);
+                            }
                         }
                     }
                 }

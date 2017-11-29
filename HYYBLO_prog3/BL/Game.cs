@@ -7,6 +7,7 @@
 namespace Hyyblo_Model
 {
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Game object, contains the current game's values
@@ -24,6 +25,11 @@ namespace Hyyblo_Model
         private int money;
 
         /// <summary>
+        /// Collection to store warehouses built in the game
+        /// </summary>
+        private List<Warehouse> warehouses;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Game"/> class.
         /// </summary>
         public Game()
@@ -31,7 +37,8 @@ namespace Hyyblo_Model
             this.map = new Map(40);
             this.map.RoadPlaced += this.Map_RoadPlaced;
             this.map.WarehousePlaced += this.Map_WarehousePlaced;
-            this.Money = 5000;
+            this.Money = 20000;
+            this.warehouses = new List<Warehouse>();
         }
 
         /// <summary>
@@ -67,6 +74,36 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
+        /// Gets the warehouse list of the game
+        /// </summary>
+        public List<Warehouse> Warehouses
+        {
+            get
+            {
+                return this.warehouses;
+            }
+        }
+
+        /// <summary>
+        /// Finds a warehouse with correct position
+        /// </summary>
+        /// <param name="x">X coordinate of the requested item</param>
+        /// <param name="y">Y coordinate of the requested item</param>
+        /// <returns>A found requested warehouse</returns>
+        public Warehouse FindWarehouseByPosition(int x, int y)
+        {
+            foreach (Warehouse wh in this.Warehouses)
+            {
+                if (wh.X == x && wh.Y == y)
+                {
+                    return wh;
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>
         /// Updates the elements in the game
         /// </summary>
         public void Update()
@@ -98,6 +135,7 @@ namespace Hyyblo_Model
             if (this.Money > 0)
             {
                 this.Map.SetWarehouse(x, y);
+                this.Warehouses.Add(new Warehouse(x, y, this.warehouses, this));
             }
         }
 

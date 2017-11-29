@@ -37,11 +37,6 @@ namespace Hyyblo_View
         Delete,
 
         /// <summary>
-        /// Park type
-        /// </summary>
-        Park,
-
-        /// <summary>
         /// Vehicle type
         /// </summary>
         Vehicle
@@ -135,7 +130,6 @@ namespace Hyyblo_View
                 this.selectedItem = BuildType.Road;
 
                 this.btnDelete.IsChecked = false;
-                this.btnVehicle.IsChecked = false;
                 this.btnWarehouse.IsChecked = false;
             }
             else
@@ -155,28 +149,6 @@ namespace Hyyblo_View
             {
                 this.selectedItem = BuildType.Delete;
 
-                this.btnRoad.IsChecked = false;
-                this.btnVehicle.IsChecked = false;
-                this.btnWarehouse.IsChecked = false;
-            }
-            else
-            {
-                this.selectedItem = BuildType.Nothing;
-            }
-        }
-
-        /// <summary>
-        /// Callback function for a menu bar click, sets the current build type to Vehicle
-        /// </summary>
-        /// <param name="sender">Sender object</param>
-        /// <param name="e">Arguments of the button click</param>
-        private void BtnVehicle_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.selectedItem != BuildType.Vehicle)
-            {
-                this.selectedItem = BuildType.Vehicle;
-
-                this.btnDelete.IsChecked = false;
                 this.btnRoad.IsChecked = false;
                 this.btnWarehouse.IsChecked = false;
             }
@@ -198,7 +170,6 @@ namespace Hyyblo_View
                 this.selectedItem = BuildType.Warehouse;
 
                 this.btnDelete.IsChecked = false;
-                this.btnVehicle.IsChecked = false;
                 this.btnRoad.IsChecked = false;
             }
             else

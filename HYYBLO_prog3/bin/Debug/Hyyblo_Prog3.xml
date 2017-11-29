@@ -16,6 +16,143 @@
             <param name="x">X coordinate of the building</param>
             <param name="y">Y coordinate of the building</param>
         </member>
+        <member name="T:Hyyblo_Model.WareType">
+            <summary>
+            Type of a ware that a warehouse can serve
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.WareType.Mail">
+            <summary>
+            Ware between towns
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.WareType.Goods">
+            <summary>
+            Ware between factory and town
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.WareType.Ore">
+            <summary>
+            Ware between fanctory and mine
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.WareType.Nothing">
+            <summary>
+            No ware
+            </summary>
+        </member>
+        <member name="T:Hyyblo_Model.Warehouse">
+            <summary>
+            Represents a warehouse a the given position
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Warehouse.x">
+            <summary>
+            X coordinate of the warehouse
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Warehouse.y">
+            <summary>
+            Y coordinate of the warehouse
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Warehouse.warehouses">
+            <summary>
+            Reference to the other warehouses
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Warehouse.target">
+            <summary>
+            Target warehouse of this warehouse
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Warehouse.type">
+            <summary>
+            Type of a ware that the warehouse serves
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Warehouse.numberOfCars">
+            <summary>
+            Number of cars the warehouse sends
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Warehouse.carsSent">
+            <summary>
+            Cars sent out since last start
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Warehouse.timer">
+            <summary>
+            Timer for sending cars
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Warehouse.game">
+            <summary>
+            Reference for the game
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Warehouse.#ctor(System.Int32,System.Int32,System.Collections.Generic.List{Hyyblo_Model.Warehouse},Hyyblo_Model.Game)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.Warehouse"/> class.
+            </summary>
+            <param name="x">X coordinate of the warehouse</param>
+            <param name="y">Y coordinate of the warehouse</param>
+            <param name="warehouses">Reference to the container containing other warehouses</param>
+            <param name="g">Reference to the game</param>
+        </member>
+        <member name="P:Hyyblo_Model.Warehouse.X">
+            <summary>
+            Gets or sets the X coordinate of the Warehouse
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Warehouse.Y">
+            <summary>
+            Gets or sets the Y coordinate of the Warehouse
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Warehouse.Warehouses">
+            <summary>
+            Gets or sets the other warehouse references in the warehouse
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Warehouse.Type">
+            <summary>
+            Gets or sets the type of ware that the warehouse serves
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Warehouse.Target">
+            <summary>
+            Gets or sets the target of this warehouse
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Warehouse.Name">
+            <summary>
+            Gets the name of the warehouse
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Warehouse.NumberOfCars">
+            <summary>
+            Gets or sets the number of cars the warehouse sends
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Warehouse.ToString">
+            <summary>
+            Converts the object to a string
+            </summary>
+            <returns>A string with the warehouse's data</returns>
+        </member>
+        <member name="M:Hyyblo_Model.Warehouse.StartCars">
+            <summary>
+            Starts a number of cars set in the numberOfCars value
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Warehouse.Timer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            Sends out a car every tick
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the tick</param>
+        </member>
         <member name="T:Hyyblo_Model.Camera">
             <summary>
             A camera which represents the field of view
@@ -241,13 +378,14 @@
             Reference to the map of the game
             </summary>
         </member>
-        <member name="M:Hyyblo_Model.Vehicle.#ctor(System.Int32,System.Int32,Hyyblo_Model.Map)">
+        <member name="M:Hyyblo_Model.Vehicle.#ctor(System.Int32,System.Int32,Hyyblo_Model.Map,Hyyblo_Model.Warehouse)">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_Model.Vehicle"/> class.
             </summary>
             <param name="x">X coordinate of the vehicle</param>
             <param name="y">Y coordinate of the vehicle</param>
             <param name="map">Map of the game</param>
+            <param name="target">Target of the vehicle</param>
         </member>
         <member name="P:Hyyblo_Model.Vehicle.Image">
             <summary>
@@ -286,10 +424,11 @@
             Moves the vehicles according to it's direction
             </summary>
         </member>
-        <member name="M:Hyyblo_Model.Vehicle.SearchTarget">
+        <member name="M:Hyyblo_Model.Vehicle.SearchTarget(Hyyblo_Model.Warehouse)">
             <summary>
             Searches a warehouse on the map
             </summary>
+            <param name="w">Target warehouse</param>
             <returns>A found warehouse</returns>
         </member>
         <member name="M:Hyyblo_Model.Vehicle.ReachedTarget">
@@ -395,6 +534,11 @@
             Money of the player
             </summary>
         </member>
+        <member name="F:Hyyblo_Model.Game.warehouses">
+            <summary>
+            Collection to store warehouses built in the game
+            </summary>
+        </member>
         <member name="M:Hyyblo_Model.Game.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_Model.Game"/> class.
@@ -409,6 +553,19 @@
             <summary>
             Gets or sets the money of the player
             </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Game.Warehouses">
+            <summary>
+            Gets the warehouse list of the game
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Game.FindWarehouseByPosition(System.Int32,System.Int32)">
+            <summary>
+            Finds a warehouse with correct position
+            </summary>
+            <param name="x">X coordinate of the requested item</param>
+            <param name="y">Y coordinate of the requested item</param>
+            <returns>A found requested warehouse</returns>
         </member>
         <member name="M:Hyyblo_Model.Game.Update">
             <summary>
@@ -780,12 +937,13 @@
             <param name="y">Y coordinate of the building</param>
             <returns>The building at the requested position</returns>
         </member>
-        <member name="M:Hyyblo_Model.Map.AddVehicle(System.Int32,System.Int32)">
+        <member name="M:Hyyblo_Model.Map.AddVehicle(System.Int32,System.Int32,Hyyblo_Model.Warehouse)">
             <summary>
             Adds a vehicle at the position
             </summary>
             <param name="x">X coordinate of the vehicle</param>
             <param name="y">Y coordinate of the vehicle</param>
+            <param name="target">Target of the vehicle</param>
         </member>
         <member name="M:Hyyblo_Model.Map.UpdateVehicles">
             <summary>
@@ -987,6 +1145,37 @@
             </summary>
             <returns>Returns the hash code</returns>
         </member>
+        <member name="T:Hyyblo_View.EditWarehouse">
+            <summary>
+            Interaction logic for EditWarehouse.xaml
+            </summary>
+            <summary>
+            EditWarehouse
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.EditWarehouse.w">
+            <summary>
+            Reference to the current warehouse
+            </summary>
+        </member>
+        <member name="M:Hyyblo_View.EditWarehouse.#ctor(Hyyblo_Model.Warehouse)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_View.EditWarehouse"/> class.
+            </summary>
+            <param name="wh">Warehouse of the window</param>
+        </member>
+        <member name="M:Hyyblo_View.EditWarehouse.BtnStart_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Click call back for starting the cars
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments for the button click event</param>
+        </member>
+        <member name="M:Hyyblo_View.EditWarehouse.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:Hyyblo_View.BuildType">
             <summary>
             Enum for different build types
@@ -1010,11 +1199,6 @@
         <member name="F:Hyyblo_View.BuildType.Delete">
             <summary>
             Deleting selected
-            </summary>
-        </member>
-        <member name="F:Hyyblo_View.BuildType.Park">
-            <summary>
-            Park type
             </summary>
         </member>
         <member name="F:Hyyblo_View.BuildType.Vehicle">
@@ -1087,19 +1271,26 @@
             <param name="sender">Sender object</param>
             <param name="e">Arguments of the button click</param>
         </member>
-        <member name="M:Hyyblo_View.MainWindow.BtnVehicle_Click(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Callback function for a menu bar click, sets the current build type to Vehicle
-            </summary>
-            <param name="sender">Sender object</param>
-            <param name="e">Arguments of the button click</param>
-        </member>
         <member name="M:Hyyblo_View.MainWindow.BtnWarehouse_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
             Callback function for a menu bar click, sets the current build type to Warehouse
             </summary>
             <param name="sender">Sender object</param>
             <param name="e">Arguments of the button click</param>
+        </member>
+        <member name="M:Hyyblo_View.MainWindow.ViewMouseEnter(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Callback function for handling the borders MouseEnter events, sets the camera to the correct direction
+            </summary>
+            <param name="sender">Reference to the sender object</param>
+            <param name="e">Mouse arguments for the event</param>
+        </member>
+        <member name="M:Hyyblo_View.MainWindow.ViewMouseLeave(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Callback function for handling the borders MouseLeave events, stop the camera movement
+            </summary>
+            <param name="sender">Reference to the sender object</param>
+            <param name="e">Mouse arguments for the event</param>
         </member>
         <member name="M:Hyyblo_View.MainWindow.InitializeComponent">
             <summary>

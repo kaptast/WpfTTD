@@ -61,7 +61,8 @@ namespace Hyyblo_Model
         /// <param name="x">X coordinate of the vehicle</param>
         /// <param name="y">Y coordinate of the vehicle</param>
         /// <param name="map">Map of the game</param>
-        public Vehicle(int x, int y, Map map)
+        /// <param name="target">Target of the vehicle</param>
+        public Vehicle(int x, int y, Map map, Warehouse target)
             : base(x, y)
         {
             this.facing = Direction.Left;
@@ -72,7 +73,7 @@ namespace Hyyblo_Model
             }
 
             this.map = map;
-            this.finalTarget = this.SearchTarget();
+            this.finalTarget = this.SearchTarget(target);
             this.pathToTarget = map.Pathfinder.FindPath(this, this.finalTarget);
             if (this.pathToTarget != null)
             {
@@ -229,12 +230,13 @@ namespace Hyyblo_Model
         /// <summary>
         /// Searches a warehouse on the map
         /// </summary>
+        /// <param name="w">Target warehouse</param>
         /// <returns>A found warehouse</returns>
-        private MapItem SearchTarget()
+        private MapItem SearchTarget(Warehouse w)
         {
             foreach (MapItem item in this.map.MapContainer)
             {
-                if (item is WarehouseLot21)
+                if (item.X == w.X + 1 && item.Y == w.Y)
                 {
                     return item;
                 }

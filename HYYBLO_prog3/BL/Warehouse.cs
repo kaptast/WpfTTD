@@ -1,0 +1,269 @@
+﻿//-----------------------------------------------------------------------
+// <copyright file="Warehouse.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+// <author>HYYBLO</author>
+//-----------------------------------------------------------------------
+namespace Hyyblo_Model
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows.Threading;
+
+    /// <summary>
+    /// Type of a ware that a warehouse can serve
+    /// </summary>
+    public enum WareType
+    {
+        /// <summary>
+        /// Ware between towns
+        /// </summary>
+        Mail,
+
+        /// <summary>
+        /// Ware between factory and town
+        /// </summary>
+        Goods,
+
+        /// <summary>
+        /// Ware between fanctory and mine
+        /// </summary>
+        Ore,
+
+        /// <summary>
+        /// No ware
+        /// </summary>
+        Nothing
+    }
+
+    /// <summary>
+    /// Represents a warehouse a the given position
+    /// </summary>
+    public class Warehouse
+    {
+        /// <summary>
+        /// X coordinate of the warehouse
+        /// </summary>
+        private int x;
+
+        /// <summary>
+        /// Y coordinate of the warehouse
+        /// </summary>
+        private int y;
+
+        /// <summary>
+        /// Reference to the other warehouses
+        /// </summary>
+        private List<Warehouse> warehouses;
+
+        /// <summary>
+        /// Target warehouse of this warehouse
+        /// </summary>
+        private Warehouse target;
+
+        /// <summary>
+        /// Type of a ware that the warehouse serves
+        /// </summary>
+        private WareType type;
+
+        /// <summary>
+        /// Number of cars the warehouse sends
+        /// </summary>
+        private int numberOfCars;
+
+        /// <summary>
+        /// Cars sent out since last start
+        /// </summary>
+        private int carsSent;
+
+        /// <summary>
+        /// Timer for sending cars
+        /// </summary>
+        private DispatcherTimer timer;
+
+        /// <summary>
+        /// Reference for the game
+        /// </summary>
+        private Game game;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Warehouse"/> class.
+        /// </summary>
+        /// <param name="x">X coordinate of the warehouse</param>
+        /// <param name="y">Y coordinate of the warehouse</param>
+        /// <param name="warehouses">Reference to the container containing other warehouses</param>
+        /// <param name="g">Reference to the game</param>
+        public Warehouse(int x, int y, List<Warehouse> warehouses, Game g)
+        {
+            this.X = x;
+            this.Y = y;
+            this.warehouses = warehouses;
+            this.Type = WareType.Mail;
+            this.NumberOfCars = 1;
+            this.game = g;
+        }
+
+        /// <summary>
+        /// Gets or sets the X coordinate of the Warehouse
+        /// </summary>
+        public int X
+        {
+            get
+            {
+                return this.x;
+            }
+
+            set
+            {
+                this.x = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the Y coordinate of the Warehouse
+        /// </summary>
+        public int Y
+        {
+            get
+            {
+                return this.y;
+            }
+
+            set
+            {
+                this.y = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the other warehouse references in the warehouse
+        /// </summary>
+        public List<Warehouse> Warehouses
+        {
+            get
+            {
+                List<Warehouse> temp = new List<Warehouse>();
+                foreach (Warehouse w in this.warehouses)
+                {
+                    if (!(w.X == this.X && w.Y == this.Y))
+                    {
+                        temp.Add(w);
+                    }
+                }
+
+                return temp;
+            }
+
+            set
+            {
+                this.warehouses = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the type of ware that the warehouse serves
+        /// </summary>
+        public WareType Type
+        {
+            get
+            {
+                return this.type;
+            }
+
+            set
+            {
+                this.type = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the target of this warehouse
+        /// </summary>
+        public Warehouse Target
+        {
+            get
+            {
+                return this.target;
+            }
+
+            set
+            {
+                this.target = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the name of the warehouse
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return string.Format("Warehouse at {0},{1}", this.X, this.Y);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the number of cars the warehouse sends
+        /// </summary>
+        public int NumberOfCars
+        {
+            get
+            {
+                return this.numberOfCars;
+            }
+
+            set
+            {
+                this.numberOfCars = value;
+            }
+        }
+
+        /// <summary>
+        /// Converts the object to a string
+        /// </summary>
+        /// <returns>A string with the warehouse's data</returns>
+        public override string ToString()
+        {
+            return string.Format("X: {0} Y: {1}", this.X, this.Y);
+        }
+
+        /// <summary>
+        /// Starts a number of cars set in the numberOfCars value
+        /// </summary>
+        public void StartCars()
+        {
+            if (this.Target != null)
+            {
+                this.carsSent = 0;
+                this.timer = new DispatcherTimer();
+                this.timer.Interval = TimeSpan.FromMilliseconds(100);
+                this.timer.Tick += this.Timer_Tick;
+                this.timer.Start();
+            }
+        }
+
+        /// <summary>
+        /// Sends out a car every tick
+        /// </summary>
+        /// <param name="sender">Sender object</param>
+        /// <param name="e">Arguments of the tick</param>
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            this.timer.Interval = TimeSpan.FromSeconds(5);
+            if (this.carsSent < this.numberOfCars)
+            {
+                this.game.Map.AddVehicle(this.X + 1, this.Y, this.Target);
+                this.carsSent++;
+            }
+            else
+            {
+                this.timer.Stop();
+                this.carsSent = 0;
+            }
+        }
+    }
+}

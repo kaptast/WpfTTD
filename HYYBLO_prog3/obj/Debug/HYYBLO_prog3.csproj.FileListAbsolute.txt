@@ -41,3 +41,5 @@ D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_pr
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Debug\MainWindow.g.cs
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Debug\MainWindow.baml
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Debug\HYYBLO_prog3.csprojResolveAssemblyReference.cache
+D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Debug\BL\EditWarehouse.g.cs
+D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Debug\BL\EditWarehouse.baml

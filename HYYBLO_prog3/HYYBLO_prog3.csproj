@@ -78,6 +78,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BL\Building\BuildingBase.cs" />
+    <Compile Include="BL\EditWarehouse.xaml.cs">
+      <DependentUpon>EditWarehouse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BL\Warehouse.cs" />
     <Compile Include="Model\Camera.cs" />
     <Compile Include="Model\Direction.cs" />
     <Compile Include="Model\PathFinding.cs" />
@@ -87,6 +91,10 @@
     <Compile Include="BL\Building\Warehouse\WarehouseLot12.cs" />
     <Compile Include="BL\Building\Warehouse\WarehouseLot21.cs" />
     <Compile Include="BL\Building\Warehouse\WarehouseLot22.cs" />
+    <Page Include="BL\EditWarehouse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -168,6 +176,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Buildings\warehouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\warehouse.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -175,8 +175,14 @@ namespace Hyyblo_Model
                     this.game.Map.SetDelete((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
                     this.game.Map.FireRoadPlaced(this, new EventArgs());
                     break;
-                case Hyyblo_View.BuildType.Vehicle:
-                    this.game.Map.AddVehicle((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
+                case Hyyblo_View.BuildType.Nothing:
+                    Warehouse wh = this.game.FindWarehouseByPosition((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
+                    if (wh != null)
+                    {
+                        Hyyblo_View.EditWarehouse window = new Hyyblo_View.EditWarehouse(wh);
+                        window.ShowDialog();
+                    }
+
                     break;
                 default:
                     break;
@@ -238,7 +244,7 @@ namespace Hyyblo_Model
             base.OnRender(drawingContext);
             if (this.moneyLabel != null)
             {
-                this.moneyLabel.Content = this.game;
+                this.moneyLabel.Content = this.game.ToString();
             }
 
             this.RenderMap(drawingContext);

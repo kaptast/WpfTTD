@@ -215,6 +215,8 @@ namespace Hyyblo_Model
                 {
                     this.WarehousePlaced.Invoke(this, new EventArgs());
                 }
+
+                this.FireRoadPlaced(this, new EventArgs());
             }
         }
 
@@ -302,11 +304,12 @@ namespace Hyyblo_Model
         /// </summary>
         /// <param name="x">X coordinate of the vehicle</param>
         /// <param name="y">Y coordinate of the vehicle</param>
-        public void AddVehicle(int x, int y)
+        /// <param name="target">Target of the vehicle</param>
+        public void AddVehicle(int x, int y, Warehouse target)
         {
             if (this.RightCoord(x, y))
             {
-                Vehicle v = new Vehicle(x, y, this);
+                Vehicle v = new Vehicle(x, y, this, target);
                 this.Vehicles.Add(v);
             }
         }

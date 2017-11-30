@@ -107,11 +107,6 @@ namespace Hyyblo_Model
             if (this.pathToTarget != null)
             {
                 this.currentTarget = this.pathToTarget[0];
-                System.Diagnostics.Debug.WriteLine("PathLength: " + this.pathToTarget.Count);
-            }
-            else
-            {
-                System.Diagnostics.Debug.WriteLine("No path found");
             }
 
             this.timer.Start();
@@ -150,7 +145,7 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
-        /// Gets or sets the vehicle's current route
+        /// Gets or sets the vehicle's ware type on the current route
         /// </summary>
         public WareType Type
         {
@@ -187,23 +182,34 @@ namespace Hyyblo_Model
         /// </summary>
         private void Move()
         {
-            if (this.Target != null)
+            if (this.pathToTarget != null)
             {
-                if (this.ReachedWaypoint())
+                if (this.Target != null)
                 {
-                    if (this.targetIdx + 1 < this.pathToTarget.Count)
+                    if (this.ReachedWaypoint())
                     {
-                        this.Target = this.pathToTarget[++this.targetIdx];
-                    }
-                    else
-                    {
-                        this.ReachedTarget();
+                        if (this.targetIdx + 1 < this.pathToTarget.Count)
+                        {
+                            this.Target = this.pathToTarget[++this.targetIdx];
+                        }
+                        else
+                        {
+                            this.ReachedTarget();
+                        }
+
+                        this.ChangeDirection();
                     }
 
-                    this.ChangeDirection();
+                    this.MoveVehicle();
                 }
-
-                this.MoveVehicle();
+            }
+            else
+            {
+                this.pathToTarget = this.game.Map.Pathfinder.FindPath(this, this.finalTarget);
+                if (this.pathToTarget != null)
+                {
+                    this.currentTarget = this.pathToTarget[0];
+                }
             }
         }
 
@@ -307,6 +313,7 @@ namespace Hyyblo_Model
                 this.finalTarget = this.SearchTarget(this.finalWarehouse);
                 this.pathToTarget = this.game.Map.Pathfinder.FindPath(this, this.finalTarget);
                 this.targetIdx = 0;
+                this.Type = this.startWarehouse.Type;
                 this.timer.Restart();
             }
         }
@@ -320,8 +327,15 @@ namespace Hyyblo_Model
         private void SetPrice(WareType type, int length, long time)
         {
             int cost = length * 5;
-            double profit = (Game.Prices[type] * Math.Pow(length, 2) / (time / 500)) - cost;
-            this.game.Money += (int)profit;
+            if (this.finalWarehouse.AcceptWare(this.Type))
+            {
+                double profit = (Game.Prices[type] * Math.Pow(length, 2) / (time / 500)) - cost;
+                this.game.Money += (int)profit;
+            }
+            else
+            {
+                this.game.Money -= cost;
+            }
         }
 
         /// <summary>

@@ -169,7 +169,7 @@ namespace Hyyblo_Model
             if (this.Money > 0)
             {
                 this.Map.SetWarehouse(x, y);
-                this.Warehouses.Add(new Warehouse(x, y, this.warehouses, this));
+                this.Warehouses.Add(new Warehouse(x, y, this));
             }
         }
 

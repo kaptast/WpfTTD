@@ -91,13 +91,12 @@
             Reference for the game
             </summary>
         </member>
-        <member name="M:Hyyblo_Model.Warehouse.#ctor(System.Int32,System.Int32,System.Collections.Generic.List{Hyyblo_Model.Warehouse},Hyyblo_Model.Game)">
+        <member name="M:Hyyblo_Model.Warehouse.#ctor(System.Int32,System.Int32,Hyyblo_Model.Game)">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_Model.Warehouse"/> class.
             </summary>
             <param name="x">X coordinate of the warehouse</param>
             <param name="y">Y coordinate of the warehouse</param>
-            <param name="warehouses">Reference to the container containing other warehouses</param>
             <param name="g">Reference to the game</param>
         </member>
         <member name="P:Hyyblo_Model.Warehouse.X">
@@ -145,6 +144,13 @@
             <summary>
             Starts a number of cars set in the numberOfCars value
             </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Warehouse.AcceptWare(Hyyblo_Model.WareType)">
+            <summary>
+            Decides if the warehouse accepts the ware
+            </summary>
+            <param name="type">Type of the ware</param>
+            <returns>Returns true if the warehouse accepts the ware</returns>
         </member>
         <member name="M:Hyyblo_Model.Warehouse.Timer_Tick(System.Object,System.EventArgs)">
             <summary>
@@ -420,7 +426,7 @@
         </member>
         <member name="P:Hyyblo_Model.Vehicle.Type">
             <summary>
-            Gets or sets the vehicle's current route
+            Gets or sets the vehicle's ware type on the current route
             </summary>
         </member>
         <member name="M:Hyyblo_Model.Vehicle.Update">
@@ -1004,6 +1010,14 @@
             <summary>
             Updates all vehicles on the map
             </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Map.SetType(System.Int32,System.Int32)">
+            <summary>
+            Decides what the type of the warehouse at that position should be
+            </summary>
+            <param name="x">X coordinate of the warehouse</param>
+            <param name="y">Y coordinate of the warehouse</param>
+            <returns>Decided type of the warehouse</returns>
         </member>
         <member name="M:Hyyblo_Model.Map.GetNeighbours(Hyyblo_Model.MapItem)">
             <summary>

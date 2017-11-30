@@ -163,6 +163,7 @@ namespace Hyyblo_Model
         {
             Point p = e.GetPosition(this); // Click position relative to the screen
             Point map = this.ScreenToPoint((int)p.X, (int)p.Y); // Screen coordinate to map coordinate
+            Warehouse wh;
             switch (type)
             {
                 case Hyyblo_View.BuildType.Road:
@@ -173,10 +174,16 @@ namespace Hyyblo_Model
                     break;
                 case Hyyblo_View.BuildType.Delete:
                     this.game.Map.SetDelete((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
+                    wh = this.game.FindWarehouseByPosition((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
+                    if (wh != null)
+                    {
+                        this.game.Warehouses.Remove(wh);
+                    }
+
                     this.game.Map.FireRoadPlaced(this, new EventArgs());
                     break;
                 case Hyyblo_View.BuildType.Nothing:
-                    Warehouse wh = this.game.FindWarehouseByPosition((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
+                    wh = this.game.FindWarehouseByPosition((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
                     if (wh != null)
                     {
                         Hyyblo_View.EditWarehouse window = new Hyyblo_View.EditWarehouse(wh);

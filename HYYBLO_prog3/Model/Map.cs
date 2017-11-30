@@ -328,6 +328,57 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
+        /// Decides what the type of the warehouse at that position should be
+        /// </summary>
+        /// <param name="x">X coordinate of the warehouse</param>
+        /// <param name="y">Y coordinate of the warehouse</param>
+        /// <returns>Decided type of the warehouse</returns>
+        public WareType SetType(int x, int y)
+        {
+            Dictionary<WareType, int> counter = new Dictionary<WareType, int>();
+            counter.Add(WareType.Goods, 0);
+            counter.Add(WareType.Mail, 0);
+            counter.Add(WareType.Nothing, 0);
+            counter.Add(WareType.Ore, 0);
+
+            for (int i = -2; i < 3; i++)
+            {
+                for (int j = -2; j < 3; j++)
+                {
+                    if (!(i == 0 && j == 0))
+                    {
+                        MapItem item = this.GetItemByCoord(x + i, y + j);
+                        if (item is BuildingBase)
+                        {
+                            counter[WareType.Mail]++;
+                        }
+                        else
+                        {
+                            counter[WareType.Nothing]++;
+                        }
+                    }
+                }
+            }
+
+            if (!(counter[WareType.Mail] > 0 || counter[WareType.Goods] > 0 || counter[WareType.Ore] > 0))
+            {
+                return WareType.Nothing;
+            }
+            else if (counter[WareType.Goods] >= counter[WareType.Mail] && counter[WareType.Goods] >= counter[WareType.Ore])
+            {
+                return WareType.Goods;
+            }
+            else if (counter[WareType.Ore] >= counter[WareType.Mail] && counter[WareType.Ore] >= counter[WareType.Goods])
+            {
+                return WareType.Ore;
+            }
+            else
+            {
+                return WareType.Mail;
+            }
+        }
+
+        /// <summary>
         /// Gets the neighbours of an item
         /// </summary>
         /// <param name="item">Item to search</param>

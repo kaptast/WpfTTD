@@ -94,16 +94,15 @@ namespace Hyyblo_Model
         /// </summary>
         /// <param name="x">X coordinate of the warehouse</param>
         /// <param name="y">Y coordinate of the warehouse</param>
-        /// <param name="warehouses">Reference to the container containing other warehouses</param>
         /// <param name="g">Reference to the game</param>
-        public Warehouse(int x, int y, List<Warehouse> warehouses, Game g)
+        public Warehouse(int x, int y, Game g)
         {
             this.X = x;
             this.Y = y;
-            this.warehouses = warehouses;
-            this.Type = WareType.Mail;
-            this.NumberOfCars = 1;
             this.game = g;
+            this.warehouses = this.game.Warehouses;
+            this.Type = this.game.Map.SetType(this.X, this.Y);
+            this.NumberOfCars = 1;
         }
 
         /// <summary>
@@ -243,6 +242,41 @@ namespace Hyyblo_Model
                 this.timer.Interval = TimeSpan.FromMilliseconds(100);
                 this.timer.Tick += this.Timer_Tick;
                 this.timer.Start();
+            }
+        }
+
+        /// <summary>
+        /// Decides if the warehouse accepts the ware
+        /// </summary>
+        /// <param name="type">Type of the ware</param>
+        /// <returns>Returns true if the warehouse accepts the ware</returns>
+        public bool AcceptWare(WareType type)
+        {
+            switch (type)
+            {
+                case WareType.Goods:
+                    if (this.Type == WareType.Mail)
+                    {
+                        return true;
+                    }
+
+                    return false;
+                case WareType.Mail:
+                    if (this.Type == WareType.Mail)
+                    {
+                        return true;
+                    }
+
+                    return false;
+                case WareType.Ore:
+                    if (this.Type == WareType.Goods)
+                    {
+                        return true;
+                    }
+
+                    return false;
+                default:
+                    return false;
             }
         }
 

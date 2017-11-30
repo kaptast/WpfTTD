@@ -8,7 +8,9 @@ namespace Hyyblo_Model
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Windows.Media.Imaging;
+    using System.Windows.Threading;
 
     /// <summary>
     /// Represents a moving vehicle
@@ -51,18 +53,39 @@ namespace Hyyblo_Model
         private double speed = 0.05;
 
         /// <summary>
-        /// Reference to the map of the game
+        /// Starting warehouse of the current route
         /// </summary>
-        private Map map;
+        private Warehouse startWarehouse;
+
+        /// <summary>
+        /// Final warehouse of the current route
+        /// </summary>
+        private Warehouse finalWarehouse;
+
+        /// <summary>
+        /// Type of the vehicles current ware
+        /// </summary>
+        private WareType type;
+
+        /// <summary>
+        /// Reference to the game
+        /// </summary>
+        private Game game;
+
+        /// <summary>
+        /// Timer for timing the path's time
+        /// </summary>
+        private Stopwatch timer;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Vehicle"/> class.
         /// </summary>
         /// <param name="x">X coordinate of the vehicle</param>
         /// <param name="y">Y coordinate of the vehicle</param>
-        /// <param name="map">Map of the game</param>
+        /// <param name="start">Start warehouse of the vehicle</param>
         /// <param name="target">Target of the vehicle</param>
-        public Vehicle(int x, int y, Map map, Warehouse target)
+        /// <param name="g">Reference to the game</param>
+        public Vehicle(int x, int y, Warehouse start, Warehouse target, Game g)
             : base(x, y)
         {
             this.facing = Direction.Left;
@@ -72,9 +95,15 @@ namespace Hyyblo_Model
                 this.images[i] = new BitmapImage(new Uri(GameView.GetImage("Images/Vehicles/truck" + i + ".png")));
             }
 
-            this.map = map;
-            this.finalTarget = this.SearchTarget(target);
-            this.pathToTarget = map.Pathfinder.FindPath(this, this.finalTarget);
+            this.finalWarehouse = target;
+            this.startWarehouse = start;
+
+            this.game = g;
+
+            this.timer = new Stopwatch();
+
+            this.finalTarget = this.SearchTarget(this.finalWarehouse);
+            this.pathToTarget = this.game.Map.Pathfinder.FindPath(this, this.finalTarget);
             if (this.pathToTarget != null)
             {
                 this.currentTarget = this.pathToTarget[0];
@@ -84,6 +113,8 @@ namespace Hyyblo_Model
             {
                 System.Diagnostics.Debug.WriteLine("No path found");
             }
+
+            this.timer.Start();
         }
 
         /// <summary>
@@ -115,6 +146,22 @@ namespace Hyyblo_Model
             set
             {
                 this.currentTarget = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the vehicle's current route
+        /// </summary>
+        public WareType Type
+        {
+            get
+            {
+                return this.type;
+            }
+
+            set
+            {
+                this.type = value;
             }
         }
 
@@ -234,7 +281,7 @@ namespace Hyyblo_Model
         /// <returns>A found warehouse</returns>
         private MapItem SearchTarget(Warehouse w)
         {
-            foreach (MapItem item in this.map.MapContainer)
+            foreach (MapItem item in this.game.Map.MapContainer)
             {
                 if (item.X == w.X + 1 && item.Y == w.Y)
                 {
@@ -252,8 +299,29 @@ namespace Hyyblo_Model
         {
             if (this.pathToTarget.Count - 1 <= this.targetIdx)
             {
-                this.map.Vehicles.Remove(this);
+                this.timer.Stop();
+                this.SetPrice(this.Type, this.pathToTarget.Count, this.timer.ElapsedMilliseconds);
+                Warehouse temp = this.startWarehouse;
+                this.startWarehouse = this.finalWarehouse;
+                this.finalWarehouse = temp;
+                this.finalTarget = this.SearchTarget(this.finalWarehouse);
+                this.pathToTarget = this.game.Map.Pathfinder.FindPath(this, this.finalTarget);
+                this.targetIdx = 0;
+                this.timer.Restart();
             }
+        }
+
+        /// <summary>
+        /// Calculates the route's price
+        /// </summary>
+        /// <param name="type">Cargo type of the route</param>
+        /// <param name="length">Legth of the route</param>
+        /// <param name="time">Time of the route</param>
+        private void SetPrice(WareType type, int length, long time)
+        {
+            int cost = length * 5;
+            double profit = (Game.Prices[type] * Math.Pow(length, 2) / (time / 500)) - cost;
+            this.game.Money += (int)profit;
         }
 
         /// <summary>

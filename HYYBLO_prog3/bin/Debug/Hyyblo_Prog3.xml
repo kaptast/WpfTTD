@@ -373,19 +373,40 @@
             Moving speed of the vehicle
             </summary>
         </member>
-        <member name="F:Hyyblo_Model.Vehicle.map">
+        <member name="F:Hyyblo_Model.Vehicle.startWarehouse">
             <summary>
-            Reference to the map of the game
+            Starting warehouse of the current route
             </summary>
         </member>
-        <member name="M:Hyyblo_Model.Vehicle.#ctor(System.Int32,System.Int32,Hyyblo_Model.Map,Hyyblo_Model.Warehouse)">
+        <member name="F:Hyyblo_Model.Vehicle.finalWarehouse">
+            <summary>
+            Final warehouse of the current route
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Vehicle.type">
+            <summary>
+            Type of the vehicles current ware
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Vehicle.game">
+            <summary>
+            Reference to the game
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Vehicle.timer">
+            <summary>
+            Timer for timing the path's time
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Vehicle.#ctor(System.Int32,System.Int32,Hyyblo_Model.Warehouse,Hyyblo_Model.Warehouse,Hyyblo_Model.Game)">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_Model.Vehicle"/> class.
             </summary>
             <param name="x">X coordinate of the vehicle</param>
             <param name="y">Y coordinate of the vehicle</param>
-            <param name="map">Map of the game</param>
+            <param name="start">Start warehouse of the vehicle</param>
             <param name="target">Target of the vehicle</param>
+            <param name="g">Reference to the game</param>
         </member>
         <member name="P:Hyyblo_Model.Vehicle.Image">
             <summary>
@@ -395,6 +416,11 @@
         <member name="P:Hyyblo_Model.Vehicle.Target">
             <summary>
             Gets or sets the target to the vehicle where it has to move
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Vehicle.Type">
+            <summary>
+            Gets or sets the vehicle's current route
             </summary>
         </member>
         <member name="M:Hyyblo_Model.Vehicle.Update">
@@ -435,6 +461,14 @@
             <summary>
             If the vehicle reached it's final target, it is deleted from the Vehicles container in the map
             </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Vehicle.SetPrice(Hyyblo_Model.WareType,System.Int32,System.Int64)">
+            <summary>
+            Calculates the route's price
+            </summary>
+            <param name="type">Cargo type of the route</param>
+            <param name="length">Legth of the route</param>
+            <param name="time">Time of the route</param>
         </member>
         <member name="M:Hyyblo_Model.Vehicle.ChangeDirection">
             <summary>
@@ -524,6 +558,11 @@
             Game object, contains the current game's values
             </summary>
         </member>
+        <member name="F:Hyyblo_Model.Game.prices">
+            <summary>
+            Stores the prices of the different types of wares
+            </summary>
+        </member>
         <member name="F:Hyyblo_Model.Game.map">
             <summary>
             Map of the game
@@ -542,6 +581,11 @@
         <member name="M:Hyyblo_Model.Game.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_Model.Game"/> class.
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Game.Prices">
+            <summary>
+            Gets the Price table
             </summary>
         </member>
         <member name="P:Hyyblo_Model.Game.Map">
@@ -578,6 +622,15 @@
             </summary>
             <param name="x">X coordinate of the road</param>
             <param name="y">Y coordinate of the road</param>
+        </member>
+        <member name="M:Hyyblo_Model.Game.SetVehicle(System.Int32,System.Int32,Hyyblo_Model.Warehouse,Hyyblo_Model.Warehouse)">
+            <summary>
+            Adds a vehicle to the map
+            </summary>
+            <param name="x">X coordinate of the vehicle</param>
+            <param name="y">Y coordinate of the vehicle</param>
+            <param name="start">Staring warehouse of the vehicle</param>
+            <param name="final">Target warehouse of the vehicle</param>
         </member>
         <member name="M:Hyyblo_Model.Game.SetWarehouse(System.Int32,System.Int32)">
             <summary>
@@ -937,13 +990,15 @@
             <param name="y">Y coordinate of the building</param>
             <returns>The building at the requested position</returns>
         </member>
-        <member name="M:Hyyblo_Model.Map.AddVehicle(System.Int32,System.Int32,Hyyblo_Model.Warehouse)">
+        <member name="M:Hyyblo_Model.Map.AddVehicle(System.Int32,System.Int32,Hyyblo_Model.Warehouse,Hyyblo_Model.Warehouse,Hyyblo_Model.Game)">
             <summary>
             Adds a vehicle at the position
             </summary>
             <param name="x">X coordinate of the vehicle</param>
             <param name="y">Y coordinate of the vehicle</param>
+            <param name="start">Start warhouse of the vehicle</param>
             <param name="target">Target of the vehicle</param>
+            <param name="game">Reference to the game</param>
         </member>
         <member name="M:Hyyblo_Model.Map.UpdateVehicles">
             <summary>

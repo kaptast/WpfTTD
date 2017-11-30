@@ -256,7 +256,7 @@ namespace Hyyblo_Model
             this.timer.Interval = TimeSpan.FromSeconds(5);
             if (this.carsSent < this.numberOfCars)
             {
-                this.game.Map.AddVehicle(this.X + 1, this.Y, this.Target);
+                this.game.SetVehicle(this.X + 1, this.Y, this, this.Target);
                 this.carsSent++;
             }
             else

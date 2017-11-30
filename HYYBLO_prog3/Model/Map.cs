@@ -304,12 +304,14 @@ namespace Hyyblo_Model
         /// </summary>
         /// <param name="x">X coordinate of the vehicle</param>
         /// <param name="y">Y coordinate of the vehicle</param>
+        /// <param name="start">Start warhouse of the vehicle</param>
         /// <param name="target">Target of the vehicle</param>
-        public void AddVehicle(int x, int y, Warehouse target)
+        /// <param name="game">Reference to the game</param>
+        public void AddVehicle(int x, int y, Warehouse start, Warehouse target, Game game)
         {
             if (this.RightCoord(x, y))
             {
-                Vehicle v = new Vehicle(x, y, this, target);
+                Vehicle v = new Vehicle(x, y, start, target, game);
                 this.Vehicles.Add(v);
             }
         }

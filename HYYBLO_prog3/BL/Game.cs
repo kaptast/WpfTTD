@@ -15,6 +15,11 @@ namespace Hyyblo_Model
     public class Game
     {
         /// <summary>
+        /// Stores the prices of the different types of wares
+        /// </summary>
+        private static Dictionary<WareType, int> prices;
+
+        /// <summary>
         /// Map of the game
         /// </summary>
         private Map map;
@@ -39,6 +44,23 @@ namespace Hyyblo_Model
             this.map.WarehousePlaced += this.Map_WarehousePlaced;
             this.Money = 20000;
             this.warehouses = new List<Warehouse>();
+
+            prices = new Dictionary<WareType, int>();
+            prices.Add(WareType.Goods, 100);
+            prices.Add(WareType.Nothing, 0);
+            prices.Add(WareType.Mail, 20);
+            prices.Add(WareType.Ore, 70);
+        }
+
+        /// <summary>
+        /// Gets the Price table
+        /// </summary>
+        public static Dictionary<WareType, int> Prices
+        {
+            get
+            {
+                return prices;
+            }
         }
 
         /// <summary>
@@ -123,6 +145,18 @@ namespace Hyyblo_Model
                 this.Map.SetRoad(x, y);
                 this.Map.FireRoadPlaced(this, new EventArgs()); // Check road tiles
             }
+        }
+
+        /// <summary>
+        /// Adds a vehicle to the map
+        /// </summary>
+        /// <param name="x">X coordinate of the vehicle</param>
+        /// <param name="y">Y coordinate of the vehicle</param>
+        /// <param name="start">Staring warehouse of the vehicle</param>
+        /// <param name="final">Target warehouse of the vehicle</param>
+        public void SetVehicle(int x, int y, Warehouse start, Warehouse final)
+        {
+            this.Map.AddVehicle(x, y, start, final, this);
         }
 
         /// <summary>

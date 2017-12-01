@@ -15,6 +15,7 @@ namespace Hyyblo_View
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
     using System.Windows.Threading;
+    using Hyyblo_Logic;
     using Hyyblo_Model;
 
     /// <summary>

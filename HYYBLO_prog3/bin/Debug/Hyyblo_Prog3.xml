@@ -49,206 +49,6 @@
             <param name="x">X coordinate of the refinery</param>
             <param name="y">Y coordinate of the refinery</param>
         </member>
-        <member name="T:Hyyblo_Model.WareType">
-            <summary>
-            Type of a ware that a warehouse can serve
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.WareType.Mail">
-            <summary>
-            Ware between towns
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.WareType.Goods">
-            <summary>
-            Ware between factory and town
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.WareType.Ore">
-            <summary>
-            Ware between factory and mine
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.WareType.Nothing">
-            <summary>
-            No ware
-            </summary>
-        </member>
-        <member name="T:Hyyblo_Model.Warehouse">
-            <summary>
-            Represents a warehouse a the given position
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Warehouse.x">
-            <summary>
-            X coordinate of the warehouse
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Warehouse.y">
-            <summary>
-            Y coordinate of the warehouse
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Warehouse.warehouses">
-            <summary>
-            Reference to the other warehouses
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Warehouse.target">
-            <summary>
-            Target warehouse of this warehouse
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Warehouse.type">
-            <summary>
-            Type of a ware that the warehouse serves
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Warehouse.numberOfCars">
-            <summary>
-            Number of cars the warehouse sends
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Warehouse.carsSent">
-            <summary>
-            Cars sent out since last start
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Warehouse.timer">
-            <summary>
-            Timer for sending cars
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Warehouse.game">
-            <summary>
-            Reference for the game
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Warehouse.#ctor(System.Int32,System.Int32,Hyyblo_Model.Game)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Hyyblo_Model.Warehouse"/> class.
-            </summary>
-            <param name="x">X coordinate of the warehouse</param>
-            <param name="y">Y coordinate of the warehouse</param>
-            <param name="g">Reference to the game</param>
-        </member>
-        <member name="P:Hyyblo_Model.Warehouse.X">
-            <summary>
-            Gets or sets the X coordinate of the Warehouse
-            </summary>
-        </member>
-        <member name="P:Hyyblo_Model.Warehouse.Y">
-            <summary>
-            Gets or sets the Y coordinate of the Warehouse
-            </summary>
-        </member>
-        <member name="P:Hyyblo_Model.Warehouse.Warehouses">
-            <summary>
-            Gets or sets the other warehouse references in the warehouse
-            </summary>
-        </member>
-        <member name="P:Hyyblo_Model.Warehouse.CargoType">
-            <summary>
-            Gets or sets the type of ware that the warehouse serves
-            </summary>
-        </member>
-        <member name="P:Hyyblo_Model.Warehouse.Target">
-            <summary>
-            Gets or sets the target of this warehouse
-            </summary>
-        </member>
-        <member name="P:Hyyblo_Model.Warehouse.Name">
-            <summary>
-            Gets the name of the warehouse
-            </summary>
-        </member>
-        <member name="P:Hyyblo_Model.Warehouse.NumberOfCars">
-            <summary>
-            Gets or sets the number of cars the warehouse sends
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Warehouse.ToString">
-            <summary>
-            Converts the object to a string
-            </summary>
-            <returns>A string with the warehouse's data</returns>
-        </member>
-        <member name="M:Hyyblo_Model.Warehouse.StartCars">
-            <summary>
-            Starts a number of cars set in the numberOfCars value
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Warehouse.AcceptWare(Hyyblo_Model.WareType)">
-            <summary>
-            Decides if the warehouse accepts the ware
-            </summary>
-            <param name="type">Type of the ware</param>
-            <returns>Returns true if the warehouse accepts the ware</returns>
-        </member>
-        <member name="M:Hyyblo_Model.Warehouse.Timer_Tick(System.Object,System.EventArgs)">
-            <summary>
-            Sends out a car every tick
-            </summary>
-            <param name="sender">Sender object</param>
-            <param name="e">Arguments of the tick</param>
-        </member>
-        <member name="T:Hyyblo_Model.Direction">
-            <summary>
-            Represents a direction
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Direction.Up">
-            <summary>
-            Represents the up direction
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Direction.Right">
-            <summary>
-            Represents the right direction
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Direction.Down">
-            <summary>
-            Represents the down direction
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Direction.Left">
-            <summary>
-            Represents the left direction
-            </summary>
-        </member>
-        <member name="T:Hyyblo_Model.Pathfinding">
-            <summary>
-            Pathfinder utility class
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Pathfinding.map">
-            <summary>
-            Reference to the map of the game
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Pathfinding.#ctor(Hyyblo_Model.Map)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Hyyblo_Model.Pathfinding"/> class.
-            </summary>
-            <param name="m">Map of the game</param>
-        </member>
-        <member name="M:Hyyblo_Model.Pathfinding.FindPath(Hyyblo_Model.MapItem,Hyyblo_Model.MapItem)">
-            <summary>
-            Finds a path between the points on the map
-            </summary>
-            <param name="startPos">Starting position of the path</param>
-            <param name="targetPos">Final target of the path</param>
-            <returns>List of the path's items</returns>
-        </member>
-        <member name="M:Hyyblo_Model.Pathfinding.RetracePath(Hyyblo_Model.MapItem,Hyyblo_Model.MapItem)">
-            <summary>
-            Builds the path from the item's parents set in the findPath method
-            </summary>
-            <param name="startNode">Starting position of the path</param>
-            <param name="endNode">Final target of the path</param>
-            <returns>List of the path's items</returns>
-        </member>
         <member name="T:Hyyblo_Model.Road">
             <summary>
             Represent a Road tile
@@ -269,7 +69,7 @@
             Reference to the map of the game
             </summary>
         </member>
-        <member name="M:Hyyblo_Model.Road.#ctor(System.Int32,System.Int32,Hyyblo_Model.Map)">
+        <member name="M:Hyyblo_Model.Road.#ctor(System.Int32,System.Int32,Hyyblo_Logic.Map)">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_Model.Road"/> class.
             </summary>
@@ -365,7 +165,7 @@
             Timer for timing the path's time
             </summary>
         </member>
-        <member name="M:Hyyblo_Model.Vehicle.#ctor(System.Int32,System.Int32,Hyyblo_Model.Warehouse,Hyyblo_Model.Warehouse,Hyyblo_Model.Game)">
+        <member name="M:Hyyblo_Model.Vehicle.#ctor(System.Int32,System.Int32,Hyyblo_Logic.Warehouse,Hyyblo_Logic.Warehouse,Hyyblo_Logic.Game)">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_Model.Vehicle"/> class.
             </summary>
@@ -417,7 +217,7 @@
             Moves the vehicles according to it's direction
             </summary>
         </member>
-        <member name="M:Hyyblo_Model.Vehicle.SearchTarget(Hyyblo_Model.Warehouse)">
+        <member name="M:Hyyblo_Model.Vehicle.SearchTarget(Hyyblo_Logic.Warehouse)">
             <summary>
             Searches a warehouse on the map
             </summary>
@@ -429,7 +229,7 @@
             If the vehicle reached it's final target, it is deleted from the Vehicles container in the map
             </summary>
         </member>
-        <member name="M:Hyyblo_Model.Vehicle.SetPrice(Hyyblo_Model.WareType,System.Int32,System.Int64)">
+        <member name="M:Hyyblo_Model.Vehicle.SetPrice(Hyyblo_Logic.WareType,System.Int32,System.Int64)">
             <summary>
             Calculates the route's price
             </summary>
@@ -476,7 +276,7 @@
             Represents a parking lot of the Warehouse
             </summary>
         </member>
-        <member name="M:Hyyblo_Model.WarehouseLot21.#ctor(System.Int32,System.Int32,Hyyblo_Model.Map)">
+        <member name="M:Hyyblo_Model.WarehouseLot21.#ctor(System.Int32,System.Int32,Hyyblo_Logic.Map)">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_Model.WarehouseLot21"/> class.
             </summary>
@@ -503,11 +303,6 @@
             <param name="x">X coordinate of the lot</param>
             <param name="y">Y coordinate of the lot</param>
         </member>
-        <member name="T:Hyyblo_Model.App">
-            <summary>
-            Interaction logic for App
-            </summary>
-        </member>
         <member name="T:Hyyblo_Model.Building">
             <summary>
             Abstract class of the Building
@@ -519,112 +314,6 @@
             </summary>
             <param name="x">X coordinate of the building</param>
             <param name="y">Y coordinate of the building</param>
-        </member>
-        <member name="T:Hyyblo_Model.Game">
-            <summary>
-            Game object, contains the current game's values
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Game.prices">
-            <summary>
-            Stores the prices of the different types of wares
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Game.map">
-            <summary>
-            Map of the game
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Game.money">
-            <summary>
-            Money of the player
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Game.warehouses">
-            <summary>
-            Collection to store warehouses built in the game
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Game.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Hyyblo_Model.Game"/> class.
-            </summary>
-        </member>
-        <member name="P:Hyyblo_Model.Game.Prices">
-            <summary>
-            Gets the Price table
-            </summary>
-        </member>
-        <member name="P:Hyyblo_Model.Game.Map">
-            <summary>
-            Gets or sets map of the game
-            </summary>
-        </member>
-        <member name="P:Hyyblo_Model.Game.Money">
-            <summary>
-            Gets or sets the money of the player
-            </summary>
-        </member>
-        <member name="P:Hyyblo_Model.Game.Warehouses">
-            <summary>
-            Gets the warehouse list of the game
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Game.FindWarehouseByPosition(System.Int32,System.Int32)">
-            <summary>
-            Finds a warehouse with correct position
-            </summary>
-            <param name="x">X coordinate of the requested item</param>
-            <param name="y">Y coordinate of the requested item</param>
-            <returns>A found requested warehouse</returns>
-        </member>
-        <member name="M:Hyyblo_Model.Game.Update">
-            <summary>
-            Updates the elements in the game
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Game.SetRoad(System.Int32,System.Int32)">
-            <summary>
-            Places a road on the map
-            </summary>
-            <param name="x">X coordinate of the road</param>
-            <param name="y">Y coordinate of the road</param>
-        </member>
-        <member name="M:Hyyblo_Model.Game.SetVehicle(System.Int32,System.Int32,Hyyblo_Model.Warehouse,Hyyblo_Model.Warehouse)">
-            <summary>
-            Adds a vehicle to the map
-            </summary>
-            <param name="x">X coordinate of the vehicle</param>
-            <param name="y">Y coordinate of the vehicle</param>
-            <param name="start">Staring warehouse of the vehicle</param>
-            <param name="final">Target warehouse of the vehicle</param>
-        </member>
-        <member name="M:Hyyblo_Model.Game.SetWarehouse(System.Int32,System.Int32)">
-            <summary>
-            Places a warehouse on the map
-            </summary>
-            <param name="x">X coordinate of the warehouse</param>
-            <param name="y">Y coordinate of the warehouse</param>
-        </member>
-        <member name="M:Hyyblo_Model.Game.ToString">
-            <summary>
-            Creates a string with game's information
-            </summary>
-            <returns>A string with the game's information</returns>
-        </member>
-        <member name="M:Hyyblo_Model.Game.Map_RoadPlaced(System.Object,System.EventArgs)">
-            <summary>
-            Subtracts the price of the road from the players money
-            </summary>
-            <param name="sender">Sender object of the event</param>
-            <param name="e">Arguments of the event</param>
-        </member>
-        <member name="M:Hyyblo_Model.Game.Map_WarehousePlaced(System.Object,System.EventArgs)">
-            <summary>
-            Subtracts the price of the warehouse from the players money
-            </summary>
-            <param name="sender">Sender object of the event</param>
-            <param name="e">Arguments of the event</param>
         </member>
         <member name="T:Hyyblo_Model.Grass">
             <summary>
@@ -664,251 +353,6 @@
             <param name="y">Y coordinate of the rectangle's top left corner</param>
             <param name="cell">Current cell size of the view</param>
             <returns>A rectangle with the buildings size at the correct position</returns>
-        </member>
-        <member name="T:Hyyblo_Model.ItemPlacedEventHandler">
-            <summary>
-            Delegate for a placed road
-            </summary>
-            <param name="sender">Sender object</param>
-            <param name="e">Arguments of the road placing</param>
-        </member>
-        <member name="T:Hyyblo_Model.Map">
-            <summary>
-            Represents the map of the game
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Map.r">
-            <summary>
-            Random generator of the map
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Map.mapContainer">
-            <summary>
-            Collection of MapItems on the map
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Map.buildings">
-            <summary>
-            Collection of Buildings on the map
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Map.vehicles">
-            <summary>
-            Collection of vehicles on the map
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Map.pathfinder">
-            <summary>
-            Pathfinder object for the map
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Map.size">
-            <summary>
-            The width and height of the map
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Map.#ctor(System.Int32)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Hyyblo_Model.Map"/> class.
-            </summary>
-            <param name="size">Size of the map</param>
-        </member>
-        <member name="E:Hyyblo_Model.Map.RoadPlaced">
-            <summary>
-            Event for a placed road
-            </summary>
-        </member>
-        <member name="E:Hyyblo_Model.Map.WarehousePlaced">
-            <summary>
-            Event for a placed warehouse
-            </summary>
-        </member>
-        <member name="P:Hyyblo_Model.Map.MapContainer">
-            <summary>
-            Gets the Container of the MapItems in the Map
-            </summary>
-        </member>
-        <member name="P:Hyyblo_Model.Map.Vehicles">
-            <summary>
-            Gets or sets the Container of the Vehicles
-            </summary>
-        </member>
-        <member name="P:Hyyblo_Model.Map.Buildings">
-            <summary>
-            Gets or sets the Container of the Buildings
-            </summary>
-        </member>
-        <member name="P:Hyyblo_Model.Map.Size">
-            <summary>
-            Gets size of the map
-            </summary>
-        </member>
-        <member name="P:Hyyblo_Model.Map.Pathfinder">
-            <summary>
-            Gets or sets the Pathfinder of the map
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Map.RandomNormalDist(System.Double,System.Double,System.Int32,System.Double)">
-            <summary>
-            Generates a random number along a curve
-            </summary>
-            <param name="min">Minimum random value</param>
-            <param name="max">Maximum random value</param>
-            <param name="tightness">Tightness of the value</param>
-            <param name="exp">Power of the random value</param>
-            <returns>Random number in range which gravitates towards the given value</returns>
-        </member>
-        <member name="M:Hyyblo_Model.Map.SetRoad(System.Int32,System.Int32)">
-            <summary>
-            Places a road on the map
-            </summary>
-            <param name="x">X coordinate of the road</param>
-            <param name="y">Y coordinate of the road</param>
-        </member>
-        <member name="M:Hyyblo_Model.Map.SetWarehouse(System.Int32,System.Int32)">
-            <summary>
-            Places a Warehouse on the map
-            </summary>
-            <param name="x">X coordinate of the warehouse</param>
-            <param name="y">Y coordinate of the warehouse</param>
-        </member>
-        <member name="M:Hyyblo_Model.Map.SetDelete(System.Int32,System.Int32)">
-            <summary>
-            Deletes an item, and places a grass item in it's place
-            </summary>
-            <param name="x">X coordinate of the delete</param>
-            <param name="y">Y coordinate of the delete</param>
-        </member>
-        <member name="M:Hyyblo_Model.Map.RightCoord(System.Int32,System.Int32)">
-            <summary>
-            Checks if the requested coordinates are in the bounds
-            </summary>
-            <param name="x">Requested X coordinate</param>
-            <param name="y">Requested Y coordinate</param>
-            <returns>Returns true if the coordinates are in the bounds</returns>
-        </member>
-        <member name="M:Hyyblo_Model.Map.FireRoadPlaced(System.Object,System.EventArgs)">
-            <summary>
-            Fires the RoadPlaced event
-            </summary>
-            <param name="sender">Sender of the event</param>
-            <param name="e">Arguments of the event</param>
-        </member>
-        <member name="M:Hyyblo_Model.Map.GetItemByCoord(System.Double,System.Double)">
-            <summary>
-            Searches for an item with the right coordinates
-            </summary>
-            <param name="x">X coordinate of the item</param>
-            <param name="y">Y coordinate of the item</param>
-            <returns>The item at the requested position</returns>
-        </member>
-        <member name="M:Hyyblo_Model.Map.GetBuildingByCoord(System.Double,System.Double)">
-            <summary>
-            Searches for a building with the right coordinates
-            </summary>
-            <param name="x">X coordinate of the building</param>
-            <param name="y">Y coordinate of the building</param>
-            <returns>The building at the requested position</returns>
-        </member>
-        <member name="M:Hyyblo_Model.Map.AddVehicle(System.Int32,System.Int32,Hyyblo_Model.Warehouse,Hyyblo_Model.Warehouse,Hyyblo_Model.Game)">
-            <summary>
-            Adds a vehicle at the position
-            </summary>
-            <param name="x">X coordinate of the vehicle</param>
-            <param name="y">Y coordinate of the vehicle</param>
-            <param name="start">Start warehouse of the vehicle</param>
-            <param name="target">Target of the vehicle</param>
-            <param name="game">Reference to the game</param>
-        </member>
-        <member name="M:Hyyblo_Model.Map.UpdateVehicles">
-            <summary>
-            Updates all vehicles on the map
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Map.SetType(System.Int32,System.Int32)">
-            <summary>
-            Decides what the type of the warehouse at that position should be
-            </summary>
-            <param name="x">X coordinate of the warehouse</param>
-            <param name="y">Y coordinate of the warehouse</param>
-            <returns>Decided type of the warehouse</returns>
-        </member>
-        <member name="M:Hyyblo_Model.Map.GetNeighbours(Hyyblo_Model.MapItem)">
-            <summary>
-            Gets the neighbors of an item
-            </summary>
-            <param name="item">Item to search</param>
-            <returns>List with the neighbors</returns>
-        </member>
-        <member name="M:Hyyblo_Model.Map.GenerateMap(System.Int32,System.Int32)">
-            <summary>
-            Generates a map with the given size
-            </summary>
-            <param name="x">Width of the map</param>
-            <param name="y">Height of the map</param>
-        </member>
-        <member name="M:Hyyblo_Model.Map.GenerateTowns">
-            <summary>
-            Generates 5 to 10 towns
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Map.GenerateWares">
-            <summary>
-            Generates 2 to 5 of each production buildings
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Map.GenerateTown">
-            <summary>
-            Generates a town on the map at a random location
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Map.GenerateGrass(System.Int32,System.Int32)">
-            <summary>
-            Fills the map Grass tiles
-            </summary>
-            <param name="x">Width of the map</param>
-            <param name="y">Height of the map</param>
-        </member>
-        <member name="M:Hyyblo_Model.Map.GenerateBuildings(System.Int32,System.Int32)">
-            <summary>
-            Generates houses near the roads
-            </summary>
-            <param name="x">Width of the map</param>
-            <param name="y">Height of the map</param>
-        </member>
-        <member name="M:Hyyblo_Model.Map.GenHouse(System.Int32,System.Int32)">
-            <summary>
-            Generates a house at the given location with a 40% chance
-            </summary>
-            <param name="x">X coordinate of the house</param>
-            <param name="y">Y coordinate of the house</param>
-        </member>
-        <member name="M:Hyyblo_Model.Map.GenFactory">
-            <summary>
-            Generates a factory
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Map.GenRefinery">
-            <summary>
-            Generates a refinery
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Map.RoadIsNeighbour(System.Int32,System.Int32)">
-            <summary>
-            Checks if there is a neighboring road
-            </summary>
-            <param name="x">X coordinate to check</param>
-            <param name="y">Y coordinate to check</param>
-            <returns>Returns true if there is a neighboring road, and false if there isn't</returns>
-        </member>
-        <member name="M:Hyyblo_Model.Map.GenerateRoad(System.Int32,System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Generates road between two points
-            </summary>
-            <param name="x1">X coordinate of the first point</param>
-            <param name="y1">Y coordinate of the first point</param>
-            <param name="x2">X coordinate of the second point</param>
-            <param name="y2">Y coordinate of the second point</param>
         </member>
         <member name="T:Hyyblo_Model.MapItem">
             <summary>
@@ -1043,6 +487,557 @@
             </summary>
             <returns>Returns the hash code</returns>
         </member>
+        <member name="T:Hyyblo_Logic.WareType">
+            <summary>
+            Type of a ware that a warehouse can serve
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.WareType.Mail">
+            <summary>
+            Ware between towns
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.WareType.Goods">
+            <summary>
+            Ware between factory and town
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.WareType.Ore">
+            <summary>
+            Ware between factory and mine
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.WareType.Nothing">
+            <summary>
+            No ware
+            </summary>
+        </member>
+        <member name="T:Hyyblo_Logic.Warehouse">
+            <summary>
+            Represents a warehouse a the given position
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Warehouse.x">
+            <summary>
+            X coordinate of the warehouse
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Warehouse.y">
+            <summary>
+            Y coordinate of the warehouse
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Warehouse.warehouses">
+            <summary>
+            Reference to the other warehouses
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Warehouse.target">
+            <summary>
+            Target warehouse of this warehouse
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Warehouse.type">
+            <summary>
+            Type of a ware that the warehouse serves
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Warehouse.numberOfCars">
+            <summary>
+            Number of cars the warehouse sends
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Warehouse.carsSent">
+            <summary>
+            Cars sent out since last start
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Warehouse.timer">
+            <summary>
+            Timer for sending cars
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Warehouse.game">
+            <summary>
+            Reference for the game
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Logic.Warehouse.#ctor(System.Int32,System.Int32,Hyyblo_Logic.Game)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Logic.Warehouse"/> class.
+            </summary>
+            <param name="x">X coordinate of the warehouse</param>
+            <param name="y">Y coordinate of the warehouse</param>
+            <param name="g">Reference to the game</param>
+        </member>
+        <member name="P:Hyyblo_Logic.Warehouse.X">
+            <summary>
+            Gets or sets the X coordinate of the Warehouse
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Logic.Warehouse.Y">
+            <summary>
+            Gets or sets the Y coordinate of the Warehouse
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Logic.Warehouse.Warehouses">
+            <summary>
+            Gets or sets the other warehouse references in the warehouse
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Logic.Warehouse.CargoType">
+            <summary>
+            Gets or sets the type of ware that the warehouse serves
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Logic.Warehouse.Target">
+            <summary>
+            Gets or sets the target of this warehouse
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Logic.Warehouse.Name">
+            <summary>
+            Gets the name of the warehouse
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Logic.Warehouse.NumberOfCars">
+            <summary>
+            Gets or sets the number of cars the warehouse sends
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Logic.Warehouse.ToString">
+            <summary>
+            Converts the object to a string
+            </summary>
+            <returns>A string with the warehouse's data</returns>
+        </member>
+        <member name="M:Hyyblo_Logic.Warehouse.StartCars">
+            <summary>
+            Starts a number of cars set in the numberOfCars value
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Logic.Warehouse.AcceptWare(Hyyblo_Logic.WareType)">
+            <summary>
+            Decides if the warehouse accepts the ware
+            </summary>
+            <param name="type">Type of the ware</param>
+            <returns>Returns true if the warehouse accepts the ware</returns>
+        </member>
+        <member name="M:Hyyblo_Logic.Warehouse.Timer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            Sends out a car every tick
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the tick</param>
+        </member>
+        <member name="T:Hyyblo_Logic.Direction">
+            <summary>
+            Represents a direction
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Direction.Up">
+            <summary>
+            Represents the up direction
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Direction.Right">
+            <summary>
+            Represents the right direction
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Direction.Down">
+            <summary>
+            Represents the down direction
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Direction.Left">
+            <summary>
+            Represents the left direction
+            </summary>
+        </member>
+        <member name="T:Hyyblo_Logic.Pathfinding">
+            <summary>
+            Pathfinder utility class
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Pathfinding.map">
+            <summary>
+            Reference to the map of the game
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Logic.Pathfinding.#ctor(Hyyblo_Logic.Map)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Logic.Pathfinding"/> class.
+            </summary>
+            <param name="m">Map of the game</param>
+        </member>
+        <member name="M:Hyyblo_Logic.Pathfinding.FindPath(Hyyblo_Model.MapItem,Hyyblo_Model.MapItem)">
+            <summary>
+            Finds a path between the points on the map
+            </summary>
+            <param name="startPos">Starting position of the path</param>
+            <param name="targetPos">Final target of the path</param>
+            <returns>List of the path's items</returns>
+        </member>
+        <member name="M:Hyyblo_Logic.Pathfinding.RetracePath(Hyyblo_Model.MapItem,Hyyblo_Model.MapItem)">
+            <summary>
+            Builds the path from the item's parents set in the findPath method
+            </summary>
+            <param name="startNode">Starting position of the path</param>
+            <param name="endNode">Final target of the path</param>
+            <returns>List of the path's items</returns>
+        </member>
+        <member name="T:Hyyblo_Logic.Game">
+            <summary>
+            Game object, contains the current game's values
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Game.prices">
+            <summary>
+            Stores the prices of the different types of wares
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Game.map">
+            <summary>
+            Map of the game
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Game.money">
+            <summary>
+            Money of the player
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Game.warehouses">
+            <summary>
+            Collection to store warehouses built in the game
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Logic.Game.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Logic.Game"/> class.
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Logic.Game.Prices">
+            <summary>
+            Gets the Price table
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Logic.Game.Map">
+            <summary>
+            Gets or sets map of the game
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Logic.Game.Money">
+            <summary>
+            Gets or sets the money of the player
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Logic.Game.Warehouses">
+            <summary>
+            Gets the warehouse list of the game
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Logic.Game.FindWarehouseByPosition(System.Int32,System.Int32)">
+            <summary>
+            Finds a warehouse with correct position
+            </summary>
+            <param name="x">X coordinate of the requested item</param>
+            <param name="y">Y coordinate of the requested item</param>
+            <returns>A found requested warehouse</returns>
+        </member>
+        <member name="M:Hyyblo_Logic.Game.Update">
+            <summary>
+            Updates the elements in the game
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Logic.Game.SetRoad(System.Int32,System.Int32)">
+            <summary>
+            Places a road on the map
+            </summary>
+            <param name="x">X coordinate of the road</param>
+            <param name="y">Y coordinate of the road</param>
+        </member>
+        <member name="M:Hyyblo_Logic.Game.SetVehicle(System.Int32,System.Int32,Hyyblo_Logic.Warehouse,Hyyblo_Logic.Warehouse)">
+            <summary>
+            Adds a vehicle to the map
+            </summary>
+            <param name="x">X coordinate of the vehicle</param>
+            <param name="y">Y coordinate of the vehicle</param>
+            <param name="start">Staring warehouse of the vehicle</param>
+            <param name="final">Target warehouse of the vehicle</param>
+        </member>
+        <member name="M:Hyyblo_Logic.Game.SetWarehouse(System.Int32,System.Int32)">
+            <summary>
+            Places a warehouse on the map
+            </summary>
+            <param name="x">X coordinate of the warehouse</param>
+            <param name="y">Y coordinate of the warehouse</param>
+        </member>
+        <member name="M:Hyyblo_Logic.Game.ToString">
+            <summary>
+            Creates a string with game's information
+            </summary>
+            <returns>A string with the game's information</returns>
+        </member>
+        <member name="M:Hyyblo_Logic.Game.Map_RoadPlaced(System.Object,System.EventArgs)">
+            <summary>
+            Subtracts the price of the road from the players money
+            </summary>
+            <param name="sender">Sender object of the event</param>
+            <param name="e">Arguments of the event</param>
+        </member>
+        <member name="M:Hyyblo_Logic.Game.Map_WarehousePlaced(System.Object,System.EventArgs)">
+            <summary>
+            Subtracts the price of the warehouse from the players money
+            </summary>
+            <param name="sender">Sender object of the event</param>
+            <param name="e">Arguments of the event</param>
+        </member>
+        <member name="T:Hyyblo_Logic.ItemPlacedEventHandler">
+            <summary>
+            Delegate for a placed road
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the road placing</param>
+        </member>
+        <member name="T:Hyyblo_Logic.Map">
+            <summary>
+            Represents the map of the game
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Map.r">
+            <summary>
+            Random generator of the map
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Map.mapContainer">
+            <summary>
+            Collection of MapItems on the map
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Map.buildings">
+            <summary>
+            Collection of Buildings on the map
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Map.vehicles">
+            <summary>
+            Collection of vehicles on the map
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Map.pathfinder">
+            <summary>
+            Pathfinder object for the map
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Map.size">
+            <summary>
+            The width and height of the map
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Logic.Map"/> class.
+            </summary>
+            <param name="size">Size of the map</param>
+        </member>
+        <member name="E:Hyyblo_Logic.Map.RoadPlaced">
+            <summary>
+            Event for a placed road
+            </summary>
+        </member>
+        <member name="E:Hyyblo_Logic.Map.WarehousePlaced">
+            <summary>
+            Event for a placed warehouse
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Logic.Map.MapContainer">
+            <summary>
+            Gets the Container of the MapItems in the Map
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Logic.Map.Vehicles">
+            <summary>
+            Gets or sets the Container of the Vehicles
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Logic.Map.Buildings">
+            <summary>
+            Gets or sets the Container of the Buildings
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Logic.Map.Size">
+            <summary>
+            Gets size of the map
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Logic.Map.Pathfinder">
+            <summary>
+            Gets or sets the Pathfinder of the map
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.RandomNormalDist(System.Double,System.Double,System.Int32,System.Double)">
+            <summary>
+            Generates a random number along a curve
+            </summary>
+            <param name="min">Minimum random value</param>
+            <param name="max">Maximum random value</param>
+            <param name="tightness">Tightness of the value</param>
+            <param name="exp">Power of the random value</param>
+            <returns>Random number in range which gravitates towards the given value</returns>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.SetRoad(System.Int32,System.Int32)">
+            <summary>
+            Places a road on the map
+            </summary>
+            <param name="x">X coordinate of the road</param>
+            <param name="y">Y coordinate of the road</param>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.SetWarehouse(System.Int32,System.Int32)">
+            <summary>
+            Places a Warehouse on the map
+            </summary>
+            <param name="x">X coordinate of the warehouse</param>
+            <param name="y">Y coordinate of the warehouse</param>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.SetDelete(System.Int32,System.Int32)">
+            <summary>
+            Deletes an item, and places a grass item in it's place
+            </summary>
+            <param name="x">X coordinate of the delete</param>
+            <param name="y">Y coordinate of the delete</param>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.RightCoord(System.Int32,System.Int32)">
+            <summary>
+            Checks if the requested coordinates are in the bounds
+            </summary>
+            <param name="x">Requested X coordinate</param>
+            <param name="y">Requested Y coordinate</param>
+            <returns>Returns true if the coordinates are in the bounds</returns>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.FireRoadPlaced(System.Object,System.EventArgs)">
+            <summary>
+            Fires the RoadPlaced event
+            </summary>
+            <param name="sender">Sender of the event</param>
+            <param name="e">Arguments of the event</param>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.GetItemByCoord(System.Double,System.Double)">
+            <summary>
+            Searches for an item with the right coordinates
+            </summary>
+            <param name="x">X coordinate of the item</param>
+            <param name="y">Y coordinate of the item</param>
+            <returns>The item at the requested position</returns>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.GetBuildingByCoord(System.Double,System.Double)">
+            <summary>
+            Searches for a building with the right coordinates
+            </summary>
+            <param name="x">X coordinate of the building</param>
+            <param name="y">Y coordinate of the building</param>
+            <returns>The building at the requested position</returns>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.AddVehicle(System.Int32,System.Int32,Hyyblo_Logic.Warehouse,Hyyblo_Logic.Warehouse,Hyyblo_Logic.Game)">
+            <summary>
+            Adds a vehicle at the position
+            </summary>
+            <param name="x">X coordinate of the vehicle</param>
+            <param name="y">Y coordinate of the vehicle</param>
+            <param name="start">Start warehouse of the vehicle</param>
+            <param name="target">Target of the vehicle</param>
+            <param name="game">Reference to the game</param>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.UpdateVehicles">
+            <summary>
+            Updates all vehicles on the map
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.SetType(System.Int32,System.Int32)">
+            <summary>
+            Decides what the type of the warehouse at that position should be
+            </summary>
+            <param name="x">X coordinate of the warehouse</param>
+            <param name="y">Y coordinate of the warehouse</param>
+            <returns>Decided type of the warehouse</returns>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.GetNeighbours(Hyyblo_Model.MapItem)">
+            <summary>
+            Gets the neighbors of an item
+            </summary>
+            <param name="item">Item to search</param>
+            <returns>List with the neighbors</returns>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.GenerateMap(System.Int32,System.Int32)">
+            <summary>
+            Generates a map with the given size
+            </summary>
+            <param name="x">Width of the map</param>
+            <param name="y">Height of the map</param>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.GenerateTowns">
+            <summary>
+            Generates 5 to 10 towns
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.GenerateWares">
+            <summary>
+            Generates 2 to 5 of each production buildings
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.GenerateTown">
+            <summary>
+            Generates a town on the map at a random location
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.GenerateGrass(System.Int32,System.Int32)">
+            <summary>
+            Fills the map Grass tiles
+            </summary>
+            <param name="x">Width of the map</param>
+            <param name="y">Height of the map</param>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.GenerateBuildings(System.Int32,System.Int32)">
+            <summary>
+            Generates houses near the roads
+            </summary>
+            <param name="x">Width of the map</param>
+            <param name="y">Height of the map</param>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.GenHouse(System.Int32,System.Int32)">
+            <summary>
+            Generates a house at the given location with a 40% chance
+            </summary>
+            <param name="x">X coordinate of the house</param>
+            <param name="y">Y coordinate of the house</param>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.GenFactory">
+            <summary>
+            Generates a factory
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.GenRefinery">
+            <summary>
+            Generates a refinery
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.RoadIsNeighbour(System.Int32,System.Int32)">
+            <summary>
+            Checks if there is a neighboring road
+            </summary>
+            <param name="x">X coordinate to check</param>
+            <param name="y">Y coordinate to check</param>
+            <returns>Returns true if there is a neighboring road, and false if there isn't</returns>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.GenerateRoad(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Generates road between two points
+            </summary>
+            <param name="x1">X coordinate of the first point</param>
+            <param name="y1">Y coordinate of the first point</param>
+            <param name="x2">X coordinate of the second point</param>
+            <param name="y2">Y coordinate of the second point</param>
+        </member>
         <member name="T:Hyyblo_View.Camera">
             <summary>
             A camera which represents the field of view
@@ -1085,7 +1080,7 @@
             Gets or sets Y coordinate of the camera
             </summary>
         </member>
-        <member name="M:Hyyblo_View.Camera.SetDir(Hyyblo_Model.Direction)">
+        <member name="M:Hyyblo_View.Camera.SetDir(Hyyblo_Logic.Direction)">
             <summary>
             Changes the direction of the camera's movement
             </summary>
@@ -1108,7 +1103,7 @@
             </summary>
             <param name="step">Step size of the requested movement</param>
         </member>
-        <member name="M:Hyyblo_View.Camera.Move(Hyyblo_Model.Direction,System.Int32)">
+        <member name="M:Hyyblo_View.Camera.Move(Hyyblo_Logic.Direction,System.Int32)">
             <summary>
             Moves the camera to the specified direction
             </summary>
@@ -1249,7 +1244,7 @@
             Reference to the current warehouse
             </summary>
         </member>
-        <member name="M:Hyyblo_View.EditWarehouse.#ctor(Hyyblo_Model.Warehouse)">
+        <member name="M:Hyyblo_View.EditWarehouse.#ctor(Hyyblo_Logic.Warehouse)">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_View.EditWarehouse"/> class.
             </summary>
@@ -1336,7 +1331,7 @@
             <param name="sender">Sender object</param>
             <param name="e">Key press parameters</param>
         </member>
-        <member name="M:Hyyblo_View.GameView.GameView_SetCamState(Hyyblo_Model.Direction)">
+        <member name="M:Hyyblo_View.GameView.GameView_SetCamState(Hyyblo_Logic.Direction)">
             <summary>
             Sets the camera's state
             </summary>
@@ -1446,6 +1441,24 @@
             InitializeComponent
             </summary>
         </member>
+        <member name="T:Hyyblo_Prog3.App">
+            <summary>
+            Interaction logic for App
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Prog3.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Prog3.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
         <member name="T:Hyyblo_Prog3.Properties.Resources">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
@@ -1460,21 +1473,6 @@
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
-            </summary>
-        </member>
-        <member name="T:HYYBLO_prog3.App">
-            <summary>
-            App
-            </summary>
-        </member>
-        <member name="M:HYYBLO_prog3.App.InitializeComponent">
-            <summary>
-            InitializeComponent
-            </summary>
-        </member>
-        <member name="M:HYYBLO_prog3.App.Main">
-            <summary>
-            Application Entry Point.
             </summary>
         </member>
     </members>

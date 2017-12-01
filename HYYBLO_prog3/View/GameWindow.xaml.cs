@@ -9,7 +9,7 @@ namespace Hyyblo_View
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
-    using Hyyblo_Model;
+    using Hyyblo_Logic;
 
     /// <summary>
     /// Enum for different build types

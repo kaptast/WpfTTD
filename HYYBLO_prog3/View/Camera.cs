@@ -6,7 +6,7 @@
 //-----------------------------------------------------------------------
 namespace Hyyblo_View
 {
-    using Hyyblo_Model;
+    using Hyyblo_Logic;
 
     /// <summary>
     /// A camera which represents the field of view

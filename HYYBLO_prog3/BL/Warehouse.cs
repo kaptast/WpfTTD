@@ -4,7 +4,7 @@
 // </copyright>
 // <author>HYYBLO</author>
 //-----------------------------------------------------------------------
-namespace Hyyblo_Model
+namespace Hyyblo_Logic
 {
     using System;
     using System.Collections.Generic;

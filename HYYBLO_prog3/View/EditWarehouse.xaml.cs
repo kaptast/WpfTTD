@@ -8,7 +8,7 @@ namespace Hyyblo_View
 {
     using System;
     using System.Windows;
-    using Hyyblo_Model;
+    using Hyyblo_Logic;
 
     /// <summary>
     /// Interaction logic for EditWarehouse

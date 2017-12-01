@@ -430,7 +430,7 @@ namespace Hyyblo_Logic
         /// </summary>
         private void GenerateTowns()
         {
-            int townNum = r.Next(5, 10);
+            int townNum = r.Next(5, 15);
             for (int i = 0; i < townNum; i++)
             {
                 this.GenerateTown();
@@ -547,6 +547,8 @@ namespace Hyyblo_Logic
             {
                 MapItem item = this.GetItemByCoord(x, y);
                 this.MapContainer.Remove(item);
+                item = this.GetBuildingByCoord(x, y);
+                this.Buildings.Remove((Building)item);
                 this.MapContainer.Add(new BuildingBase(x, y));
                 this.Buildings.Add(new Factory(x, y));
             }
@@ -563,6 +565,8 @@ namespace Hyyblo_Logic
             {
                 MapItem item = this.GetItemByCoord(x, y);
                 this.MapContainer.Remove(item);
+                item = this.GetBuildingByCoord(x, y);
+                this.Buildings.Remove((Building)item);
                 this.MapContainer.Add(new BuildingBase(x, y));
                 this.Buildings.Add(new Refinery(x, y));
             }

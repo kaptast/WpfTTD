@@ -5,10 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hyyblo_View"
         mc:Ignorable="d"
-        Title="{Binding Name}" Height="300" Width="300"
+        Title="{Binding Name}" Height="300" Width="320"
         ResizeMode="NoResize">
     <Grid>
-        <ListView x:Name="listBox" ItemsSource="{Binding Warehouses}" SelectedItem="{Binding Target}" Margin="10,41,0,0" HorizontalAlignment="Left" Width="129" Height="220" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+        <ListView x:Name="listBox" Grid.Column="1" Grid.Row="3" Grid.RowSpan="13" ItemsSource="{Binding Warehouses}" SelectedItem="{Binding Target}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
@@ -21,18 +49,18 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Label x:Name="label" Content="X:" Margin="156,41,0,0" HorizontalAlignment="Left" Width="20" Height="26" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="Y:" Margin="156,72,0,0" HorizontalAlignment="Left" Width="19" Height="26" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtX" Text="{Binding X}" Margin="192,41,0,0" IsEnabled="False" HorizontalAlignment="Left" Width="92" Height="26" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtY" Text="{Binding Y}" Margin="192,72,0,0" IsEnabled="False" HorizontalAlignment="Left" Width="92" Height="26" VerticalAlignment="Top"/>
-        <Label x:Name="label2" Content="Type" Margin="156,103,0,0" HorizontalAlignment="Left" Width="35" Height="26" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtType" Text="{Binding CargoType}" Margin="192,103,0,0" IsEnabled="False" HorizontalAlignment="Left" Width="92" Height="26" VerticalAlignment="Top"/>
-        <Label x:Name="label3" Content="Other warehouses" Margin="10,10,0,0" HorizontalAlignment="Left" Width="106" Height="26" VerticalAlignment="Top"/>
-        <Label x:Name="label4" Content="Target Warehouse" Margin="156,134,0,0" HorizontalAlignment="Left" Width="128" Height="26" VerticalAlignment="Top"/>
-        <Label x:Name="txtSelected" Content="{Binding Target}" Margin="156,165,0,0" HorizontalAlignment="Left" Width="128" Height="25" VerticalAlignment="Top" />
-        <Label x:Name="label5" Content="Warehouse Stats" Margin="186,10,0,0" HorizontalAlignment="Left" Width="98" Height="26" VerticalAlignment="Top"/>
-        <Label x:Name="label6" Content="Number of cars" Margin="156,195,0,0" HorizontalAlignment="Left" Width="92" Height="26" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtNumOfCars" Margin="253,199,0,0" TextWrapping="Wrap" Text="{Binding NumberOfCars}" HorizontalAlignment="Left" Width="31" Height="22" VerticalAlignment="Top"/>
-        <Button x:Name="btnStart" Content="Start cars" Margin="156,241,0,0" Click="BtnStart_Click" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="128"/>
+        <Label x:Name="label" Content="X:" Grid.Column="3" Grid.Row="3" />
+        <Label x:Name="label1" Content="Y:" Grid.Column="3" Grid.Row="5" />
+        <TextBox x:Name="txtX" Text="{Binding X}" IsEnabled="False" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="3" />
+        <TextBox x:Name="txtY" Text="{Binding Y}" IsEnabled="False" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="5"/>
+        <Label x:Name="label2" Content="Type" Grid.Column="3" Grid.Row="7" />
+        <TextBox x:Name="txtType" Text="{Binding CargoType}" IsEnabled="False" Grid.Column="4" Grid.Row="7" Grid.ColumnSpan="2"/>
+        <Label x:Name="label3" Content="Other warehouses" Grid.Column="1" Grid.Row="1"/>
+        <Label x:Name="label4" Grid.Column="3" Grid.Row="9" Grid.ColumnSpan="3" Content="Target Warehouse"/>
+        <Label x:Name="txtSelected" Grid.Column="3" Grid.Row="11" Grid.ColumnSpan="3" Content="{Binding Target}"  />
+        <Label x:Name="label5" Content="Warehouse Stats" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3" />
+        <Label x:Name="label6" Grid.Column="3" Grid.Row="13" Grid.ColumnSpan="2" Content="Number of cars" />
+        <TextBox x:Name="txtNumOfCars" TextWrapping="Wrap" Grid.Column="5" Grid.Row="13" Text="{Binding NumberOfCars}"/>
+        <Button x:Name="btnStart" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="15" Content="Start cars" Click="BtnStart_Click"/>
     </Grid>
 </Window>

@@ -5,28 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="WpfTTD" Height="300" Width="200"
-        Background="WhiteSmoke"
-        Icon="../icon.ico">
+        Icon="../icon.ico" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush ImageSource="../Images/background.png" Stretch="None"/>
+    </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="60" />
             <ColumnDefinition Width="30" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
             <RowDefinition Height="20" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
             <RowDefinition Height="10" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <Button x:Name="btnStart" Grid.Column="1" Grid.Row="3" Content="Start Game" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BtnStart_Click"/>
-        <Button x:Name="btnExit" Grid.Column="1" Grid.Row="5" Content="Exit" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="BtnExit_Click"/>
-        <Label x:Name="lblTitle" Content="WpfTTD" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" FontSize="24" FontFamily="MS Gothic" FontWeight="Bold"/>
-
-
-
+        <Button x:Name="btnStart" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Content="Start Game" Click="BtnStart_Click"/>
+        <Button x:Name="btnExit" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="7" Content="Exit" Click="BtnExit_Click"/>
+        <Label x:Name="lblTitle" Content="WpfTTD" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" FontSize="36" FontFamily="MS Gothic" FontWeight="Bold"/>
+        <Label Content="Map size:" Grid.Column="1" Grid.Row="5"></Label>
+        <TextBox x:Name="txtSize" Text="40" Grid.Column="2" Grid.Row="5" TextAlignment="Center" FontWeight="Medium" TextOptions.TextHintingMode="Fixed" VerticalAlignment="Center"/>
     </Grid>
 </Window>

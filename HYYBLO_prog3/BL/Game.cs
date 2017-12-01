@@ -38,9 +38,10 @@ namespace Hyyblo_Logic
         /// <summary>
         /// Initializes a new instance of the <see cref="Game"/> class.
         /// </summary>
-        public Game()
+        /// <param name="size">Size of the map</param>
+        public Game(int size)
         {
-            this.map = new Map(40);
+            this.map = new Map(size);
             this.map.RoadPlaced += this.Map_RoadPlaced;
             this.map.WarehousePlaced += this.Map_WarehousePlaced;
             this.Money = 20000;

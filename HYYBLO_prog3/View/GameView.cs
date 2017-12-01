@@ -66,7 +66,8 @@ namespace Hyyblo_View
         /// <summary>
         /// Initializes a new instance of the <see cref="GameView"/> class.
         /// </summary>
-        public GameView()
+        /// <param name="size">Size of the map</param>
+        public GameView(int size)
         {
             RoadImages = new BitmapImage[17]; // Loading the images of the roads
             for (int i = 0; i < 17; i++)
@@ -74,7 +75,7 @@ namespace Hyyblo_View
                 RoadImages[i] = new BitmapImage(new Uri(GetImage("Images/Roads/cityroad" + i + ".png")));
             }
 
-            this.game = new Game();
+            this.game = new Game(size);
             this.cam = new Camera(0, 0);
             this.InvalidateVisual();
             this.Loaded += this.ViewLoaded;

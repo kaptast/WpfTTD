@@ -30,7 +30,23 @@ namespace Hyyblo_View
         /// <param name="e">Arguments of the click event</param>
         private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
-            new GameWindow().ShowDialog();
+            int size;
+
+            if (int.TryParse(this.txtSize.Text, out size))
+            {
+                if (size >= 10)
+                {
+                    new GameWindow(size).ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Map size too small");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Invalid parameter");
+            }
         }
 
         /// <summary>

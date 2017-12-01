@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="d:\program files (x86)\microsoft visual studio 14.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="14.0">
+ <Targets>
+  <Target Name="D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\bin\Release\Hyyblo_Prog3.exe">
+   <Modules>
+    <Module Name="hyyblo_prog3.exe">
+     <Namespaces>
+      <Namespace Name="Hyyblo_Model">
+       <Types>
+        <Type Name="BuildingBase" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor(System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\Model\Building" File="BuildingBase.cs" Line="22">'BuildingBase.BuildingBase(int, int)' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;BuildingBase..ctor(Int32, Int32)&#xD;&#xA;MapItem.set_Image(BitmapImage):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Factory" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor(System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\Model\Building" File="Factory.cs" Line="23">'Factory.Factory(int, int)' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Factory..ctor(Int32, Int32)&#xD;&#xA;MapItem.set_Image(BitmapImage):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Refinery" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor(System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\Model\Building" File="Refinery.cs" Line="23">'Refinery.Refinery(int, int)' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Refinery..ctor(Int32, Int32)&#xD;&#xA;MapItem.set_Image(BitmapImage):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="Hyyblo_Prog3.Properties">
+       <Types>
+        <Type Name="Resources" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="Hyyblo_View">
+       <Types>
+        <Type Name="EditWarehouse" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#btnStart" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+           </Messages>
+          </Member>
+          <Member Name="#label" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'EditWarehouse.label' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#label1" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'EditWarehouse.label1' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#label2" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'EditWarehouse.label2' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#label3" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'EditWarehouse.label3' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#label4" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'EditWarehouse.label4' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#label5" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'EditWarehouse.label5' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#label6" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'EditWarehouse.label6' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#listBox" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'EditWarehouse.listBox' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="AvoidExcessiveComplexity" Category="Microsoft.Maintainability" CheckId="CA1502" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+            <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+            <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+           </Messages>
+          </Member>
+          <Member Name="#txtNumOfCars" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'EditWarehouse.txtNumOfCars' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#txtSelected" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'EditWarehouse.txtSelected' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#txtX" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'EditWarehouse.txtX' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#txtY" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'EditWarehouse.txtY' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#txtType" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'EditWarehouse.txtType' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="GameWindow" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#BottomBar" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+           </Messages>
+          </Member>
+          <Member Name="#btnDelete" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+           </Messages>
+          </Member>
+          <Member Name="#btnRoad" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+           </Messages>
+          </Member>
+          <Member Name="#btnWarehouse" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+           </Messages>
+          </Member>
+          <Member Name="#lblMoney" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'GameWindow.lblMoney' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#LeftBar" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+           </Messages>
+          </Member>
+          <Member Name="#PlayArea" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+           </Messages>
+          </Member>
+          <Member Name="#RightBar" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+           </Messages>
+          </Member>
+          <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="AvoidExcessiveComplexity" Category="Microsoft.Maintainability" CheckId="CA1502" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+            <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+            <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+           </Messages>
+          </Member>
+          <Member Name="#TopBar" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="MainWindow" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#btnExit" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+           </Messages>
+          </Member>
+          <Member Name="#btnStart" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+           </Messages>
+          </Member>
+          <Member Name="#lblTitle" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'MainWindow.lblTitle' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="AvoidExcessiveComplexity" Category="Microsoft.Maintainability" CheckId="CA1502" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+            <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+            <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+           </Messages>
+          </Member>
+          <Member Name="#txtSize" Kind="Field" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="ExcludedInSource" Created="2017-12-01 21:21:18Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="AvoidExcessiveComplexity" Category="Microsoft.Maintainability" CheckId="CA1502">
+   <Name>Avoid excessive complexity</Name>
+   <Description>Method implementations that are exceedingly complex increase the challenge of understanding and maintaining code.</Description>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182212.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Warning</MessageLevel>
+   <File Name="maintainabilityrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
+   <Name>Avoid uncalled private code</Name>
+   <Description>There is uncalled code that is not externally visible and is not a known runtime entry point. If this violation fires in error, please send a problem report to the Visual Studio Code Analysis team.</Description>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182264.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823">
+   <Name>Avoid unused private fields</Name>
+   <Description>Private fields were detected that do not appear to be accessed within the assembly. If this violation fires in error, please send a problem report to the Visual Studio Code Analysis team.</Description>
+   <Resolution Name="Default">It appears that field {0} is never used or is only ever assigned to. Use this field or remove it.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms245042.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214">
+   <Name>Do not call overridable methods in constructors</Name>
+   <Description>Virtual methods defined on the class should not be called from constructors. If a derived class has overridden the method, the derived class version will be called (before the derived class constructor is called).</Description>
+   <Resolution Name="Default">{0} contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: {1}</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182331.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalWarning</MessageLevel>
+   <File Name="usagerules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800">
+   <Name>Do not cast unnecessarily</Name>
+   <Description>Avoid duplicate casts where possible, since there is a cost associated with them.</Description>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182271.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033">
+   <Name>Interface methods should be callable by child types</Name>
+   <Description>Explicit method implementations are defined with private accessibility. Classes that derive from classes with explicit method implementations and choose to re-declare them on the class will not be able to call into the base class implementation unless the base class has provided an alternate method with appropriate accessibility. When overriding a base class method that has been hidden by explicit interface implementation, in order to call into the base class implementation, a derived class must cast the base pointer to the relevant interface. When calling through this reference, however, the derived class implementation will actually be invoked, resulting in recursion and an eventual stack overflow.</Description>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182153.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="designrules.dll" Version="14.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>

@@ -60,11 +60,12 @@ namespace Hyyblo_View
         /// <summary>
         /// Initializes a new instance of the <see cref="GameWindow"/> class.
         /// </summary>
-        public GameWindow()
+        /// <param name="size">Size of the map</param>
+        public GameWindow(int size)
         {
             this.InitializeComponent();
             this.selectedItem = BuildType.Nothing;
-            this.view = new GameView();
+            this.view = new GameView(size);
             this.PlayArea.Content = this.view;
             this.KeyDown += this.MainWindow_KeyDown;
             this.KeyUp += this.MainWindow_KeyUp;

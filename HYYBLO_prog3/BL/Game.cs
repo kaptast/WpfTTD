@@ -44,7 +44,7 @@ namespace Hyyblo_Logic
             this.map = new Map(size);
             this.map.RoadPlaced += this.Map_RoadPlaced;
             this.map.WarehousePlaced += this.Map_WarehousePlaced;
-            this.Money = 20000;
+            this.Money = 5000;
             this.warehouses = new List<Warehouse>();
 
             prices = new Dictionary<WareType, int>();
@@ -170,8 +170,11 @@ namespace Hyyblo_Logic
         {
             if (this.Money > 0)
             {
-                this.Map.SetWarehouse(x, y);
-                this.Warehouses.Add(new Warehouse(x, y, this));
+                if (this.Map.RightCoord(x, y))
+                {
+                    this.Map.SetWarehouse(x, y);
+                    this.Warehouses.Add(new Warehouse(x, y, this));
+                }
             }
         }
 

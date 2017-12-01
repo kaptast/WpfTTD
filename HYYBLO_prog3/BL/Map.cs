@@ -193,34 +193,31 @@ namespace Hyyblo_Logic
         /// <param name="y">Y coordinate of the warehouse</param>
         public void SetWarehouse(int x, int y)
         {
-            if (this.RightCoord(x, y))
+            MapItem item = this.GetItemByCoord(x, y);
+            this.MapContainer.Remove(item);
+            this.MapContainer.Add(new BuildingBase(x, y));
+            item = this.GetBuildingByCoord(x, y);
+            this.Buildings.Remove((Building)item);
+            this.Buildings.Add(new WarehouseBuilding(x, y));
+
+            item = this.GetItemByCoord(x, y + 1);
+            this.MapContainer.Remove(item);
+            this.MapContainer.Add(new WarehouseLot12(x, y + 1));
+
+            item = this.GetItemByCoord(x + 1, y);
+            this.MapContainer.Remove(item);
+            this.MapContainer.Add(new WarehouseLot21(x + 1, y, this));
+
+            item = this.GetItemByCoord(x + 1, y + 1);
+            this.MapContainer.Remove(item);
+            this.MapContainer.Add(new WarehouseLot22(x + 1, y + 1));
+
+            if (this.WarehousePlaced != null)
             {
-                MapItem item = this.GetItemByCoord(x, y);
-                this.MapContainer.Remove(item);
-                this.MapContainer.Add(new BuildingBase(x, y));
-                item = this.GetBuildingByCoord(x, y);
-                this.Buildings.Remove((Building)item);
-                this.Buildings.Add(new WarehouseBuilding(x, y));
-
-                item = this.GetItemByCoord(x, y + 1);
-                this.MapContainer.Remove(item);
-                this.MapContainer.Add(new WarehouseLot12(x, y + 1));
-
-                item = this.GetItemByCoord(x + 1, y);
-                this.MapContainer.Remove(item);
-                this.MapContainer.Add(new WarehouseLot21(x + 1, y, this));
-
-                item = this.GetItemByCoord(x + 1, y + 1);
-                this.MapContainer.Remove(item);
-                this.MapContainer.Add(new WarehouseLot22(x + 1, y + 1));
-
-                if (this.WarehousePlaced != null)
-                {
-                    this.WarehousePlaced.Invoke(this, new EventArgs());
-                }
-
-                this.FireRoadPlaced(this, new EventArgs());
+                this.WarehousePlaced.Invoke(this, new EventArgs());
             }
+
+            this.FireRoadPlaced(this, new EventArgs());
         }
 
         /// <summary>

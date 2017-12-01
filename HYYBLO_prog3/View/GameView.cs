@@ -122,7 +122,15 @@ namespace Hyyblo_View
                     this.cam.ChangeState(true);
                     this.cam.SetDir(Direction.Up);
                     break;
+                case Key.W:
+                    this.cam.ChangeState(true);
+                    this.cam.SetDir(Direction.Up);
+                    break;
                 case Key.Down:
+                    this.cam.ChangeState(true);
+                    this.cam.SetDir(Direction.Down);
+                    break;
+                case Key.S:
                     this.cam.ChangeState(true);
                     this.cam.SetDir(Direction.Down);
                     break;
@@ -130,7 +138,15 @@ namespace Hyyblo_View
                     this.cam.ChangeState(true);
                     this.cam.SetDir(Direction.Left);
                     break;
+                case Key.A:
+                    this.cam.ChangeState(true);
+                    this.cam.SetDir(Direction.Left);
+                    break;
                 case Key.Right:
+                    this.cam.ChangeState(true);
+                    this.cam.SetDir(Direction.Right);
+                    break;
+                case Key.D:
                     this.cam.ChangeState(true);
                     this.cam.SetDir(Direction.Right);
                     break;

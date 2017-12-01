@@ -17,5 +17,4 @@ D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_pr
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Release\Hyyblo_Prog3.Properties.Resources.resources
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Release\Hyyblo_Prog3.csproj.GenerateResource.Cache
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\bin\Release\Hyyblo_Prog3.XML
-D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\bin\Release\Hyyblo_Prog3.exe.CodeAnalysisLog.xml
-D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\bin\Release\Hyyblo_Prog3.exe.lastcodeanalysissucceeded
+D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Release\Hyyblo_Prog3.csprojResolveAssemblyReference.cache

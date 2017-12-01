@@ -215,6 +215,7 @@ namespace Hyyblo_View
             }
 
             this.game.Map.MapContainer.Sort();
+            this.game.Map.Buildings.Sort();
             this.InvalidateVisual(); // Redraw the screen
         }
 

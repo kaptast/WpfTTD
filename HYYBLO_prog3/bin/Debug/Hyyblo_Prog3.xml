@@ -16,6 +16,27 @@
             <param name="x">X coordinate of the building</param>
             <param name="y">Y coordinate of the building</param>
         </member>
+        <member name="T:Hyyblo_Model.Factory">
+            <summary>
+            Represents a factory of the game
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Factory.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.Factory"/> class.
+            </summary>
+            <param name="x">X coordinate of the factory</param>
+            <param name="y">Y coordinate of the factory</param>
+        </member>
+        <member name="M:Hyyblo_Model.Factory.GenerateRect(System.Double,System.Double,System.Int32)">
+            <summary>
+            Generates a rectangle for the house by the GameView's actual state
+            </summary>
+            <param name="x">X coordinate of the rectangle's top left corner</param>
+            <param name="y">Y coordinate of the rectangle's top left corner</param>
+            <param name="cell">Current cell size of the view</param>
+            <returns>A rectangle with the buildings size at the correct position</returns>
+        </member>
         <member name="T:Hyyblo_Model.WareType">
             <summary>
             Type of a ware that a warehouse can serve
@@ -946,7 +967,7 @@
         </member>
         <member name="M:Hyyblo_Model.Map.SetRoad(System.Int32,System.Int32)">
             <summary>
-            Placed a road on the map
+            Places a road on the map
             </summary>
             <param name="x">X coordinate of the road</param>
             <param name="y">Y coordinate of the road</param>
@@ -1063,6 +1084,13 @@
             </summary>
             <param name="x">X coordinate of the house</param>
             <param name="y">Y coordinate of the house</param>
+        </member>
+        <member name="M:Hyyblo_Model.Map.GenFactory">
+            <summary>
+            Generates a factory
+            </summary>
+            <param name="x">X coordinate of the factory</param>
+            <param name="y">Y coordinate of the factory</param>
         </member>
         <member name="M:Hyyblo_Model.Map.RoadIsNeighbour(System.Int32,System.Int32)">
             <summary>

@@ -169,7 +169,7 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
-        /// Placed a road on the map
+        /// Places a road on the map
         /// </summary>
         /// <param name="x">X coordinate of the road</param>
         /// <param name="y">Y coordinate of the road</param>
@@ -352,6 +352,10 @@ namespace Hyyblo_Model
                         {
                             counter[WareType.Mail]++;
                         }
+                        else if (item is Factory)
+                        {
+                            counter[WareType.Goods]++;
+                        }
                         else
                         {
                             counter[WareType.Nothing]++;
@@ -404,6 +408,8 @@ namespace Hyyblo_Model
 
             this.GenerateTowns();
 
+            this.GenerateWares();
+
             this.GenerateBuildings(x, y);
 
             this.FireRoadPlaced(this, new EventArgs());
@@ -418,6 +424,15 @@ namespace Hyyblo_Model
             for (int i = 0; i < townNum; i++)
             {
                 this.GenerateTown();
+            }
+        }
+
+        private void GenerateWares()
+        {
+            int factoryNum = r.Next(2, 5);
+            for (int i = 0; i < factoryNum; i++)
+            {
+                this.GenFactory();
             }
         }
 
@@ -499,6 +514,24 @@ namespace Hyyblo_Model
                     this.MapContainer.Add(new BuildingBase(x, y));
                     this.Buildings.Add(new House(x, y, r));
                 }
+            }
+        }
+
+        /// <summary>
+        /// Generates a factory
+        /// </summary>
+        /// <param name="x">X coordinate of the factory</param>
+        /// <param name="y">Y coordinate of the factory</param>
+        private void GenFactory()
+        {
+            int x = r.Next(0, this.Size);
+            int y = r.Next(0, this.Size);
+            if (this.RightCoord(x, y))
+            {
+                MapItem item = this.GetItemByCoord(x, y);
+                this.MapContainer.Remove(item);
+                this.MapContainer.Add(new BuildingBase(x, y));
+                this.Buildings.Add(new Factory(x, y));
             }
         }
 

@@ -78,6 +78,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BL\Building\BuildingBase.cs" />
+    <Compile Include="BL\Building\Factory.cs" />
     <Compile Include="BL\EditWarehouse.xaml.cs">
       <DependentUpon>EditWarehouse.xaml</DependentUpon>
     </Compile>

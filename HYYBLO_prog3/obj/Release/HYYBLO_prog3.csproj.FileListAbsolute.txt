@@ -1,7 +1,6 @@
 d:\dokumentumok\visual studio 2015\Projects\HYYBLO_prog3\HYYBLO_prog3\bin\Release\HYYBLO_prog3.exe.config
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\bin\Release\Hyyblo_Prog3.exe.config
-D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Release\Hyyblo_Prog3.exe
-D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Release\Hyyblo_Prog3.pdb
+D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\bin\Release\Hyyblo_Prog3.XML
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\bin\Release\Hyyblo_Prog3.exe
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\bin\Release\Hyyblo_Prog3.pdb
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Release\View\MainWindow.baml
@@ -16,5 +15,5 @@ D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_pr
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Release\Hyyblo_Prog3.g.resources
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Release\Hyyblo_Prog3.Properties.Resources.resources
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Release\Hyyblo_Prog3.csproj.GenerateResource.Cache
-D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\bin\Release\Hyyblo_Prog3.XML
-D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Release\Hyyblo_Prog3.csprojResolveAssemblyReference.cache
+D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Release\Hyyblo_Prog3.exe
+D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Release\Hyyblo_Prog3.pdb

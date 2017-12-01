@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="WarehouseBuilding.cs" company="PlaceholderCompany">
+// <copyright file="Factory.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 // <author>HYYBLO</author>
@@ -22,11 +22,11 @@ namespace Hyyblo_Model
         public Factory(int x, int y)
             : base(x, y)
         {
-            this.Image = new System.Windows.Media.Imaging.BitmapImage(new Uri(GameView.GetImage("Images/Buildings/factory.png")));
+            this.Image = new System.Windows.Media.Imaging.BitmapImage(new Uri(Hyyblo_View.GameView.GetImage("Images/Buildings/factory.png")));
         }
 
         /// <summary>
-        /// Generates a rectangle for the house by the GameView's actual state
+        /// Generates a rectangle for the factory by the GameView's actual state
         /// </summary>
         /// <param name="x">X coordinate of the rectangle's top left corner</param>
         /// <param name="y">Y coordinate of the rectangle's top left corner</param>

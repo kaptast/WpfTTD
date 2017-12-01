@@ -29,7 +29,7 @@ namespace Hyyblo_Model
         Goods,
 
         /// <summary>
-        /// Ware between fanctory and mine
+        /// Ware between factory and mine
         /// </summary>
         Ore,
 
@@ -101,7 +101,7 @@ namespace Hyyblo_Model
             this.Y = y;
             this.game = g;
             this.warehouses = this.game.Warehouses;
-            this.Type = this.game.Map.SetType(this.X, this.Y);
+            this.CargoType = this.game.Map.SetType(this.X, this.Y);
             this.NumberOfCars = 1;
         }
 
@@ -165,7 +165,7 @@ namespace Hyyblo_Model
         /// <summary>
         /// Gets or sets the type of ware that the warehouse serves
         /// </summary>
-        public WareType Type
+        public WareType CargoType
         {
             get
             {
@@ -255,21 +255,21 @@ namespace Hyyblo_Model
             switch (type)
             {
                 case WareType.Goods:
-                    if (this.Type == WareType.Mail)
+                    if (this.CargoType == WareType.Mail)
                     {
                         return true;
                     }
 
                     return false;
                 case WareType.Mail:
-                    if (this.Type == WareType.Mail)
+                    if (this.CargoType == WareType.Mail)
                     {
                         return true;
                     }
 
                     return false;
                 case WareType.Ore:
-                    if (this.Type == WareType.Goods)
+                    if (this.CargoType == WareType.Goods)
                     {
                         return true;
                     }
@@ -296,6 +296,7 @@ namespace Hyyblo_Model
             else
             {
                 this.timer.Stop();
+                this.numberOfCars = 0;
                 this.carsSent = 0;
             }
         }

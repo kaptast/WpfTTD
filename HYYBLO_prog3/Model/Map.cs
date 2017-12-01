@@ -197,6 +197,8 @@ namespace Hyyblo_Model
                 MapItem item = this.GetItemByCoord(x, y);
                 this.MapContainer.Remove(item);
                 this.MapContainer.Add(new BuildingBase(x, y));
+                item = this.GetBuildingByCoord(x, y);
+                this.Buildings.Remove((Building)item);
                 this.Buildings.Add(new WarehouseBuilding(x, y));
 
                 item = this.GetItemByCoord(x, y + 1);
@@ -304,7 +306,7 @@ namespace Hyyblo_Model
         /// </summary>
         /// <param name="x">X coordinate of the vehicle</param>
         /// <param name="y">Y coordinate of the vehicle</param>
-        /// <param name="start">Start warhouse of the vehicle</param>
+        /// <param name="start">Start warehouse of the vehicle</param>
         /// <param name="target">Target of the vehicle</param>
         /// <param name="game">Reference to the game</param>
         public void AddVehicle(int x, int y, Warehouse start, Warehouse target, Game game)
@@ -347,14 +349,21 @@ namespace Hyyblo_Model
                 {
                     if (!(i == 0 && j == 0))
                     {
-                        MapItem item = this.GetItemByCoord(x + i, y + j);
-                        if (item is BuildingBase)
+                        MapItem item = this.GetBuildingByCoord(x + i, y + j);
+                        if (item != null)
                         {
-                            counter[WareType.Mail]++;
-                        }
-                        else if (item is Factory)
-                        {
-                            counter[WareType.Goods]++;
+                            if (item is House)
+                            {
+                                counter[WareType.Mail]++;
+                            }
+                            else if (item is Factory)
+                            {
+                                counter[WareType.Goods]++;
+                            }
+                            else if (item is Refinery)
+                            {
+                                counter[WareType.Ore]++;
+                            }
                         }
                         else
                         {
@@ -383,10 +392,10 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
-        /// Gets the neighbours of an item
+        /// Gets the neighbors of an item
         /// </summary>
         /// <param name="item">Item to search</param>
-        /// <returns>List with the neighbours</returns>
+        /// <returns>List with the neighbors</returns>
         public List<MapItem> GetNeighbours(MapItem item)
         {
             List<MapItem> list = new List<MapItem>();
@@ -427,12 +436,21 @@ namespace Hyyblo_Model
             }
         }
 
+        /// <summary>
+        /// Generates 2 to 5 of each production buildings
+        /// </summary>
         private void GenerateWares()
         {
             int factoryNum = r.Next(2, 5);
             for (int i = 0; i < factoryNum; i++)
             {
                 this.GenFactory();
+            }
+
+            int refineryNUm = r.Next(2, 5);
+            for (int i = 0; i < refineryNUm; i++)
+            {
+                this.GenRefinery();
             }
         }
 
@@ -520,8 +538,6 @@ namespace Hyyblo_Model
         /// <summary>
         /// Generates a factory
         /// </summary>
-        /// <param name="x">X coordinate of the factory</param>
-        /// <param name="y">Y coordinate of the factory</param>
         private void GenFactory()
         {
             int x = r.Next(0, this.Size);
@@ -536,11 +552,27 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
-        /// Checks if there is a neighbouring road
+        /// Generates a refinery
+        /// </summary>
+        private void GenRefinery()
+        {
+            int x = r.Next(0, this.Size);
+            int y = r.Next(0, this.Size);
+            if (this.RightCoord(x, y))
+            {
+                MapItem item = this.GetItemByCoord(x, y);
+                this.MapContainer.Remove(item);
+                this.MapContainer.Add(new BuildingBase(x, y));
+                this.Buildings.Add(new Refinery(x, y));
+            }
+        }
+
+        /// <summary>
+        /// Checks if there is a neighboring road
         /// </summary>
         /// <param name="x">X coordinate to check</param>
         /// <param name="y">Y coordinate to check</param>
-        /// <returns>Returns true if there is a neighbouring road, and false if there isn't</returns>
+        /// <returns>Returns true if there is a neighboring road, and false if there isn't</returns>
         private bool RoadIsNeighbour(int x, int y)
         {
             if (x > 0 && x < this.Size - 1 && y > 0 && y < this.Size - 1)

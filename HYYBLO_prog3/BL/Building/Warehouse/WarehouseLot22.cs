@@ -21,7 +21,7 @@ namespace Hyyblo_Model
         public WarehouseLot22(int x, int y)
             : base(x, y)
         {
-            this.Image = new System.Windows.Media.Imaging.BitmapImage(new Uri(GameView.GetImage("Images/Buildings/warehouse22.png")));
+            this.Image = new System.Windows.Media.Imaging.BitmapImage(new Uri(Hyyblo_View.GameView.GetImage("Images/Buildings/warehouse22.png")));
         }
     }
 }

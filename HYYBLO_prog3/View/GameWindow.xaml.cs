@@ -1,9 +1,9 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="MainWindow.xaml.cs" company="PlaceholderCompany">
+// <copyright file="GameWindow.xaml.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 // <author>HYYBLO</author>
-//-----------------------------------------------------------------------
+//----------------------------------------------------------------------
 namespace Hyyblo_View
 {
     using System.Windows;
@@ -43,9 +43,9 @@ namespace Hyyblo_View
     }
 
     /// <summary>
-    /// Interaction logic for MainWindow
+    /// Interaction logic for GameWindow
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class GameWindow : Window
     {
         /// <summary>
         /// Reference to the drawing interface
@@ -58,9 +58,9 @@ namespace Hyyblo_View
         private BuildType selectedItem;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// Initializes a new instance of the <see cref="GameWindow"/> class.
         /// </summary>
-        public MainWindow()
+        public GameWindow()
         {
             this.InitializeComponent();
             this.selectedItem = BuildType.Nothing;
@@ -136,6 +136,8 @@ namespace Hyyblo_View
             {
                 this.selectedItem = BuildType.Nothing;
             }
+
+            this.PlayArea.Focus();
         }
 
         /// <summary>
@@ -156,6 +158,8 @@ namespace Hyyblo_View
             {
                 this.selectedItem = BuildType.Nothing;
             }
+
+            this.PlayArea.Focus();
         }
 
         /// <summary>
@@ -176,6 +180,8 @@ namespace Hyyblo_View
             {
                 this.selectedItem = BuildType.Nothing;
             }
+
+            this.PlayArea.Focus();
         }
 
         /// <summary>

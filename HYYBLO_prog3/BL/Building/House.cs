@@ -30,7 +30,7 @@ namespace Hyyblo_Model
         {
             int n = r.Next(1, 5);
             this.floors = (int)Map.RandomNormalDist(1, 6, 2, 2);
-            this.Image = new System.Windows.Media.Imaging.BitmapImage(new Uri(GameView.GetImage("Images/Buildings/house" + n + "-" + this.floors + ".png")));
+            this.Image = new System.Windows.Media.Imaging.BitmapImage(new Uri(Hyyblo_View.GameView.GetImage("Images/Buildings/house" + n + "-" + this.floors + ".png")));
         }
 
         /// <summary>

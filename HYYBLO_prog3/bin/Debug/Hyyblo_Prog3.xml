@@ -30,12 +30,24 @@
         </member>
         <member name="M:Hyyblo_Model.Factory.GenerateRect(System.Double,System.Double,System.Int32)">
             <summary>
-            Generates a rectangle for the house by the GameView's actual state
+            Generates a rectangle for the factory by the GameView's actual state
             </summary>
             <param name="x">X coordinate of the rectangle's top left corner</param>
             <param name="y">Y coordinate of the rectangle's top left corner</param>
             <param name="cell">Current cell size of the view</param>
             <returns>A rectangle with the buildings size at the correct position</returns>
+        </member>
+        <member name="T:Hyyblo_Model.Refinery">
+            <summary>
+            Represents a refinery of the game
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Refinery.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.Refinery"/> class.
+            </summary>
+            <param name="x">X coordinate of the refinery</param>
+            <param name="y">Y coordinate of the refinery</param>
         </member>
         <member name="T:Hyyblo_Model.WareType">
             <summary>
@@ -54,7 +66,7 @@
         </member>
         <member name="F:Hyyblo_Model.WareType.Ore">
             <summary>
-            Ware between fanctory and mine
+            Ware between factory and mine
             </summary>
         </member>
         <member name="F:Hyyblo_Model.WareType.Nothing">
@@ -135,7 +147,7 @@
             Gets or sets the other warehouse references in the warehouse
             </summary>
         </member>
-        <member name="P:Hyyblo_Model.Warehouse.Type">
+        <member name="P:Hyyblo_Model.Warehouse.CargoType">
             <summary>
             Gets or sets the type of ware that the warehouse serves
             </summary>
@@ -180,78 +192,6 @@
             <param name="sender">Sender object</param>
             <param name="e">Arguments of the tick</param>
         </member>
-        <member name="T:Hyyblo_Model.Camera">
-            <summary>
-            A camera which represents the field of view
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Camera.x">
-            <summary>
-            x coordinate of the camera
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Camera.y">
-            <summary>
-            y coordinate of the camera
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Camera.dir">
-            <summary>
-            Moving direction of the camera
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Camera.pressed">
-            <summary>
-            Moving state of the camera
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Camera.#ctor(System.Int32,System.Int32)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Hyyblo_Model.Camera"/> class.
-            </summary>
-            <param name="x">X coordinate of the camera</param>
-            <param name="y">Y coordinate of the camera</param>
-        </member>
-        <member name="P:Hyyblo_Model.Camera.X">
-            <summary>
-            Gets or sets the X coordinate of the camera
-            </summary>
-        </member>
-        <member name="P:Hyyblo_Model.Camera.Y">
-            <summary>
-            Gets or sets Y coordinate of the camera
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Camera.SetDir(Hyyblo_Model.Direction)">
-            <summary>
-            Changes the direction of the camera's movement
-            </summary>
-            <param name="dir">Requested direction of the camera</param>
-        </member>
-        <member name="M:Hyyblo_Model.Camera.Reset">
-            <summary>
-            Resets the camera to the (0,0) coordinate
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Camera.ChangeState(System.Boolean)">
-            <summary>
-            Changes whether the camera should move or not
-            </summary>
-            <param name="state">The state whether the camera moves or not</param>
-        </member>
-        <member name="M:Hyyblo_Model.Camera.Turn(System.Int32)">
-            <summary>
-            Moves the camera every frame
-            </summary>
-            <param name="step">Step size of the requested movement</param>
-        </member>
-        <member name="M:Hyyblo_Model.Camera.Move(Hyyblo_Model.Direction,System.Int32)">
-            <summary>
-            Moves the camera to the specified direction
-            </summary>
-            <param name="direction">Direction of the requested movement</param>
-            <param name="step">Step size of the requested movement</param>
-        </member>
         <member name="T:Hyyblo_Model.Direction">
             <summary>
             Represents a direction
@@ -279,7 +219,7 @@
         </member>
         <member name="T:Hyyblo_Model.Pathfinding">
             <summary>
-            Pathfinding utility class
+            Pathfinder utility class
             </summary>
         </member>
         <member name="F:Hyyblo_Model.Pathfinding.map">
@@ -349,16 +289,16 @@
         </member>
         <member name="M:Hyyblo_Model.Road.RoadChanged(System.Object,System.EventArgs)">
             <summary>
-            Callback for the event, changes the images by the number of neighbouring road tiles
+            Callback for the event, changes the images by the number of neighboring road tiles
             </summary>
             <param name="sender">Sender of the event</param>
             <param name="e">Arguments of the event</param>
         </member>
         <member name="M:Hyyblo_Model.Road.CheckNeighbours">
             <summary>
-            Checks the neighbouring road tiles
+            Checks the neighboring road tiles
             </summary>
-            <returns>Returns a number between 0 and 15 according to the number of neighbouring roads</returns>
+            <returns>Returns a number between 0 and 15 according to the number of neighboring roads</returns>
         </member>
         <member name="T:Hyyblo_Model.Vehicle">
             <summary>
@@ -445,7 +385,7 @@
             Gets or sets the target to the vehicle where it has to move
             </summary>
         </member>
-        <member name="P:Hyyblo_Model.Vehicle.Type">
+        <member name="P:Hyyblo_Model.Vehicle.CargoType">
             <summary>
             Gets or sets the vehicle's ware type on the current route
             </summary>
@@ -494,7 +434,7 @@
             Calculates the route's price
             </summary>
             <param name="type">Cargo type of the route</param>
-            <param name="length">Legth of the route</param>
+            <param name="length">Length of the route</param>
             <param name="time">Time of the route</param>
         </member>
         <member name="M:Hyyblo_Model.Vehicle.ChangeDirection">
@@ -674,164 +614,17 @@
         </member>
         <member name="M:Hyyblo_Model.Game.Map_RoadPlaced(System.Object,System.EventArgs)">
             <summary>
-            Substracts the price of the road from the players money
+            Subtracts the price of the road from the players money
             </summary>
             <param name="sender">Sender object of the event</param>
             <param name="e">Arguments of the event</param>
         </member>
         <member name="M:Hyyblo_Model.Game.Map_WarehousePlaced(System.Object,System.EventArgs)">
             <summary>
-            Substracts the price of the warehouse from the players money
+            Subtracts the price of the warehouse from the players money
             </summary>
             <param name="sender">Sender object of the event</param>
             <param name="e">Arguments of the event</param>
-        </member>
-        <member name="T:Hyyblo_Model.GameView">
-            <summary>
-            Visual representation of the game
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.GameView.roadImages">
-            <summary>
-            Collection of road images
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.GameView.exepath">
-            <summary>
-            Path of the runtime
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.GameView.game">
-            <summary>
-            The current game
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.GameView.cam">
-            <summary>
-            camera of the field of view
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.GameView.timer">
-            <summary>
-            Timer which refreshes the screen
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.GameView.cellSize">
-            <summary>
-            Current cell size
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.GameView.windowWidth">
-            <summary>
-            Current width of the window
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.GameView.moneyLabel">
-            <summary>
-            Reference to the label on the window
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.GameView.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Hyyblo_Model.GameView"/> class.
-            </summary>
-        </member>
-        <member name="P:Hyyblo_Model.GameView.RoadImages">
-            <summary>
-            Gets or sets the array with the images of the roads
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.GameView.GetImage(System.String)">
-            <summary>
-            Return the path of file in the current environment
-            </summary>
-            <param name="filename">Name of the file</param>
-            <returns>Full path of the file</returns>
-        </member>
-        <member name="M:Hyyblo_Model.GameView.GameView_KeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
-            <summary>
-            Handles key presses in the Game
-            </summary>
-            <param name="sender">Sender object</param>
-            <param name="e">Key press parameters</param>
-        </member>
-        <member name="M:Hyyblo_Model.GameView.GameView_SetCamState(Hyyblo_Model.Direction)">
-            <summary>
-            Sets the camera's state
-            </summary>
-            <param name="dir">Direction of the camera movement</param>
-        </member>
-        <member name="M:Hyyblo_Model.GameView.GameView_KeyUp(System.Object,System.Windows.Input.KeyEventArgs)">
-            <summary>
-            Stops the camera movement if a button is lifted up
-            </summary>
-            <param name="sender">Sender object</param>
-            <param name="e">Parameters of the keyboard event</param>
-        </member>
-        <member name="M:Hyyblo_Model.GameView.GameView_MouseLeftButtonDown(System.Windows.Input.MouseEventArgs,Hyyblo_View.BuildType)">
-            <summary>
-            Left click event, places a MapItem according to the Build type
-            </summary>
-            <param name="e">Parameters of the left click</param>
-            <param name="type">Type of the building</param>
-        </member>
-        <member name="M:Hyyblo_Model.GameView.ZoomIn">
-            <summary>
-            Zoom in the screen
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.GameView.ZoomOut">
-            <summary>
-            Zoom out the screen
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.GameView.ScreenToPoint(System.Double,System.Double)">
-            <summary>
-            Calculate map position from screen position
-            </summary>
-            <param name="x">X coordinate on the screen</param>
-            <param name="y">Y coordinate on the screen</param>
-            <returns>Point with the map coordinates</returns>
-        </member>
-        <member name="M:Hyyblo_Model.GameView.OnRender(System.Windows.Media.DrawingContext)">
-            <summary>
-            Redraws the view
-            </summary>
-            <param name="drawingContext">Drawer of the view</param>
-        </member>
-        <member name="M:Hyyblo_Model.GameView.OnWindowSizeChanged(System.Object,System.Windows.SizeChangedEventArgs)">
-            <summary>
-            Sets the width of the window in a parameter
-            </summary>
-            <param name="sender">Sender object</param>
-            <param name="e">Parameters of the changed window</param>
-        </member>
-        <member name="M:Hyyblo_Model.GameView.TimerTick(System.Object,System.EventArgs)">
-            <summary>
-            Refresh event, redraws the screen
-            </summary>
-            <param name="sender">Sender object</param>
-            <param name="e">Tick event parameters</param>
-        </member>
-        <member name="M:Hyyblo_Model.GameView.ViewLoaded(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Event for starting the refresh timer
-            </summary>
-            <param name="sender">Sender object</param>
-            <param name="e">Loaded event parameters</param>
-        </member>
-        <member name="M:Hyyblo_Model.GameView.RenderMap(System.Windows.Media.DrawingContext)">
-            <summary>
-            Draws the items of the map on the screen
-            </summary>
-            <param name="dc">Drawer of the view</param>
-        </member>
-        <member name="M:Hyyblo_Model.GameView.PointToScreen(Hyyblo_Model.MapItem)">
-            <summary>
-            Generates a point with isometric coords
-            </summary>
-            <param name="item">Item to generate it's position</param>
-            <returns>Point with the isometric coords</returns>
         </member>
         <member name="T:Hyyblo_Model.Grass">
             <summary>
@@ -1023,7 +816,7 @@
             </summary>
             <param name="x">X coordinate of the vehicle</param>
             <param name="y">Y coordinate of the vehicle</param>
-            <param name="start">Start warhouse of the vehicle</param>
+            <param name="start">Start warehouse of the vehicle</param>
             <param name="target">Target of the vehicle</param>
             <param name="game">Reference to the game</param>
         </member>
@@ -1042,10 +835,10 @@
         </member>
         <member name="M:Hyyblo_Model.Map.GetNeighbours(Hyyblo_Model.MapItem)">
             <summary>
-            Gets the neighbours of an item
+            Gets the neighbors of an item
             </summary>
             <param name="item">Item to search</param>
-            <returns>List with the neighbours</returns>
+            <returns>List with the neighbors</returns>
         </member>
         <member name="M:Hyyblo_Model.Map.GenerateMap(System.Int32,System.Int32)">
             <summary>
@@ -1057,6 +850,11 @@
         <member name="M:Hyyblo_Model.Map.GenerateTowns">
             <summary>
             Generates 5 to 10 towns
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Map.GenerateWares">
+            <summary>
+            Generates 2 to 5 of each production buildings
             </summary>
         </member>
         <member name="M:Hyyblo_Model.Map.GenerateTown">
@@ -1089,16 +887,19 @@
             <summary>
             Generates a factory
             </summary>
-            <param name="x">X coordinate of the factory</param>
-            <param name="y">Y coordinate of the factory</param>
+        </member>
+        <member name="M:Hyyblo_Model.Map.GenRefinery">
+            <summary>
+            Generates a refinery
+            </summary>
         </member>
         <member name="M:Hyyblo_Model.Map.RoadIsNeighbour(System.Int32,System.Int32)">
             <summary>
-            Checks if there is a neighbouring road
+            Checks if there is a neighboring road
             </summary>
             <param name="x">X coordinate to check</param>
             <param name="y">Y coordinate to check</param>
-            <returns>Returns true if there is a neighbouring road, and false if there isn't</returns>
+            <returns>Returns true if there is a neighboring road, and false if there isn't</returns>
         </member>
         <member name="M:Hyyblo_Model.Map.GenerateRoad(System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
@@ -1126,7 +927,7 @@
         </member>
         <member name="F:Hyyblo_Model.MapItem.gCost">
             <summary>
-            Movement cost to neighbour
+            Movement cost to neighbor
             </summary>
         </member>
         <member name="F:Hyyblo_Model.MapItem.hCost">
@@ -1242,36 +1043,77 @@
             </summary>
             <returns>Returns the hash code</returns>
         </member>
-        <member name="T:Hyyblo_View.EditWarehouse">
+        <member name="T:Hyyblo_View.Camera">
             <summary>
-            Interaction logic for EditWarehouse.xaml
-            </summary>
-            <summary>
-            EditWarehouse
+            A camera which represents the field of view
             </summary>
         </member>
-        <member name="F:Hyyblo_View.EditWarehouse.w">
+        <member name="F:Hyyblo_View.Camera.x">
             <summary>
-            Reference to the current warehouse
+            x coordinate of the camera
             </summary>
         </member>
-        <member name="M:Hyyblo_View.EditWarehouse.#ctor(Hyyblo_Model.Warehouse)">
+        <member name="F:Hyyblo_View.Camera.y">
             <summary>
-            Initializes a new instance of the <see cref="T:Hyyblo_View.EditWarehouse"/> class.
+            y coordinate of the camera
             </summary>
-            <param name="wh">Warehouse of the window</param>
         </member>
-        <member name="M:Hyyblo_View.EditWarehouse.BtnStart_Click(System.Object,System.Windows.RoutedEventArgs)">
+        <member name="F:Hyyblo_View.Camera.dir">
             <summary>
-            Click call back for starting the cars
+            Moving direction of the camera
             </summary>
-            <param name="sender">Sender object</param>
-            <param name="e">Arguments for the button click event</param>
         </member>
-        <member name="M:Hyyblo_View.EditWarehouse.InitializeComponent">
+        <member name="F:Hyyblo_View.Camera.pressed">
             <summary>
-            InitializeComponent
+            Moving state of the camera
             </summary>
+        </member>
+        <member name="M:Hyyblo_View.Camera.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_View.Camera"/> class.
+            </summary>
+            <param name="x">X coordinate of the camera</param>
+            <param name="y">Y coordinate of the camera</param>
+        </member>
+        <member name="P:Hyyblo_View.Camera.X">
+            <summary>
+            Gets or sets the X coordinate of the camera
+            </summary>
+        </member>
+        <member name="P:Hyyblo_View.Camera.Y">
+            <summary>
+            Gets or sets Y coordinate of the camera
+            </summary>
+        </member>
+        <member name="M:Hyyblo_View.Camera.SetDir(Hyyblo_Model.Direction)">
+            <summary>
+            Changes the direction of the camera's movement
+            </summary>
+            <param name="dir">Requested direction of the camera</param>
+        </member>
+        <member name="M:Hyyblo_View.Camera.Reset">
+            <summary>
+            Resets the camera to the (0,0) coordinate
+            </summary>
+        </member>
+        <member name="M:Hyyblo_View.Camera.ChangeState(System.Boolean)">
+            <summary>
+            Changes whether the camera should move or not
+            </summary>
+            <param name="state">The state whether the camera moves or not</param>
+        </member>
+        <member name="M:Hyyblo_View.Camera.Turn(System.Int32)">
+            <summary>
+            Moves the camera every frame
+            </summary>
+            <param name="step">Step size of the requested movement</param>
+        </member>
+        <member name="M:Hyyblo_View.Camera.Move(Hyyblo_Model.Direction,System.Int32)">
+            <summary>
+            Moves the camera to the specified direction
+            </summary>
+            <param name="direction">Direction of the requested movement</param>
+            <param name="step">Step size of the requested movement</param>
         </member>
         <member name="T:Hyyblo_View.BuildType">
             <summary>
@@ -1303,6 +1145,275 @@
             Vehicle type
             </summary>
         </member>
+        <member name="T:Hyyblo_View.GameWindow">
+            <summary>
+            Interaction logic for GameWindow
+            </summary>
+            <summary>
+            GameWindow
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.GameWindow.view">
+            <summary>
+            Reference to the drawing interface
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.GameWindow.selectedItem">
+            <summary>
+            Currently selected BuildType
+            </summary>
+        </member>
+        <member name="M:Hyyblo_View.GameWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_View.GameWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:Hyyblo_View.GameWindow.MainWindow_MouseLeftButtonDown(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Callback function for a left mouse click, calls the View's GameView_MouseLeftButtonDown function
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the left click</param>
+        </member>
+        <member name="M:Hyyblo_View.GameWindow.MainWindow_KeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Callback function for a key press, calls the View's GameView_KeyDown function
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the key press</param>
+        </member>
+        <member name="M:Hyyblo_View.GameWindow.MainWindow_KeyUp(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Callback function for a key lift, calls the View's GameView_KeyUp function, which stops the camera movement
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the key lift</param>
+        </member>
+        <member name="M:Hyyblo_View.GameWindow.Window_MouseWheel(System.Object,System.Windows.Input.MouseWheelEventArgs)">
+            <summary>
+            Zooms in or out the view according to the mouse wheel's delta in the event for using the mouse wheel
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Argument of the mouse wheel event</param>
+        </member>
+        <member name="M:Hyyblo_View.GameWindow.BtnRoad_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Callback function for a menu bar click, sets the current build type to Road
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the button click</param>
+        </member>
+        <member name="M:Hyyblo_View.GameWindow.BtnDelete_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Callback function for a menu bar click, sets the current build type to delete
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the button click</param>
+        </member>
+        <member name="M:Hyyblo_View.GameWindow.BtnWarehouse_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Callback function for a menu bar click, sets the current build type to Warehouse
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the button click</param>
+        </member>
+        <member name="M:Hyyblo_View.GameWindow.ViewMouseEnter(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Callback function for handling the borders MouseEnter events, sets the camera to the correct direction
+            </summary>
+            <param name="sender">Reference to the sender object</param>
+            <param name="e">Mouse arguments for the event</param>
+        </member>
+        <member name="M:Hyyblo_View.GameWindow.ViewMouseLeave(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Callback function for handling the borders MouseLeave events, stop the camera movement
+            </summary>
+            <param name="sender">Reference to the sender object</param>
+            <param name="e">Mouse arguments for the event</param>
+        </member>
+        <member name="M:Hyyblo_View.GameWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Hyyblo_View.EditWarehouse">
+            <summary>
+            Interaction logic for EditWarehouse
+            </summary>
+            <summary>
+            EditWarehouse
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.EditWarehouse.w">
+            <summary>
+            Reference to the current warehouse
+            </summary>
+        </member>
+        <member name="M:Hyyblo_View.EditWarehouse.#ctor(Hyyblo_Model.Warehouse)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_View.EditWarehouse"/> class.
+            </summary>
+            <param name="wh">Warehouse of the window</param>
+        </member>
+        <member name="M:Hyyblo_View.EditWarehouse.BtnStart_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Click call back for starting the cars
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments for the button click event</param>
+        </member>
+        <member name="M:Hyyblo_View.EditWarehouse.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Hyyblo_View.GameView">
+            <summary>
+            Visual representation of the game
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.GameView.roadImages">
+            <summary>
+            Collection of road images
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.GameView.exepath">
+            <summary>
+            Path of the runtime
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.GameView.game">
+            <summary>
+            The current game
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.GameView.cam">
+            <summary>
+            camera of the field of view
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.GameView.timer">
+            <summary>
+            Timer which refreshes the screen
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.GameView.cellSize">
+            <summary>
+            Current cell size
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.GameView.windowWidth">
+            <summary>
+            Current width of the window
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.GameView.moneyLabel">
+            <summary>
+            Reference to the label on the window
+            </summary>
+        </member>
+        <member name="M:Hyyblo_View.GameView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_View.GameView"/> class.
+            </summary>
+        </member>
+        <member name="P:Hyyblo_View.GameView.RoadImages">
+            <summary>
+            Gets or sets the array with the images of the roads
+            </summary>
+        </member>
+        <member name="M:Hyyblo_View.GameView.GetImage(System.String)">
+            <summary>
+            Return the path of file in the current environment
+            </summary>
+            <param name="filename">Name of the file</param>
+            <returns>Full path of the file</returns>
+        </member>
+        <member name="M:Hyyblo_View.GameView.GameView_KeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Handles key presses in the Game
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Key press parameters</param>
+        </member>
+        <member name="M:Hyyblo_View.GameView.GameView_SetCamState(Hyyblo_Model.Direction)">
+            <summary>
+            Sets the camera's state
+            </summary>
+            <param name="dir">Direction of the camera movement</param>
+        </member>
+        <member name="M:Hyyblo_View.GameView.GameView_KeyUp(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Stops the camera movement if a button is lifted up
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Parameters of the keyboard event</param>
+        </member>
+        <member name="M:Hyyblo_View.GameView.GameView_MouseLeftButtonDown(System.Windows.Input.MouseEventArgs,Hyyblo_View.BuildType)">
+            <summary>
+            Left click event, places a MapItem according to the Build type
+            </summary>
+            <param name="e">Parameters of the left click</param>
+            <param name="type">Type of the building</param>
+        </member>
+        <member name="M:Hyyblo_View.GameView.ZoomIn">
+            <summary>
+            Zoom in the screen
+            </summary>
+        </member>
+        <member name="M:Hyyblo_View.GameView.ZoomOut">
+            <summary>
+            Zoom out the screen
+            </summary>
+        </member>
+        <member name="M:Hyyblo_View.GameView.ScreenToPoint(System.Double,System.Double)">
+            <summary>
+            Calculate map position from screen position
+            </summary>
+            <param name="x">X coordinate on the screen</param>
+            <param name="y">Y coordinate on the screen</param>
+            <returns>Point with the map coordinates</returns>
+        </member>
+        <member name="M:Hyyblo_View.GameView.OnRender(System.Windows.Media.DrawingContext)">
+            <summary>
+            Redraws the view
+            </summary>
+            <param name="drawingContext">Drawer of the view</param>
+        </member>
+        <member name="M:Hyyblo_View.GameView.OnWindowSizeChanged(System.Object,System.Windows.SizeChangedEventArgs)">
+            <summary>
+            Sets the width of the window in a parameter
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Parameters of the changed window</param>
+        </member>
+        <member name="M:Hyyblo_View.GameView.TimerTick(System.Object,System.EventArgs)">
+            <summary>
+            Refresh event, redraws the screen
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Tick event parameters</param>
+        </member>
+        <member name="M:Hyyblo_View.GameView.ViewLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event for starting the refresh timer
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Loaded event parameters</param>
+        </member>
+        <member name="M:Hyyblo_View.GameView.RenderMap(System.Windows.Media.DrawingContext)">
+            <summary>
+            Draws the items of the map on the screen
+            </summary>
+            <param name="dc">Drawer of the view</param>
+        </member>
+        <member name="M:Hyyblo_View.GameView.PointToScreen(Hyyblo_Model.MapItem)">
+            <summary>
+            Generates a point with isometric coordinates
+            </summary>
+            <param name="item">Item to generate it's position</param>
+            <returns>Point with the isometric coordinates</returns>
+        </member>
         <member name="T:Hyyblo_View.MainWindow">
             <summary>
             Interaction logic for MainWindow
@@ -1311,83 +1422,24 @@
             MainWindow
             </summary>
         </member>
-        <member name="F:Hyyblo_View.MainWindow.view">
-            <summary>
-            Reference to the drawing interface
-            </summary>
-        </member>
-        <member name="F:Hyyblo_View.MainWindow.selectedItem">
-            <summary>
-            Currently selected BuildType
-            </summary>
-        </member>
         <member name="M:Hyyblo_View.MainWindow.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_View.MainWindow"/> class.
             </summary>
         </member>
-        <member name="M:Hyyblo_View.MainWindow.MainWindow_MouseLeftButtonDown(System.Object,System.Windows.Input.MouseEventArgs)">
+        <member name="M:Hyyblo_View.MainWindow.BtnStart_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
-            Callback function for a left mouse click, calls the View's GameView_MouseLeftButtonDown function
+            Starts a new game
             </summary>
             <param name="sender">Sender object</param>
-            <param name="e">Arguments of the left click</param>
+            <param name="e">Arguments of the click event</param>
         </member>
-        <member name="M:Hyyblo_View.MainWindow.MainWindow_KeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+        <member name="M:Hyyblo_View.MainWindow.BtnExit_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
-            Callback function for a key press, calls the View's GameView_KeyDown function
+            Exits the program
             </summary>
             <param name="sender">Sender object</param>
-            <param name="e">Arguments of the key press</param>
-        </member>
-        <member name="M:Hyyblo_View.MainWindow.MainWindow_KeyUp(System.Object,System.Windows.Input.KeyEventArgs)">
-            <summary>
-            Callback function for a key lift, calls the View's GameView_KeyUp function, which stops the camera movement
-            </summary>
-            <param name="sender">Sender object</param>
-            <param name="e">Arguments of the key lift</param>
-        </member>
-        <member name="M:Hyyblo_View.MainWindow.Window_MouseWheel(System.Object,System.Windows.Input.MouseWheelEventArgs)">
-            <summary>
-            Zooms in or out the view according to the mouse wheel's delta in the event for using the mouse wheel
-            </summary>
-            <param name="sender">Sender object</param>
-            <param name="e">Argument of the mouse wheel event</param>
-        </member>
-        <member name="M:Hyyblo_View.MainWindow.BtnRoad_Click(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Callback function for a menu bar click, sets the current build type to Road
-            </summary>
-            <param name="sender">Sender object</param>
-            <param name="e">Arguments of the button click</param>
-        </member>
-        <member name="M:Hyyblo_View.MainWindow.BtnDelete_Click(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Callback function for a menu bar click, sets the current build type to delete
-            </summary>
-            <param name="sender">Sender object</param>
-            <param name="e">Arguments of the button click</param>
-        </member>
-        <member name="M:Hyyblo_View.MainWindow.BtnWarehouse_Click(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Callback function for a menu bar click, sets the current build type to Warehouse
-            </summary>
-            <param name="sender">Sender object</param>
-            <param name="e">Arguments of the button click</param>
-        </member>
-        <member name="M:Hyyblo_View.MainWindow.ViewMouseEnter(System.Object,System.Windows.Input.MouseEventArgs)">
-            <summary>
-            Callback function for handling the borders MouseEnter events, sets the camera to the correct direction
-            </summary>
-            <param name="sender">Reference to the sender object</param>
-            <param name="e">Mouse arguments for the event</param>
-        </member>
-        <member name="M:Hyyblo_View.MainWindow.ViewMouseLeave(System.Object,System.Windows.Input.MouseEventArgs)">
-            <summary>
-            Callback function for handling the borders MouseLeave events, stop the camera movement
-            </summary>
-            <param name="sender">Reference to the sender object</param>
-            <param name="e">Mouse arguments for the event</param>
+            <param name="e">Arguments of the click event</param>
         </member>
         <member name="M:Hyyblo_View.MainWindow.InitializeComponent">
             <summary>

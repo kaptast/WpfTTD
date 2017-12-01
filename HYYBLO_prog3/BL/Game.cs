@@ -46,10 +46,10 @@ namespace Hyyblo_Model
             this.warehouses = new List<Warehouse>();
 
             prices = new Dictionary<WareType, int>();
-            prices.Add(WareType.Goods, 100);
+            prices.Add(WareType.Goods, 60);
             prices.Add(WareType.Nothing, 0);
             prices.Add(WareType.Mail, 20);
-            prices.Add(WareType.Ore, 70);
+            prices.Add(WareType.Ore, 40);
         }
 
         /// <summary>
@@ -183,7 +183,7 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
-        /// Substracts the price of the road from the players money
+        /// Subtracts the price of the road from the players money
         /// </summary>
         /// <param name="sender">Sender object of the event</param>
         /// <param name="e">Arguments of the event</param>
@@ -193,7 +193,7 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
-        /// Substracts the price of the warehouse from the players money
+        /// Subtracts the price of the warehouse from the players money
         /// </summary>
         /// <param name="sender">Sender object of the event</param>
         /// <param name="e">Arguments of the event</param>

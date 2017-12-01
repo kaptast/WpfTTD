@@ -3,8 +3,8 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 // <author>HYYBLO</author>
-//-----------------------------------------------------------------------
-namespace Hyyblo_Model
+//----------------------------------------------------------------------
+namespace Hyyblo_View
 {
     using System;
     using System.Collections.Generic;
@@ -15,6 +15,7 @@ namespace Hyyblo_Model
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
     using System.Windows.Threading;
+    using Hyyblo_Model;
 
     /// <summary>
     /// Visual representation of the game
@@ -159,20 +160,20 @@ namespace Hyyblo_Model
         /// </summary>
         /// <param name="e">Parameters of the left click</param>
         /// <param name="type">Type of the building</param>
-        public void GameView_MouseLeftButtonDown(MouseEventArgs e, Hyyblo_View.BuildType type)
+        public void GameView_MouseLeftButtonDown(MouseEventArgs e, BuildType type)
         {
             Point p = e.GetPosition(this); // Click position relative to the screen
             Point map = this.ScreenToPoint((int)p.X, (int)p.Y); // Screen coordinate to map coordinate
             Warehouse wh;
             switch (type)
             {
-                case Hyyblo_View.BuildType.Road:
+                case BuildType.Road:
                     this.game.SetRoad((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1); // Place a road on the coordinates
                     break;
-                case Hyyblo_View.BuildType.Warehouse:
+                case BuildType.Warehouse:
                     this.game.SetWarehouse((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
                     break;
-                case Hyyblo_View.BuildType.Delete:
+                case BuildType.Delete:
                     this.game.Map.SetDelete((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
                     wh = this.game.FindWarehouseByPosition((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
                     if (wh != null)
@@ -182,11 +183,11 @@ namespace Hyyblo_Model
 
                     this.game.Map.FireRoadPlaced(this, new EventArgs());
                     break;
-                case Hyyblo_View.BuildType.Nothing:
+                case BuildType.Nothing:
                     wh = this.game.FindWarehouseByPosition((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
                     if (wh != null)
                     {
-                        Hyyblo_View.EditWarehouse window = new Hyyblo_View.EditWarehouse(wh);
+                        EditWarehouse window = new EditWarehouse(wh);
                         window.ShowDialog();
                     }
 
@@ -321,10 +322,10 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
-        /// Generates a point with isometric coords
+        /// Generates a point with isometric coordinates
         /// </summary>
         /// <param name="item">Item to generate it's position</param>
-        /// <returns>Point with the isometric coords</returns>
+        /// <returns>Point with the isometric coordinates</returns>
         private Point PointToScreen(MapItem item)
         {
             double isoX = (item.X - item.Y) * (this.cellSize / 2);

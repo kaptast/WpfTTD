@@ -92,7 +92,7 @@ namespace Hyyblo_Model
             this.images = new BitmapImage[4];
             for (int i = 0; i < 4; i++)
             {
-                this.images[i] = new BitmapImage(new Uri(GameView.GetImage("Images/Vehicles/truck" + i + ".png")));
+                this.images[i] = new BitmapImage(new Uri(Hyyblo_View.GameView.GetImage("Images/Vehicles/truck" + i + ".png")));
             }
 
             this.finalWarehouse = target;
@@ -147,7 +147,7 @@ namespace Hyyblo_Model
         /// <summary>
         /// Gets or sets the vehicle's ware type on the current route
         /// </summary>
-        public WareType Type
+        public WareType CargoType
         {
             get
             {
@@ -306,14 +306,14 @@ namespace Hyyblo_Model
             if (this.pathToTarget.Count - 1 <= this.targetIdx)
             {
                 this.timer.Stop();
-                this.SetPrice(this.Type, this.pathToTarget.Count, this.timer.ElapsedMilliseconds);
+                this.SetPrice(this.CargoType, this.pathToTarget.Count, this.timer.ElapsedMilliseconds);
                 Warehouse temp = this.startWarehouse;
                 this.startWarehouse = this.finalWarehouse;
                 this.finalWarehouse = temp;
                 this.finalTarget = this.SearchTarget(this.finalWarehouse);
                 this.pathToTarget = this.game.Map.Pathfinder.FindPath(this, this.finalTarget);
                 this.targetIdx = 0;
-                this.Type = this.startWarehouse.Type;
+                this.CargoType = this.startWarehouse.CargoType;
                 this.timer.Restart();
             }
         }
@@ -322,12 +322,12 @@ namespace Hyyblo_Model
         /// Calculates the route's price
         /// </summary>
         /// <param name="type">Cargo type of the route</param>
-        /// <param name="length">Legth of the route</param>
+        /// <param name="length">Length of the route</param>
         /// <param name="time">Time of the route</param>
         private void SetPrice(WareType type, int length, long time)
         {
             int cost = length * 5;
-            if (this.finalWarehouse.AcceptWare(this.Type))
+            if (this.finalWarehouse.AcceptWare(this.CargoType))
             {
                 double profit = (Game.Prices[type] * Math.Pow(length, 2) / (time / 500)) - cost;
                 this.game.Money += (int)profit;

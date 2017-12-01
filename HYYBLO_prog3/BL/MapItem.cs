@@ -26,7 +26,7 @@ namespace Hyyblo_Model
         private double y;
 
         /// <summary>
-        /// Movement cost to neighbour
+        /// Movement cost to neighbor
         /// </summary>
         private int gCost;
 

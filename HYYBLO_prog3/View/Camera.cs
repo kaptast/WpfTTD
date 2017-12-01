@@ -4,8 +4,10 @@
 // </copyright>
 // <author>HYYBLO</author>
 //-----------------------------------------------------------------------
-namespace Hyyblo_Model
+namespace Hyyblo_View
 {
+    using Hyyblo_Model;
+
     /// <summary>
     /// A camera which represents the field of view
     /// </summary>

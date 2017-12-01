@@ -50,7 +50,7 @@ namespace Hyyblo_Model
         {
             get
             {
-                return GameView.RoadImages[this.ImageNum];
+                return Hyyblo_View.GameView.RoadImages[this.ImageNum];
             }
 
             protected set
@@ -76,7 +76,7 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
-        /// Callback for the event, changes the images by the number of neighbouring road tiles
+        /// Callback for the event, changes the images by the number of neighboring road tiles
         /// </summary>
         /// <param name="sender">Sender of the event</param>
         /// <param name="e">Arguments of the event</param>
@@ -90,9 +90,9 @@ namespace Hyyblo_Model
         }
 
         /// <summary>
-        /// Checks the neighbouring road tiles
+        /// Checks the neighboring road tiles
         /// </summary>
-        /// <returns>Returns a number between 0 and 15 according to the number of neighbouring roads</returns>
+        /// <returns>Returns a number between 0 and 15 according to the number of neighboring roads</returns>
         private int CheckNeighbours()
         {
             int d = 0;

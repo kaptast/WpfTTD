@@ -10,7 +10,7 @@ namespace Hyyblo_Model
     using System.Collections.Generic;
 
     /// <summary>
-    /// Pathfinding utility class
+    /// Pathfinder utility class
     /// </summary>
     public class Pathfinding
     {

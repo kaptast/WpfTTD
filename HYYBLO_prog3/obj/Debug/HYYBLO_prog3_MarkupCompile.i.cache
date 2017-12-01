@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\App.xaml
-2-1134390269
+3916305003
 
-291685418480
+311512992307
 14-1001767708
-BL\EditWarehouse.xaml;MainWindow.xaml;
+View\MainWindow.xaml;View\EditWarehouse.xaml;View\GameWindow.xaml;
 
-False
+True
 

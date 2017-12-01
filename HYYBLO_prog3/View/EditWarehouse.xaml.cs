@@ -11,7 +11,7 @@ namespace Hyyblo_View
     using Hyyblo_Model;
 
     /// <summary>
-    /// Interaction logic for EditWarehouse.xaml
+    /// Interaction logic for EditWarehouse
     /// </summary>
     public partial class EditWarehouse : Window
     {

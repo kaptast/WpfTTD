@@ -26,7 +26,7 @@
         <TextBox x:Name="txtX" Text="{Binding X}" Margin="192,41,0,0" IsEnabled="False" HorizontalAlignment="Left" Width="92" Height="26" VerticalAlignment="Top"/>
         <TextBox x:Name="txtY" Text="{Binding Y}" Margin="192,72,0,0" IsEnabled="False" HorizontalAlignment="Left" Width="92" Height="26" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="Type" Margin="156,103,0,0" HorizontalAlignment="Left" Width="35" Height="26" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtType" Text="{Binding Type}" Margin="192,103,0,0" IsEnabled="False" HorizontalAlignment="Left" Width="92" Height="26" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtType" Text="{Binding CargoType}" Margin="192,103,0,0" IsEnabled="False" HorizontalAlignment="Left" Width="92" Height="26" VerticalAlignment="Top"/>
         <Label x:Name="label3" Content="Other warehouses" Margin="10,10,0,0" HorizontalAlignment="Left" Width="106" Height="26" VerticalAlignment="Top"/>
         <Label x:Name="label4" Content="Target Warehouse" Margin="156,134,0,0" HorizontalAlignment="Left" Width="128" Height="26" VerticalAlignment="Top"/>
         <Label x:Name="txtSelected" Content="{Binding Target}" Margin="156,165,0,0" HorizontalAlignment="Left" Width="128" Height="25" VerticalAlignment="Top" />

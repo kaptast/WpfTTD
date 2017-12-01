@@ -21,7 +21,7 @@ namespace Hyyblo_Model
         public Grass(int x, int y)
             : base(x, y)
         {
-            this.Image = new System.Windows.Media.Imaging.BitmapImage(new Uri(GameView.GetImage("Images/grass_sm.png")));
+            this.Image = new System.Windows.Media.Imaging.BitmapImage(new Uri(Hyyblo_View.GameView.GetImage("Images/grass_sm.png")));
         }
     }
 }

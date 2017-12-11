@@ -82,6 +82,7 @@
     <Compile Include="Model\Building\Factory.cs" />
     <Compile Include="Model\Building\Refinery.cs" />
     <Compile Include="BL\Warehouse.cs" />
+    <Compile Include="Model\CountryRoad.cs" />
     <Compile Include="View\Camera.cs" />
     <Compile Include="BL\Direction.cs" />
     <Compile Include="BL\PathFinding.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="View\GameWindow.xaml.cs">
       <DependentUpon>GameWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\WaretypeToColor.cs" />
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -15,7 +15,7 @@ var searchData=
   ['getimage',['GetImage',['../class_hyyblo___view_1_1_game_view.html#abad5068b509066999b3a783b5a31c71a',1,'Hyyblo_View::GameView']]],
   ['getitembycoord',['GetItemByCoord',['../class_hyyblo___logic_1_1_map.html#a732ced319d27f5bef2932e1aaf50f04d',1,'Hyyblo_Logic::Map']]],
   ['getneighbours',['GetNeighbours',['../class_hyyblo___logic_1_1_map.html#a61610a17a135db05b3e21d8de807eceb',1,'Hyyblo_Logic::Map']]],
-  ['getpropertyvalue',['GetPropertyValue',['../class_xaml_generated_namespace_1_1_generated_internal_type_helper.html#afdc9fe15b56607d02082908d934480c6',1,'XamlGeneratedNamespace::GeneratedInternalTypeHelper']]],
+  ['getpropertyvalue',['GetPropertyValue',['../class_xaml_generated_namespace_1_1_generated_internal_type_helper.html#afdc9fe15b56607d02082908d934480c6',1,'XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo propertyInfo, object target, System.Globalization.CultureInfo culture)'],['../class_xaml_generated_namespace_1_1_generated_internal_type_helper.html#afdc9fe15b56607d02082908d934480c6',1,'XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo propertyInfo, object target, System.Globalization.CultureInfo culture)']]],
   ['goods',['Goods',['../namespace_hyyblo___logic.html#a05eb2b0d3499ba36e4b55f74169b6fdca9b2cfa29e7882e3649d5f3b9921afdb0',1,'Hyyblo_Logic']]],
   ['grass',['Grass',['../class_hyyblo___model_1_1_grass.html',1,'Hyyblo_Model.Grass'],['../class_hyyblo___model_1_1_grass.html#a5b138cdc9505e92cfb0a46b348bd760c',1,'Hyyblo_Model.Grass.Grass()']]]
 ];

@@ -29,6 +29,11 @@ namespace Hyyblo_View
         private static BitmapImage[] roadImages;
 
         /// <summary>
+        /// Collection of road images
+        /// </summary>
+        private static BitmapImage[] countryRoadImages;
+
+        /// <summary>
         /// Path of the runtime
         /// </summary>
         private static string exepath = System.Reflection.Assembly.GetEntryAssembly().Location;
@@ -70,9 +75,15 @@ namespace Hyyblo_View
         public GameView(int size)
         {
             RoadImages = new BitmapImage[17]; // Loading the images of the roads
+            CountryRoadImages = new BitmapImage[17];
             for (int i = 0; i < 17; i++)
             {
                 RoadImages[i] = new BitmapImage(new Uri(GetImage("Images/Roads/cityroad" + i + ".png")));
+
+                if (i < 16)
+                {
+                    CountryRoadImages[i] = new BitmapImage(new Uri(GetImage("Images/Roads/countryroad" + i + ".png")));
+                }
             }
 
             this.game = new Game(size);
@@ -95,6 +106,22 @@ namespace Hyyblo_View
             set
             {
                 roadImages = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the array with the images of the roads
+        /// </summary>
+        public static BitmapImage[] CountryRoadImages
+        {
+            get
+            {
+                return countryRoadImages;
+            }
+
+            set
+            {
+                countryRoadImages = value;
             }
         }
 

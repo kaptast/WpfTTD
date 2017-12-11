@@ -8,6 +8,8 @@ namespace Hyyblo_Logic
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.ComponentModel;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -42,7 +44,7 @@ namespace Hyyblo_Logic
     /// <summary>
     /// Represents a warehouse a the given position
     /// </summary>
-    public class Warehouse
+    public class Warehouse : INotifyPropertyChanged
     {
         /// <summary>
         /// X coordinate of the warehouse
@@ -57,7 +59,7 @@ namespace Hyyblo_Logic
         /// <summary>
         /// Reference to the other warehouses
         /// </summary>
-        private List<Warehouse> warehouses;
+        private ObservableCollection<Warehouse> warehouses;
 
         /// <summary>
         /// Target warehouse of this warehouse
@@ -90,6 +92,11 @@ namespace Hyyblo_Logic
         private Game game;
 
         /// <summary>
+        /// Surrounding waretypes
+        /// </summary>
+        private Dictionary<WareType, int> waretypes;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Warehouse"/> class.
         /// </summary>
         /// <param name="x">X coordinate of the warehouse</param>
@@ -101,9 +108,15 @@ namespace Hyyblo_Logic
             this.Y = y;
             this.game = g;
             this.warehouses = this.game.Warehouses;
-            this.CargoType = this.game.Map.SetType(this.X, this.Y);
+            this.CargoType = WareType.Nothing;
+            this.waretypes = this.game.Map.SetType(this.X, this.Y);
             this.NumberOfCars = 1;
         }
+
+        /// <summary>
+        /// Event for property changing
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets or sets the X coordinate of the Warehouse
@@ -140,11 +153,11 @@ namespace Hyyblo_Logic
         /// <summary>
         /// Gets or sets the other warehouse references in the warehouse
         /// </summary>
-        public List<Warehouse> Warehouses
+        public ObservableCollection<Warehouse> Warehouses
         {
             get
             {
-                List<Warehouse> temp = new List<Warehouse>();
+                ObservableCollection<Warehouse> temp = new ObservableCollection<Warehouse>();
                 foreach (Warehouse w in this.warehouses)
                 {
                     if (!(w.X == this.X && w.Y == this.Y))
@@ -175,6 +188,10 @@ namespace Hyyblo_Logic
             set
             {
                 this.type = value;
+                if (this.PropertyChanged != null)
+                {
+                    this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs("CargoType"));
+                }
             }
         }
 
@@ -218,6 +235,35 @@ namespace Hyyblo_Logic
             set
             {
                 this.numberOfCars = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the array for the warehouse types
+        /// </summary>
+        public List<WareType> WarehouseTypes
+        {
+            get
+            {
+                List<WareType> list = new List<WareType>();
+                list.Add(WareType.Nothing);
+
+                if (this.waretypes[WareType.Goods] > 0)
+                {
+                    list.Add(WareType.Goods);
+                }
+
+                if (this.waretypes[WareType.Ore] > 0)
+                {
+                    list.Add(WareType.Ore);
+                }
+
+                if (this.waretypes[WareType.Mail] > 0)
+                {
+                    list.Add(WareType.Mail);
+                }
+
+                return list;
             }
         }
 

@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="{Binding Name}" Height="300" Width="320"
         ResizeMode="NoResize">
+    <Window.Resources>
+        <local:WaretypeToColor x:Key="WTC" />
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10" />
@@ -39,13 +42,18 @@
         <ListView x:Name="listBox" Grid.Column="1" Grid.Row="3" Grid.RowSpan="13" ItemsSource="{Binding Warehouses}" SelectedItem="{Binding Target}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <WrapPanel>
-                        <TextBlock Text="X: " />
-                        <TextBlock Text="{Binding X}" FontWeight="Bold" />
-                        <TextBlock Text=", " />
-                        <TextBlock Text="Y: " />
-                        <TextBlock Text="{Binding Y}" FontWeight="Bold" />
-                    </WrapPanel>
+                    <Grid Background="{Binding CargoType, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource WTC}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="30"  />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="X: " Grid.Column="0"/>
+                        <TextBlock Text="{Binding X}" FontWeight="Bold" Grid.Column="1" />
+                        <TextBlock Text=", Y: " Grid.Column="2" />
+                        <TextBlock Text="{Binding Y}" FontWeight="Bold" Grid.Column="3"/>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -54,7 +62,7 @@
         <TextBox x:Name="txtX" Text="{Binding X}" IsEnabled="False" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="3" />
         <TextBox x:Name="txtY" Text="{Binding Y}" IsEnabled="False" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="5"/>
         <Label x:Name="label2" Content="Type" Grid.Column="3" Grid.Row="7" />
-        <TextBox x:Name="txtType" Text="{Binding CargoType}" IsEnabled="False" Grid.Column="4" Grid.Row="7" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="txtType" SelectedItem="{Binding CargoType}" ItemsSource="{Binding WarehouseTypes}" Grid.Column="4" Grid.Row="7" Grid.ColumnSpan="2"/>
         <Label x:Name="label3" Content="Other warehouses" Grid.Column="1" Grid.Row="1"/>
         <Label x:Name="label4" Grid.Column="3" Grid.Row="9" Grid.ColumnSpan="3" Content="Target Warehouse"/>
         <Label x:Name="txtSelected" Grid.Column="3" Grid.Row="11" Grid.ColumnSpan="3" Content="{Binding Target}"  />

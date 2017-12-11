@@ -10,7 +10,6 @@ namespace Hyyblo_Model
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Windows.Media.Imaging;
-    using System.Windows.Threading;
     using Hyyblo_Logic;
 
     /// <summary>
@@ -86,14 +85,16 @@ namespace Hyyblo_Model
         /// <param name="start">Start warehouse of the vehicle</param>
         /// <param name="target">Target of the vehicle</param>
         /// <param name="g">Reference to the game</param>
-        public Vehicle(int x, int y, Warehouse start, Warehouse target, Game g)
+        /// <param name="r">Static random of the map</param>
+        public Vehicle(int x, int y, Warehouse start, Warehouse target, Game g, Random r)
             : base(x, y)
         {
             this.facing = Direction.Left;
             this.images = new BitmapImage[4];
+            int color = r.Next(0, 3);
             for (int i = 0; i < 4; i++)
             {
-                this.images[i] = new BitmapImage(new Uri(Hyyblo_View.GameView.GetImage("Images/Vehicles/truck" + i + ".png")));
+                this.images[i] = new BitmapImage(new Uri(Hyyblo_View.GameView.GetImage("Images/Vehicles/truck" + color + i + ".png")));
             }
 
             this.finalWarehouse = target;
@@ -158,6 +159,17 @@ namespace Hyyblo_Model
             set
             {
                 this.type = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the image of the vehicle
+        /// </summary>
+        public BitmapImage Color
+        {
+            get
+            {
+                return this.images[0];
             }
         }
 

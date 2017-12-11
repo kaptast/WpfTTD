@@ -68,6 +68,7 @@ namespace Hyyblo_Logic
             this.GenerateMap(size, size);
 
             this.mapContainer.Sort();
+            this.Buildings.Sort();
         }
 
         /// <summary>
@@ -183,6 +184,23 @@ namespace Hyyblo_Logic
                 item = this.GetBuildingByCoord(x, y);
                 this.Buildings.Remove((Building)item);
                 this.MapContainer.Add(new Road(x, y, this));
+            }
+        }
+
+        /// <summary>
+        /// Places a road on the map
+        /// </summary>
+        /// <param name="x">X coordinate of the road</param>
+        /// <param name="y">Y coordinate of the road</param>
+        public void SetCountryRoad(int x, int y)
+        {
+            if (this.RightCoord(x, y))
+            {
+                MapItem item = this.GetItemByCoord(x, y);
+                this.MapContainer.Remove(item);
+                item = this.GetBuildingByCoord(x, y);
+                this.Buildings.Remove((Building)item);
+                this.MapContainer.Add(new CountryRoad(x, y, this));
             }
         }
 
@@ -311,7 +329,7 @@ namespace Hyyblo_Logic
         {
             if (this.RightCoord(x, y))
             {
-                Vehicle v = new Vehicle(x, y, start, target, game);
+                Vehicle v = new Vehicle(x, y, start, target, game, r);
                 this.Vehicles.Add(v);
             }
         }
@@ -333,7 +351,7 @@ namespace Hyyblo_Logic
         /// <param name="x">X coordinate of the warehouse</param>
         /// <param name="y">Y coordinate of the warehouse</param>
         /// <returns>Decided type of the warehouse</returns>
-        public WareType SetType(int x, int y)
+        public Dictionary<WareType, int> SetType(int x, int y)
         {
             Dictionary<WareType, int> counter = new Dictionary<WareType, int>();
             counter.Add(WareType.Goods, 0);
@@ -371,22 +389,7 @@ namespace Hyyblo_Logic
                 }
             }
 
-            if (!(counter[WareType.Mail] > 0 || counter[WareType.Goods] > 0 || counter[WareType.Ore] > 0))
-            {
-                return WareType.Nothing;
-            }
-            else if (counter[WareType.Goods] >= counter[WareType.Mail] && counter[WareType.Goods] >= counter[WareType.Ore])
-            {
-                return WareType.Goods;
-            }
-            else if (counter[WareType.Ore] >= counter[WareType.Mail] && counter[WareType.Ore] >= counter[WareType.Goods])
-            {
-                return WareType.Ore;
-            }
-            else
-            {
-                return WareType.Mail;
-            }
+            return counter;
         }
 
         /// <summary>
@@ -415,9 +418,9 @@ namespace Hyyblo_Logic
 
             this.GenerateTowns();
 
-            this.GenerateWares();
-
             this.GenerateBuildings(x, y);
+
+            this.GenerateWares();
 
             this.FireRoadPlaced(this, new EventArgs());
         }

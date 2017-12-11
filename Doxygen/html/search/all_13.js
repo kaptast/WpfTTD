@@ -6,6 +6,8 @@ var searchData=
   ['warehouselot21',['WarehouseLot21',['../class_hyyblo___model_1_1_warehouse_lot21.html',1,'Hyyblo_Model.WarehouseLot21'],['../class_hyyblo___model_1_1_warehouse_lot21.html#acedeb3de68e1802ad5c86c8f32465292',1,'Hyyblo_Model.WarehouseLot21.WarehouseLot21()']]],
   ['warehouselot22',['WarehouseLot22',['../class_hyyblo___model_1_1_warehouse_lot22.html',1,'Hyyblo_Model.WarehouseLot22'],['../class_hyyblo___model_1_1_warehouse_lot22.html#a5dc008895d11db69ed443a8f41e00771',1,'Hyyblo_Model.WarehouseLot22.WarehouseLot22()']]],
   ['warehouseplaced',['WarehousePlaced',['../class_hyyblo___logic_1_1_map.html#a2de9c6c0e7f1b1c13d18538642624052',1,'Hyyblo_Logic::Map']]],
-  ['warehouses',['Warehouses',['../class_hyyblo___logic_1_1_game.html#a43ce96e51a1121f3cca057b98d567c0c',1,'Hyyblo_Logic.Game.Warehouses()'],['../class_hyyblo___logic_1_1_warehouse.html#a2f34911fec280e88abccd3e1ee8f9f58',1,'Hyyblo_Logic.Warehouse.Warehouses()']]],
-  ['waretype',['WareType',['../namespace_hyyblo___logic.html#a05eb2b0d3499ba36e4b55f74169b6fdc',1,'Hyyblo_Logic']]]
+  ['warehouses',['Warehouses',['../class_hyyblo___logic_1_1_game.html#ae437364c83d1719c31544b41d6e03eef',1,'Hyyblo_Logic.Game.Warehouses()'],['../class_hyyblo___logic_1_1_warehouse.html#ad92d02affa361ff60ee40b602eeff294',1,'Hyyblo_Logic.Warehouse.Warehouses()']]],
+  ['warehousetypes',['WarehouseTypes',['../class_hyyblo___logic_1_1_warehouse.html#a1824ec4b5e6ba6e3bc5a663fef0c3af0',1,'Hyyblo_Logic::Warehouse']]],
+  ['waretype',['WareType',['../namespace_hyyblo___logic.html#a05eb2b0d3499ba36e4b55f74169b6fdc',1,'Hyyblo_Logic']]],
+  ['waretypetocolor',['WaretypeToColor',['../class_hyyblo___view_1_1_waretype_to_color.html',1,'Hyyblo_View']]]
 ];

@@ -49,6 +49,24 @@
             <param name="x">X coordinate of the refinery</param>
             <param name="y">Y coordinate of the refinery</param>
         </member>
+        <member name="T:Hyyblo_Model.CountryRoad">
+            <summary>
+            Represent a Road tile
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.CountryRoad.#ctor(System.Int32,System.Int32,Hyyblo_Logic.Map)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.CountryRoad"/> class.
+            </summary>
+            <param name="x">X coordinate of the road</param>
+            <param name="y">Y coordinate of the road</param>
+            <param name="map">Map of the game</param>
+        </member>
+        <member name="P:Hyyblo_Model.CountryRoad.Image">
+            <summary>
+            Gets or sets the image of the road
+            </summary>
+        </member>
         <member name="T:Hyyblo_Model.Road">
             <summary>
             Represent a Road tile
@@ -165,7 +183,7 @@
             Timer for timing the path's time
             </summary>
         </member>
-        <member name="M:Hyyblo_Model.Vehicle.#ctor(System.Int32,System.Int32,Hyyblo_Logic.Warehouse,Hyyblo_Logic.Warehouse,Hyyblo_Logic.Game)">
+        <member name="M:Hyyblo_Model.Vehicle.#ctor(System.Int32,System.Int32,Hyyblo_Logic.Warehouse,Hyyblo_Logic.Warehouse,Hyyblo_Logic.Game,System.Random)">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_Model.Vehicle"/> class.
             </summary>
@@ -174,6 +192,7 @@
             <param name="start">Start warehouse of the vehicle</param>
             <param name="target">Target of the vehicle</param>
             <param name="g">Reference to the game</param>
+            <param name="r">Static random of the map</param>
         </member>
         <member name="P:Hyyblo_Model.Vehicle.Image">
             <summary>
@@ -188,6 +207,11 @@
         <member name="P:Hyyblo_Model.Vehicle.CargoType">
             <summary>
             Gets or sets the vehicle's ware type on the current route
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Vehicle.Color">
+            <summary>
+            Gets the image of the vehicle
             </summary>
         </member>
         <member name="M:Hyyblo_Model.Vehicle.Update">
@@ -562,6 +586,11 @@
             Reference for the game
             </summary>
         </member>
+        <member name="F:Hyyblo_Logic.Warehouse.waretypes">
+            <summary>
+            Surrounding waretypes
+            </summary>
+        </member>
         <member name="M:Hyyblo_Logic.Warehouse.#ctor(System.Int32,System.Int32,Hyyblo_Logic.Game)">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_Logic.Warehouse"/> class.
@@ -569,6 +598,11 @@
             <param name="x">X coordinate of the warehouse</param>
             <param name="y">Y coordinate of the warehouse</param>
             <param name="g">Reference to the game</param>
+        </member>
+        <member name="E:Hyyblo_Logic.Warehouse.PropertyChanged">
+            <summary>
+            Event for property changing
+            </summary>
         </member>
         <member name="P:Hyyblo_Logic.Warehouse.X">
             <summary>
@@ -603,6 +637,11 @@
         <member name="P:Hyyblo_Logic.Warehouse.NumberOfCars">
             <summary>
             Gets or sets the number of cars the warehouse sends
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Logic.Warehouse.WarehouseTypes">
+            <summary>
+            Gets the array for the warehouse types
             </summary>
         </member>
         <member name="M:Hyyblo_Logic.Warehouse.ToString">
@@ -888,6 +927,13 @@
             <returns>Random number in range which gravitates towards the given value</returns>
         </member>
         <member name="M:Hyyblo_Logic.Map.SetRoad(System.Int32,System.Int32)">
+            <summary>
+            Places a road on the map
+            </summary>
+            <param name="x">X coordinate of the road</param>
+            <param name="y">Y coordinate of the road</param>
+        </member>
+        <member name="M:Hyyblo_Logic.Map.SetCountryRoad(System.Int32,System.Int32)">
             <summary>
             Places a road on the map
             </summary>
@@ -1233,6 +1279,31 @@
             InitializeComponent
             </summary>
         </member>
+        <member name="T:Hyyblo_View.WaretypeToColor">
+            <summary>
+            Converts the waretype to a brush
+            </summary>
+        </member>
+        <member name="M:Hyyblo_View.WaretypeToColor.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts the value to a color
+            </summary>
+            <param name="value">Type of the warehouse</param>
+            <param name="targetType">Type of the target</param>
+            <param name="parameter">Parameter of the type</param>
+            <param name="culture">Info about the environment</param>
+            <returns>A brush with the specific color</returns>
+        </member>
+        <member name="M:Hyyblo_View.WaretypeToColor.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts the brush to a waretype, Not implemented
+            </summary>
+            <param name="value">A brush</param>
+            <param name="targetType">Type of the target</param>
+            <param name="parameter">Parameter of the type</param>
+            <param name="culture">Info about the environment</param>
+            <returns>A specific waretype</returns>
+        </member>
         <member name="T:Hyyblo_View.EditWarehouse">
             <summary>
             Interaction logic for EditWarehouse
@@ -1270,6 +1341,11 @@
             </summary>
         </member>
         <member name="F:Hyyblo_View.GameView.roadImages">
+            <summary>
+            Collection of road images
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.GameView.countryRoadImages">
             <summary>
             Collection of road images
             </summary>
@@ -1316,6 +1392,11 @@
             <param name="size">Size of the map</param>
         </member>
         <member name="P:Hyyblo_View.GameView.RoadImages">
+            <summary>
+            Gets or sets the array with the images of the roads
+            </summary>
+        </member>
+        <member name="P:Hyyblo_View.GameView.CountryRoadImages">
             <summary>
             Gets or sets the array with the images of the roads
             </summary>

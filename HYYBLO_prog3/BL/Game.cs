@@ -9,6 +9,7 @@ namespace Hyyblo_Logic
     using System;
     using System.Collections.Generic;
     using Hyyblo_Model;
+    using System.Collections.ObjectModel;
 
     /// <summary>
     /// Game object, contains the current game's values
@@ -33,7 +34,7 @@ namespace Hyyblo_Logic
         /// <summary>
         /// Collection to store warehouses built in the game
         /// </summary>
-        private List<Warehouse> warehouses;
+        private ObservableCollection<Warehouse> warehouses;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Game"/> class.
@@ -45,7 +46,7 @@ namespace Hyyblo_Logic
             this.map.RoadPlaced += this.Map_RoadPlaced;
             this.map.WarehousePlaced += this.Map_WarehousePlaced;
             this.Money = 5000;
-            this.warehouses = new List<Warehouse>();
+            this.warehouses = new ObservableCollection<Warehouse>();
 
             prices = new Dictionary<WareType, int>();
             prices.Add(WareType.Goods, 60);
@@ -100,7 +101,7 @@ namespace Hyyblo_Logic
         /// <summary>
         /// Gets the warehouse list of the game
         /// </summary>
-        public List<Warehouse> Warehouses
+        public ObservableCollection<Warehouse> Warehouses
         {
             get
             {
@@ -144,7 +145,7 @@ namespace Hyyblo_Logic
         {
             if (this.Money > 0)
             {
-                this.Map.SetRoad(x, y);
+                this.Map.SetCountryRoad(x, y);
                 this.Map.FireRoadPlaced(this, new EventArgs()); // Check road tiles
             }
         }

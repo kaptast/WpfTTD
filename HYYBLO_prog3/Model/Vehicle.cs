@@ -8,14 +8,16 @@ namespace Hyyblo_Model
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Diagnostics;
+    using System.Runtime.CompilerServices;
     using System.Windows.Media.Imaging;
     using Hyyblo_Logic;
 
     /// <summary>
     /// Represents a moving vehicle
     /// </summary>
-    public class Vehicle : MapItem
+    public class Vehicle : MapItem, INotifyPropertyChanged
     {
         /// <summary>
         /// A current path of the vehicle to the final target
@@ -78,6 +80,11 @@ namespace Hyyblo_Model
         private Stopwatch timer;
 
         /// <summary>
+        /// Quatity of the cargo
+        /// </summary>
+        private int quantity;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Vehicle"/> class.
         /// </summary>
         /// <param name="x">X coordinate of the vehicle</param>
@@ -90,6 +97,7 @@ namespace Hyyblo_Model
             : base(x, y)
         {
             this.facing = Direction.Left;
+            this.quantity = 50;
             this.images = new BitmapImage[4];
             int color = r.Next(0, 3);
             for (int i = 0; i < 4; i++)
@@ -97,14 +105,14 @@ namespace Hyyblo_Model
                 this.images[i] = new BitmapImage(new Uri(Hyyblo_View.GameView.GetImage("Images/Vehicles/truck" + color + i + ".png")));
             }
 
-            this.finalWarehouse = target;
-            this.startWarehouse = start;
+            this.FinalWarehouse = target;
+            this.StartWarehouse = start;
 
             this.game = g;
 
             this.timer = new Stopwatch();
 
-            this.finalTarget = this.SearchTarget(this.finalWarehouse);
+            this.finalTarget = this.SearchTarget(this.FinalWarehouse);
             this.pathToTarget = this.game.Map.Pathfinder.FindPath(this, this.finalTarget);
             if (this.pathToTarget != null)
             {
@@ -113,6 +121,11 @@ namespace Hyyblo_Model
 
             this.timer.Start();
         }
+
+        /// <summary>
+        /// Event for the changing properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets or sets the image of the vehicle
@@ -159,6 +172,7 @@ namespace Hyyblo_Model
             set
             {
                 this.type = value;
+                this.OPC("CargoType");
             }
         }
 
@@ -170,6 +184,68 @@ namespace Hyyblo_Model
             get
             {
                 return this.images[0];
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the target warehouse of the vehicle
+        /// </summary>
+        public Warehouse FinalWarehouse
+        {
+            get
+            {
+                return this.finalWarehouse;
+            }
+
+            set
+            {
+                this.finalWarehouse = value;
+                this.OPC("FinalWarehouse");
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the starting warehouse of the vehicle
+        /// </summary>
+        public Warehouse StartWarehouse
+        {
+            get
+            {
+                return this.startWarehouse;
+            }
+
+            set
+            {
+                this.startWarehouse = value;
+                this.OPC("StartWarehouse");
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the quantity of the cargo
+        /// </summary>
+        public int Quantity
+        {
+            get
+            {
+                return this.quantity;
+            }
+
+            set
+            {
+                this.quantity = value;
+            }
+        }
+
+        /// <summary>
+        /// Calls the property changed event
+        /// </summary>
+        /// <param name="name">Name of the property</param>
+        public void OPC([CallerMemberName] string name = "")
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
 
@@ -320,13 +396,13 @@ namespace Hyyblo_Model
             {
                 this.timer.Stop();
                 this.SetPrice(this.CargoType, this.pathToTarget.Count, this.timer.ElapsedMilliseconds);
-                Warehouse temp = this.startWarehouse;
-                this.startWarehouse = this.finalWarehouse;
-                this.finalWarehouse = temp;
-                this.finalTarget = this.SearchTarget(this.finalWarehouse);
+                Warehouse temp = this.StartWarehouse;
+                this.StartWarehouse = this.FinalWarehouse;
+                this.FinalWarehouse = temp;
+                this.finalTarget = this.SearchTarget(this.FinalWarehouse);
                 this.pathToTarget = this.game.Map.Pathfinder.FindPath(this, this.finalTarget);
                 this.targetIdx = 0;
-                this.CargoType = this.startWarehouse.CargoType;
+                this.CargoType = this.StartWarehouse.CargoType;
                 this.timer.Restart();
             }
         }
@@ -340,7 +416,7 @@ namespace Hyyblo_Model
         private void SetPrice(WareType type, int length, long time)
         {
             int cost = length * 5;
-            if (this.finalWarehouse.AcceptWare(this.CargoType))
+            if (this.FinalWarehouse.AcceptWare(this.CargoType))
             {
                 double profit = (Game.Prices[type] * Math.Pow(length, 2) / (time / 500)) - cost;
                 this.game.Money += (int)profit;

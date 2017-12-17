@@ -183,6 +183,11 @@
             Timer for timing the path's time
             </summary>
         </member>
+        <member name="F:Hyyblo_Model.Vehicle.quantity">
+            <summary>
+            Quatity of the cargo
+            </summary>
+        </member>
         <member name="M:Hyyblo_Model.Vehicle.#ctor(System.Int32,System.Int32,Hyyblo_Logic.Warehouse,Hyyblo_Logic.Warehouse,Hyyblo_Logic.Game,System.Random)">
             <summary>
             Initializes a new instance of the <see cref="T:Hyyblo_Model.Vehicle"/> class.
@@ -193,6 +198,11 @@
             <param name="target">Target of the vehicle</param>
             <param name="g">Reference to the game</param>
             <param name="r">Static random of the map</param>
+        </member>
+        <member name="E:Hyyblo_Model.Vehicle.PropertyChanged">
+            <summary>
+            Event for the changing properties
+            </summary>
         </member>
         <member name="P:Hyyblo_Model.Vehicle.Image">
             <summary>
@@ -213,6 +223,27 @@
             <summary>
             Gets the image of the vehicle
             </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Vehicle.FinalWarehouse">
+            <summary>
+            Gets or sets the target warehouse of the vehicle
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Vehicle.StartWarehouse">
+            <summary>
+            Gets or sets the starting warehouse of the vehicle
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Vehicle.Quantity">
+            <summary>
+            Gets or sets the quantity of the cargo
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.Vehicle.OPC(System.String)">
+            <summary>
+            Calls the property changed event
+            </summary>
+            <param name="name">Name of the property</param>
         </member>
         <member name="M:Hyyblo_Model.Vehicle.Update">
             <summary>
@@ -1157,6 +1188,30 @@
             <param name="direction">Direction of the requested movement</param>
             <param name="step">Step size of the requested movement</param>
         </member>
+        <member name="T:Hyyblo_View.Cars">
+            <summary>
+            Interaction logic for Cars.xaml
+            </summary>
+            <summary>
+            Cars
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.Cars.vm">
+            <summary>
+            ViewModel of the window
+            </summary>
+        </member>
+        <member name="M:Hyyblo_View.Cars.#ctor(System.Collections.ObjectModel.ObservableCollection{Hyyblo_Model.Vehicle})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_View.Cars"/> class
+            </summary>
+            <param name="v">List of the vehicles</param>
+        </member>
+        <member name="M:Hyyblo_View.Cars.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:Hyyblo_View.BuildType">
             <summary>
             Enum for different build types
@@ -1274,35 +1329,38 @@
             <param name="sender">Reference to the sender object</param>
             <param name="e">Mouse arguments for the event</param>
         </member>
+        <member name="M:Hyyblo_View.GameWindow.BtnVehicle_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Callback function for handling the button click
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the button click</param>
+        </member>
         <member name="M:Hyyblo_View.GameWindow.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>
         </member>
-        <member name="T:Hyyblo_View.WaretypeToColor">
+        <member name="T:Hyyblo_View.ViewModel">
             <summary>
-            Converts the waretype to a brush
+            View model for the cars window
             </summary>
         </member>
-        <member name="M:Hyyblo_View.WaretypeToColor.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+        <member name="M:Hyyblo_View.ViewModel.#ctor(System.Collections.ObjectModel.ObservableCollection{Hyyblo_Model.Vehicle})">
             <summary>
-            Converts the value to a color
+            Initializes a new instance of the <see cref="T:Hyyblo_View.ViewModel"/> class.
             </summary>
-            <param name="value">Type of the warehouse</param>
-            <param name="targetType">Type of the target</param>
-            <param name="parameter">Parameter of the type</param>
-            <param name="culture">Info about the environment</param>
-            <returns>A brush with the specific color</returns>
+            <param name="v">List with vehicles</param>
         </member>
-        <member name="M:Hyyblo_View.WaretypeToColor.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+        <member name="P:Hyyblo_View.ViewModel.Vehicles">
             <summary>
-            Converts the brush to a waretype, Not implemented
+            Gets the list of the vehicles
             </summary>
-            <param name="value">A brush</param>
-            <param name="targetType">Type of the target</param>
-            <param name="parameter">Parameter of the type</param>
-            <param name="culture">Info about the environment</param>
-            <returns>A specific waretype</returns>
+        </member>
+        <member name="P:Hyyblo_View.ViewModel.SelectedVehicle">
+            <summary>
+            Gets or sets the selected vehicle
+            </summary>
         </member>
         <member name="T:Hyyblo_View.EditWarehouse">
             <summary>
@@ -1399,6 +1457,11 @@
         <member name="P:Hyyblo_View.GameView.CountryRoadImages">
             <summary>
             Gets or sets the array with the images of the roads
+            </summary>
+        </member>
+        <member name="P:Hyyblo_View.GameView.Game">
+            <summary>
+            Gets or sets the game of the view
             </summary>
         </member>
         <member name="M:Hyyblo_View.GameView.GetImage(System.String)">
@@ -1557,6 +1620,36 @@
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
             </summary>
         </member>
     </members>

@@ -46,3 +46,5 @@ D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_pr
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Debug\Hyyblo_Prog3.pdb
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Debug\Hyyblo_Prog3.csprojResolveAssemblyReference.cache
+D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Debug\View\Cars.g.cs
+D:\Dokumentumok\Visual Studio 2015\Projects\oenik_prog3_2017osz_hyyblo\HYYBLO_prog3\obj\Debug\View\Cars.baml

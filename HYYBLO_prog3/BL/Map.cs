@@ -8,6 +8,7 @@ namespace Hyyblo_Logic
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Windows;
     using Hyyblo_Model;
 
@@ -41,7 +42,7 @@ namespace Hyyblo_Logic
         /// <summary>
         /// Collection of vehicles on the map
         /// </summary>
-        private List<Vehicle> vehicles;
+        private ObservableCollection<Vehicle> vehicles;
 
         /// <summary>
         /// Pathfinder object for the map
@@ -60,7 +61,7 @@ namespace Hyyblo_Logic
         public Map(int size)
         {
             this.mapContainer = new List<MapItem>();
-            this.vehicles = new List<Vehicle>();
+            this.vehicles = new ObservableCollection<Vehicle>();
             this.buildings = new List<Building>();
             r = new Random();
             this.size = size;
@@ -95,7 +96,7 @@ namespace Hyyblo_Logic
         /// <summary>
         /// Gets or sets the Container of the Vehicles
         /// </summary>
-        public List<Vehicle> Vehicles
+        public ObservableCollection<Vehicle> Vehicles
         {
             get
             {

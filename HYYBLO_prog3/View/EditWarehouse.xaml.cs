@@ -26,9 +26,9 @@ namespace Hyyblo_View
         /// <param name="wh">Warehouse of the window</param>
         public EditWarehouse(Warehouse wh)
         {
-            this.InitializeComponent();
             this.w = wh;
-            this.DataContext = wh;
+            this.DataContext = this.w;
+            this.InitializeComponent();
         }
 
         /// <summary>

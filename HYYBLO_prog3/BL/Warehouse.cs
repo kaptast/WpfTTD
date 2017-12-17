@@ -190,7 +190,7 @@ namespace Hyyblo_Logic
                 this.type = value;
                 if (this.PropertyChanged != null)
                 {
-                    this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs("CargoType"));
+                    this.PropertyChanged(this, new PropertyChangedEventArgs("CargoType"));
                 }
             }
         }
@@ -208,6 +208,10 @@ namespace Hyyblo_Logic
             set
             {
                 this.target = value;
+                if (this.PropertyChanged != null)
+                {
+                    this.PropertyChanged(this, new PropertyChangedEventArgs("Target"));
+                }
             }
         }
 

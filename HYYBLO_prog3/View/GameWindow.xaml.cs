@@ -219,5 +219,16 @@ namespace Hyyblo_View
         {
             this.view.GameView_KeyUp(sender, null);
         }
+
+        /// <summary>
+        /// Callback function for handling the button click
+        /// </summary>
+        /// <param name="sender">Sender object</param>
+        /// <param name="e">Arguments of the button click</param>
+        private void BtnVehicle_Click(object sender, RoutedEventArgs e)
+        {
+            Cars window = new Cars(this.view.Game.Map.Vehicles);
+            window.Show();
+        }
     }
 }

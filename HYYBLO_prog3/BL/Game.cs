@@ -8,8 +8,8 @@ namespace Hyyblo_Logic
 {
     using System;
     using System.Collections.Generic;
-    using Hyyblo_Model;
     using System.Collections.ObjectModel;
+    using Hyyblo_Model;
 
     /// <summary>
     /// Game object, contains the current game's values

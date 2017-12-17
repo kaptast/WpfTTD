@@ -40,6 +40,9 @@
             <ToggleButton Name="btnDelete" Height="40" Width="40" Click="BtnDelete_Click" Focusable="False">
                 <Image Source="/Images/delete.png" />
             </ToggleButton>
+            <ToggleButton Name="btnVehicle" Height="40" Width="40" Click="BtnVehicle_Click" Focusable="False">
+                <Image Source="/Images/truck.png" />
+            </ToggleButton>
         </Menu>
 
         <StatusBar Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3">

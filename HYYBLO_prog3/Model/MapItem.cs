@@ -270,9 +270,9 @@ namespace Hyyblo_Model
         /// <returns>Returns true if the coordinates are equal</returns>
         public override bool Equals(object obj)
         {
-            if (obj == null)
+            if (object.ReferenceEquals(obj, null) || obj.GetType().FullName == "MS.Internal.NamedObject")
             {
-                return false;
+                return base.Equals(obj);
             }
 
             MapItem tmp = (MapItem)obj;

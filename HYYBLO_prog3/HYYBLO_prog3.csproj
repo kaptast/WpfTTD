@@ -92,10 +92,17 @@
     <Compile Include="Model\Building\Warehouse\WarehouseLot12.cs" />
     <Compile Include="Model\Building\Warehouse\WarehouseLot21.cs" />
     <Compile Include="Model\Building\Warehouse\WarehouseLot22.cs" />
+    <Compile Include="View\Cars.xaml.cs">
+      <DependentUpon>Cars.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\GameWindow.xaml.cs">
       <DependentUpon>GameWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\WaretypeToColor.cs" />
+    <Compile Include="View\ViewModel.cs" />
+    <Page Include="View\Cars.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -151,6 +158,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="stylecop.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

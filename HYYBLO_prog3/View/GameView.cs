@@ -86,7 +86,7 @@ namespace Hyyblo_View
                 }
             }
 
-            this.game = new Game(size);
+            this.Game = new Game(size);
             this.cam = new Camera(0, 0);
             this.InvalidateVisual();
             this.Loaded += this.ViewLoaded;
@@ -122,6 +122,22 @@ namespace Hyyblo_View
             set
             {
                 countryRoadImages = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the game of the view
+        /// </summary>
+        public Game Game
+        {
+            get
+            {
+                return this.game;
+            }
+
+            set
+            {
+                this.game = value;
             }
         }
 
@@ -213,23 +229,23 @@ namespace Hyyblo_View
             switch (type)
             {
                 case BuildType.Road:
-                    this.game.SetRoad((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1); // Place a road on the coordinates
+                    this.Game.SetRoad((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1); // Place a road on the coordinates
                     break;
                 case BuildType.Warehouse:
-                    this.game.SetWarehouse((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
+                    this.Game.SetWarehouse((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
                     break;
                 case BuildType.Delete:
-                    this.game.Map.SetDelete((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
-                    wh = this.game.FindWarehouseByPosition((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
+                    this.Game.Map.SetDelete((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
+                    wh = this.Game.FindWarehouseByPosition((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
                     if (wh != null)
                     {
-                        this.game.Warehouses.Remove(wh);
+                        this.Game.Warehouses.Remove(wh);
                     }
 
-                    this.game.Map.FireRoadPlaced(this, new EventArgs());
+                    this.Game.Map.FireRoadPlaced(this, new EventArgs());
                     break;
                 case BuildType.Nothing:
-                    wh = this.game.FindWarehouseByPosition((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
+                    wh = this.Game.FindWarehouseByPosition((int)Math.Floor(map.Y), (int)Math.Floor(map.X) - 1);
                     if (wh != null)
                     {
                         EditWarehouse window = new EditWarehouse(wh);
@@ -241,8 +257,8 @@ namespace Hyyblo_View
                     break;
             }
 
-            this.game.Map.MapContainer.Sort();
-            this.game.Map.Buildings.Sort();
+            this.Game.Map.MapContainer.Sort();
+            this.Game.Map.Buildings.Sort();
             this.InvalidateVisual(); // Redraw the screen
         }
 
@@ -298,7 +314,7 @@ namespace Hyyblo_View
             base.OnRender(drawingContext);
             if (this.moneyLabel != null)
             {
-                this.moneyLabel.Content = this.game.ToString();
+                this.moneyLabel.Content = this.Game.ToString();
             }
 
             this.RenderMap(drawingContext);
@@ -324,7 +340,7 @@ namespace Hyyblo_View
         {
             // DoTurn
             this.cam.Turn(this.cellSize);
-            this.game.Update();
+            this.Game.Update();
             this.InvalidateVisual();
         }
 
@@ -348,19 +364,19 @@ namespace Hyyblo_View
         /// <param name="dc">Drawer of the view</param>
         private void RenderMap(DrawingContext dc)
         {
-            foreach (MapItem item in this.game.Map.MapContainer)
+            foreach (MapItem item in this.Game.Map.MapContainer)
             {
                 Point p = this.PointToScreen(item);
                 dc.DrawImage(item.Image, item.GenerateRect(p.X, p.Y, this.cellSize));
             }
 
-            foreach (Vehicle item in this.game.Map.Vehicles)
+            foreach (Vehicle item in this.Game.Map.Vehicles)
             {
                 Point p = this.PointToScreen(item);
                 dc.DrawImage(item.Image, item.GenerateRect(p.X, p.Y, this.cellSize));
             }
 
-            foreach (Building item in this.game.Map.Buildings)
+            foreach (Building item in this.Game.Map.Buildings)
             {
                 Point p = this.PointToScreen(item);
                 dc.DrawImage(item.Image, item.GenerateRect(p.X, p.Y, this.cellSize));

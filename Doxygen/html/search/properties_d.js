@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['warehouses',['Warehouses',['../class_hyyblo___logic_1_1_game.html#ae437364c83d1719c31544b41d6e03eef',1,'Hyyblo_Logic.Game.Warehouses()'],['../class_hyyblo___logic_1_1_warehouse.html#ad92d02affa361ff60ee40b602eeff294',1,'Hyyblo_Logic.Warehouse.Warehouses()']]],
-  ['warehousetypes',['WarehouseTypes',['../class_hyyblo___logic_1_1_warehouse.html#a1824ec4b5e6ba6e3bc5a663fef0c3af0',1,'Hyyblo_Logic::Warehouse']]]
+  ['vehicles',['Vehicles',['../class_hyyblo___logic_1_1_map.html#a4e0fc91118d6473af72e725a6825cdf8',1,'Hyyblo_Logic.Map.Vehicles()'],['../class_hyyblo___view_1_1_view_model.html#ace65fcf6c21800f97f59d9f030ab4038',1,'Hyyblo_View.ViewModel.Vehicles()']]]
 ];

@@ -45,6 +45,11 @@ namespace Hyyblo_Logic
         private ObservableCollection<Vehicle> vehicles;
 
         /// <summary>
+        /// Collection of floating prices on the map
+        /// </summary>
+        private List<CargoPrice> prices;
+
+        /// <summary>
         /// Pathfinder object for the map
         /// </summary>
         private Pathfinding pathfinder;
@@ -63,6 +68,7 @@ namespace Hyyblo_Logic
             this.mapContainer = new List<MapItem>();
             this.vehicles = new ObservableCollection<Vehicle>();
             this.buildings = new List<Building>();
+            this.prices = new List<CargoPrice>();
             r = new Random();
             this.size = size;
             this.Pathfinder = new Pathfinding(this);
@@ -149,6 +155,22 @@ namespace Hyyblo_Logic
             set
             {
                 this.pathfinder = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the list containing the floating prices
+        /// </summary>
+        public List<CargoPrice> Prices
+        {
+            get
+            {
+                return this.prices;
+            }
+
+            set
+            {
+                this.prices = value;
             }
         }
 
@@ -343,6 +365,14 @@ namespace Hyyblo_Logic
             for (int i = 0; i < this.Vehicles.Count; i++)
             {
                 this.Vehicles[i].Update();
+            }
+
+            for (int i = this.Prices.Count - 1; i >= 0; i--)
+            {
+                if (this.Prices[i].Update())
+                {
+                    this.Prices.RemoveAt(i);
+                }
             }
         }
 

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['name',['Name',['../class_hyyblo___logic_1_1_warehouse.html#aa5d56cc27ebc04090ba66e3c56183350',1,'Hyyblo_Logic::Warehouse']]],
-  ['numberofcars',['NumberOfCars',['../class_hyyblo___logic_1_1_warehouse.html#adb0745428aee5e45ac5d41a54883fd39',1,'Hyyblo_Logic::Warehouse']]]
+  ['map',['Map',['../class_hyyblo___logic_1_1_game.html#ab2c225082fe8e8f08d1bb7682583aec9',1,'Hyyblo_Logic::Game']]],
+  ['mapcontainer',['MapContainer',['../class_hyyblo___logic_1_1_map.html#a562905c2d0f4bf5435f6dced58b64b01',1,'Hyyblo_Logic::Map']]],
+  ['money',['Money',['../class_hyyblo___logic_1_1_game.html#a8a324e7f99a25e4285faf8a8e4f38dcc',1,'Hyyblo_Logic::Game']]]
 ];

@@ -21,6 +21,11 @@ namespace Hyyblo_Model
         public const int Price = 100;
 
         /// <summary>
+        /// Multiplier of the vehicle moving on this tile
+        /// </summary>
+        private double speedMultiplier;
+
+        /// <summary>
         /// A value to store the index of the current image of the road collection
         /// </summary>
         private int imageNum;
@@ -42,6 +47,7 @@ namespace Hyyblo_Model
             this.map = map;
             this.map.RoadPlaced += this.RoadChanged;
             this.ImageNum = 0;
+            this.speedMultiplier = 1;
         }
 
         /// <summary>
@@ -57,6 +63,22 @@ namespace Hyyblo_Model
             protected set
             {
                 base.Image = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the multiplier of the road
+        /// </summary>
+        public double SpeedMultiplier
+        {
+            get
+            {
+                return this.speedMultiplier;
+            }
+
+            protected set
+            {
+                this.speedMultiplier = value;
             }
         }
 

@@ -35,6 +35,11 @@ namespace Hyyblo_Model
         private BitmapImage[] images;
 
         /// <summary>
+        /// Icon of the vehicle
+        /// </summary>
+        private BitmapImage icon;
+
+        /// <summary>
         /// The final target item of the path
         /// </summary>
         private MapItem finalTarget;
@@ -80,11 +85,6 @@ namespace Hyyblo_Model
         private Stopwatch timer;
 
         /// <summary>
-        /// Quatity of the cargo
-        /// </summary>
-        private int quantity;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="Vehicle"/> class.
         /// </summary>
         /// <param name="x">X coordinate of the vehicle</param>
@@ -97,13 +97,14 @@ namespace Hyyblo_Model
             : base(x, y)
         {
             this.facing = Direction.Left;
-            this.quantity = 50;
             this.images = new BitmapImage[4];
             int color = r.Next(0, 3);
             for (int i = 0; i < 4; i++)
             {
                 this.images[i] = new BitmapImage(new Uri(Hyyblo_View.GameView.GetImage("Images/Vehicles/truck" + color + i + ".png")));
             }
+
+            this.icon = new BitmapImage(new Uri(Hyyblo_View.GameView.GetImage("Images/Vehicles/truck" + color + ".png")));
 
             this.FinalWarehouse = target;
             this.StartWarehouse = start;
@@ -172,7 +173,7 @@ namespace Hyyblo_Model
             set
             {
                 this.type = value;
-                this.OPC("CargoType");
+                this.Opc("CargoType");
             }
         }
 
@@ -183,7 +184,7 @@ namespace Hyyblo_Model
         {
             get
             {
-                return this.images[0];
+                return this.icon;
             }
         }
 
@@ -200,7 +201,7 @@ namespace Hyyblo_Model
             set
             {
                 this.finalWarehouse = value;
-                this.OPC("FinalWarehouse");
+                this.Opc("FinalWarehouse");
             }
         }
 
@@ -217,23 +218,7 @@ namespace Hyyblo_Model
             set
             {
                 this.startWarehouse = value;
-                this.OPC("StartWarehouse");
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the quantity of the cargo
-        /// </summary>
-        public int Quantity
-        {
-            get
-            {
-                return this.quantity;
-            }
-
-            set
-            {
-                this.quantity = value;
+                this.Opc("StartWarehouse");
             }
         }
 
@@ -241,7 +226,7 @@ namespace Hyyblo_Model
         /// Calls the property changed event
         /// </summary>
         /// <param name="name">Name of the property</param>
-        public void OPC([CallerMemberName] string name = "")
+        public void Opc([CallerMemberName] string name = "")
         {
             if (this.PropertyChanged != null)
             {
@@ -352,19 +337,20 @@ namespace Hyyblo_Model
         /// </summary>
         private void MoveVehicle()
         {
+            double s = this.speed * (this.currentTarget as Road).SpeedMultiplier;
             switch (this.facing)
             {
                 case Direction.Up:
-                    this.Y += this.speed;
+                    this.Y += s;
                     break;
                 case Direction.Down:
-                    this.Y -= this.speed;
+                    this.Y -= s;
                     break;
                 case Direction.Left:
-                    this.X -= this.speed;
+                    this.X -= s;
                     break;
                 case Direction.Right:
-                    this.X += this.speed;
+                    this.X += s;
                     break;
             }
         }
@@ -418,13 +404,43 @@ namespace Hyyblo_Model
             int cost = length * 5;
             if (this.FinalWarehouse.AcceptWare(this.CargoType))
             {
-                double profit = (Game.Prices[type] * Math.Pow(length, 2) / (time / 500)) - cost;
+                double profit = this.Income(type, length, time) - cost;
                 this.game.Money += (int)profit;
+                this.game.Map.Prices.Add(new CargoPrice(this.X, this.Y, (int)profit));
             }
             else
             {
                 this.game.Money -= cost;
+                this.game.Map.Prices.Add(new CargoPrice(this.X, this.Y, (int)(cost * -1)));
             }
+        }
+
+        /// <summary>
+        /// Calculates the income of a route
+        /// </summary>
+        /// <param name="c">Type of the ware</param>
+        /// <param name="d">Distance of the route</param>
+        /// <param name="t">Time of the route</param>
+        /// <returns>The income of the route</returns>
+        private double Income(WareType c, int d, long t)
+        {
+            double l;
+            double days = t / 500;
+
+            if (days <= Game.Prices[c].Day1)
+            {
+                l = 255;
+            }
+            else if (days > Game.Prices[c].Day1 && days <= Game.Prices[c].Day1 + Game.Prices[c].Day2)
+            {
+                l = 255 - (days - Game.Prices[c].Day1);
+            }
+            else
+            {
+                l = 255 - (2 * (days - Game.Prices[c].Day1)) + Game.Prices[c].Day2;
+            }
+
+            return Game.Prices[c].Price * d * Math.Max(31, l) * 1d / Math.Pow(2, 8);
         }
 
         /// <summary>

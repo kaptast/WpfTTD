@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['refinery',['Refinery',['../class_hyyblo___model_1_1_refinery.html',1,'Hyyblo_Model']]],
-  ['road',['Road',['../class_hyyblo___model_1_1_road.html',1,'Hyyblo_Model']]]
+  ['pathfinding',['Pathfinding',['../class_hyyblo___logic_1_1_pathfinding.html',1,'Hyyblo_Logic']]],
+  ['prices',['Prices',['../struct_hyyblo___logic_1_1_prices.html',1,'Hyyblo_Logic']]]
 ];

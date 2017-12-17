@@ -1,4 +1,10 @@
-﻿namespace Hyyblo_View
+﻿//-----------------------------------------------------------------------
+// <copyright file="ViewModel.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+// <author>HYYBLO</author>
+//-----------------------------------------------------------------------
+namespace Hyyblo_View
 {
     using System;
     using System.Collections.Generic;
@@ -14,8 +20,14 @@
     /// </summary>
     public class ViewModel
     {
+        /// <summary>
+        /// Vehicles of the game
+        /// </summary>
         private ObservableCollection<Vehicle> vehicles;
 
+        /// <summary>
+        /// Selected vehicle of the list box
+        /// </summary>
         private Vehicle selectedVehicle;
 
         /// <summary>

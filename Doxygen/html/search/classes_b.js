@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['warehouse',['Warehouse',['../class_hyyblo___logic_1_1_warehouse.html',1,'Hyyblo_Logic']]],
-  ['warehousebuilding',['WarehouseBuilding',['../class_hyyblo___model_1_1_warehouse_building.html',1,'Hyyblo_Model']]],
-  ['warehouselot12',['WarehouseLot12',['../class_hyyblo___model_1_1_warehouse_lot12.html',1,'Hyyblo_Model']]],
-  ['warehouselot21',['WarehouseLot21',['../class_hyyblo___model_1_1_warehouse_lot21.html',1,'Hyyblo_Model']]],
-  ['warehouselot22',['WarehouseLot22',['../class_hyyblo___model_1_1_warehouse_lot22.html',1,'Hyyblo_Model']]],
-  ['waretypetocolor',['WaretypeToColor',['../class_hyyblo___view_1_1_waretype_to_color.html',1,'Hyyblo_View']]]
+  ['vehicle',['Vehicle',['../class_hyyblo___model_1_1_vehicle.html',1,'Hyyblo_Model']]],
+  ['vehicles',['Vehicles',['../class_hyyblo___prog3_1_1_view_1_1_vehicles.html',1,'Hyyblo_Prog3::View']]],
+  ['viewmodel',['ViewModel',['../class_hyyblo___view_1_1_view_model.html',1,'Hyyblo_View']]]
 ];

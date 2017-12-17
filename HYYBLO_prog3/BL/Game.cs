@@ -19,7 +19,7 @@ namespace Hyyblo_Logic
         /// <summary>
         /// Stores the prices of the different types of wares
         /// </summary>
-        private static Dictionary<WareType, int> prices;
+        private static Dictionary<WareType, Prices> prices;
 
         /// <summary>
         /// Map of the game
@@ -48,17 +48,17 @@ namespace Hyyblo_Logic
             this.Money = 5000;
             this.warehouses = new ObservableCollection<Warehouse>();
 
-            prices = new Dictionary<WareType, int>();
-            prices.Add(WareType.Goods, 60);
-            prices.Add(WareType.Nothing, 0);
-            prices.Add(WareType.Mail, 20);
-            prices.Add(WareType.Ore, 40);
+            prices = new Dictionary<WareType, Prices>();
+            prices.Add(WareType.Goods, new Prices(60, 5, 28));
+            prices.Add(WareType.Nothing, new Prices(0, 1000, 1000));
+            prices.Add(WareType.Mail, new Prices(20, 20, 90));
+            prices.Add(WareType.Ore, new Prices(40, 25, 255));
         }
 
         /// <summary>
         /// Gets the Price table
         /// </summary>
-        public static Dictionary<WareType, int> Prices
+        public static Dictionary<WareType, Prices> Prices
         {
             get
             {
@@ -185,7 +185,7 @@ namespace Hyyblo_Logic
         /// <returns>A string with the game's information</returns>
         public override string ToString()
         {
-            return string.Format("Money: {0}", this.Money);
+            return string.Format("Money: ${0}", this.Money);
         }
 
         /// <summary>

@@ -4,6 +4,70 @@
         <name>Hyyblo_Prog3</name>
     </assembly>
     <members>
+        <member name="T:Hyyblo_Model.CargoPrice">
+            <summary>
+            Represents a floating text with the profit
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.CargoPrice.x">
+            <summary>
+            X coordinate of the item
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.CargoPrice.y">
+            <summary>
+            Y coordinate of the item
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.CargoPrice.price">
+            <summary>
+            Price of the item
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.CargoPrice.life">
+            <summary>
+            Cycles since the item was created
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.CargoPrice.speed">
+            <summary>
+            Speed of the text floating upwards
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.CargoPrice.#ctor(System.Double,System.Double,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Model.CargoPrice"/> class.
+            </summary>
+            <param name="x">X coordinate of the item</param>
+            <param name="y">Y coordinate of the item</param>
+            <param name="p">Price of the item</param>
+        </member>
+        <member name="P:Hyyblo_Model.CargoPrice.Positive">
+            <summary>
+            Gets a value indicating whether the price is positive or not
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.CargoPrice.Price">
+            <summary>
+            Gets a string with the item's value
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.CargoPrice.X">
+            <summary>
+            Gets or sets the X coordinate of the item
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.CargoPrice.Y">
+            <summary>
+            Gets or sets the Y coordinate of the item
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Model.CargoPrice.Update">
+            <summary>
+            Updates the price text of the map
+            </summary>
+            <returns>Returns true if the item should be deleted</returns>
+        </member>
         <member name="T:Hyyblo_Model.BuildingBase">
             <summary>
             Represents the base of a building
@@ -67,6 +131,21 @@
             Gets or sets the image of the road
             </summary>
         </member>
+        <member name="T:Hyyblo_Model.IItem">
+            <summary>
+            Interface for items with X and Y coordinates
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.IItem.X">
+            <summary>
+            Gets or sets the X coordinate of the item
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.IItem.Y">
+            <summary>
+            Gets or sets the Y coordinate of the item
+            </summary>
+        </member>
         <member name="T:Hyyblo_Model.Road">
             <summary>
             Represent a Road tile
@@ -75,6 +154,11 @@
         <member name="F:Hyyblo_Model.Road.Price">
             <summary>
             Price of a road
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Road.speedMultiplier">
+            <summary>
+            Multiplier of the vehicle moving on this tile
             </summary>
         </member>
         <member name="F:Hyyblo_Model.Road.imageNum">
@@ -98,6 +182,11 @@
         <member name="P:Hyyblo_Model.Road.Image">
             <summary>
             Gets or sets the image of the road
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Model.Road.SpeedMultiplier">
+            <summary>
+            Gets or sets the multiplier of the road
             </summary>
         </member>
         <member name="P:Hyyblo_Model.Road.ImageNum">
@@ -136,6 +225,11 @@
         <member name="F:Hyyblo_Model.Vehicle.images">
             <summary>
             A collection for the vehicles images
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Model.Vehicle.icon">
+            <summary>
+            Icon of the vehicle
             </summary>
         </member>
         <member name="F:Hyyblo_Model.Vehicle.finalTarget">
@@ -181,11 +275,6 @@
         <member name="F:Hyyblo_Model.Vehicle.timer">
             <summary>
             Timer for timing the path's time
-            </summary>
-        </member>
-        <member name="F:Hyyblo_Model.Vehicle.quantity">
-            <summary>
-            Quatity of the cargo
             </summary>
         </member>
         <member name="M:Hyyblo_Model.Vehicle.#ctor(System.Int32,System.Int32,Hyyblo_Logic.Warehouse,Hyyblo_Logic.Warehouse,Hyyblo_Logic.Game,System.Random)">
@@ -234,12 +323,7 @@
             Gets or sets the starting warehouse of the vehicle
             </summary>
         </member>
-        <member name="P:Hyyblo_Model.Vehicle.Quantity">
-            <summary>
-            Gets or sets the quantity of the cargo
-            </summary>
-        </member>
-        <member name="M:Hyyblo_Model.Vehicle.OPC(System.String)">
+        <member name="M:Hyyblo_Model.Vehicle.Opc(System.String)">
             <summary>
             Calls the property changed event
             </summary>
@@ -291,6 +375,15 @@
             <param name="type">Cargo type of the route</param>
             <param name="length">Length of the route</param>
             <param name="time">Time of the route</param>
+        </member>
+        <member name="M:Hyyblo_Model.Vehicle.Income(Hyyblo_Logic.WareType,System.Int32,System.Int64)">
+            <summary>
+            Calculates the income of a route
+            </summary>
+            <param name="c">Type of the ware</param>
+            <param name="d">Distance of the route</param>
+            <param name="t">Time of the route</param>
+            <returns>The income of the route</returns>
         </member>
         <member name="M:Hyyblo_Model.Vehicle.ChangeDirection">
             <summary>
@@ -542,6 +635,49 @@
             </summary>
             <returns>Returns the hash code</returns>
         </member>
+        <member name="T:Hyyblo_Logic.Prices">
+            <summary>
+            Prices of the various cargo
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Prices.price">
+            <summary>
+            Price of the cargo
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Prices.day1">
+            <summary>
+            Days of fast delivery
+            </summary>
+        </member>
+        <member name="F:Hyyblo_Logic.Prices.day2">
+            <summary>
+            Days of slow delivery
+            </summary>
+        </member>
+        <member name="M:Hyyblo_Logic.Prices.#ctor(System.Int32,System.Int64,System.Int64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyyblo_Logic.Prices"/> struct.
+            </summary>
+            <param name="p">Price of the item</param>
+            <param name="d1">Time of fast transport</param>
+            <param name="d2">Time of slow transport</param>
+        </member>
+        <member name="P:Hyyblo_Logic.Prices.Price">
+            <summary>
+            Gets the price of the cargo type
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Logic.Prices.Day1">
+            <summary>
+            Gets the time of fast transport
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Logic.Prices.Day2">
+            <summary>
+            Gets the time of slow transport
+            </summary>
+        </member>
         <member name="T:Hyyblo_Logic.WareType">
             <summary>
             Type of a ware that a warehouse can serve
@@ -619,7 +755,7 @@
         </member>
         <member name="F:Hyyblo_Logic.Warehouse.waretypes">
             <summary>
-            Surrounding waretypes
+            Surrounding ware types
             </summary>
         </member>
         <member name="M:Hyyblo_Logic.Warehouse.#ctor(System.Int32,System.Int32,Hyyblo_Logic.Game)">
@@ -896,6 +1032,11 @@
             Collection of vehicles on the map
             </summary>
         </member>
+        <member name="F:Hyyblo_Logic.Map.prices">
+            <summary>
+            Collection of floating prices on the map
+            </summary>
+        </member>
         <member name="F:Hyyblo_Logic.Map.pathfinder">
             <summary>
             Pathfinder object for the map
@@ -945,6 +1086,11 @@
         <member name="P:Hyyblo_Logic.Map.Pathfinder">
             <summary>
             Gets or sets the Pathfinder of the map
+            </summary>
+        </member>
+        <member name="P:Hyyblo_Logic.Map.Prices">
+            <summary>
+            Gets or sets the list containing the floating prices
             </summary>
         </member>
         <member name="M:Hyyblo_Logic.Map.RandomNormalDist(System.Double,System.Double,System.Int32,System.Double)">
@@ -1190,7 +1336,7 @@
         </member>
         <member name="T:Hyyblo_View.Cars">
             <summary>
-            Interaction logic for Cars.xaml
+            Interaction logic for Cars
             </summary>
             <summary>
             Cars
@@ -1206,6 +1352,13 @@
             Initializes a new instance of the <see cref="T:Hyyblo_View.Cars"/> class
             </summary>
             <param name="v">List of the vehicles</param>
+        </member>
+        <member name="M:Hyyblo_View.Cars.ListBox_MouseDoubleClick(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Double click event of the window
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments of the double click</param>
         </member>
         <member name="M:Hyyblo_View.Cars.InitializeComponent">
             <summary>
@@ -1344,6 +1497,16 @@
         <member name="T:Hyyblo_View.ViewModel">
             <summary>
             View model for the cars window
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.ViewModel.vehicles">
+            <summary>
+            Vehicles of the game
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.ViewModel.selectedVehicle">
+            <summary>
+            Selected vehicle of the list box
             </summary>
         </member>
         <member name="M:Hyyblo_View.ViewModel.#ctor(System.Collections.ObjectModel.ObservableCollection{Hyyblo_Model.Vehicle})">
@@ -1549,7 +1712,7 @@
             </summary>
             <param name="dc">Drawer of the view</param>
         </member>
-        <member name="M:Hyyblo_View.GameView.PointToScreen(Hyyblo_Model.MapItem)">
+        <member name="M:Hyyblo_View.GameView.PointToScreen(Hyyblo_Model.IItem)">
             <summary>
             Generates a point with isometric coordinates
             </summary>
@@ -1620,36 +1783,6 @@
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
-            </summary>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
             </summary>
         </member>
     </members>

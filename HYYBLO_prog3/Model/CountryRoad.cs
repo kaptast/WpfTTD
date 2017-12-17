@@ -24,6 +24,7 @@ namespace Hyyblo_Model
         public CountryRoad(int x, int y, Map map)
             : base(x, y, map)
         {
+            this.SpeedMultiplier = 1.5;
         }
 
         /// <summary>

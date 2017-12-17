@@ -92,7 +92,7 @@ namespace Hyyblo_Logic
         private Game game;
 
         /// <summary>
-        /// Surrounding waretypes
+        /// Surrounding ware types
         /// </summary>
         private Dictionary<WareType, int> waretypes;
 
@@ -305,26 +305,11 @@ namespace Hyyblo_Logic
             switch (type)
             {
                 case WareType.Goods:
-                    if (this.CargoType == WareType.Mail)
-                    {
-                        return true;
-                    }
-
-                    return false;
+                    return this.WarehouseTypes.Contains(WareType.Mail);
                 case WareType.Mail:
-                    if (this.CargoType == WareType.Mail)
-                    {
-                        return true;
-                    }
-
-                    return false;
+                    return this.WarehouseTypes.Contains(WareType.Mail);
                 case WareType.Ore:
-                    if (this.CargoType == WareType.Goods)
-                    {
-                        return true;
-                    }
-
-                    return false;
+                    return this.WarehouseTypes.Contains(WareType.Goods);
                 default:
                     return false;
             }

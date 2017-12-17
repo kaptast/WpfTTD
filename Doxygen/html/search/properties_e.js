@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['x',['X',['../class_hyyblo___logic_1_1_warehouse.html#ae923406ddcc47cd15922914a2520cc1a',1,'Hyyblo_Logic.Warehouse.X()'],['../class_hyyblo___model_1_1_map_item.html#a5296baee4b3b9127988a683e10b5e019',1,'Hyyblo_Model.MapItem.X()'],['../class_hyyblo___view_1_1_camera.html#aebc602568123a20f0a820beae3397849',1,'Hyyblo_View.Camera.X()']]]
+  ['warehouses',['Warehouses',['../class_hyyblo___logic_1_1_game.html#ae437364c83d1719c31544b41d6e03eef',1,'Hyyblo_Logic.Game.Warehouses()'],['../class_hyyblo___logic_1_1_warehouse.html#ad92d02affa361ff60ee40b602eeff294',1,'Hyyblo_Logic.Warehouse.Warehouses()']]],
+  ['warehousetypes',['WarehouseTypes',['../class_hyyblo___logic_1_1_warehouse.html#a1824ec4b5e6ba6e3bc5a663fef0c3af0',1,'Hyyblo_Logic::Warehouse']]]
 ];

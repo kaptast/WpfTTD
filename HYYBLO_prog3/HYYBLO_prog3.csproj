@@ -78,11 +78,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\CargoPrice.cs" />
+    <Compile Include="BL\Prices.cs" />
     <Compile Include="Model\Building\BuildingBase.cs" />
     <Compile Include="Model\Building\Factory.cs" />
     <Compile Include="Model\Building\Refinery.cs" />
     <Compile Include="BL\Warehouse.cs" />
     <Compile Include="Model\CountryRoad.cs" />
+    <Compile Include="Model\IItem.cs" />
     <Compile Include="View\Camera.cs" />
     <Compile Include="BL\Direction.cs" />
     <Compile Include="BL\PathFinding.cs" />

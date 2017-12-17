@@ -381,6 +381,12 @@ namespace Hyyblo_View
                 Point p = this.PointToScreen(item);
                 dc.DrawImage(item.Image, item.GenerateRect(p.X, p.Y, this.cellSize));
             }
+
+            foreach (CargoPrice item in this.Game.Map.Prices)
+            {
+                Point p = this.PointToScreen(item);
+                dc.DrawText(new FormattedText((item.Positive ? string.Empty : "-") + item.Price, System.Globalization.CultureInfo.CurrentCulture, FlowDirection.LeftToRight, new Typeface("Arial"), 16, item.Positive ? Brushes.DarkGreen : Brushes.DarkRed), p);
+            }
         }
 
         /// <summary>
@@ -388,7 +394,7 @@ namespace Hyyblo_View
         /// </summary>
         /// <param name="item">Item to generate it's position</param>
         /// <returns>Point with the isometric coordinates</returns>
-        private Point PointToScreen(MapItem item)
+        private Point PointToScreen(IItem item)
         {
             double isoX = (item.X - item.Y) * (this.cellSize / 2);
             double isoY = (item.X + item.Y) * (this.cellSize / 4);

@@ -5,10 +5,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>HYYBLO: Hyyblo_Model.Vehicle Class Reference</title>
+<title>oenik_prog3_2017osz_hyyblo: Hyyblo_Model.Vehicle Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -20,8 +27,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="icon.ico"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">HYYBLO
+   <div id="projectname">oenik_prog3_2017osz_hyyblo
    </div>
   </td>
  </tr>
@@ -42,6 +50,21 @@ $(function() {
 });
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_hyyblo___model_1_1_vehicle.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -56,15 +79,11 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_hyyblo___model.html">Hyyblo_Model</a></li><li class="navelem"><a class="el" href="class_hyyblo___model_1_1_vehicle.html">Vehicle</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#properties">Properties</a> &#124;
+<a href="#events">Events</a> &#124;
 <a href="class_hyyblo___model_1_1_vehicle-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Hyyblo_Model.Vehicle Class Reference</div>  </div>
@@ -79,7 +98,8 @@ Inheritance diagram for Hyyblo_Model.Vehicle:</div>
  <div class="center">
   <img src="class_hyyblo___model_1_1_vehicle.png" usemap="#Hyyblo_5FModel.Vehicle_map" alt=""/>
   <map id="Hyyblo_5FModel.Vehicle_map" name="Hyyblo_5FModel.Vehicle_map">
-<area href="class_hyyblo___model_1_1_map_item.html" title="Abstract class for items in the map " alt="Hyyblo_Model.MapItem" shape="rect" coords="0,56,154,80"/>
+<area href="class_hyyblo___model_1_1_map_item.html" title="Abstract class for items in the map " alt="Hyyblo_Model.MapItem" shape="rect" coords="82,56,236,80"/>
+<area href="interface_hyyblo___model_1_1_i_item.html" title="Interface for items with X and Y coordinates " alt="Hyyblo_Model.IItem" shape="rect" coords="0,0,154,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -88,6 +108,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a27ea6f8b064439b69827d051fcfad686"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hyyblo___model_1_1_vehicle.html#a27ea6f8b064439b69827d051fcfad686">Vehicle</a> (int x, int y, <a class="el" href="class_hyyblo___logic_1_1_warehouse.html">Warehouse</a> start, <a class="el" href="class_hyyblo___logic_1_1_warehouse.html">Warehouse</a> target, <a class="el" href="class_hyyblo___logic_1_1_game.html">Game</a> g, Random r)</td></tr>
 <tr class="memdesc:a27ea6f8b064439b69827d051fcfad686"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="class_hyyblo___model_1_1_vehicle.html" title="Represents a moving vehicle ">Vehicle</a> class.  <a href="#a27ea6f8b064439b69827d051fcfad686">More...</a><br /></td></tr>
 <tr class="separator:a27ea6f8b064439b69827d051fcfad686"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada4a2080baaab14294b8209870c250bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hyyblo___model_1_1_vehicle.html#ada4a2080baaab14294b8209870c250bb">Opc</a> ([CallerMemberName] string name=&quot;&quot;)</td></tr>
+<tr class="memdesc:ada4a2080baaab14294b8209870c250bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the property changed event  <a href="#ada4a2080baaab14294b8209870c250bb">More...</a><br /></td></tr>
+<tr class="separator:ada4a2080baaab14294b8209870c250bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a532f0e58131634798303eee3e720c6a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hyyblo___model_1_1_vehicle.html#a532f0e58131634798303eee3e720c6a4">Update</a> ()</td></tr>
 <tr class="memdesc:a532f0e58131634798303eee3e720c6a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the vehicle every frame  <a href="#a532f0e58131634798303eee3e720c6a4">More...</a><br /></td></tr>
 <tr class="separator:a532f0e58131634798303eee3e720c6a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,6 +145,12 @@ Properties</h2></td></tr>
 <tr class="memitem:a0e4caf1bb1ee88cff19a86303b264c81"><td class="memItemLeft" align="right" valign="top">BitmapImage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hyyblo___model_1_1_vehicle.html#a0e4caf1bb1ee88cff19a86303b264c81">Color</a><code> [get]</code></td></tr>
 <tr class="memdesc:a0e4caf1bb1ee88cff19a86303b264c81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the image of the vehicle  <a href="#a0e4caf1bb1ee88cff19a86303b264c81">More...</a><br /></td></tr>
 <tr class="separator:a0e4caf1bb1ee88cff19a86303b264c81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a344f709a68b3e061839c8f388700dcfb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_hyyblo___logic_1_1_warehouse.html">Warehouse</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hyyblo___model_1_1_vehicle.html#a344f709a68b3e061839c8f388700dcfb">FinalWarehouse</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a344f709a68b3e061839c8f388700dcfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the target warehouse of the vehicle  <a href="#a344f709a68b3e061839c8f388700dcfb">More...</a><br /></td></tr>
+<tr class="separator:a344f709a68b3e061839c8f388700dcfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b527f45e2d9a30a640d1177e2f89e48"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_hyyblo___logic_1_1_warehouse.html">Warehouse</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hyyblo___model_1_1_vehicle.html#a0b527f45e2d9a30a640d1177e2f89e48">StartWarehouse</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a0b527f45e2d9a30a640d1177e2f89e48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the starting warehouse of the vehicle  <a href="#a0b527f45e2d9a30a640d1177e2f89e48">More...</a><br /></td></tr>
+<tr class="separator:a0b527f45e2d9a30a640d1177e2f89e48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header properties_class_hyyblo___model_1_1_map_item"><td colspan="2" onclick="javascript:toggleInherit('properties_class_hyyblo___model_1_1_map_item')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="class_hyyblo___model_1_1_map_item.html">Hyyblo_Model.MapItem</a></td></tr>
 <tr class="memitem:a74026e629759bd92b2ceabbb8e8df0c2 inherit properties_class_hyyblo___model_1_1_map_item"><td class="memItemLeft" align="right" valign="top">virtual BitmapImage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hyyblo___model_1_1_map_item.html#a74026e629759bd92b2ceabbb8e8df0c2">Image</a><code> [get, protected set]</code></td></tr>
 <tr class="memdesc:a74026e629759bd92b2ceabbb8e8df0c2 inherit properties_class_hyyblo___model_1_1_map_item"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the image for the item which is displayed on the screen  <a href="class_hyyblo___model_1_1_map_item.html#a74026e629759bd92b2ceabbb8e8df0c2">More...</a><br /></td></tr>
@@ -144,6 +173,19 @@ Properties</h2></td></tr>
 <tr class="memitem:a64f9e2856be2f022deb52717a64fcb6b inherit properties_class_hyyblo___model_1_1_map_item"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_hyyblo___model_1_1_map_item.html">MapItem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hyyblo___model_1_1_map_item.html#a64f9e2856be2f022deb52717a64fcb6b">Parent</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a64f9e2856be2f022deb52717a64fcb6b inherit properties_class_hyyblo___model_1_1_map_item"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets parent of the item  <a href="class_hyyblo___model_1_1_map_item.html#a64f9e2856be2f022deb52717a64fcb6b">More...</a><br /></td></tr>
 <tr class="separator:a64f9e2856be2f022deb52717a64fcb6b inherit properties_class_hyyblo___model_1_1_map_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header properties_interface_hyyblo___model_1_1_i_item"><td colspan="2" onclick="javascript:toggleInherit('properties_interface_hyyblo___model_1_1_i_item')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="interface_hyyblo___model_1_1_i_item.html">Hyyblo_Model.IItem</a></td></tr>
+<tr class="memitem:a76acc1421b7dd8563aa4ce177c495981 inherit properties_interface_hyyblo___model_1_1_i_item"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_hyyblo___model_1_1_i_item.html#a76acc1421b7dd8563aa4ce177c495981">X</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a76acc1421b7dd8563aa4ce177c495981 inherit properties_interface_hyyblo___model_1_1_i_item"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the X coordinate of the item  <a href="interface_hyyblo___model_1_1_i_item.html#a76acc1421b7dd8563aa4ce177c495981">More...</a><br /></td></tr>
+<tr class="separator:a76acc1421b7dd8563aa4ce177c495981 inherit properties_interface_hyyblo___model_1_1_i_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae08bd4308a182d4e092ca23059d681de inherit properties_interface_hyyblo___model_1_1_i_item"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_hyyblo___model_1_1_i_item.html#ae08bd4308a182d4e092ca23059d681de">Y</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:ae08bd4308a182d4e092ca23059d681de inherit properties_interface_hyyblo___model_1_1_i_item"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the Y coordinate of the item  <a href="interface_hyyblo___model_1_1_i_item.html#ae08bd4308a182d4e092ca23059d681de">More...</a><br /></td></tr>
+<tr class="separator:ae08bd4308a182d4e092ca23059d681de inherit properties_interface_hyyblo___model_1_1_i_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="events"></a>
+Events</h2></td></tr>
+<tr class="memitem:a70eb0cc80da26e487e3d3409be7ace56"><td class="memItemLeft" align="right" valign="top">PropertyChangedEventHandler&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hyyblo___model_1_1_vehicle.html#a70eb0cc80da26e487e3d3409be7ace56">PropertyChanged</a></td></tr>
+<tr class="memdesc:a70eb0cc80da26e487e3d3409be7ace56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event for the changing properties  <a href="#a70eb0cc80da26e487e3d3409be7ace56">More...</a><br /></td></tr>
+<tr class="separator:a70eb0cc80da26e487e3d3409be7ace56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -168,7 +210,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a moving vehicle </p>
 
-<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00018">18</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00020">20</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a27ea6f8b064439b69827d051fcfad686"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a27ea6f8b064439b69827d051fcfad686">&#9670;&nbsp;</a></span>Vehicle()</h2>
@@ -233,11 +275,39 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00089">89</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00096">96</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ada4a2080baaab14294b8209870c250bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada4a2080baaab14294b8209870c250bb">&#9670;&nbsp;</a></span>Opc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Hyyblo_Model.Vehicle.Opc </td>
+          <td>(</td>
+          <td class="paramtype">[CallerMemberName] string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calls the property changed event </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of the property</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00229">229</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
+
+</div>
+</div>
 <a id="ac2ee0097c90cd44eaa66d6a8cc7672fe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac2ee0097c90cd44eaa66d6a8cc7672fe">&#9670;&nbsp;</a></span>ToString()</h2>
 
@@ -256,7 +326,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Returns a string with the vehicle's data </p>
 <dl class="section return"><dt>Returns</dt><dd>A string with the data of the vehicle</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00188">188</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00249">249</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
 
 </div>
 </div>
@@ -277,7 +347,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Updates the vehicle every frame </p>
 
-<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00179">179</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00240">240</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
 
 </div>
 </div>
@@ -304,7 +374,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Gets or sets the vehicle's ware type on the current route </p>
 
-<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00153">153</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00167">167</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
 
 </div>
 </div>
@@ -330,7 +400,33 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Gets the image of the vehicle </p>
 
-<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00169">169</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00184">184</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
+
+</div>
+</div>
+<a id="a344f709a68b3e061839c8f388700dcfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a344f709a68b3e061839c8f388700dcfb">&#9670;&nbsp;</a></span>FinalWarehouse</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_hyyblo___logic_1_1_warehouse.html">Warehouse</a> Hyyblo_Model.Vehicle.FinalWarehouse</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or sets the target warehouse of the vehicle </p>
+
+<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00195">195</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
 
 </div>
 </div>
@@ -356,7 +452,33 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Gets or sets the image of the vehicle </p>
 
-<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00121">121</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00135">135</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
+
+</div>
+</div>
+<a id="a0b527f45e2d9a30a640d1177e2f89e48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b527f45e2d9a30a640d1177e2f89e48">&#9670;&nbsp;</a></span>StartWarehouse</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_hyyblo___logic_1_1_warehouse.html">Warehouse</a> Hyyblo_Model.Vehicle.StartWarehouse</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or sets the starting warehouse of the vehicle </p>
+
+<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00212">212</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
 
 </div>
 </div>
@@ -382,7 +504,26 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Gets or sets the target to the vehicle where it has to move </p>
 
-<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00137">137</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00151">151</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Event Documentation</h2>
+<a id="a70eb0cc80da26e487e3d3409be7ace56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70eb0cc80da26e487e3d3409be7ace56">&#9670;&nbsp;</a></span>PropertyChanged</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PropertyChangedEventHandler Hyyblo_Model.Vehicle.PropertyChanged</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Event for the changing properties </p>
+
+<p class="definition">Definition at line <a class="el" href="_vehicle_8cs_source.html#l00129">129</a> of file <a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a>.</p>
 
 </div>
 </div>
@@ -390,11 +531,15 @@ Additional Inherited Members</h2></td></tr>
 <li>D:/Dokumentumok/Visual Studio 2015/Projects/oenik_prog3_2017osz_hyyblo/HYYBLO_prog3/Model/<a class="el" href="_vehicle_8cs_source.html">Vehicle.cs</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_hyyblo___model.html">Hyyblo_Model</a></li><li class="navelem"><a class="el" href="class_hyyblo___model_1_1_vehicle.html">Vehicle</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
 </body>
 </html>

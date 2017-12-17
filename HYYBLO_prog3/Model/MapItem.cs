@@ -14,7 +14,7 @@ namespace Hyyblo_Model
     /// <summary>
     /// Abstract class for items in the map
     /// </summary>
-    public abstract class MapItem : IComparable<MapItem>
+    public abstract class MapItem : IItem, IComparable<MapItem>
     {
         /// <summary>
         /// X coordinate of the item

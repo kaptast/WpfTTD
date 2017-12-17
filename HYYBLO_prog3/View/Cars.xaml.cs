@@ -1,4 +1,10 @@
-﻿namespace Hyyblo_View
+﻿//-----------------------------------------------------------------------
+// <copyright file="Cars.xaml.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+// <author>HYYBLO</author>
+//-----------------------------------------------------------------------
+namespace Hyyblo_View
 {
     using System;
     using System.Collections.ObjectModel;
@@ -8,7 +14,7 @@
     using Hyyblo_Model;
 
     /// <summary>
-    /// Interaction logic for Cars.xaml
+    /// Interaction logic for Cars
     /// </summary>
     public partial class Cars : Window
     {
@@ -28,6 +34,11 @@
             this.InitializeComponent();
         }
 
+        /// <summary>
+        /// Double click event of the window
+        /// </summary>
+        /// <param name="sender">Sender object</param>
+        /// <param name="e">Arguments of the double click</param>
         private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (this.vm.SelectedVehicle != null)

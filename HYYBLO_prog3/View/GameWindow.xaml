@@ -7,7 +7,8 @@
         Title="WpfTTD" Height="600" Width="800"
         Background="WhiteSmoke"
         MouseWheel="Window_MouseWheel"
-        Icon="../icon.ico" >
+        Icon="../icon.ico" 
+        x:Name="wGame">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="44"/>
@@ -22,7 +23,7 @@
             <ColumnDefinition Width="30" />
         </Grid.ColumnDefinitions>
 
-        <UserControl Name="PlayArea" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  Grid.RowSpan="3"/>
+        <UserControl x:Name="PlayArea" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  Grid.RowSpan="3"/>
         <!-- A játékteret rajzoljuk ki mindig legalulra -->
 
         <Menu Background="Transparent" Name="TopBar" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" MouseEnter="ViewMouseEnter" MouseLeave="ViewMouseLeave"  Focusable="False"/>

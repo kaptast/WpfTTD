@@ -64,12 +64,28 @@ namespace Hyyblo_View
         public GameWindow(int size)
         {
             this.InitializeComponent();
-            this.selectedItem = BuildType.Nothing;
+            this.SelectedItem = BuildType.Nothing;
             this.view = new GameView(size);
             this.PlayArea.Content = this.view;
             this.KeyDown += this.MainWindow_KeyDown;
             this.KeyUp += this.MainWindow_KeyUp;
             this.MouseLeftButtonDown += this.MainWindow_MouseLeftButtonDown;
+        }
+
+        /// <summary>
+        /// Gets or sets the selected build item
+        /// </summary>
+        public BuildType SelectedItem
+        {
+            get
+            {
+                return this.selectedItem;
+            }
+
+            set
+            {
+                this.selectedItem = value;
+            }
         }
 
         /// <summary>
@@ -79,7 +95,7 @@ namespace Hyyblo_View
         /// <param name="e">Arguments of the left click</param>
         private void MainWindow_MouseLeftButtonDown(object sender, MouseEventArgs e)
         {
-            this.view.GameView_MouseLeftButtonDown(e, this.selectedItem);
+            this.view.GameView_MouseLeftButtonDown(e, this.SelectedItem);
         }
 
         /// <summary>
@@ -126,16 +142,17 @@ namespace Hyyblo_View
         /// <param name="e">Arguments of the button click</param>
         private void BtnRoad_Click(object sender, RoutedEventArgs e)
         {
-            if (this.selectedItem != BuildType.Road)
+            if (this.SelectedItem != BuildType.Road)
             {
-                this.selectedItem = BuildType.Road;
+                this.SelectedItem = BuildType.Road;
 
                 this.btnDelete.IsChecked = false;
                 this.btnWarehouse.IsChecked = false;
+                this.btnVehicle.IsChecked = false;
             }
             else
             {
-                this.selectedItem = BuildType.Nothing;
+                this.SelectedItem = BuildType.Nothing;
             }
 
             this.PlayArea.Focus();
@@ -148,16 +165,17 @@ namespace Hyyblo_View
         /// <param name="e">Arguments of the button click</param>
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            if (this.selectedItem != BuildType.Delete)
+            if (this.SelectedItem != BuildType.Delete)
             {
-                this.selectedItem = BuildType.Delete;
+                this.SelectedItem = BuildType.Delete;
 
                 this.btnRoad.IsChecked = false;
                 this.btnWarehouse.IsChecked = false;
+                this.btnVehicle.IsChecked = false;
             }
             else
             {
-                this.selectedItem = BuildType.Nothing;
+                this.SelectedItem = BuildType.Nothing;
             }
 
             this.PlayArea.Focus();
@@ -170,16 +188,17 @@ namespace Hyyblo_View
         /// <param name="e">Arguments of the button click</param>
         private void BtnWarehouse_Click(object sender, RoutedEventArgs e)
         {
-            if (this.selectedItem != BuildType.Warehouse)
+            if (this.SelectedItem != BuildType.Warehouse)
             {
-                this.selectedItem = BuildType.Warehouse;
+                this.SelectedItem = BuildType.Warehouse;
 
                 this.btnDelete.IsChecked = false;
                 this.btnRoad.IsChecked = false;
+                this.btnVehicle.IsChecked = false;
             }
             else
             {
-                this.selectedItem = BuildType.Nothing;
+                this.SelectedItem = BuildType.Nothing;
             }
 
             this.PlayArea.Focus();
@@ -228,6 +247,10 @@ namespace Hyyblo_View
         private void BtnVehicle_Click(object sender, RoutedEventArgs e)
         {
             Cars window = new Cars(this.view.Game.Map.Vehicles);
+            this.btnDelete.IsChecked = false;
+            this.btnRoad.IsChecked = false;
+            this.btnVehicle.IsChecked = false;
+            this.btnWarehouse.IsChecked = false;
             window.Show();
         }
     }

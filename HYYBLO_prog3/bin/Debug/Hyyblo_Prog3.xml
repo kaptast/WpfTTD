@@ -1419,6 +1419,11 @@
             </summary>
             <param name="size">Size of the map</param>
         </member>
+        <member name="P:Hyyblo_View.GameWindow.SelectedItem">
+            <summary>
+            Gets or sets the selected build item
+            </summary>
+        </member>
         <member name="M:Hyyblo_View.GameWindow.MainWindow_MouseLeftButtonDown(System.Object,System.Windows.Input.MouseEventArgs)">
             <summary>
             Callback function for a left mouse click, calls the View's GameView_MouseLeftButtonDown function
@@ -1576,6 +1581,11 @@
             Path of the runtime
             </summary>
         </member>
+        <member name="F:Hyyblo_View.GameView.signalImage">
+            <summary>
+            Image for signaling mouse position
+            </summary>
+        </member>
         <member name="F:Hyyblo_View.GameView.game">
             <summary>
             The current game
@@ -1604,6 +1614,21 @@
         <member name="F:Hyyblo_View.GameView.moneyLabel">
             <summary>
             Reference to the label on the window
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.GameView.signal">
+            <summary>
+            Whether to show mouse position or not
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.GameView.signalPoint">
+            <summary>
+            Position of the mouse on the map
+            </summary>
+        </member>
+        <member name="F:Hyyblo_View.GameView.parent">
+            <summary>
+            Parent GameWindow of the framework element
             </summary>
         </member>
         <member name="M:Hyyblo_View.GameView.#ctor(System.Int32)">
@@ -1705,6 +1730,13 @@
             </summary>
             <param name="sender">Sender object</param>
             <param name="e">Loaded event parameters</param>
+        </member>
+        <member name="M:Hyyblo_View.GameView.GameView_MouseMove(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Callback function for moving the mouse on the framework element
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Arguments for the mouse move event</param>
         </member>
         <member name="M:Hyyblo_View.GameView.RenderMap(System.Windows.Media.DrawingContext)">
             <summary>

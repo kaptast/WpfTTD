@@ -39,6 +39,11 @@ namespace Hyyblo_View
         private static string exepath = System.Reflection.Assembly.GetEntryAssembly().Location;
 
         /// <summary>
+        /// Image for signaling mouse position
+        /// </summary>
+        private BitmapImage signalImage;
+
+        /// <summary>
         /// The current game
         /// </summary>
         private Game game;
@@ -69,6 +74,21 @@ namespace Hyyblo_View
         private Label moneyLabel;
 
         /// <summary>
+        /// Whether to show mouse position or not
+        /// </summary>
+        private bool signal;
+
+        /// <summary>
+        /// Position of the mouse on the map
+        /// </summary>
+        private Point signalPoint;
+
+        /// <summary>
+        /// Parent GameWindow of the framework element
+        /// </summary>
+        private GameWindow parent;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="GameView"/> class.
         /// </summary>
         /// <param name="size">Size of the map</param>
@@ -85,6 +105,9 @@ namespace Hyyblo_View
                     CountryRoadImages[i] = new BitmapImage(new Uri(GetImage("Images/Roads/countryroad" + i + ".png")));
                 }
             }
+
+            this.signal = false;
+            this.signalImage = new BitmapImage(new Uri(GetImage("Images/signal.png")));
 
             this.Game = new Game(size);
             this.cam = new Camera(0, 0);
@@ -352,10 +375,32 @@ namespace Hyyblo_View
         private void ViewLoaded(object sender, RoutedEventArgs e)
         {
             this.moneyLabel = (Label)this.FindName("lblMoney");
+            this.parent = (GameWindow)this.FindName("wGame");
+            this.MouseMove += this.GameView_MouseMove;
             this.timer = new DispatcherTimer();
             this.timer.Interval = new TimeSpan(0, 0, 0, 0, 16);
             this.timer.Tick += this.TimerTick;
             this.timer.Start();
+        }
+
+        /// <summary>
+        /// Callback function for moving the mouse on the framework element
+        /// </summary>
+        /// <param name="sender">Sender object</param>
+        /// <param name="e">Arguments for the mouse move event</param>
+        private void GameView_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (this.parent.SelectedItem != BuildType.Nothing)
+            {
+                this.signal = true;
+                Point p = e.GetPosition(this);
+                this.signalPoint = this.ScreenToPoint((int)p.X, (int)p.Y);
+                this.signalPoint.X--;
+            }
+            else
+            {
+                this.signal = false;
+            }
         }
 
         /// <summary>
@@ -386,6 +431,18 @@ namespace Hyyblo_View
             {
                 Point p = this.PointToScreen(item);
                 dc.DrawText(new FormattedText((item.Positive ? string.Empty : "-") + item.Price, System.Globalization.CultureInfo.CurrentCulture, FlowDirection.LeftToRight, new Typeface("Arial"), 16, item.Positive ? Brushes.DarkGreen : Brushes.DarkRed), p);
+            }
+
+            if (this.signal)
+            {
+                this.signalPoint.X = Math.Floor(this.signalPoint.X);
+                this.signalPoint.Y = Math.Floor(this.signalPoint.Y);
+                double isoX = (this.signalPoint.Y - this.signalPoint.X) * (this.cellSize / 2);
+                double isoY = (this.signalPoint.Y + this.signalPoint.X) * (this.cellSize / 4);
+                double centerX = (this.windowWidth / 2) - isoX - (this.cellSize / 2);
+                double screenX = centerX - this.cam.X;
+                double screenY = isoY - this.cam.Y;
+                dc.DrawImage(this.signalImage, new Rect((int)Math.Floor(screenX), (int)Math.Floor(screenY), this.cellSize, this.cellSize));
             }
         }
 

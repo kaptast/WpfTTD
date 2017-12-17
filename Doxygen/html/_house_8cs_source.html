@@ -9,13 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -50,21 +43,6 @@ $(function() {
 });
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('_house_8cs_source.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -79,6 +57,11 @@ $(document).ready(function(){initNavTree('_house_8cs_source.html','');});
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_2b861722832fa76619c9debbed32da20.html">Dokumentumok</a></li><li class="navelem"><a class="el" href="dir_eb83387eca540bcfc1752e47faa2135f.html">Visual Studio 2015</a></li><li class="navelem"><a class="el" href="dir_d37fdec59047df01314c6a13069057f7.html">Projects</a></li><li class="navelem"><a class="el" href="dir_06d20359b1a0c934b7373ce9282e198b.html">oenik_prog3_2017osz_hyyblo</a></li><li class="navelem"><a class="el" href="dir_1bf573c2fa384b97c3624bfa901458f5.html">HYYBLO_prog3</a></li><li class="navelem"><a class="el" href="dir_d1fdd1a5136f7c702d051401d8331992.html">Model</a></li><li class="navelem"><a class="el" href="dir_939bcc5ea058b68d7b284146dfa4314b.html">Building</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">House.cs</div>  </div>
@@ -86,7 +69,7 @@ $(document).ready(function(){initNavTree('_house_8cs_source.html','');});
 <div class="contents">
 <a href="_house_8cs.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//-----------------------------------------------------------------------</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// &lt;copyright file=&quot;House.cs&quot; company=&quot;PlaceholderCompany&quot;&gt;</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (c) PlaceholderCompany. All rights reserved.</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// &lt;/copyright&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// &lt;author&gt;HYYBLO&lt;/author&gt;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_hyyblo___model.html">Hyyblo_Model</a></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">using</span> <a class="code" href="namespace_system.html">System</a>;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">using</span> <a class="code" href="namespace_system.html">System</a>.Windows;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">using</span> <a class="code" href="namespace_hyyblo___logic.html">Hyyblo_Logic</a>;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_hyyblo___model_1_1_house.html">   16</a></span>&#160;    <span class="keyword">public</span> sealed <span class="keyword">class </span><a class="code" href="class_hyyblo___model_1_1_house.html">House</a> : <a class="code" href="class_hyyblo___model_1_1_building.html">Building</a></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    {</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">int</span> floors;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_hyyblo___model_1_1_house.html#a60d11c66a5fd885fbaae14d5b9abc658">   29</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="class_hyyblo___model_1_1_house.html#a60d11c66a5fd885fbaae14d5b9abc658">House</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, Random r)</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            : base(x, y)</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keywordtype">int</span> n = r.Next(1, 5);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            this.floors = (int)<a class="code" href="class_hyyblo___logic_1_1_map.html">Map</a>.<a class="code" href="class_hyyblo___logic_1_1_map.html#a7e764923930b79184320ad1ba43977c8">RandomNormalDist</a>(1, 6, 2, 2);</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            this.<a class="code" href="class_hyyblo___model_1_1_map_item.html#a74026e629759bd92b2ceabbb8e8df0c2">Image</a> = <span class="keyword">new</span> <a class="code" href="namespace_system.html">System</a>.Windows.Media.Imaging.BitmapImage(<span class="keyword">new</span> Uri(<a class="code" href="namespace_hyyblo___view.html">Hyyblo_View</a>.<a class="code" href="class_hyyblo___view_1_1_game_view.html">GameView</a>.<a class="code" href="class_hyyblo___view_1_1_game_view.html#abad5068b509066999b3a783b5a31c71a">GetImage</a>(<span class="stringliteral">&quot;Images/Buildings/house&quot;</span> + n + <span class="stringliteral">&quot;-&quot;</span> + <span class="keyword">this</span>.floors + <span class="stringliteral">&quot;.png&quot;</span>)));</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_hyyblo___model_1_1_house.html#a78c35dfd9640ecc691cf186e8d7ece04">   44</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">override</span> Rect <a class="code" href="class_hyyblo___model_1_1_house.html#a78c35dfd9640ecc691cf186e8d7ece04">GenerateRect</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y, <span class="keywordtype">int</span> cell)</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> Rect(x, y - ((this.floors - 1) * (cell / 4)), cell, cell + ((cell / 4) * (this.floors - 1)));</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div><div class="ttc" id="class_hyyblo___model_1_1_house_html"><div class="ttname"><a href="class_hyyblo___model_1_1_house.html">Hyyblo_Model.House</a></div><div class="ttdoc">Represents a house building </div><div class="ttdef"><b>Definition:</b> <a href="_house_8cs_source.html#l00016">House.cs:16</a></div></div>
 <div class="ttc" id="class_hyyblo___logic_1_1_map_html"><div class="ttname"><a href="class_hyyblo___logic_1_1_map.html">Hyyblo_Logic.Map</a></div><div class="ttdoc">Represents the map of the game </div><div class="ttdef"><b>Definition:</b> <a href="_map_8cs_source.html#l00025">Map.cs:25</a></div></div>
-<div class="ttc" id="class_hyyblo___view_1_1_game_view_html_abad5068b509066999b3a783b5a31c71a"><div class="ttname"><a href="class_hyyblo___view_1_1_game_view.html#abad5068b509066999b3a783b5a31c71a">Hyyblo_View.GameView.GetImage</a></div><div class="ttdeci">static string GetImage(string filename)</div><div class="ttdoc">Return the path of file in the current environment </div><div class="ttdef"><b>Definition:</b> <a href="_game_view_8cs_source.html#l00149">GameView.cs:149</a></div></div>
+<div class="ttc" id="class_hyyblo___view_1_1_game_view_html_abad5068b509066999b3a783b5a31c71a"><div class="ttname"><a href="class_hyyblo___view_1_1_game_view.html#abad5068b509066999b3a783b5a31c71a">Hyyblo_View.GameView.GetImage</a></div><div class="ttdeci">static string GetImage(string filename)</div><div class="ttdoc">Return the path of file in the current environment </div><div class="ttdef"><b>Definition:</b> <a href="_game_view_8cs_source.html#l00172">GameView.cs:172</a></div></div>
 <div class="ttc" id="class_hyyblo___model_1_1_house_html_a78c35dfd9640ecc691cf186e8d7ece04"><div class="ttname"><a href="class_hyyblo___model_1_1_house.html#a78c35dfd9640ecc691cf186e8d7ece04">Hyyblo_Model.House.GenerateRect</a></div><div class="ttdeci">override Rect GenerateRect(double x, double y, int cell)</div><div class="ttdoc">Generates a rectangle for the house by the GameView&amp;#39;s actual state </div><div class="ttdef"><b>Definition:</b> <a href="_house_8cs_source.html#l00044">House.cs:44</a></div></div>
 <div class="ttc" id="namespace_system_html"><div class="ttname"><a href="namespace_system.html">System</a></div></div>
 <div class="ttc" id="namespace_hyyblo___logic_html"><div class="ttname"><a href="namespace_hyyblo___logic.html">Hyyblo_Logic</a></div><div class="ttdef"><b>Definition:</b> <a href="_direction_8cs_source.html#l00007">Direction.cs:7</a></div></div>
@@ -98,15 +81,11 @@ $(document).ready(function(){initNavTree('_house_8cs_source.html','');});
 <div class="ttc" id="class_hyyblo___model_1_1_house_html_a60d11c66a5fd885fbaae14d5b9abc658"><div class="ttname"><a href="class_hyyblo___model_1_1_house.html#a60d11c66a5fd885fbaae14d5b9abc658">Hyyblo_Model.House.House</a></div><div class="ttdeci">House(int x, int y, Random r)</div><div class="ttdoc">Initializes a new instance of the House class. </div><div class="ttdef"><b>Definition:</b> <a href="_house_8cs_source.html#l00029">House.cs:29</a></div></div>
 <div class="ttc" id="class_hyyblo___view_1_1_game_view_html"><div class="ttname"><a href="class_hyyblo___view_1_1_game_view.html">Hyyblo_View.GameView</a></div><div class="ttdoc">Visual representation of the game </div><div class="ttdef"><b>Definition:</b> <a href="_game_view_8cs_source.html#l00024">GameView.cs:24</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_2b861722832fa76619c9debbed32da20.html">Dokumentumok</a></li><li class="navelem"><a class="el" href="dir_eb83387eca540bcfc1752e47faa2135f.html">Visual Studio 2015</a></li><li class="navelem"><a class="el" href="dir_d37fdec59047df01314c6a13069057f7.html">Projects</a></li><li class="navelem"><a class="el" href="dir_06d20359b1a0c934b7373ce9282e198b.html">oenik_prog3_2017osz_hyyblo</a></li><li class="navelem"><a class="el" href="dir_1bf573c2fa384b97c3624bfa901458f5.html">HYYBLO_prog3</a></li><li class="navelem"><a class="el" href="dir_d1fdd1a5136f7c702d051401d8331992.html">Model</a></li><li class="navelem"><a class="el" href="dir_939bcc5ea058b68d7b284146dfa4314b.html">Building</a></li><li class="navelem"><a class="el" href="_house_8cs.html">House.cs</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
 </body>
 </html>
